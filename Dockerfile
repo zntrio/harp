@@ -1,6 +1,6 @@
 ARG VERSION=0.2.8
 
-FROM alpine:3 as downloader
+FROM alpine:3@sha256:4edbd2beb5f78b1014028f4fbb99f3237d9561100b6881aabbf5acce2c4f9454 as downloader
 
 ARG VERSION
 ARG TARGETPLATFORM
@@ -8,7 +8,7 @@ ARG TARGETPLATFORM
 WORKDIR /tmp
 
 # install cosign
-COPY --from=gcr.io/projectsigstore/cosign:v1.6.0@sha256:319eab5b1563b8e1c02301ea4e7156556c9170edaeb7ce7791b780e4ee00e0bc /ko-app/cosign /usr/local/bin/cosign
+COPY --from=gcr.io/projectsigstore/cosign:v1.8.0@sha256:12b4d428529654c95a7550a936cbb5c6fe93a046ea7454676cb6fb0ce566d78c /ko-app/cosign /usr/local/bin/cosign
 
 RUN \
   case ${TARGETPLATFORM} in \
@@ -25,7 +25,7 @@ RUN \
   upx -9 /tmp/harp && \
   chmod +x /tmp/harp
 
-FROM alpine:3
+FROM alpine:3@sha256:4edbd2beb5f78b1014028f4fbb99f3237d9561100b6881aabbf5acce2c4f9454
 
 ARG VERSION
 
