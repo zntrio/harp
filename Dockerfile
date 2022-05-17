@@ -33,6 +33,9 @@ RUN apk update --no-cache && \
     apk add --no-cache ca-certificates && \
     rm -rf /var/cache/apk/*
 
+RUN addgroup -S harp && adduser -S -G harp harp
+
 COPY --from=downloader /tmp/harp /usr/bin/harp
 
+USER harp
 ENTRYPOINT [ "/usr/bin/harp" ]
