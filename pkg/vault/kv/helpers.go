@@ -33,7 +33,7 @@ func isKVv2(secretPath string, client *api.Client) (mountPath string, isV2 bool,
 	return mountPath, version == 2, nil
 }
 
-//nolint:gocyclo // to refactor
+//nolint:gocyclo,staticcheck // to refactor
 func kvPreflightVersionRequest(client *api.Client, secretPath string) (mountPath string, backendVersion int, err error) {
 	// We don't want to use a wrapping call here so save any custom value and
 	// restore after
