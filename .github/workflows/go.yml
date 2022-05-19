@@ -58,8 +58,8 @@ jobs:
       fail-fast: true
       matrix:
         go-version:
+          - "1.17"
           - "1.18"
-          - "1.18.0-rc.1"
     runs-on: ubuntu-latest
     needs: [golangci-lint, go-mod]
     steps:
@@ -82,9 +82,9 @@ jobs:
         uses: actions/cache@v3.0.2
         with:
           path: ~/go/pkg/mod
-          key: ${{ runner.os }}-go-${{ hashFiles('**/go.sum') }}
+          key: ${{ runner.os }}-go-${{ matrix.go-version }}-${{ hashFiles('**/go.sum') }}
           restore-keys: |
-            ${{ runner.os }}-go-
+            ${{ runner.os }}-go-${{ matrix.go-version }}-
       -
         name: Fetch dependencies
         run: go mod download
