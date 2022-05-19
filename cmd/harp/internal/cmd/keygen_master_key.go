@@ -42,7 +42,7 @@ var keygenMasterKeyCmd = func() *cobra.Command {
 }
 
 func runKeygenMasterKey(cmd *cobra.Command, args []string) {
-	_, cancel := cmdutil.Context(cmd.Context(), "harp-keygen-masterkey", conf.Debug.Enable, conf.Instrumentation.Logs.Level)
+	_, cancel := cmdutil.Context(cmd.Context(), "harp-keygen-masterkey", conf.Debug.Enabled, conf.Instrumentation.Logs.Level)
 	defer cancel()
 
 	fmt.Fprintf(os.Stdout, "%s", base64.RawURLEncoding.EncodeToString(memguard.NewBufferRandom(32).Bytes()))

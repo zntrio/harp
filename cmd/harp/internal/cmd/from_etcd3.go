@@ -60,7 +60,7 @@ var fromEtcd3Cmd = func() *cobra.Command {
 		Short: "Extract KV pairs from CoreOS Etcdv3 KV Store",
 		Run: func(cmd *cobra.Command, args []string) {
 			// Initialize logger and context
-			ctx, cancel := cmdutil.Context(cmd.Context(), "harp-kv-from-etcdv3", conf.Debug.Enable, conf.Instrumentation.Logs.Level)
+			ctx, cancel := cmdutil.Context(cmd.Context(), "harp-kv-from-etcdv3", conf.Debug.Enabled, conf.Instrumentation.Logs.Level)
 			defer cancel()
 
 			runFromEtcd3(ctx, &params)

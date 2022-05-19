@@ -50,7 +50,7 @@ var fromTemplateCmd = func() *cobra.Command {
 		Short:   "Generate a secret container from a BundleTemplate manifest",
 		Run: func(cmd *cobra.Command, args []string) {
 			// Initialize logger and context
-			ctx, cancel := cmdutil.Context(cmd.Context(), "harp-from-template", conf.Debug.Enable, conf.Instrumentation.Logs.Level)
+			ctx, cancel := cmdutil.Context(cmd.Context(), "harp-from-template", conf.Debug.Enabled, conf.Instrumentation.Logs.Level)
 			defer cancel()
 
 			// Load values

@@ -47,7 +47,7 @@ var passphraseCmd = func() *cobra.Command {
 }
 
 func runPassphrase(cmd *cobra.Command, args []string) {
-	ctx, cancel := cmdutil.Context(cmd.Context(), "harp-passphrase", conf.Debug.Enable, conf.Instrumentation.Logs.Level)
+	ctx, cancel := cmdutil.Context(cmd.Context(), "harp-passphrase", conf.Debug.Enabled, conf.Instrumentation.Logs.Level)
 	defer cancel()
 
 	// Check lower limit

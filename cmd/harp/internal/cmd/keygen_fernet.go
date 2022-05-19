@@ -42,7 +42,7 @@ var keygenFernetCmd = func() *cobra.Command {
 }
 
 func runKeygenFernet(cmd *cobra.Command, args []string) {
-	ctx, cancel := cmdutil.Context(cmd.Context(), "harp-keygen-fernet", conf.Debug.Enable, conf.Instrumentation.Logs.Level)
+	ctx, cancel := cmdutil.Context(cmd.Context(), "harp-keygen-fernet", conf.Debug.Enabled, conf.Instrumentation.Logs.Level)
 	defer cancel()
 
 	// Generate a fernet key

@@ -48,7 +48,7 @@ var containerRecoveryCmd = func() *cobra.Command {
 		Short: "Recover container key from identity",
 		Run: func(cmd *cobra.Command, _ []string) {
 			// Initialize logger and context
-			ctx, cancel := cmdutil.Context(cmd.Context(), "harp-container-recover", conf.Debug.Enable, conf.Instrumentation.Logs.Level)
+			ctx, cancel := cmdutil.Context(cmd.Context(), "harp-container-recover", conf.Debug.Enabled, conf.Instrumentation.Logs.Level)
 			defer cancel()
 
 			// Prepare value transformer

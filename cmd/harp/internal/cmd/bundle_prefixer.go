@@ -42,7 +42,7 @@ var bundlePrefixerCmd = func() *cobra.Command {
 		Short: "Simple package prefix operaton",
 		Run: func(cmd *cobra.Command, args []string) {
 			// Initialize logger and context
-			ctx, cancel := cmdutil.Context(cmd.Context(), "harp-bundle-prefixer", conf.Debug.Enable, conf.Instrumentation.Logs.Level)
+			ctx, cancel := cmdutil.Context(cmd.Context(), "harp-bundle-prefixer", conf.Debug.Enabled, conf.Instrumentation.Logs.Level)
 			defer cancel()
 
 			// Prepare task

@@ -52,7 +52,7 @@ var containerSealCmd = func() *cobra.Command {
 		Short: "Seal a secret container",
 		Run: func(cmd *cobra.Command, args []string) {
 			// Initialize logger and context
-			ctx, cancel := cmdutil.Context(cmd.Context(), "harp-container-seal", conf.Debug.Enable, conf.Instrumentation.Logs.Level)
+			ctx, cancel := cmdutil.Context(cmd.Context(), "harp-container-seal", conf.Debug.Enabled, conf.Instrumentation.Logs.Level)
 			defer cancel()
 
 			var sealingPublicKeys types.StringArray

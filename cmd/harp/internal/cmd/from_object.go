@@ -39,7 +39,7 @@ var fromObjectCmd = func() *cobra.Command {
 		Short: "Convert an object to a secret-container",
 		Run: func(cmd *cobra.Command, args []string) {
 			// Initialize logger and context
-			ctx, cancel := cmdutil.Context(cmd.Context(), "harp-from-object", conf.Debug.Enable, conf.Instrumentation.Logs.Level)
+			ctx, cancel := cmdutil.Context(cmd.Context(), "harp-from-object", conf.Debug.Enabled, conf.Instrumentation.Logs.Level)
 			defer cancel()
 
 			// Prepare task

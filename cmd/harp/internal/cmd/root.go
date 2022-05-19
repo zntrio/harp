@@ -48,8 +48,8 @@ var mainCmd = func() *cobra.Command {
 		Short: "Extensible secret management tool",
 	}
 
-	// Register falgs
-	cmd.Flags().StringVar(&cfgFile, "config", "", "config file")
+	// Register flags
+	cmd.PersistentFlags().StringVar(&cfgFile, "config", "", "config file")
 
 	// Register sub commands
 	cmd.AddCommand(version.Command())
@@ -81,14 +81,15 @@ var mainCmd = func() *cobra.Command {
 	return cmd
 }
 
+func init() {
+	cobra.OnInitialize(initConfig)
+}
+
 // -----------------------------------------------------------------------------
 
 // Execute main command
 func Execute() error {
 	args := os.Args
-
-	// Initialize configuration
-	initConfig()
 
 	// Initialize root command
 	cmd := mainCmd()

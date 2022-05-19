@@ -53,7 +53,7 @@ var csoParseCmd = func() *cobra.Command {
 }
 
 func runCSOParse(cmd *cobra.Command, args []string) {
-	ctx, cancel := cmdutil.Context(cmd.Context(), "harp-cso-parse", conf.Debug.Enable, conf.Instrumentation.Logs.Level)
+	ctx, cancel := cmdutil.Context(cmd.Context(), "harp-cso-parse", conf.Debug.Enabled, conf.Instrumentation.Logs.Level)
 	defer cancel()
 
 	// Validate and pack secret path first

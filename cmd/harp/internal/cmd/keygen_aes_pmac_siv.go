@@ -35,7 +35,7 @@ var keygenAESPMACSIVCmd = func() *cobra.Command {
 		Use:   "aes-pmac-siv",
 		Short: "Generate and print an AES-PMAC-SIV key",
 		Run: func(cmd *cobra.Command, args []string) {
-			_, cancel := cmdutil.Context(cmd.Context(), "harp-keygen-aespmacsiv", conf.Debug.Enable, conf.Instrumentation.Logs.Level)
+			_, cancel := cmdutil.Context(cmd.Context(), "harp-keygen-aespmacsiv", conf.Debug.Enabled, conf.Instrumentation.Logs.Level)
 			defer cancel()
 
 			fmt.Fprintf(os.Stdout, "aes-pmac-siv:%s", base64.URLEncoding.EncodeToString(memguard.NewBufferRandom(64).Bytes()))

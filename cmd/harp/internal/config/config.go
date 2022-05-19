@@ -22,7 +22,7 @@ import "github.com/elastic/harp/pkg/sdk/platform"
 // Configuration contains harp settings
 type Configuration struct {
 	Debug struct {
-		Enable bool `toml:"enable" default:"false" comment:"allow debug mode"`
+		Enabled bool `toml:"enabled" default:"false" comment:"Activate debug mode"`
 	} `toml:"Debug" comment:"###############################\n Debug \n##############################"`
 
 	Instrumentation platform.InstrumentationConfig `toml:"Instrumentation" comment:"###############################\n Instrumentation \n##############################"`

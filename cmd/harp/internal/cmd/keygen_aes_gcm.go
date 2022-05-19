@@ -39,7 +39,7 @@ var keygenAESCmd = func() *cobra.Command {
 		Aliases: []string{"aes"},
 		Short:   "Generate and print an AES-GCM key",
 		Run: func(cmd *cobra.Command, args []string) {
-			ctx, cancel := cmdutil.Context(cmd.Context(), "harp-keygen-aes", conf.Debug.Enable, conf.Instrumentation.Logs.Level)
+			ctx, cancel := cmdutil.Context(cmd.Context(), "harp-keygen-aes", conf.Debug.Enabled, conf.Instrumentation.Logs.Level)
 			defer cancel()
 
 			// Validate key size

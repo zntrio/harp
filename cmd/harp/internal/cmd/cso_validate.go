@@ -64,7 +64,7 @@ type csoValidationResponse struct {
 }
 
 func runCSOValidate(cmd *cobra.Command, args []string) {
-	ctx, cancel := cmdutil.Context(cmd.Context(), "harp-cso-validate", conf.Debug.Enable, conf.Instrumentation.Logs.Level)
+	ctx, cancel := cmdutil.Context(cmd.Context(), "harp-cso-validate", conf.Debug.Enabled, conf.Instrumentation.Logs.Level)
 	defer cancel()
 
 	// Check if we have to read external path

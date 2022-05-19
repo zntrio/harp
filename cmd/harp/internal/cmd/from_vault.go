@@ -44,7 +44,7 @@ var fromVaultCmd = func() *cobra.Command {
 		Short: "Pull a list of Vault K/V paths as a secret container",
 		Run: func(cmd *cobra.Command, args []string) {
 			// Initialize logger and context
-			ctx, cancel := cmdutil.Context(cmd.Context(), "harp-from-vault", conf.Debug.Enable, conf.Instrumentation.Logs.Level)
+			ctx, cancel := cmdutil.Context(cmd.Context(), "harp-from-vault", conf.Debug.Enabled, conf.Instrumentation.Logs.Level)
 			defer cancel()
 
 			// Check if we have to read external path

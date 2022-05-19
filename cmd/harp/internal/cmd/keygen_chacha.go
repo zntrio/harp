@@ -35,7 +35,7 @@ var keygenChaChaCmd = func() *cobra.Command {
 		Use:   "chacha",
 		Short: "Generate and print a chacha20poly1305 key",
 		Run: func(cmd *cobra.Command, args []string) {
-			_, cancel := cmdutil.Context(cmd.Context(), "harp-keygen-chacha", conf.Debug.Enable, conf.Instrumentation.Logs.Level)
+			_, cancel := cmdutil.Context(cmd.Context(), "harp-keygen-chacha", conf.Debug.Enabled, conf.Instrumentation.Logs.Level)
 			defer cancel()
 
 			fmt.Fprintf(os.Stdout, "chacha:%s", base64.URLEncoding.EncodeToString(memguard.NewBufferRandom(32).Bytes()))

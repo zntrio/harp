@@ -59,7 +59,7 @@ var toEtcd3Cmd = func() *cobra.Command {
 		Short: "Publish bundle data into CoreOS Etcd3",
 		Run: func(cmd *cobra.Command, args []string) {
 			// Initialize logger and context
-			ctx, cancel := cmdutil.Context(cmd.Context(), "harp-kv-to-etcdv3", conf.Debug.Enable, conf.Instrumentation.Logs.Level)
+			ctx, cancel := cmdutil.Context(cmd.Context(), "harp-kv-to-etcdv3", conf.Debug.Enabled, conf.Instrumentation.Logs.Level)
 			defer cancel()
 
 			// Create config

@@ -58,7 +58,7 @@ var docMarkdownCmd = func() *cobra.Command {
 
 func runDocMarkdown(cmd *cobra.Command, args []string) error {
 	// Context to attach all goroutines
-	_, cancel := cmdutil.Context(cmd.Context(), "harp-doc-markdown", conf.Debug.Enable, conf.Instrumentation.Logs.Level)
+	_, cancel := cmdutil.Context(cmd.Context(), "harp-doc-markdown", conf.Debug.Enabled, conf.Instrumentation.Logs.Level)
 	defer cancel()
 
 	// Disable flag

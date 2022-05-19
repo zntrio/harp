@@ -80,7 +80,7 @@ func (o *pluginListOptions) Complete(cmd *cobra.Command) error {
 
 //nolint:gocyclo,gocognit // refactor imported code
 func (o *pluginListOptions) Run(cmd *cobra.Command) error {
-	_, cancel := cmdutil.Context(cmd.Context(), "harp-plugin-list", conf.Debug.Enable, conf.Instrumentation.Logs.Level)
+	_, cancel := cmdutil.Context(cmd.Context(), "harp-plugin-list", conf.Debug.Enabled, conf.Instrumentation.Logs.Level)
 	defer cancel()
 
 	var (

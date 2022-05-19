@@ -46,7 +46,7 @@ var toGithubActionCmd = func() *cobra.Command {
 $ harp to gha --in secret.container --owner elastic --owner harp --secret-filter "COSIGN_*"`,
 		Run: func(cmd *cobra.Command, args []string) {
 			// Initialize logger and context
-			ctx, cancel := cmdutil.Context(cmd.Context(), "harp-to-gha", conf.Debug.Enable, conf.Instrumentation.Logs.Level)
+			ctx, cancel := cmdutil.Context(cmd.Context(), "harp-to-gha", conf.Debug.Enabled, conf.Instrumentation.Logs.Level)
 			defer cancel()
 
 			// Prepare task

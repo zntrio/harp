@@ -51,7 +51,7 @@ var containerIdentityCmd = func() *cobra.Command {
 		Short:   "Generate container identity",
 		Run: func(cmd *cobra.Command, _ []string) {
 			// Initialize logger and context
-			ctx, cancel := cmdutil.Context(cmd.Context(), "harp-identity", conf.Debug.Enable, conf.Instrumentation.Logs.Level)
+			ctx, cancel := cmdutil.Context(cmd.Context(), "harp-identity", conf.Debug.Enabled, conf.Instrumentation.Logs.Level)
 			defer cancel()
 
 			// Prepare value transformer

@@ -44,7 +44,7 @@ func bugCmd() *cobra.Command {
 }
 
 func runBug(cmd *cobra.Command, args []string) {
-	ctx, cancel := cmdutil.Context(cmd.Context(), "harp-bug", conf.Debug.Enable, conf.Instrumentation.Logs.Level)
+	ctx, cancel := cmdutil.Context(cmd.Context(), "harp-bug", conf.Debug.Enabled, conf.Instrumentation.Logs.Level)
 	defer cancel()
 
 	// No argument check
