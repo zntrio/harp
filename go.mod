@@ -43,7 +43,7 @@ require (
 	github.com/golang/protobuf v1.5.2
 	github.com/golang/snappy v0.0.4
 	github.com/google/cel-go v0.11.4
-	github.com/google/go-cmp v0.5.8
+	github.com/google/go-cmp v0.5.7
 	github.com/google/go-github/v42 v42.0.0
 	github.com/google/gofuzz v1.2.0
 	github.com/google/gops v0.3.23
@@ -56,15 +56,15 @@ require (
 	github.com/iancoleman/strcase v0.2.0
 	github.com/imdario/mergo v0.3.12
 	github.com/jmespath/go-jmespath v0.4.0
-	github.com/klauspost/compress v1.15.4
+	github.com/klauspost/compress v1.13.6
 	github.com/magefile/mage v1.13.0
 	github.com/mcuadros/go-defaults v1.2.0
 	github.com/miscreant/miscreant.go v0.0.0-20200214223636-26d376326b75
 	github.com/oklog/run v1.1.0
 	github.com/open-policy-agent/opa v0.40.0
 	github.com/opencontainers/go-digest v1.0.0
-	github.com/ory/dockertest/v3 v3.9.0
-	github.com/pelletier/go-toml v1.9.5
+	github.com/ory/dockertest/v3 v3.9.1
+	github.com/pelletier/go-toml v1.9.4
 	github.com/pierrec/lz4 v2.6.1+incompatible
 	github.com/pkg/errors v0.9.1
 	github.com/psanford/memfs v0.0.0-20210214183328-a001468d78ef
@@ -82,18 +82,18 @@ require (
 	go.etcd.io/etcd/client/v3 v3.5.4
 	go.step.sm/crypto v0.16.2
 	go.uber.org/zap v1.21.0
-	golang.org/x/crypto v0.0.0-20220517005047-85d78b3ac167
+	golang.org/x/crypto v0.0.0-20220411220226-7b82a4e95df4
 	golang.org/x/oauth2 v0.0.0-20220411215720-9780585627b5
-	golang.org/x/sync v0.0.0-20220513210516-0976fa681c29
-	golang.org/x/sys v0.0.0-20220513210249-45d2b4557a2a
-	golang.org/x/term v0.0.0-20220411215600-e5f449aeb171
-	google.golang.org/genproto v0.0.0-20220505152158-f39f71e6c8f3
-	google.golang.org/grpc v1.46.2
+	golang.org/x/sync v0.0.0-20210220032951-036812b2e83c
+	golang.org/x/sys v0.0.0-20220412211240-33da011f77ad
+	golang.org/x/term v0.0.0-20210927222741-03fcf44c2211
+	google.golang.org/genproto v0.0.0-20220502173005-c8bf987b8c21
+	google.golang.org/grpc v1.46.0
 	google.golang.org/protobuf v1.28.0
 	gopkg.in/square/go-jose.v2 v2.6.0
-	gopkg.in/yaml.v3 v3.0.0-20220512140231-539c8e751b99
+	gopkg.in/yaml.v3 v3.0.0-20210107192922-496545a6307b
 	oras.land/oras-go v1.1.1
-	sigs.k8s.io/yaml v1.3.0
+	sigs.k8s.io/yaml v1.2.0
 	zntr.io/paseto v1.1.0
 )
 
@@ -191,6 +191,7 @@ require (
 	golang.org/x/net v0.0.0-20220412020605-290c469a71a5 // indirect
 	golang.org/x/text v0.3.7 // indirect
 	golang.org/x/time v0.0.0-20210723032227-1f47c861a9ac // indirect
+	golang.org/x/xerrors v0.0.0-20220411194840-2f41105eb62f // indirect
 	google.golang.org/appengine v1.6.7 // indirect
 	gopkg.in/ini.v1 v1.66.4 // indirect
 	gopkg.in/yaml.v2 v2.4.0 // indirect
