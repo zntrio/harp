@@ -91,7 +91,7 @@ require (
 	google.golang.org/grpc v1.46.2
 	google.golang.org/protobuf v1.28.0
 	gopkg.in/square/go-jose.v2 v2.6.0
-	gopkg.in/yaml.v3 v3.0.0
+	gopkg.in/yaml.v3 v3.0.1
 	oras.land/oras-go v1.1.1
 	sigs.k8s.io/yaml v1.3.0
 	zntr.io/paseto v1.1.0
