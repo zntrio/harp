@@ -14,29 +14,6 @@ permissions:
   actions: write
 
 jobs:
-  vulns:
-    name: Nancy scanner
-    continue-on-error: true
-    runs-on: ubuntu-latest
-    steps:
-      -
-        name: Cancel previous workflows
-        uses: styfle/cancel-workflow-action@0.9.1
-        with:
-          access_token: ${{ secrets.GITHUB_TOKEN }}
-      -
-        uses: actions/checkout@v3
-      -
-        uses: actions/setup-go@v3
-        with:
-          go-version: 1.18
-      -
-        name: Run go list
-        run: go list -json -m all > go.list
-      -
-        name: Nancy
-        uses: sonatype-nexus-community/nancy-github-action@v1.0.2
-
   trivy:
     name: Trivy scanner
     continue-on-error: true
