@@ -61,7 +61,7 @@ require (
 	github.com/mcuadros/go-defaults v1.2.0
 	github.com/miscreant/miscreant.go v0.0.0-20200214223636-26d376326b75
 	github.com/oklog/run v1.1.0
-	github.com/open-policy-agent/opa v0.40.0
+	github.com/open-policy-agent/opa v0.41.0
 	github.com/opencontainers/go-digest v1.0.0
 	github.com/ory/dockertest/v3 v3.9.1
 	github.com/pelletier/go-toml v1.9.5
@@ -104,6 +104,7 @@ require (
 	github.com/Nvveen/Gotty v0.0.0-20120604004816-cd527374f1e5 // indirect
 	github.com/OneOfOne/xxhash v1.2.8 // indirect
 	github.com/agext/levenshtein v1.2.1 // indirect
+	github.com/agnivade/levenshtein v1.0.1 // indirect
 	github.com/antlr/antlr4/runtime/Go/antlr v0.0.0-20220418222510-f25a4f6275ed // indirect
 	github.com/apparentlymart/go-textseg/v13 v13.0.0 // indirect
 	github.com/armon/go-metrics v0.3.10 // indirect
@@ -181,6 +182,7 @@ require (
 	github.com/spf13/pflag v1.0.5 // indirect
 	github.com/stoewer/go-strcase v1.2.0 // indirect
 	github.com/subosito/gotenv v1.3.0 // indirect
+	github.com/vektah/gqlparser/v2 v2.4.4 // indirect
 	github.com/xeipuuv/gojsonpointer v0.0.0-20190905194746-02993c407bfb // indirect
 	github.com/xeipuuv/gojsonreference v0.0.0-20180127040603-bd5ef7bd5415 // indirect
 	github.com/yashtewari/glob-intersection v0.1.0 // indirect
