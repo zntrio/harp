@@ -82,7 +82,7 @@ require (
 	go.etcd.io/etcd/client/v3 v3.5.4
 	go.step.sm/crypto v0.16.2
 	go.uber.org/zap v1.21.0
-	golang.org/x/crypto v0.0.0-20220411220226-7b82a4e95df4
+	golang.org/x/crypto v0.0.0-20220525230936-793ad666bf5e
 	golang.org/x/oauth2 v0.0.0-20220411215720-9780585627b5
 	golang.org/x/sync v0.0.0-20210220032951-036812b2e83c
 	golang.org/x/sys v0.0.0-20220520151302-bc2c85ada10a
@@ -94,7 +94,7 @@ require (
 	gopkg.in/yaml.v3 v3.0.1
 	oras.land/oras-go v1.1.1
 	sigs.k8s.io/yaml v1.3.0
-	zntr.io/paseto v1.1.0
+	zntr.io/paseto v1.1.1
 )
 
 require (
