@@ -9,6 +9,10 @@ on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
+  # Schedule in case of no code changes
+  schedule:
+      - cron: '30 0 1,15 * *'
+
 permissions:
   # Required to stop running workflows
   actions: write
@@ -23,6 +27,7 @@ jobs:
       security-events: write
       pull-requests: read
 
+    if: (github.actor != 'dependabot[bot]')
     steps:
       -
         name: Cancel previous workflows
@@ -50,7 +55,6 @@ jobs:
   snyk:
     name: Snyk scanner
     continue-on-error: true
-    if: (github.action != 'dependabot[bot]')
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -58,6 +62,7 @@ jobs:
       pull-requests: read
       actions: write
 
+    if: (github.actor != 'dependabot[bot]')
     steps:
       -
         name: Cancel previous workflows
@@ -84,12 +89,14 @@ jobs:
     name: Static analysis (semgrep)
     continue-on-error: true
     runs-on: ubuntu-latest
-    if: (github.action != 'dependabot[bot]')
+    container:
+      image: returntocorp/semgrep
     permissions:
       contents: read
       security-events: write
       pull-requests: read
 
+    if: (github.actor != 'dependabot[bot]')
     steps:
       -
         name: Cancel previous workflows
@@ -99,16 +106,9 @@ jobs:
       -
         uses: actions/checkout@v3
       -
-        uses: returntocorp/semgrep-action@v1
-        with:
-          generateSarif: "1"
-          config: >-
-            p/security-audit
-            p/secrets
-            p/supply-chain
-            p/docker
-            p/golang
-            p/trailofbits
+        run: semgrep ci
+        env:
+          SEMGREP_APP_TOKEN: ${{ secrets.SEMGREP_APP_TOKEN }}
       -
         name: Upload result to GitHub Code Scanning
         uses: github/codeql-action/upload-sarif@v2
