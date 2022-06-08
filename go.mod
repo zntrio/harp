@@ -52,7 +52,7 @@ require (
 	github.com/hashicorp/hcl/v2 v2.12.0
 	github.com/hashicorp/vault/api v1.6.0
 	github.com/iancoleman/strcase v0.2.0
-	github.com/imdario/mergo v0.3.12
+	github.com/imdario/mergo v0.3.13
 	github.com/jmespath/go-jmespath v0.4.0
 	github.com/klauspost/compress v1.13.6
 	github.com/magefile/mage v1.13.0
