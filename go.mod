@@ -3,18 +3,16 @@ module github.com/elastic/harp
 go 1.18
 
 replace (
-	github.com/containerd/containerd => github.com/containerd/containerd v1.6.4
+	github.com/containerd/containerd => github.com/containerd/containerd v1.6.6
 	github.com/satori/go.uuid => github.com/satori/go.uuid v1.2.1-0.20181028125025-b2ce2384e17b
 )
 
 // Nancy findings
-require (
-	github.com/containerd/containerd v1.6.4 // indirect
-	github.com/gogo/protobuf v1.3.2 // indirect
-)
+require github.com/gogo/protobuf v1.3.2 // indirect
 
 // GHSA
 require (
+	github.com/containerd/containerd v1.6.6 // indirect
 	github.com/opencontainers/image-spec v1.0.3-0.20211202183452-c5a74bcca799
 	github.com/opencontainers/runc v1.1.2 // indirect
 )
@@ -54,9 +52,9 @@ require (
 	github.com/hashicorp/hcl/v2 v2.12.0
 	github.com/hashicorp/vault/api v1.6.0
 	github.com/iancoleman/strcase v0.2.0
-	github.com/imdario/mergo v0.3.13
+	github.com/imdario/mergo v0.3.12
 	github.com/jmespath/go-jmespath v0.4.0
-	github.com/klauspost/compress v1.15.6
+	github.com/klauspost/compress v1.13.6
 	github.com/magefile/mage v1.13.0
 	github.com/mcuadros/go-defaults v1.2.0
 	github.com/miscreant/miscreant.go v0.0.0-20200214223636-26d376326b75
@@ -74,7 +72,7 @@ require (
 	github.com/skratchdot/open-golang v0.0.0-20200116055534-eef842397966
 	github.com/spf13/cobra v1.4.0
 	github.com/spf13/viper v1.12.0
-	github.com/stretchr/testify v1.7.2
+	github.com/stretchr/testify v1.7.1
 	github.com/ulikunitz/xz v0.5.10
 	github.com/xeipuuv/gojsonschema v1.2.0
 	github.com/zclconf/go-cty v1.10.0
