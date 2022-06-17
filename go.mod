@@ -24,7 +24,7 @@ require (
 	github.com/Masterminds/semver/v3 v3.1.1
 	github.com/Masterminds/sprig/v3 v3.2.2
 	github.com/alessio/shellescape v1.4.1
-	github.com/awnumar/memguard v0.22.2
+	github.com/awnumar/memguard v0.22.3
 	github.com/basgys/goxml2json v1.1.0
 	github.com/cloudflare/tableflip v1.2.3
 	github.com/common-nighthawk/go-figure v0.0.0-20210622060536-734e95fb86be
@@ -108,7 +108,7 @@ require (
 	github.com/armon/go-metrics v0.3.10 // indirect
 	github.com/armon/go-radix v1.0.0 // indirect
 	github.com/asaskevich/govalidator v0.0.0-20200108200545-475eaeb16496 // indirect
-	github.com/awnumar/memcall v0.0.0-20191004114545-73db50fd9f80 // indirect
+	github.com/awnumar/memcall v0.1.2 // indirect
 	github.com/beorn7/perks v1.0.1 // indirect
 	github.com/cenkalti/backoff/v3 v3.0.0 // indirect
 	github.com/cenkalti/backoff/v4 v4.1.3 // indirect
