@@ -25,11 +25,8 @@ import (
 	validation "github.com/go-ozzo/ozzo-validation/v4"
 	"github.com/go-ozzo/ozzo-validation/v4/is"
 	"github.com/google/cel-go/cel"
-	"github.com/google/cel-go/checker/decls"
 	"github.com/google/cel-go/common/types"
 	"github.com/google/cel-go/common/types/ref"
-	"github.com/google/cel-go/interpreter/functions"
-	exprpb "google.golang.org/genproto/googleapis/api/expr/v1alpha1"
 
 	bundlev1 "github.com/elastic/harp/api/gen/go/harp/bundle/v1"
 	"github.com/elastic/harp/pkg/bundle/secret"
@@ -44,76 +41,47 @@ type secretLib struct{}
 
 func (secretLib) CompileOptions() []cel.EnvOption {
 	return []cel.EnvOption{
-		cel.Declarations(
-			decls.NewFunction("is_base64",
-				decls.NewInstanceOverload("kv_is_base64",
-					[]*exprpb.Type{harpKVObjectType},
-					decls.Bool,
-				),
+		cel.Function(
+			"is_base64",
+			cel.MemberOverload("kv_is_base64", []*cel.Type{harpKVObjectType}, cel.BoolType,
+				cel.UnaryBinding(celValidatorBuilder(is.Base64)),
 			),
-			decls.NewFunction("is_required",
-				decls.NewInstanceOverload("kv_is_required",
-					[]*exprpb.Type{harpKVObjectType},
-					decls.Bool,
-				),
+		),
+		cel.Function(
+			"is_required",
+			cel.MemberOverload("kv_is_required", []*cel.Type{harpKVObjectType}, cel.BoolType,
+				cel.UnaryBinding(celValidatorBuilder(validation.Required)),
 			),
-			decls.NewFunction("is_url",
-				decls.NewInstanceOverload("kv_is_url",
-					[]*exprpb.Type{harpKVObjectType},
-					decls.Bool,
-				),
+		),
+		cel.Function(
+			"is_url",
+			cel.MemberOverload("kv_is_url", []*cel.Type{harpKVObjectType}, cel.BoolType,
+				cel.UnaryBinding(celValidatorBuilder(is.URL)),
 			),
-			decls.NewFunction("is_uuid",
-				decls.NewInstanceOverload("kv_is_uuid",
-					[]*exprpb.Type{harpKVObjectType},
-					decls.Bool,
-				),
+		),
+		cel.Function(
+			"is_uuid",
+			cel.MemberOverload("kv_is_uuid", []*cel.Type{harpKVObjectType}, cel.BoolType,
+				cel.UnaryBinding(celValidatorBuilder(is.UUID)),
 			),
-			decls.NewFunction("is_email",
-				decls.NewInstanceOverload("kv_is_email",
-					[]*exprpb.Type{harpKVObjectType},
-					decls.Bool,
-				),
+		),
+		cel.Function(
+			"is_email",
+			cel.MemberOverload("kv_is_email", []*cel.Type{harpKVObjectType}, cel.BoolType,
+				cel.UnaryBinding(celValidatorBuilder(is.EmailFormat)),
 			),
-			decls.NewFunction("is_json",
-				decls.NewInstanceOverload("kv_is_json",
-					[]*exprpb.Type{harpKVObjectType},
-					decls.Bool,
-				),
+		),
+		cel.Function(
+			"is_json",
+			cel.MemberOverload("kv_is_json", []*cel.Type{harpKVObjectType}, cel.BoolType,
+				cel.UnaryBinding(celValidatorBuilder(&jsonValidator{})),
 			),
 		),
 	}
 }
 
 func (secretLib) ProgramOptions() []cel.ProgramOption {
-	return []cel.ProgramOption{
-		cel.Functions(
-			&functions.Overload{
-				Operator: "kv_is_base64",
-				Unary:    celValidatorBuilder(is.Base64),
-			},
-			&functions.Overload{
-				Operator: "kv_is_required",
-				Unary:    celValidatorBuilder(validation.Required),
-			},
-			&functions.Overload{
-				Operator: "kv_is_url",
-				Unary:    celValidatorBuilder(is.URL),
-			},
-			&functions.Overload{
-				Operator: "kv_is_uuid",
-				Unary:    celValidatorBuilder(is.UUID),
-			},
-			&functions.Overload{
-				Operator: "kv_is_email",
-				Unary:    celValidatorBuilder(is.EmailFormat),
-			},
-			&functions.Overload{
-				Operator: "kv_is_json",
-				Unary:    celValidatorBuilder(&jsonValidator{}),
-			},
-		),
-	}
+	return []cel.ProgramOption{}
 }
 
 // -----------------------------------------------------------------------------

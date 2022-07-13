@@ -18,17 +18,13 @@
 package ext
 
 import (
-	"fmt"
 	"reflect"
 	"strings"
 
 	"github.com/gobwas/glob"
 	"github.com/google/cel-go/cel"
-	"github.com/google/cel-go/checker/decls"
 	"github.com/google/cel-go/common/types"
 	"github.com/google/cel-go/common/types/ref"
-	"github.com/google/cel-go/interpreter/functions"
-	exprpb "google.golang.org/genproto/googleapis/api/expr/v1alpha1"
 
 	bundlev1 "github.com/elastic/harp/api/gen/go/harp/bundle/v1"
 	csov1 "github.com/elastic/harp/pkg/cso/v1"
@@ -43,122 +39,74 @@ func Packages() cel.EnvOption {
 type packageLib struct{}
 
 func (packageLib) CompileOptions() []cel.EnvOption {
+	reg, err := types.NewRegistry(
+		&bundlev1.KV{},
+	)
+	if err != nil {
+		panic(err)
+	}
+
 	return []cel.EnvOption{
-		cel.Declarations(
-			decls.NewVar("p", harpPackageObjectType),
-			decls.NewFunction("match_label",
-				decls.NewInstanceOverload("package_match_label_string",
-					[]*exprpb.Type{harpPackageObjectType, decls.String},
-					decls.Bool,
-				),
-				decls.NewInstanceOverload("package_match_label_string_string",
-					[]*exprpb.Type{harpPackageObjectType, decls.String, decls.String},
-					decls.Bool,
-				),
+		cel.Variable("p", harpPackageObjectType),
+		cel.Function(
+			"match_label",
+			cel.MemberOverload("package_match_label_string", []*cel.Type{harpPackageObjectType, cel.StringType}, cel.BoolType,
+				cel.BinaryBinding(celPackageMatchLabel),
 			),
-			decls.NewFunction("match_annotation",
-				decls.NewInstanceOverload("package_match_annotation_string",
-					[]*exprpb.Type{harpPackageObjectType, decls.String},
-					decls.Bool,
-				),
-				decls.NewInstanceOverload("package_match_annotation_string_string",
-					[]*exprpb.Type{harpPackageObjectType, decls.String, decls.String},
-					decls.Bool,
-				),
+			cel.MemberOverload("package_match_label_string_string", []*cel.Type{harpPackageObjectType, cel.StringType, cel.StringType}, cel.BoolType,
+				cel.FunctionBinding(celPackageMatchLabelValue),
 			),
-			decls.NewFunction("match_path",
-				decls.NewInstanceOverload("package_match_path_string",
-					[]*exprpb.Type{harpPackageObjectType, decls.String},
-					decls.Bool,
-				),
+		),
+		cel.Function(
+			"match_annotation",
+			cel.MemberOverload("package_match_annotation_string", []*cel.Type{harpPackageObjectType, cel.StringType}, cel.BoolType,
+				cel.BinaryBinding(celPackageMatchAnnotation),
 			),
-			decls.NewFunction("match_secret",
-				decls.NewInstanceOverload("package_match_secret_string",
-					[]*exprpb.Type{harpPackageObjectType, decls.String},
-					decls.Bool,
-				),
+			cel.MemberOverload("package_match_annotation_string_string", []*cel.Type{harpPackageObjectType, cel.StringType, cel.StringType}, cel.BoolType,
+				cel.FunctionBinding(celPackageMatchAnnotationValue),
 			),
-			decls.NewFunction("has_secret",
-				decls.NewInstanceOverload("package_has_secret_string",
-					[]*exprpb.Type{harpPackageObjectType, decls.String},
-					decls.Bool,
-				),
+		),
+		cel.Function(
+			"match_path",
+			cel.MemberOverload("package_match_path_string", []*cel.Type{harpPackageObjectType, cel.StringType}, cel.BoolType,
+				cel.BinaryBinding(celPackageMatchPath),
 			),
-			decls.NewFunction("has_all_secrets",
-				decls.NewInstanceOverload("package_has_all_secrets_list",
-					[]*exprpb.Type{harpPackageObjectType, decls.NewListType(decls.String)},
-					decls.Bool,
-				),
+		),
+		cel.Function(
+			"match_secret",
+			cel.MemberOverload("package_match_secret_string", []*cel.Type{harpPackageObjectType, cel.StringType}, cel.BoolType,
+				cel.BinaryBinding(celPackageMatchSecret),
 			),
-			decls.NewFunction("is_cso_compliant",
-				decls.NewInstanceOverload("package_is_cso_compliant",
-					[]*exprpb.Type{harpPackageObjectType},
-					decls.Bool,
-				),
+		),
+		cel.Function(
+			"has_secret",
+			cel.MemberOverload("package_has_secret_string", []*cel.Type{harpPackageObjectType, cel.StringType}, cel.BoolType,
+				cel.BinaryBinding(celPackageHasSecret),
 			),
-			decls.NewFunction("secret",
-				decls.NewInstanceOverload("package_secret_string",
-					[]*exprpb.Type{harpPackageObjectType, decls.String},
-					harpKVObjectType,
-				),
+		),
+		cel.Function(
+			"has_all_secrets",
+			cel.MemberOverload("package_has_all_secrets_string", []*cel.Type{harpPackageObjectType, cel.ListType(cel.StringType)}, cel.BoolType,
+				cel.BinaryBinding(celPackageHasAllSecrets),
+			),
+		),
+		cel.Function(
+			"is_cso_compliant",
+			cel.MemberOverload("package_is_cso_compliant", []*cel.Type{harpPackageObjectType}, cel.BoolType,
+				cel.UnaryBinding(celPackageIsCSOCompliant),
+			),
+		),
+		cel.Function(
+			"secret",
+			cel.MemberOverload("package_secret_string", []*cel.Type{harpPackageObjectType, cel.StringType}, harpKVObjectType,
+				cel.BinaryBinding(celPackageGetSecret(reg)),
 			),
 		),
 	}
 }
 
 func (packageLib) ProgramOptions() []cel.ProgramOption {
-	// Register types
-	reg, err := types.NewRegistry(
-		&bundlev1.KV{},
-	)
-	if err != nil {
-		panic(fmt.Errorf("unable to register types: %w", err))
-	}
-
-	return []cel.ProgramOption{
-		cel.Functions(
-			&functions.Overload{
-				Operator: "package_match_label_string",
-				Binary:   celPackageMatchLabel,
-			},
-			&functions.Overload{
-				Operator: "package_match_label_string_string",
-				Function: celPackageMatchLabelValue,
-			},
-			&functions.Overload{
-				Operator: "package_match_annotation_string",
-				Binary:   celPackageMatchAnnotation,
-			},
-			&functions.Overload{
-				Operator: "package_match_annotation_string_string",
-				Function: celPackageMatchAnnotationValue,
-			},
-			&functions.Overload{
-				Operator: "package_match_path_string",
-				Binary:   celPackageMatchPath,
-			},
-			&functions.Overload{
-				Operator: "package_match_secret_string",
-				Binary:   celPackageMatchSecret,
-			},
-			&functions.Overload{
-				Operator: "package_has_secret_string",
-				Binary:   celPackageHasSecret,
-			},
-			&functions.Overload{
-				Operator: "package_has_all_secrets_list",
-				Binary:   celPackageHasAllSecrets,
-			},
-			&functions.Overload{
-				Operator: "package_is_cso_compliant",
-				Unary:    celPackageIsCSOCompliant,
-			},
-			&functions.Overload{
-				Operator: "package_secret_string",
-				Binary:   celPackageGetSecret(reg),
-			},
-		),
-	}
+	return []cel.ProgramOption{}
 }
 
 // -----------------------------------------------------------------------------

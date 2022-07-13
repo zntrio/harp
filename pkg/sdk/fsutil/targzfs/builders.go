@@ -93,9 +93,10 @@ func FromReader(r io.Reader) (fs.FS, error) {
 	for {
 		// Iterate on each file entry
 		hdr, err := tarReader.Next()
-		if errors.Is(err, io.EOF) {
-			break
-		} else if err != nil {
+		if err != nil {
+			if errors.Is(err, io.EOF) {
+				break
+			}
 			return nil, fmt.Errorf("unable to read .tar.gz entry: %w", err)
 		}
 
@@ -106,9 +107,29 @@ func FromReader(r io.Reader) (fs.FS, error) {
 		}
 
 		// Load content in memory
-		var fileContents bytes.Buffer
-		if _, err := io.CopyN(&fileContents, tarReader, maxDecompressedSize); err != nil {
-			return nil, fmt.Errorf("unable to read .tar.gz entry: %w", err)
+		var (
+			fileContents      bytes.Buffer
+			fileContentLength = int64(0)
+		)
+
+		// Chunked read with hard limit to prevent/reduce post decompression
+		// explosion
+		for {
+			written, err := io.CopyN(&fileContents, tarReader, 1024)
+			if err != nil {
+				if errors.Is(err, io.EOF) {
+					break
+				}
+				return nil, err
+			}
+
+			// Add to length
+			fileContentLength += written
+
+			// Check max size
+			if fileContentLength > maxDecompressedSize {
+				return nil, errors.New("the archive contains a too large file (>25MB)")
+			}
 		}
 
 		// Register file

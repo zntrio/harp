@@ -17,9 +17,11 @@
 
 package ext
 
-import "github.com/google/cel-go/checker/decls"
+import (
+	"github.com/google/cel-go/cel"
+)
 
 var (
-	harpPackageObjectType = decls.NewObjectType("harp.bundle.v1.Package")
-	harpKVObjectType      = decls.NewObjectType("harp.bundle.v1.KV")
+	harpPackageObjectType = cel.ObjectType("harp.bundle.v1.Package")
+	harpKVObjectType      = cel.ObjectType("harp.bundle.v1.KV")
 )
