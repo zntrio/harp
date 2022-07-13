@@ -43,6 +43,7 @@ func FromFile(name string) (fs.FS, error) {
 
 // FromReader exposes the contents of the given reader (which is a .tar.gz file)
 // as an fs.FS.
+//nolint:funlen,gocyclo // to refactor
 func FromReader(r io.Reader) (fs.FS, error) {
 	gz, err := gzip.NewReader(r)
 	if err != nil {

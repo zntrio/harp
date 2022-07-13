@@ -23,9 +23,7 @@ import (
 	"fmt"
 
 	"github.com/google/cel-go/cel"
-	"github.com/google/cel-go/checker/decls"
 	celext "github.com/google/cel-go/ext"
-	"google.golang.org/protobuf/proto"
 
 	bundlev1 "github.com/elastic/harp/api/gen/go/harp/bundle/v1"
 	"github.com/elastic/harp/pkg/bundle/ruleset/engine"
@@ -64,8 +62,8 @@ func New(expressions []string) (engine.PackageLinter, error) {
 
 		// request matching is a boolean operation, so we don't really know
 		// what to do if the expression returns a non-boolean type
-		if !proto.Equal(ast.ResultType(), decls.Bool) {
-			return nil, fmt.Errorf("CEL rule engine expects return type of bool, not %s", ast.ResultType())
+		if ast.OutputType() != cel.BoolType {
+			return nil, fmt.Errorf("CEL rule engine expects return type of bool, not %s", ast.OutputType())
 		}
 
 		// Compile the program
