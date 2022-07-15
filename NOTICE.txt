@@ -1334,11 +1334,11 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 --------------------------------------------------------------------------------
 Module  : github.com/google/cel-go
-Version : v0.12.1
-Time    : 2022-07-11T16:58:37Z
+Version : v0.12.4
+Time    : 2022-07-14T17:46:04Z
 Licence : Apache-2.0
 
-Contents of probable licence file $GOMODCACHE/github.com/google/cel-go@v0.12.1/LICENSE:
+Contents of probable licence file $GOMODCACHE/github.com/google/cel-go@v0.12.4/LICENSE:
 
 
                                  Apache License
@@ -2283,11 +2283,11 @@ Exhibit B - "Incompatible With Secondary Licenses" Notice
 
 --------------------------------------------------------------------------------
 Module  : github.com/hashicorp/consul/api
-Version : v1.13.0
-Time    : 2022-06-01T05:45:25Z
+Version : v1.13.1
+Time    : 2022-07-13T19:43:37Z
 Licence : MPL-2.0
 
-Contents of probable licence file $GOMODCACHE/github.com/hashicorp/consul/api@v1.13.0/LICENSE:
+Contents of probable licence file $GOMODCACHE/github.com/hashicorp/consul/api@v1.13.1/LICENSE:
 
 Mozilla Public License, version 2.0
 
@@ -4213,11 +4213,11 @@ limitations under the License.
 
 --------------------------------------------------------------------------------
 Module  : github.com/klauspost/compress
-Version : v1.15.7
-Time    : 2022-06-29T09:12:07Z
+Version : v1.15.8
+Time    : 2022-07-13T11:23:30Z
 Licence : Apache-2.0
 
-Contents of probable licence file $GOMODCACHE/github.com/klauspost/compress@v1.15.7/LICENSE:
+Contents of probable licence file $GOMODCACHE/github.com/klauspost/compress@v1.15.8/LICENSE:
 
 Copyright (c) 2012 The Go Authors. All rights reserved.
 Copyright (c) 2019 Klaus Post. All rights reserved.
@@ -5013,11 +5013,11 @@ Contents of probable licence file $GOMODCACHE/github.com/oklog/run@v1.1.0/LICENS
 
 --------------------------------------------------------------------------------
 Module  : github.com/open-policy-agent/opa
-Version : v0.42.1
-Time    : 2022-07-08T06:04:25Z
+Version : v0.42.2
+Time    : 2022-07-13T08:24:48Z
 Licence : Apache-2.0
 
-Contents of probable licence file $GOMODCACHE/github.com/open-policy-agent/opa@v0.42.1/LICENSE:
+Contents of probable licence file $GOMODCACHE/github.com/open-policy-agent/opa@v0.42.2/LICENSE:
 
                                  Apache License
                            Version 2.0, January 2004
@@ -6890,11 +6890,11 @@ Contents of probable licence file $GOMODCACHE/go.etcd.io/etcd/client/v3@v3.5.4/L
 
 --------------------------------------------------------------------------------
 Module  : go.step.sm/crypto
-Version : v0.16.2
-Time    : 2022-05-17T21:31:21Z
+Version : v0.17.0
+Time    : 2022-07-14T17:44:45Z
 Licence : Apache-2.0
 
-Contents of probable licence file $GOMODCACHE/go.step.sm/crypto@v0.16.2/LICENSE:
+Contents of probable licence file $GOMODCACHE/go.step.sm/crypto@v0.17.0/LICENSE:
 
                                  Apache License
                            Version 2.0, January 2004
@@ -7167,11 +7167,11 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 --------------------------------------------------------------------------------
 Module  : golang.org/x/oauth2
-Version : v0.0.0-20220411215720-9780585627b5
-Time    : 2022-04-11T21:57:20Z
+Version : v0.0.0-20220608161450-d0670ef3b1eb
+Time    : 2022-06-08T16:14:50Z
 Licence : BSD-3-Clause
 
-Contents of probable licence file $GOMODCACHE/golang.org/x/oauth2@v0.0.0-20220411215720-9780585627b5/LICENSE:
+Contents of probable licence file $GOMODCACHE/golang.org/x/oauth2@v0.0.0-20220608161450-d0670ef3b1eb/LICENSE:
 
 Copyright (c) 2009 The Go Authors. All rights reserved.
 
@@ -7241,11 +7241,11 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 --------------------------------------------------------------------------------
 Module  : golang.org/x/sys
-Version : v0.0.0-20220520151302-bc2c85ada10a
-Time    : 2022-05-20T15:13:02Z
+Version : v0.0.0-20220610221304-9f5ed59c137d
+Time    : 2022-06-10T22:13:04Z
 Licence : BSD-3-Clause
 
-Contents of probable licence file $GOMODCACHE/golang.org/x/sys@v0.0.0-20220520151302-bc2c85ada10a/LICENSE:
+Contents of probable licence file $GOMODCACHE/golang.org/x/sys@v0.0.0-20220610221304-9f5ed59c137d/LICENSE:
 
 Copyright (c) 2009 The Go Authors. All rights reserved.
 
@@ -7315,11 +7315,11 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 --------------------------------------------------------------------------------
 Module  : google.golang.org/grpc
-Version : v1.47.0
-Time    : 2022-05-31T21:27:52Z
+Version : v1.48.0
+Time    : 2022-07-12T21:28:10Z
 Licence : Apache-2.0
 
-Contents of probable licence file $GOMODCACHE/google.golang.org/grpc@v1.47.0/LICENSE:
+Contents of probable licence file $GOMODCACHE/google.golang.org/grpc@v1.48.0/LICENSE:
 
 
                                  Apache License
@@ -15799,11 +15799,11 @@ Apache License
 
 --------------------------------------------------------------------------------
 Module  : github.com/hashicorp/consul/sdk
-Version : v0.8.0
-Time    : 2021-06-22T14:28:36Z
+Version : v0.10.0
+Time    : 2022-07-13T17:32:28Z
 Licence : MPL-2.0
 
-Contents of probable licence file $GOMODCACHE/github.com/hashicorp/consul/sdk@v0.8.0/LICENSE:
+Contents of probable licence file $GOMODCACHE/github.com/hashicorp/consul/sdk@v0.10.0/LICENSE:
 
 Mozilla Public License, version 2.0
 
@@ -27306,11 +27306,11 @@ THE SOFTWARE.
 
 --------------------------------------------------------------------------------
 Module  : golang.org/x/net
-Version : v0.0.0-20220520000938-2e3eb7b945c2
-Time    : 2022-05-20T00:09:38Z
+Version : v0.0.0-20220607020251-c690dde0001d
+Time    : 2022-06-07T02:02:51Z
 Licence : BSD-3-Clause
 
-Contents of probable licence file $GOMODCACHE/golang.org/x/net@v0.0.0-20220520000938-2e3eb7b945c2/LICENSE:
+Contents of probable licence file $GOMODCACHE/golang.org/x/net@v0.0.0-20220607020251-c690dde0001d/LICENSE:
 
 Copyright (c) 2009 The Go Authors. All rights reserved.
 
@@ -27343,11 +27343,11 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 --------------------------------------------------------------------------------
 Module  : golang.org/x/text
-Version : v0.3.7
-Time    : 2021-08-10T18:28:16Z
+Version : v0.3.8-0.20211004125949-5bd84dd9b33b
+Time    : 2021-10-04T12:59:49Z
 Licence : BSD-3-Clause
 
-Contents of probable licence file $GOMODCACHE/golang.org/x/text@v0.3.7/LICENSE:
+Contents of probable licence file $GOMODCACHE/golang.org/x/text@v0.3.8-0.20211004125949-5bd84dd9b33b/LICENSE:
 
 Copyright (c) 2009 The Go Authors. All rights reserved.
 
@@ -27629,11 +27629,11 @@ Contents of probable licence file $GOMODCACHE/google.golang.org/appengine@v1.6.7
 
 --------------------------------------------------------------------------------
 Module  : google.golang.org/genproto
-Version : v0.0.0-20220519153652-3a47de7e79bd
-Time    : 2022-05-19T15:36:52Z
+Version : v0.0.0-20220617124728-180714bec0ad
+Time    : 2022-06-17T12:47:28Z
 Licence : Apache-2.0
 
-Contents of probable licence file $GOMODCACHE/google.golang.org/genproto@v0.0.0-20220519153652-3a47de7e79bd/LICENSE:
+Contents of probable licence file $GOMODCACHE/google.golang.org/genproto@v0.0.0-20220617124728-180714bec0ad/LICENSE:
 
 
                                  Apache License
