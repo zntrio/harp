@@ -27,12 +27,12 @@ import (
 
 	"github.com/awnumar/memguard"
 
-	"github.com/zntrio/harp/v1/pkg/container"
-	"github.com/zntrio/harp/v1/pkg/container/seal"
-	sealv1 "github.com/zntrio/harp/v1/pkg/container/seal/v1"
-	sealv2 "github.com/zntrio/harp/v1/pkg/container/seal/v2"
-	"github.com/zntrio/harp/v1/pkg/sdk/types"
-	"github.com/zntrio/harp/v1/pkg/tasks"
+	"github.com/zntrio/harp/v2/pkg/container"
+	"github.com/zntrio/harp/v2/pkg/container/seal"
+	sealv1 "github.com/zntrio/harp/v2/pkg/container/seal/v1"
+	sealv2 "github.com/zntrio/harp/v2/pkg/container/seal/v2"
+	"github.com/zntrio/harp/v2/pkg/sdk/types"
+	"github.com/zntrio/harp/v2/pkg/tasks"
 )
 
 // SealTask implements secret container sealing task.

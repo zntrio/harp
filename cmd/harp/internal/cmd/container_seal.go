@@ -21,13 +21,13 @@ import (
 	"github.com/spf13/cobra"
 	"go.uber.org/zap"
 
-	"github.com/zntrio/harp/v1/build/fips"
-	"github.com/zntrio/harp/v1/pkg/container/identity"
-	"github.com/zntrio/harp/v1/pkg/container/identity/key"
-	"github.com/zntrio/harp/v1/pkg/sdk/cmdutil"
-	"github.com/zntrio/harp/v1/pkg/sdk/log"
-	"github.com/zntrio/harp/v1/pkg/sdk/types"
-	"github.com/zntrio/harp/v1/pkg/tasks/container"
+	"github.com/zntrio/harp/v2/build/fips"
+	"github.com/zntrio/harp/v2/pkg/container/identity"
+	"github.com/zntrio/harp/v2/pkg/container/identity/key"
+	"github.com/zntrio/harp/v2/pkg/sdk/cmdutil"
+	"github.com/zntrio/harp/v2/pkg/sdk/log"
+	"github.com/zntrio/harp/v2/pkg/sdk/types"
+	"github.com/zntrio/harp/v2/pkg/tasks/container"
 )
 
 // -----------------------------------------------------------------------------

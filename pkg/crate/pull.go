@@ -27,7 +27,7 @@ import (
 	"oras.land/oras-go/pkg/oras"
 	"oras.land/oras-go/pkg/target"
 
-	"github.com/zntrio/harp/v1/pkg/sdk/types"
+	"github.com/zntrio/harp/v2/pkg/sdk/types"
 )
 
 // Pull the given image descriptor from the given repository.

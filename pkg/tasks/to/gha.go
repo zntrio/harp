@@ -27,8 +27,8 @@ import (
 
 	"github.com/google/go-github/v42/github"
 
-	"github.com/zntrio/harp/v1/pkg/bundle"
-	"github.com/zntrio/harp/v1/pkg/tasks"
+	"github.com/zntrio/harp/v2/pkg/bundle"
+	"github.com/zntrio/harp/v2/pkg/tasks"
 
 	"golang.org/x/crypto/nacl/box"
 	"golang.org/x/oauth2"

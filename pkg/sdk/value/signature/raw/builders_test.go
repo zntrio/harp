@@ -24,7 +24,7 @@ import (
 
 	"github.com/stretchr/testify/assert"
 
-	"github.com/zntrio/harp/v1/pkg/sdk/value"
+	"github.com/zntrio/harp/v2/pkg/sdk/value"
 )
 
 func TestTransformer(t *testing.T) {

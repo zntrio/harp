@@ -25,7 +25,7 @@ import (
 	"github.com/google/gops/agent"
 	"go.uber.org/zap"
 
-	"github.com/zntrio/harp/v1/pkg/sdk/log"
+	"github.com/zntrio/harp/v2/pkg/sdk/log"
 )
 
 // Register adds diagnostic tools to main process

@@ -29,7 +29,7 @@ import (
 
 	"github.com/awnumar/memguard"
 
-	"github.com/zntrio/harp/v1/pkg/container/seal"
+	"github.com/zntrio/harp/v2/pkg/container/seal"
 
 	"golang.org/x/crypto/pbkdf2"
 )

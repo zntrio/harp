@@ -20,10 +20,10 @@ package secretbuilder
 import (
 	"fmt"
 
-	bundlev1 "github.com/zntrio/harp/v1/api/gen/go/harp/bundle/v1"
-	"github.com/zntrio/harp/v1/pkg/bundle/template/visitor"
-	csov1 "github.com/zntrio/harp/v1/pkg/cso/v1"
-	"github.com/zntrio/harp/v1/pkg/template/engine"
+	bundlev1 "github.com/zntrio/harp/v2/api/gen/go/harp/bundle/v1"
+	"github.com/zntrio/harp/v2/pkg/bundle/template/visitor"
+	csov1 "github.com/zntrio/harp/v2/pkg/cso/v1"
+	"github.com/zntrio/harp/v2/pkg/template/engine"
 )
 
 type infrastructureSecretBuilder struct {

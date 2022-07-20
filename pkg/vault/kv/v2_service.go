@@ -24,8 +24,8 @@ import (
 
 	"github.com/hashicorp/vault/api"
 
-	"github.com/zntrio/harp/v1/pkg/vault/logical"
-	vpath "github.com/zntrio/harp/v1/pkg/vault/path"
+	"github.com/zntrio/harp/v2/pkg/vault/logical"
+	vpath "github.com/zntrio/harp/v2/pkg/vault/path"
 )
 
 type kvv2Backend struct {

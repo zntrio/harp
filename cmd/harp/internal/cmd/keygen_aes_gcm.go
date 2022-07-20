@@ -25,8 +25,8 @@ import (
 	"github.com/awnumar/memguard"
 	"github.com/spf13/cobra"
 
-	"github.com/zntrio/harp/v1/pkg/sdk/cmdutil"
-	"github.com/zntrio/harp/v1/pkg/sdk/log"
+	"github.com/zntrio/harp/v2/pkg/sdk/cmdutil"
+	"github.com/zntrio/harp/v2/pkg/sdk/log"
 )
 
 // -----------------------------------------------------------------------------

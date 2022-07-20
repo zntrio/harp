@@ -20,7 +20,7 @@ package v1
 import (
 	"strings"
 
-	csov1 "github.com/zntrio/harp/v1/api/gen/go/cso/v1"
+	csov1 "github.com/zntrio/harp/v2/api/gen/go/cso/v1"
 )
 
 const (

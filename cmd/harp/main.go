@@ -21,8 +21,8 @@ import (
 	"math/rand"
 	"time"
 
-	"github.com/zntrio/harp/v1/cmd/harp/internal/cmd"
-	"github.com/zntrio/harp/v1/pkg/sdk/log"
+	"github.com/zntrio/harp/v2/cmd/harp/internal/cmd"
+	"github.com/zntrio/harp/v2/pkg/sdk/log"
 )
 
 func init() {

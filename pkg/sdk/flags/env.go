@@ -24,7 +24,7 @@ import (
 
 	"github.com/fatih/structs"
 
-	"github.com/zntrio/harp/v1/pkg/sdk/log"
+	"github.com/zntrio/harp/v2/pkg/sdk/log"
 )
 
 // AsEnvVariables sets struct values from environment variables

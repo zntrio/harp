@@ -26,7 +26,7 @@ import (
 	"os"
 	"testing"
 
-	"github.com/zntrio/harp/v1/pkg/bundle/template"
+	"github.com/zntrio/harp/v2/pkg/bundle/template"
 )
 
 func loadFromFile(t testing.TB, filename string) []byte {

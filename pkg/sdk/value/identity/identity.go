@@ -20,7 +20,7 @@ package identity
 import (
 	"context"
 
-	"github.com/zntrio/harp/v1/pkg/sdk/value"
+	"github.com/zntrio/harp/v2/pkg/sdk/value"
 )
 
 type identityTransformer struct{}

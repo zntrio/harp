@@ -143,10 +143,10 @@ Harp provides :
   * A defined common language and complete processes to achieve secret management
     operations;
 * A SDK to create your own tools to orchestrate your secret management pipelines;
-  * A container manipulation library exposed as `github.com/zntrio/harp/v1/pkg/container`;
-  * A secret bundle specification to store and manipulate secrets exposed as `github.com/zntrio/harp/v1/pkg/bundle`;
-  * An `on-steroid` template engine exposed as `github.com/zntrio/harp/v1/pkg/template`
-  * A path name validation library exposed as `github.com/zntrio/harp/v1/pkg/cso`
+  * A container manipulation library exposed as `github.com/zntrio/harp/v2/pkg/container`;
+  * A secret bundle specification to store and manipulate secrets exposed as `github.com/zntrio/harp/v2/pkg/bundle`;
+  * An `on-steroid` template engine exposed as `github.com/zntrio/harp/v2/pkg/template`
+  * A path name validation library exposed as `github.com/zntrio/harp/v2/pkg/cso`
 * A CLI for secret management implementation
   * CI/CD integration;
   * Based on human-readable definitions (YAML);

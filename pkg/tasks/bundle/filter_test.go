@@ -26,9 +26,9 @@ import (
 	"github.com/google/go-cmp/cmp"
 	"github.com/google/go-cmp/cmp/cmpopts"
 
-	bundlev1 "github.com/zntrio/harp/v1/api/gen/go/harp/bundle/v1"
-	"github.com/zntrio/harp/v1/pkg/sdk/cmdutil"
-	"github.com/zntrio/harp/v1/pkg/tasks"
+	bundlev1 "github.com/zntrio/harp/v2/api/gen/go/harp/bundle/v1"
+	"github.com/zntrio/harp/v2/pkg/sdk/cmdutil"
+	"github.com/zntrio/harp/v2/pkg/tasks"
 )
 
 var (

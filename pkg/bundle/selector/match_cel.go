@@ -25,9 +25,9 @@ import (
 	celext "github.com/google/cel-go/ext"
 	"go.uber.org/zap"
 
-	bundlev1 "github.com/zntrio/harp/v1/api/gen/go/harp/bundle/v1"
-	"github.com/zntrio/harp/v1/pkg/bundle/ruleset/engine/cel/ext"
-	"github.com/zntrio/harp/v1/pkg/sdk/log"
+	bundlev1 "github.com/zntrio/harp/v2/api/gen/go/harp/bundle/v1"
+	"github.com/zntrio/harp/v2/pkg/bundle/ruleset/engine/cel/ext"
+	"github.com/zntrio/harp/v2/pkg/sdk/log"
 )
 
 // MatchCEL returns a CEL package matcher specification.

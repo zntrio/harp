@@ -23,7 +23,7 @@ import (
 
 	"github.com/stretchr/testify/assert"
 
-	"github.com/zntrio/harp/v1/pkg/container/identity/key"
+	"github.com/zntrio/harp/v2/pkg/container/identity/key"
 )
 
 var (

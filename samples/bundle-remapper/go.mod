@@ -2,10 +2,10 @@ module harp.elastic.co/remapper
 
 go 1.18
 
-replace github.com/zntrio/harp/v1 => ../../
+replace github.com/zntrio/harp/v2 => ../../
 
 require (
-	github.com/zntrio/harp/v1 v0.0.0-00010101000000-000000000000
+	github.com/zntrio/harp/v2 v0.0.0-00010101000000-000000000000
 	go.uber.org/zap v1.21.0
 )
 

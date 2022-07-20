@@ -22,7 +22,7 @@ import (
 	"path"
 	"reflect"
 
-	"github.com/zntrio/harp/v1/pkg/bundle"
+	"github.com/zntrio/harp/v2/pkg/bundle"
 )
 
 // -----------------------------------------------------------------------------

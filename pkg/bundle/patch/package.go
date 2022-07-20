@@ -25,9 +25,9 @@ import (
 
 	"google.golang.org/protobuf/proto"
 
-	bundlev1 "github.com/zntrio/harp/v1/api/gen/go/harp/bundle/v1"
-	"github.com/zntrio/harp/v1/pkg/bundle"
-	"github.com/zntrio/harp/v1/pkg/sdk/types"
+	bundlev1 "github.com/zntrio/harp/v2/api/gen/go/harp/bundle/v1"
+	"github.com/zntrio/harp/v2/pkg/bundle"
+	"github.com/zntrio/harp/v2/pkg/sdk/types"
 
 	"golang.org/x/crypto/blake2b"
 )

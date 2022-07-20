@@ -23,10 +23,10 @@ import (
 	"errors"
 	"fmt"
 
-	"github.com/zntrio/harp/v1/pkg/container/identity"
-	"github.com/zntrio/harp/v1/pkg/sdk/types"
-	"github.com/zntrio/harp/v1/pkg/sdk/value"
-	"github.com/zntrio/harp/v1/pkg/tasks"
+	"github.com/zntrio/harp/v2/pkg/container/identity"
+	"github.com/zntrio/harp/v2/pkg/sdk/types"
+	"github.com/zntrio/harp/v2/pkg/sdk/value"
+	"github.com/zntrio/harp/v2/pkg/tasks"
 )
 
 // RecoverTask implements secret container identity recovery task.

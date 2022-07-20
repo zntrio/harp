@@ -37,7 +37,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/zntrio/harp/v1/pkg/sdk/security/crypto/bech32"
+	"github.com/zntrio/harp/v2/pkg/sdk/security/crypto/bech32"
 )
 
 func TestBech32(t *testing.T) {

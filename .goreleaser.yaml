@@ -19,13 +19,13 @@ builds:
     ldflags:
       - '-s'
       - '-w'
-      - '-X github.com/zntrio/harp/v1/build/version.Name=harp'
-      - '-X github.com/zntrio/harp/v1/build/version.AppName=github.com/zntrio/harp/cmd/harp'
-      - '-X github.com/zntrio/harp/v1/build/version.Version={{.Version}}'
-      - '-X github.com/zntrio/harp/v1/build/version.Commit={{.CommitDate}}'
-      - '-X github.com/zntrio/harp/v1/build/version.Branch={{.Branch}}'
-      - '-X github.com/zntrio/harp/v1/build/version.BuildDate={{.Date}}'
-      - '-X github.com/zntrio/harp/v1/build/version.BuildTags=defaults'
+      - '-X github.com/zntrio/harp/v2/build/version.Name=harp'
+      - '-X github.com/zntrio/harp/v2/build/version.AppName=github.com/zntrio/harp/cmd/harp'
+      - '-X github.com/zntrio/harp/v2/build/version.Version={{.Version}}'
+      - '-X github.com/zntrio/harp/v2/build/version.Commit={{.CommitDate}}'
+      - '-X github.com/zntrio/harp/v2/build/version.Branch={{.Branch}}'
+      - '-X github.com/zntrio/harp/v2/build/version.BuildDate={{.Date}}'
+      - '-X github.com/zntrio/harp/v2/build/version.BuildTags=defaults'
     targets:
       - darwin_amd64_v1
       - darwin_arm64

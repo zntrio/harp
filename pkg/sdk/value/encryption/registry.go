@@ -20,7 +20,7 @@ package encryption
 import (
 	"fmt"
 
-	"github.com/zntrio/harp/v1/pkg/sdk/value"
+	"github.com/zntrio/harp/v2/pkg/sdk/value"
 )
 
 // TransformerFactoryFunc is used for transformer building for encryption.

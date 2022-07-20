@@ -26,7 +26,7 @@ import (
 	"regexp"
 	"runtime"
 
-	"github.com/zntrio/harp/v1/build/version"
+	"github.com/zntrio/harp/v2/build/version"
 
 	exec "golang.org/x/sys/execabs"
 )

@@ -22,12 +22,12 @@ import (
 	"path"
 	"strings"
 
-	"github.com/zntrio/harp/v1/pkg/sdk/value"
-	"github.com/zntrio/harp/v1/pkg/sdk/value/encryption"
-	"github.com/zntrio/harp/v1/pkg/sdk/value/encryption/aead"
-	"github.com/zntrio/harp/v1/pkg/sdk/value/encryption/envelope"
-	"github.com/zntrio/harp/v1/pkg/sdk/value/encryption/secretbox"
-	vaultpath "github.com/zntrio/harp/v1/pkg/vault/path"
+	"github.com/zntrio/harp/v2/pkg/sdk/value"
+	"github.com/zntrio/harp/v2/pkg/sdk/value/encryption"
+	"github.com/zntrio/harp/v2/pkg/sdk/value/encryption/aead"
+	"github.com/zntrio/harp/v2/pkg/sdk/value/encryption/envelope"
+	"github.com/zntrio/harp/v2/pkg/sdk/value/encryption/secretbox"
+	vaultpath "github.com/zntrio/harp/v2/pkg/vault/path"
 )
 
 type DataEncryption string

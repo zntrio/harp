@@ -23,9 +23,9 @@ import (
 
 	"google.golang.org/protobuf/encoding/protojson"
 
-	bundlev1 "github.com/zntrio/harp/v1/api/gen/go/harp/bundle/v1"
-	"github.com/zntrio/harp/v1/pkg/sdk/convert"
-	"github.com/zntrio/harp/v1/pkg/sdk/types"
+	bundlev1 "github.com/zntrio/harp/v2/api/gen/go/harp/bundle/v1"
+	"github.com/zntrio/harp/v2/pkg/sdk/convert"
+	"github.com/zntrio/harp/v2/pkg/sdk/types"
 )
 
 // YAML a given reader in order to extract a BundlePatch sepcification

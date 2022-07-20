@@ -21,9 +21,9 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/zntrio/harp/v1/pkg/sdk/fsutil"
-	"github.com/zntrio/harp/v1/pkg/sdk/fsutil/targzfs"
-	"github.com/zntrio/harp/v1/pkg/tasks"
+	"github.com/zntrio/harp/v2/pkg/sdk/fsutil"
+	"github.com/zntrio/harp/v2/pkg/sdk/fsutil/targzfs"
+	"github.com/zntrio/harp/v2/pkg/tasks"
 )
 
 // ExtractArchiveTask implements archive extraction task.

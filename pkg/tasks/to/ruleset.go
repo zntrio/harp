@@ -23,9 +23,9 @@ import (
 
 	"sigs.k8s.io/yaml"
 
-	"github.com/zntrio/harp/v1/pkg/bundle"
-	"github.com/zntrio/harp/v1/pkg/bundle/ruleset"
-	"github.com/zntrio/harp/v1/pkg/tasks"
+	"github.com/zntrio/harp/v2/pkg/bundle"
+	"github.com/zntrio/harp/v2/pkg/bundle/ruleset"
+	"github.com/zntrio/harp/v2/pkg/tasks"
 )
 
 // RuleSetTask implements RuleSet generation from a bundle.

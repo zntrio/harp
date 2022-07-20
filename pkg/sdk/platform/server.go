@@ -31,9 +31,9 @@ import (
 	"github.com/oklog/run"
 	"go.uber.org/zap"
 
-	"github.com/zntrio/harp/v1/pkg/sdk/log"
-	"github.com/zntrio/harp/v1/pkg/sdk/platform/diagnostic"
-	"github.com/zntrio/harp/v1/pkg/sdk/platform/reloader"
+	"github.com/zntrio/harp/v2/pkg/sdk/log"
+	"github.com/zntrio/harp/v2/pkg/sdk/platform/diagnostic"
+	"github.com/zntrio/harp/v2/pkg/sdk/platform/reloader"
 )
 
 // -----------------------------------------------------------------------------

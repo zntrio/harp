@@ -20,7 +20,7 @@ package bundle
 import (
 	"io"
 
-	bundlev1 "github.com/zntrio/harp/v1/api/gen/go/harp/bundle/v1"
+	bundlev1 "github.com/zntrio/harp/v2/api/gen/go/harp/bundle/v1"
 )
 
 // Reader exposes bundle reader contract

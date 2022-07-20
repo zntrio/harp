@@ -25,8 +25,8 @@ import (
 
 	"gopkg.in/square/go-jose.v2"
 
-	"github.com/zntrio/harp/v1/pkg/sdk/value"
-	"github.com/zntrio/harp/v1/pkg/sdk/value/encryption"
+	"github.com/zntrio/harp/v2/pkg/sdk/value"
+	"github.com/zntrio/harp/v2/pkg/sdk/value/encryption"
 )
 
 type KeyAlgorithm string

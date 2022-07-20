@@ -20,7 +20,7 @@ package v2
 import (
 	"crypto/elliptic"
 
-	"github.com/zntrio/harp/v1/pkg/container/seal"
+	"github.com/zntrio/harp/v2/pkg/container/seal"
 )
 
 const (

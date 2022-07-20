@@ -26,7 +26,7 @@ import (
 	fuzz "github.com/google/gofuzz"
 	"github.com/stretchr/testify/assert"
 
-	containerv1 "github.com/zntrio/harp/v1/api/gen/go/harp/container/v1"
+	containerv1 "github.com/zntrio/harp/v2/api/gen/go/harp/container/v1"
 )
 
 var (

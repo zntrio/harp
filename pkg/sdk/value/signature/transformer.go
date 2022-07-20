@@ -22,8 +22,8 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/zntrio/harp/v1/pkg/sdk/types"
-	"github.com/zntrio/harp/v1/pkg/sdk/value"
+	"github.com/zntrio/harp/v2/pkg/sdk/types"
+	"github.com/zntrio/harp/v2/pkg/sdk/value"
 )
 
 // FromKey returns the value transformer that match the value format.

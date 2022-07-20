@@ -24,11 +24,11 @@ import (
 	"github.com/spf13/cobra"
 	"go.uber.org/zap"
 
-	"github.com/zntrio/harp/v1/pkg/sdk/cmdutil"
-	"github.com/zntrio/harp/v1/pkg/sdk/log"
-	"github.com/zntrio/harp/v1/pkg/tasks/from"
-	tplcmdutil "github.com/zntrio/harp/v1/pkg/template/cmdutil"
-	"github.com/zntrio/harp/v1/pkg/template/engine"
+	"github.com/zntrio/harp/v2/pkg/sdk/cmdutil"
+	"github.com/zntrio/harp/v2/pkg/sdk/log"
+	"github.com/zntrio/harp/v2/pkg/tasks/from"
+	tplcmdutil "github.com/zntrio/harp/v2/pkg/template/cmdutil"
+	"github.com/zntrio/harp/v2/pkg/template/engine"
 )
 
 // -----------------------------------------------------------------------------

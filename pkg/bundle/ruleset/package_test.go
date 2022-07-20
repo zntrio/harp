@@ -25,7 +25,7 @@ import (
 
 	fuzz "github.com/google/gofuzz"
 	"github.com/stretchr/testify/assert"
-	bundlev1 "github.com/zntrio/harp/v1/api/gen/go/harp/bundle/v1"
+	bundlev1 "github.com/zntrio/harp/v2/api/gen/go/harp/bundle/v1"
 )
 
 func mustLoadRuleSet(filePath string) *bundlev1.RuleSet {

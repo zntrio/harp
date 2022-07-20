@@ -28,7 +28,7 @@ import (
 	"fmt"
 	"math/big"
 
-	"github.com/zntrio/harp/v1/pkg/sdk/security/crypto/extra25519"
+	"github.com/zntrio/harp/v2/pkg/sdk/security/crypto/extra25519"
 )
 
 // JSONWebKey holds internal container key attributes.

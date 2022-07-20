@@ -29,7 +29,7 @@ import (
 	"math/big"
 	"testing"
 
-	"github.com/zntrio/harp/v1/pkg/sdk/security/crypto/rfc6979"
+	"github.com/zntrio/harp/v2/pkg/sdk/security/crypto/rfc6979"
 )
 
 type ecdsaFixture struct {

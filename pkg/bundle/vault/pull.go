@@ -24,10 +24,10 @@ import (
 
 	"github.com/hashicorp/vault/api"
 
-	bundlev1 "github.com/zntrio/harp/v1/api/gen/go/harp/bundle/v1"
-	"github.com/zntrio/harp/v1/pkg/bundle/vault/internal/operation"
-	"github.com/zntrio/harp/v1/pkg/vault/kv"
-	vpath "github.com/zntrio/harp/v1/pkg/vault/path"
+	bundlev1 "github.com/zntrio/harp/v2/api/gen/go/harp/bundle/v1"
+	"github.com/zntrio/harp/v2/pkg/bundle/vault/internal/operation"
+	"github.com/zntrio/harp/v2/pkg/vault/kv"
+	vpath "github.com/zntrio/harp/v2/pkg/vault/path"
 
 	"golang.org/x/sync/errgroup"
 )

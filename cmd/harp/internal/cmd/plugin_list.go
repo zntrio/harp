@@ -27,7 +27,7 @@ import (
 
 	"github.com/spf13/cobra"
 
-	"github.com/zntrio/harp/v1/pkg/sdk/cmdutil"
+	"github.com/zntrio/harp/v2/pkg/sdk/cmdutil"
 )
 
 // ValidPluginFilenamePrefixes defines harp plugin prefix to discover

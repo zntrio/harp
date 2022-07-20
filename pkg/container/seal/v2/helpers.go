@@ -34,8 +34,8 @@ import (
 	"github.com/awnumar/memguard"
 	"google.golang.org/protobuf/proto"
 
-	containerv1 "github.com/zntrio/harp/v1/api/gen/go/harp/container/v1"
-	"github.com/zntrio/harp/v1/pkg/sdk/security"
+	containerv1 "github.com/zntrio/harp/v2/api/gen/go/harp/container/v1"
+	"github.com/zntrio/harp/v2/pkg/sdk/security"
 
 	"golang.org/x/crypto/hkdf"
 )

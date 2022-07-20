@@ -28,7 +28,7 @@ import (
 	"github.com/google/go-cmp/cmp/cmpopts"
 	fuzz "github.com/google/gofuzz"
 
-	containerv1 "github.com/zntrio/harp/v1/api/gen/go/harp/container/v1"
+	containerv1 "github.com/zntrio/harp/v2/api/gen/go/harp/container/v1"
 )
 
 var (

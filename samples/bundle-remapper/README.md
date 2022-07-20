@@ -120,9 +120,9 @@ import (
  "fmt"
  "strings"
 
- bundlev1 "github.com/zntrio/harp/v1/api/gen/go/harp/bundle/v1"
- "github.com/zntrio/harp/v1/pkg/bundle/pipeline"
- "github.com/zntrio/harp/v1/pkg/sdk/log"
+ bundlev1 "github.com/zntrio/harp/v2/api/gen/go/harp/bundle/v1"
+ "github.com/zntrio/harp/v2/pkg/bundle/pipeline"
+ "github.com/zntrio/harp/v2/pkg/sdk/log"
 
  "go.uber.org/zap"
 )

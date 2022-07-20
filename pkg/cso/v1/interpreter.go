@@ -22,7 +22,7 @@ import (
 	"io"
 	"text/template"
 
-	csov1 "github.com/zntrio/harp/v1/api/gen/go/cso/v1"
+	csov1 "github.com/zntrio/harp/v2/api/gen/go/cso/v1"
 )
 
 // Text returns english text templates.

@@ -91,7 +91,7 @@ jobs:
       -
         name: Build Harp
         run: |
-          go mod vendor && go build -mod=vendor -o bin/harp github.com/zntrio/harp/v1/cmd/harp
+          go mod vendor && go build -mod=vendor -o bin/harp github.com/zntrio/harp/v2/cmd/harp
 
   # Run golangci-lint
   golangci-lint:

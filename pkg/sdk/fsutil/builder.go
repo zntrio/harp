@@ -25,7 +25,7 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/zntrio/harp/v1/pkg/sdk/fsutil/targzfs"
+	"github.com/zntrio/harp/v2/pkg/sdk/fsutil/targzfs"
 )
 
 var ErrNotSupported = errors.New("not supported filesystem path")

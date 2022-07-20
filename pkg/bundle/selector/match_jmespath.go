@@ -23,7 +23,7 @@ import (
 	"github.com/jmespath/go-jmespath"
 	"google.golang.org/protobuf/encoding/protojson"
 
-	bundlev1 "github.com/zntrio/harp/v1/api/gen/go/harp/bundle/v1"
+	bundlev1 "github.com/zntrio/harp/v2/api/gen/go/harp/bundle/v1"
 )
 
 // MatchJMESPath returns a JMESPatch package matcher specification.

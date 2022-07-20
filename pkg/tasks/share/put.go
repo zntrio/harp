@@ -25,8 +25,8 @@ import (
 
 	"github.com/hashicorp/vault/api"
 
-	"github.com/zntrio/harp/v1/pkg/tasks"
-	"github.com/zntrio/harp/v1/pkg/vault"
+	"github.com/zntrio/harp/v2/pkg/tasks"
+	"github.com/zntrio/harp/v2/pkg/vault"
 )
 
 // PutTask implements secret sharing via Vault Cubbyhole.

@@ -22,7 +22,7 @@ import "context"
 type contextKey string
 
 func (c contextKey) String() string {
-	return "github.com/zntrio/harp/v1/pkg/sdk/value/encryption#" + string(c)
+	return "github.com/zntrio/harp/v2/pkg/sdk/value/encryption#" + string(c)
 }
 
 var (

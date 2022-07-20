@@ -23,8 +23,8 @@ import (
 	"io"
 	"testing"
 
-	"github.com/zntrio/harp/v1/pkg/sdk/cmdutil"
-	"github.com/zntrio/harp/v1/pkg/tasks"
+	"github.com/zntrio/harp/v2/pkg/sdk/cmdutil"
+	"github.com/zntrio/harp/v2/pkg/tasks"
 )
 
 func TestReadTask_Run(t *testing.T) {

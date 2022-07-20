@@ -21,7 +21,7 @@ import (
 	"context"
 	"errors"
 
-	bundlev1 "github.com/zntrio/harp/v1/api/gen/go/harp/bundle/v1"
+	bundlev1 "github.com/zntrio/harp/v2/api/gen/go/harp/bundle/v1"
 )
 
 // ErrRuleNotValid is raised when a rule from a ruleset is false.
