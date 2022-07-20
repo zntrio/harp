@@ -23,13 +23,13 @@ import (
 	"sort"
 	"strings"
 
-	"golang.org/x/crypto/blake2b"
-
 	"google.golang.org/protobuf/proto"
 
 	bundlev1 "github.com/zntrio/harp/api/gen/go/harp/bundle/v1"
 	"github.com/zntrio/harp/pkg/bundle"
 	"github.com/zntrio/harp/pkg/sdk/types"
+
+	"golang.org/x/crypto/blake2b"
 )
 
 // Validate bundle patch.

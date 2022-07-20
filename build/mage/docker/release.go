@@ -25,14 +25,14 @@ import (
 	"text/template"
 	"time"
 
-	exec "golang.org/x/sys/execabs"
-
 	semver "github.com/Masterminds/semver/v3"
 	"github.com/magefile/mage/mg"
 	"github.com/magefile/mage/sh"
 
 	"github.com/zntrio/harp/build/artifact"
 	"github.com/zntrio/harp/build/mage/git"
+
+	exec "golang.org/x/sys/execabs"
 )
 
 var dockerReleaseTemplate = strings.TrimSpace(`

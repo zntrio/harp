@@ -23,15 +23,15 @@ import (
 	"fmt"
 	"io"
 
-	"golang.org/x/crypto/blake2b"
-	"golang.org/x/crypto/nacl/box"
-	"golang.org/x/crypto/nacl/secretbox"
-
 	"github.com/awnumar/memguard"
 	"google.golang.org/protobuf/proto"
 
 	containerv1 "github.com/zntrio/harp/api/gen/go/harp/container/v1"
 	"github.com/zntrio/harp/pkg/sdk/security"
+
+	"golang.org/x/crypto/blake2b"
+	"golang.org/x/crypto/nacl/box"
+	"golang.org/x/crypto/nacl/secretbox"
 )
 
 func deriveSharedKeyFromRecipient(publicKey, privateKey *[privateKeySize]byte) *[encryptionKeySize]byte {

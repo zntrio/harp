@@ -23,10 +23,10 @@ import (
 	"encoding/base64"
 	"fmt"
 
-	"golang.org/x/crypto/cryptobyte"
-
 	"github.com/zntrio/harp/pkg/sdk/value"
 	"github.com/zntrio/harp/pkg/sdk/value/encryption"
+
+	"golang.org/x/crypto/cryptobyte"
 )
 
 // Transformer returns an envelope encryption value transformer.

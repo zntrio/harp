@@ -27,7 +27,6 @@ import (
 
 	"github.com/zntrio/harp/pkg/sdk/value"
 	"github.com/zntrio/harp/pkg/sdk/value/encryption"
-
 	// Register encryption transformers
 	_ "github.com/zntrio/harp/pkg/sdk/value/encryption/aead"
 	_ "github.com/zntrio/harp/pkg/sdk/value/encryption/age"

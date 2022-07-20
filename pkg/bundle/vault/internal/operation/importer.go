@@ -24,9 +24,6 @@ import (
 	"strings"
 	"sync"
 
-	"golang.org/x/sync/errgroup"
-	"golang.org/x/sync/semaphore"
-
 	"github.com/hashicorp/vault/api"
 	"go.uber.org/zap"
 
@@ -35,6 +32,9 @@ import (
 	"github.com/zntrio/harp/pkg/sdk/log"
 	"github.com/zntrio/harp/pkg/vault/kv"
 	vpath "github.com/zntrio/harp/pkg/vault/path"
+
+	"golang.org/x/sync/errgroup"
+	"golang.org/x/sync/semaphore"
 )
 
 // Importer initialize a secret importer operation

@@ -22,14 +22,14 @@ import (
 	"fmt"
 	"regexp"
 
-	"golang.org/x/sync/errgroup"
-
 	"github.com/hashicorp/vault/api"
 
 	bundlev1 "github.com/zntrio/harp/api/gen/go/harp/bundle/v1"
 	"github.com/zntrio/harp/pkg/bundle/vault/internal/operation"
 	"github.com/zntrio/harp/pkg/vault/kv"
 	vpath "github.com/zntrio/harp/pkg/vault/path"
+
+	"golang.org/x/sync/errgroup"
 )
 
 // Pull all given path as a bundle.
