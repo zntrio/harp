@@ -7130,11 +7130,11 @@ THE SOFTWARE.
 
 --------------------------------------------------------------------------------
 Module  : golang.org/x/crypto
-Version : v0.0.0-20220525230936-793ad666bf5e
-Time    : 2022-05-25T23:09:36Z
+Version : v0.0.0-20220622213112-05595931fe9d
+Time    : 2022-06-22T21:31:12Z
 Licence : BSD-3-Clause
 
-Contents of probable licence file $GOMODCACHE/golang.org/x/crypto@v0.0.0-20220525230936-793ad666bf5e/LICENSE:
+Contents of probable licence file $GOMODCACHE/golang.org/x/crypto@v0.0.0-20220622213112-05595931fe9d/LICENSE:
 
 Copyright (c) 2009 The Go Authors. All rights reserved.
 
@@ -7167,11 +7167,11 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 --------------------------------------------------------------------------------
 Module  : golang.org/x/oauth2
-Version : v0.0.0-20220608161450-d0670ef3b1eb
-Time    : 2022-06-08T16:14:50Z
+Version : v0.0.0-20220718184931-c8730f7fcb92
+Time    : 2022-07-18T18:49:31Z
 Licence : BSD-3-Clause
 
-Contents of probable licence file $GOMODCACHE/golang.org/x/oauth2@v0.0.0-20220608161450-d0670ef3b1eb/LICENSE:
+Contents of probable licence file $GOMODCACHE/golang.org/x/oauth2@v0.0.0-20220718184931-c8730f7fcb92/LICENSE:
 
 Copyright (c) 2009 The Go Authors. All rights reserved.
 
@@ -7241,11 +7241,11 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 --------------------------------------------------------------------------------
 Module  : golang.org/x/sys
-Version : v0.0.0-20220610221304-9f5ed59c137d
-Time    : 2022-06-10T22:13:04Z
+Version : v0.0.0-20220715151400-c0bba94af5f8
+Time    : 2022-07-15T15:14:00Z
 Licence : BSD-3-Clause
 
-Contents of probable licence file $GOMODCACHE/golang.org/x/sys@v0.0.0-20220610221304-9f5ed59c137d/LICENSE:
+Contents of probable licence file $GOMODCACHE/golang.org/x/sys@v0.0.0-20220715151400-c0bba94af5f8/LICENSE:
 
 Copyright (c) 2009 The Go Authors. All rights reserved.
 
@@ -7278,11 +7278,11 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 --------------------------------------------------------------------------------
 Module  : golang.org/x/term
-Version : v0.0.0-20210927222741-03fcf44c2211
-Time    : 2021-09-27T22:27:41Z
+Version : v0.0.0-20220526004731-065cf7ba2467
+Time    : 2022-05-26T00:47:31Z
 Licence : BSD-3-Clause
 
-Contents of probable licence file $GOMODCACHE/golang.org/x/term@v0.0.0-20210927222741-03fcf44c2211/LICENSE:
+Contents of probable licence file $GOMODCACHE/golang.org/x/term@v0.0.0-20220526004731-065cf7ba2467/LICENSE:
 
 Copyright (c) 2009 The Go Authors. All rights reserved.
 
@@ -24272,11 +24272,11 @@ SOFTWARE.
 
 --------------------------------------------------------------------------------
 Module  : github.com/opencontainers/runc
-Version : v1.1.2
-Time    : 2022-05-05T19:49:49Z
+Version : v1.1.3
+Time    : 2022-06-08T18:46:47Z
 Licence : Apache-2.0
 
-Contents of probable licence file $GOMODCACHE/github.com/opencontainers/runc@v1.1.2/LICENSE:
+Contents of probable licence file $GOMODCACHE/github.com/opencontainers/runc@v1.1.3/LICENSE:
 
 
                                  Apache License
@@ -27306,11 +27306,11 @@ THE SOFTWARE.
 
 --------------------------------------------------------------------------------
 Module  : golang.org/x/net
-Version : v0.0.0-20220607020251-c690dde0001d
-Time    : 2022-06-07T02:02:51Z
+Version : v0.0.0-20220624214902-1bab6f366d9e
+Time    : 2022-06-24T21:49:02Z
 Licence : BSD-3-Clause
 
-Contents of probable licence file $GOMODCACHE/golang.org/x/net@v0.0.0-20220607020251-c690dde0001d/LICENSE:
+Contents of probable licence file $GOMODCACHE/golang.org/x/net@v0.0.0-20220624214902-1bab6f366d9e/LICENSE:
 
 Copyright (c) 2009 The Go Authors. All rights reserved.
 
