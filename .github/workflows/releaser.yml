@@ -128,7 +128,7 @@ jobs:
           #!/bin/bash
           shopt -s expand_aliases
           cd .dist
-          sha256sum *.tar.gz > checksums.txt
+          sha256sum * > checksums.txt
           FILES="*"
           for f in $FILES;
           do
