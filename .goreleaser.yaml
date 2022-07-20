@@ -5,9 +5,6 @@ before:
     - go mod tidy
     - go mod vendor
 
-gomod:
-  proxy: true
-
 builds:
   - id: harp
     main: './cmd/harp'
