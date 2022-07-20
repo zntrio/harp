@@ -64,6 +64,7 @@ func decodeKey(key string) (k, salt []byte, err error) {
 	return k, salt, err
 }
 
+//nolint:unparam // info is always nil
 func deriveKey(secret, salt, info []byte, dkLen int) ([]byte, error) {
 	// Prepare HKDF-SHA256
 	reader := hkdf.New(sha256.New, secret, salt, info)

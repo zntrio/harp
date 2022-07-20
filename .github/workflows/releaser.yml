@@ -87,41 +87,26 @@ jobs:
           AC_PASSWORD: "${{ secrets.AC_PASSWORD }}"
         run: |
           echo '{
-            "source": ["./dist/harp-darwin-amd64"],
-            "bundle_id":"co.elastic.harp",
+            "source": [
+              "./dist/harp-darwin-amd64",
+              "./dist/harp-darwin-arm64"
+            ],
+            "bundle_id":"io.harpsec.cli",
             "apple_id": {},
             "sign": { "application_identity": "9470D0A7B70090A8EF31C3B33AB3868B38B27A3D" },
             "zip": {
-              "output_path": "./dist/harp-darwin-amd64.zip"
+              "output_path": "./dist/harp-darwin.zip"
             }
-          }' | jq '' > gon.amd64.json
-          gon -log-level=debug -log-json ./gon.amd64.json
-          rm -f .dist/harp-darwin-amd64
-      -
-        name: Sign and notarize MacOS ARM64 cli
-        env:
-          AC_USERNAME: "${{ secrets.AC_USERNAME }}"
-          AC_PASSWORD: "${{ secrets.AC_PASSWORD }}"
-        run: |
-          echo '{
-            "source": ["./dist/harp-darwin-arm64"],
-            "bundle_id":"co.elastic.harp",
-            "apple_id": {},
-            "sign": { "application_identity": "9470D0A7B70090A8EF31C3B33AB3868B38B27A3D" },
-            "zip": {
-              "output_path": "./dist/harp-darwin-arm64.zip"
-            }
-          }' | jq '' > gon.arm64.json
-          gon -log-level=debug -log-json ./gon.arm64.json
-          rm -f .dist/harp-darwin-arm64
+          }' | jq '' > gon.json
+          gon -log-level=debug -log-json ./gon.json
+          rm -f .dist/harp-darwin-*
       -
         name: Prepare archives
         run: |
           #!/bin/bash
           shopt -s expand_aliases
           cd .dist/
-          unzip ../dist/harp-darwin-amd64.zip
-          unzip ../dist/harp-darwin-arm64.zip
+          unzip ../dist/harp-darwin.zip
           FILES="*"
           for f in $FILES;
           do
@@ -136,17 +121,6 @@ jobs:
                 ;;
             esac
           done
-      # Disable provenance
-      #
-      #-
-      #  name: Generate provenance for Release
-      #  uses: philips-labs/slsa-provenance-action@v0.7.2
-      #  with:
-      #    command: generate
-      #    subcommand: files
-      #    arguments: --artifact-path .dist --output-path '.dist/provenance.json'
-      #  env:
-      #    GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
       -
         name: Sign
         shell: bash
@@ -177,7 +151,7 @@ jobs:
         run: |
           #!/bin/bash
           shopt -s expand_aliases
-          curl -sLO https://raw.githubusercontent.com/elastic/harp/v${{ github.event.inputs.release }}/build/artifact/cosign.pub
+          curl -sLO https://raw.githubusercontent.com/zntrio/harp/v${{ github.event.inputs.release }}/build/artifact/cosign.pub
           cd .dist
           FILES="*"
           for f in $FILES;

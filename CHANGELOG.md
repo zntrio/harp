@@ -1,48 +1,26 @@
-## 0.3.0
+## 0.3.1
 
 ### NOT RELEASED YET
 
+## 0.3.0
+
+### 2022-07-20
+
 DIST:
 
+* First version from `zntrio` fork
+
 * sdk/tools:
-  * github.com/daixiang0/gci v0.3.3
-  * github.com/golangci/golangci-lint v1.46.2
+  * github.com/daixiang0/gci v0.4.3
+  * github.com/elastic/go-licenser v0.4.1
+  * github.com/golangci/golangci-lint v1.47.1
   * github.com/magefile/mage v1.13.0
   * google.golang.org/protobuf v1.28.0
   * gotest.tools/gotestsum v1.8.1
   * mvdan.cc/gofumpt v0.3.1
-  
-* sdk/dep:
-  * github.com/cloudflare/tableflip v1.2.3
-  * github.com/davecgh/go-spew v1.1.1
-  * github.com/google/cel-go v0.11.4
-  * github.com/google/go-cmp v0.5.8
-  * github.com/google/gops v0.3.23
-  * github.com/hashicorp/hcl/v2 v2.12.0
-  * github.com/hashicorp/vault/api v1.5.0
-  * github.com/klauspost/compress v1.15.4
-  * github.com/open-policy-agent/opa v0.40.0
-  * github.com/pelletier/go-toml v1.9.5
-  * github.com/pierrec/lz4 v2.6.1+incompatible
-  * github.com/sebdah/goldie v1.0.0
-  * github.com/sethvargo/go-diceware v0.3.0
-  * github.com/spf13/viper v1.11.0
-  * github.com/xeipuuv/gojsonschema v1.2.0
-  * go.etcd.io/etcd/client/v3 v3.5.4
-  * go.step.sm/crypto v0.16.1
-  * golang.org/x/crypto v0.0.0-20220517005047-85d78b3ac167
-	* golang.org/x/oauth2 v0.0.0-20220411215720-9780585627b5
-	* golang.org/x/sync v0.0.0-20220513210516-0976fa681c29
-	* golang.org/x/sys v0.0.0-20220513210249-45d2b4557a2a
-	* golang.org/x/term v0.0.0-20220411215600-e5f449aeb171
-	* google.golang.org/genproto v0.0.0-20220505152158-f39f71e6c8f3
-	* google.golang.org/grpc v1.46.2
-	* google.golang.org/protobuf v1.28.0
-	* gopkg.in/yaml.v3 v3.0.0-20220512140231-539c8e751b99
-	* oras.land/oras-go v1.1.1
 
 * CI:
-  * Build with Golang 1.18.2
+  * Build with Golang 1.18.4
 
 ## 0.2.10
 

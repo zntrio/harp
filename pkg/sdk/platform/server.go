@@ -82,6 +82,11 @@ func Serve(ctx context.Context, srv *Server) error {
 
 		server := &http.Server{
 			Handler: instrumentationRouter,
+			// Set timeouts to avoid Slowloris attacks.
+			ReadHeaderTimeout: time.Second * 20,
+			WriteTimeout:      time.Second * 60,
+			ReadTimeout:       time.Second * 60,
+			IdleTimeout:       time.Second * 120,
 		}
 
 		group.Add(
