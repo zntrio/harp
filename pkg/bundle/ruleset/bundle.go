@@ -22,8 +22,8 @@ import (
 	"errors"
 	"fmt"
 
-	bundlev1 "github.com/zntrio/harp/api/gen/go/harp/bundle/v1"
-	"github.com/zntrio/harp/pkg/bundle"
+	bundlev1 "github.com/zntrio/harp/v1/api/gen/go/harp/bundle/v1"
+	"github.com/zntrio/harp/v1/pkg/bundle"
 )
 
 // FromBundle crawls secret structure to generate a linter ruleset.

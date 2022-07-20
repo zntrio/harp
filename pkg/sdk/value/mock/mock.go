@@ -20,7 +20,7 @@ package mock
 import (
 	"context"
 
-	"github.com/zntrio/harp/pkg/sdk/value"
+	"github.com/zntrio/harp/v1/pkg/sdk/value"
 )
 
 func Transformer(err error) value.Transformer {

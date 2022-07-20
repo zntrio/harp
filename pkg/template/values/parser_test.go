@@ -21,12 +21,12 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/zntrio/harp/pkg/template/values/hcl1"
-	"github.com/zntrio/harp/pkg/template/values/hcl2"
-	"github.com/zntrio/harp/pkg/template/values/hocon"
-	"github.com/zntrio/harp/pkg/template/values/toml"
-	"github.com/zntrio/harp/pkg/template/values/xml"
-	"github.com/zntrio/harp/pkg/template/values/yaml"
+	"github.com/zntrio/harp/v1/pkg/template/values/hcl1"
+	"github.com/zntrio/harp/v1/pkg/template/values/hcl2"
+	"github.com/zntrio/harp/v1/pkg/template/values/hocon"
+	"github.com/zntrio/harp/v1/pkg/template/values/toml"
+	"github.com/zntrio/harp/v1/pkg/template/values/xml"
+	"github.com/zntrio/harp/v1/pkg/template/values/yaml"
 )
 
 func TestGetParser(t *testing.T) {

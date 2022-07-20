@@ -26,8 +26,8 @@ import (
 	"github.com/magefile/mage/mg"
 	"github.com/magefile/mage/sh"
 
-	"github.com/zntrio/harp/build/artifact"
-	"github.com/zntrio/harp/build/mage/git"
+	"github.com/zntrio/harp/v1/build/artifact"
+	"github.com/zntrio/harp/v1/build/mage/git"
 
 	exec "golang.org/x/sys/execabs"
 )

@@ -32,7 +32,7 @@ var (
 type contextKey string
 
 func (c contextKey) String() string {
-	return "github.com/zntrio/harp/pkg/sdk/value/signature/" + string(c)
+	return "github.com/zntrio/harp/v1/pkg/sdk/value/signature/" + string(c)
 }
 
 // -----------------------------------------------------------------------------

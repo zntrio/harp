@@ -26,8 +26,8 @@ import (
 	"oras.land/oras-go/pkg/content"
 	"oras.land/oras-go/pkg/target"
 
-	"github.com/zntrio/harp/pkg/crate"
-	"github.com/zntrio/harp/pkg/sdk/log"
+	"github.com/zntrio/harp/v1/pkg/crate"
+	"github.com/zntrio/harp/v1/pkg/sdk/log"
 )
 
 // CopyTask implements secret-container pulling process to and OCI compatible registry.

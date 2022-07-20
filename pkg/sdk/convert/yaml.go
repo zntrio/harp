@@ -27,7 +27,7 @@ import (
 
 	"sigs.k8s.io/yaml"
 
-	"github.com/zntrio/harp/pkg/sdk/types"
+	"github.com/zntrio/harp/v1/pkg/sdk/types"
 )
 
 // YAMLtoJSON reads a given reader in order to extract a JSON representation

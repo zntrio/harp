@@ -25,8 +25,8 @@ import (
 	"github.com/skratchdot/open-golang/open"
 	"github.com/spf13/cobra"
 
-	"github.com/zntrio/harp/pkg/sdk/cmdutil"
-	"github.com/zntrio/harp/pkg/sdk/log"
+	"github.com/zntrio/harp/v1/pkg/sdk/cmdutil"
+	"github.com/zntrio/harp/v1/pkg/sdk/log"
 )
 
 // -----------------------------------------------------------------------------

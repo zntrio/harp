@@ -21,7 +21,7 @@ import (
 	"fmt"
 	"strings"
 
-	bundlev1 "github.com/zntrio/harp/api/gen/go/harp/bundle/v1"
+	bundlev1 "github.com/zntrio/harp/v1/api/gen/go/harp/bundle/v1"
 )
 
 // ToPatch convert oplog to a bundle patch.

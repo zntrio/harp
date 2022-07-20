@@ -25,8 +25,8 @@ import (
 
 	"github.com/fernet/fernet-go"
 
-	"github.com/zntrio/harp/pkg/sdk/value"
-	"github.com/zntrio/harp/pkg/sdk/value/encryption"
+	"github.com/zntrio/harp/v1/pkg/sdk/value"
+	"github.com/zntrio/harp/v1/pkg/sdk/value/encryption"
 )
 
 func init() {

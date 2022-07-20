@@ -25,8 +25,8 @@ import (
 
 	"github.com/google/go-cmp/cmp"
 
-	"github.com/zntrio/harp/pkg/sdk/value"
-	"github.com/zntrio/harp/pkg/sdk/value/encryption/secretbox"
+	"github.com/zntrio/harp/v1/pkg/sdk/value"
+	"github.com/zntrio/harp/v1/pkg/sdk/value/encryption/secretbox"
 )
 
 type testEnvelopeService struct{}

@@ -21,7 +21,7 @@ import (
 	"encoding/json"
 	"fmt"
 
-	"github.com/zntrio/harp/pkg/crate/schema"
+	"github.com/zntrio/harp/v1/pkg/crate/schema"
 )
 
 func NewConfig() schema.Config {

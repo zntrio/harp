@@ -5,6 +5,9 @@ before:
     - go mod tidy
     - go mod vendor
 
+gomod:
+  proxy: true
+
 builds:
   - id: harp
     main: './cmd/harp'
@@ -16,26 +19,25 @@ builds:
     ldflags:
       - '-s'
       - '-w'
-      - '-X github.com/zntrio/harp/build/version.Name=harp'
-      - '-X github.com/zntrio/harp/build/version.AppName=github.com/zntrio/harp/cmd/harp'
-      - '-X github.com/zntrio/harp/build/version.Version={{.Version}}'
-      - '-X github.com/zntrio/harp/build/version.Commit={{.CommitDate}}'
-      - '-X github.com/zntrio/harp/build/version.Branch={{.Branch}}'
-      - '-X github.com/zntrio/harp/build/version.BuildDate={{.Date}}'
-      - '-X github.com/zntrio/harp/build/version.BuildTags=defaults'
+      - '-X github.com/zntrio/harp/v1/build/version.Name=harp'
+      - '-X github.com/zntrio/harp/v1/build/version.AppName=github.com/zntrio/harp/cmd/harp'
+      - '-X github.com/zntrio/harp/v1/build/version.Version={{.Version}}'
+      - '-X github.com/zntrio/harp/v1/build/version.Commit={{.CommitDate}}'
+      - '-X github.com/zntrio/harp/v1/build/version.Branch={{.Branch}}'
+      - '-X github.com/zntrio/harp/v1/build/version.BuildDate={{.Date}}'
+      - '-X github.com/zntrio/harp/v1/build/version.BuildTags=defaults'
     targets:
-      - darwin_amd64
+      - darwin_amd64_v1
       - darwin_arm64
-      - linux_amd64
-      - linux_arm
+      - linux_amd64_v1
+      - linux_arm_6
       - linux_arm64
-      - windows_amd64
-      - windows_arm
+      - windows_amd64_v1
       - windows_arm64
-    binary: 'harp-{{replace .Target "_" "-"}}'
+    binary: 'harp-{{ .Os }}-{{ .Arch }}{{ .Arm }}'
     hooks:
       post:
-        - cmd: cyclonedx-gomod app -main ./cmd/harp -licenses -packages -json -output "dist/harp-{{replace .Target "_" "-"}}.sbom.json"
+        - cmd: cyclonedx-gomod app -main ./cmd/harp -licenses -packages -json -output "dist/harp-{{ .Os }}-{{ .Arch }}{{ .Arm }}.sbom.json"
           env:
             - GOARCH={{ .Arch }}
             - GOOS={{ .Os }}

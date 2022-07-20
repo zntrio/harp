@@ -17,7 +17,7 @@
 
 package config
 
-import "github.com/zntrio/harp/pkg/sdk/platform"
+import "github.com/zntrio/harp/v1/pkg/sdk/platform"
 
 // Configuration contains harp settings
 type Configuration struct {

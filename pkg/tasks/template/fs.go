@@ -24,8 +24,8 @@ import (
 
 	"github.com/psanford/memfs"
 
-	"github.com/zntrio/harp/pkg/sdk/fsutil"
-	"github.com/zntrio/harp/pkg/template/engine"
+	"github.com/zntrio/harp/v1/pkg/sdk/fsutil"
+	"github.com/zntrio/harp/v1/pkg/template/engine"
 )
 
 // FileSystemTask implements filesystem template rendering task.

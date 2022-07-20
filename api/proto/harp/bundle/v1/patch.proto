@@ -20,7 +20,7 @@ syntax = "proto3";
 package harp.bundle.v1;
 
 option csharp_namespace = "harp.Bundle.V1";
-option go_package = "github.com/zntrio/harp/api/gen/go/harp/bundle/v1;bundlev1";
+option go_package = "github.com/zntrio/harp/v1/api/gen/go/harp/bundle/v1;bundlev1";
 option java_multiple_files = true;
 option java_outer_classname = "PatchProto";
 option java_package = "com.github.elastic.cloudsec.harp.bundle.v1";

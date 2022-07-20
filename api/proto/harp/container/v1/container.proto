@@ -20,7 +20,7 @@ syntax = "proto3";
 package harp.container.v1;
 
 option csharp_namespace = "harp.Container.V1";
-option go_package = "github.com/zntrio/harp/api/gen/go/harp/container/v1;containerv1";
+option go_package = "github.com/zntrio/harp/v1/api/gen/go/harp/container/v1;containerv1";
 option java_multiple_files = true;
 option java_outer_classname = "ContainerProto";
 option java_package = "com.github.elastic.cloudsec.harp.container.v1";

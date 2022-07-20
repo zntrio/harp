@@ -29,7 +29,7 @@ import (
 	"github.com/cloudflare/tableflip"
 	"github.com/oklog/run"
 
-	"github.com/zntrio/harp/pkg/sdk/log"
+	"github.com/zntrio/harp/v1/pkg/sdk/log"
 )
 
 // TableflipReloader deleagtes socket reloading to tableflip library which his

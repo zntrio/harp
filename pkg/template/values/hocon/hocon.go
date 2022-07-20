@@ -28,7 +28,7 @@ import (
 	"github.com/go-akka/configuration/hocon"
 	"go.uber.org/zap"
 
-	"github.com/zntrio/harp/pkg/sdk/log"
+	"github.com/zntrio/harp/v1/pkg/sdk/log"
 )
 
 // Parser is a HOCON parser

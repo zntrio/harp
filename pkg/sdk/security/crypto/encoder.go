@@ -38,9 +38,9 @@ import (
 	jose "gopkg.in/square/go-jose.v2"
 	"gopkg.in/square/go-jose.v2/jwt"
 
-	"github.com/zntrio/harp/build/fips"
-	"github.com/zntrio/harp/pkg/sdk/security/crypto/bech32"
-	"github.com/zntrio/harp/pkg/sdk/types"
+	"github.com/zntrio/harp/v1/build/fips"
+	"github.com/zntrio/harp/v1/pkg/sdk/security/crypto/bech32"
+	"github.com/zntrio/harp/v1/pkg/sdk/types"
 
 	// Import Blake2b
 	_ "golang.org/x/crypto/blake2b"

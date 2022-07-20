@@ -22,9 +22,9 @@ import (
 
 	"github.com/google/go-cmp/cmp"
 
-	bundlev1 "github.com/zntrio/harp/api/gen/go/harp/bundle/v1"
-	csov1 "github.com/zntrio/harp/pkg/cso/v1"
-	"github.com/zntrio/harp/pkg/template/engine"
+	bundlev1 "github.com/zntrio/harp/v1/api/gen/go/harp/bundle/v1"
+	csov1 "github.com/zntrio/harp/v1/pkg/cso/v1"
+	"github.com/zntrio/harp/v1/pkg/template/engine"
 )
 
 func TestSuffix(t *testing.T) {

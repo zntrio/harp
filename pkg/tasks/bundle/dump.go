@@ -26,10 +26,10 @@ import (
 
 	"github.com/jmespath/go-jmespath"
 
-	bundlev1 "github.com/zntrio/harp/api/gen/go/harp/bundle/v1"
-	"github.com/zntrio/harp/pkg/bundle"
-	"github.com/zntrio/harp/pkg/sdk/types"
-	"github.com/zntrio/harp/pkg/tasks"
+	bundlev1 "github.com/zntrio/harp/v1/api/gen/go/harp/bundle/v1"
+	"github.com/zntrio/harp/v1/pkg/bundle"
+	"github.com/zntrio/harp/v1/pkg/sdk/types"
+	"github.com/zntrio/harp/v1/pkg/tasks"
 )
 
 // DumpTask implements secret-container dumping task.

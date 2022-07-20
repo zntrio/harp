@@ -25,8 +25,8 @@ import (
 
 	fuzz "github.com/google/gofuzz"
 
-	"github.com/zntrio/harp/pkg/sdk/cmdutil"
-	"github.com/zntrio/harp/pkg/tasks"
+	"github.com/zntrio/harp/v1/pkg/sdk/cmdutil"
+	"github.com/zntrio/harp/v1/pkg/tasks"
 )
 
 func TestSealTask_Run_V1(t *testing.T) {

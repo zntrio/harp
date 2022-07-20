@@ -30,12 +30,12 @@ import (
 	"github.com/imdario/mergo"
 	"go.uber.org/zap"
 
-	bundlev1 "github.com/zntrio/harp/api/gen/go/harp/bundle/v1"
-	"github.com/zntrio/harp/pkg/bundle/secret"
-	"github.com/zntrio/harp/pkg/sdk/log"
-	"github.com/zntrio/harp/pkg/sdk/types"
-	"github.com/zntrio/harp/pkg/vault/kv"
-	vaultPath "github.com/zntrio/harp/pkg/vault/path"
+	bundlev1 "github.com/zntrio/harp/v1/api/gen/go/harp/bundle/v1"
+	"github.com/zntrio/harp/v1/pkg/bundle/secret"
+	"github.com/zntrio/harp/v1/pkg/sdk/log"
+	"github.com/zntrio/harp/v1/pkg/sdk/types"
+	"github.com/zntrio/harp/v1/pkg/vault/kv"
+	vaultPath "github.com/zntrio/harp/v1/pkg/vault/path"
 
 	"golang.org/x/sync/errgroup"
 	"golang.org/x/sync/semaphore"

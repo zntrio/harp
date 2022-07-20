@@ -93,7 +93,7 @@ jobs:
             ],
             "bundle_id":"io.harpsec.cli",
             "apple_id": {},
-            "sign": { "application_identity": "9470D0A7B70090A8EF31C3B33AB3868B38B27A3D" },
+            "sign": { "application_identity": "AA99310C5F2AE5E79F93A92993930904F95B59FC" },
             "zip": {
               "output_path": "./dist/harp-darwin.zip"
             }

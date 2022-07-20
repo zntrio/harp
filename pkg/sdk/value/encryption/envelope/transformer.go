@@ -23,8 +23,8 @@ import (
 	"encoding/base64"
 	"fmt"
 
-	"github.com/zntrio/harp/pkg/sdk/value"
-	"github.com/zntrio/harp/pkg/sdk/value/encryption"
+	"github.com/zntrio/harp/v1/pkg/sdk/value"
+	"github.com/zntrio/harp/v1/pkg/sdk/value/encryption"
 
 	"golang.org/x/crypto/cryptobyte"
 )

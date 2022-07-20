@@ -25,7 +25,7 @@ import (
 
 	"github.com/stretchr/testify/assert"
 
-	"github.com/zntrio/harp/pkg/kv"
+	"github.com/zntrio/harp/v1/pkg/kv"
 )
 
 func testSuite(ctx context.Context, s kv.Store) func(t *testing.T) {

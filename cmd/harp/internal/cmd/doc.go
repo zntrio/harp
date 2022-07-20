@@ -21,7 +21,7 @@ import (
 	"github.com/spf13/cobra"
 	"github.com/spf13/cobra/doc"
 
-	"github.com/zntrio/harp/pkg/sdk/cmdutil"
+	"github.com/zntrio/harp/v1/pkg/sdk/cmdutil"
 )
 
 // -----------------------------------------------------------------------------

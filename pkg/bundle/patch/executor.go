@@ -28,10 +28,10 @@ import (
 	"github.com/imdario/mergo"
 	"github.com/jmespath/go-jmespath"
 
-	bundlev1 "github.com/zntrio/harp/api/gen/go/harp/bundle/v1"
-	"github.com/zntrio/harp/pkg/bundle/secret"
-	"github.com/zntrio/harp/pkg/bundle/selector"
-	"github.com/zntrio/harp/pkg/template/engine"
+	bundlev1 "github.com/zntrio/harp/v1/api/gen/go/harp/bundle/v1"
+	"github.com/zntrio/harp/v1/pkg/bundle/secret"
+	"github.com/zntrio/harp/v1/pkg/bundle/selector"
+	"github.com/zntrio/harp/v1/pkg/template/engine"
 )
 
 type ruleAction uint

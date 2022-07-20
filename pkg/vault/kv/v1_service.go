@@ -21,8 +21,8 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/zntrio/harp/pkg/vault/logical"
-	vpath "github.com/zntrio/harp/pkg/vault/path"
+	"github.com/zntrio/harp/v1/pkg/vault/logical"
+	vpath "github.com/zntrio/harp/v1/pkg/vault/path"
 )
 
 type kvv1Backend struct {

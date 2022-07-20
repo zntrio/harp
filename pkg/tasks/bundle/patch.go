@@ -22,10 +22,10 @@ import (
 	"errors"
 	"fmt"
 
-	"github.com/zntrio/harp/pkg/bundle"
-	"github.com/zntrio/harp/pkg/bundle/patch"
-	"github.com/zntrio/harp/pkg/sdk/types"
-	"github.com/zntrio/harp/pkg/tasks"
+	"github.com/zntrio/harp/v1/pkg/bundle"
+	"github.com/zntrio/harp/v1/pkg/bundle/patch"
+	"github.com/zntrio/harp/v1/pkg/sdk/types"
+	"github.com/zntrio/harp/v1/pkg/tasks"
 )
 
 // PatchTask implements secret container patching task.

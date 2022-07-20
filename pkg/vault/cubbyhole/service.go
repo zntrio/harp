@@ -26,8 +26,8 @@ import (
 	"github.com/golang/snappy"
 	"github.com/hashicorp/vault/api"
 
-	"github.com/zntrio/harp/pkg/vault/logical"
-	vpath "github.com/zntrio/harp/pkg/vault/path"
+	"github.com/zntrio/harp/v1/pkg/vault/logical"
+	vpath "github.com/zntrio/harp/v1/pkg/vault/path"
 )
 
 type service struct {

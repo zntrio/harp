@@ -26,8 +26,8 @@ import (
 	validation "github.com/go-ozzo/ozzo-validation/v4"
 	"github.com/go-ozzo/ozzo-validation/v4/is"
 
-	"github.com/zntrio/harp/pkg/container/identity/key"
-	"github.com/zntrio/harp/pkg/sdk/types"
+	"github.com/zntrio/harp/v1/pkg/container/identity/key"
+	"github.com/zntrio/harp/v1/pkg/sdk/types"
 )
 
 const (

@@ -22,9 +22,9 @@ import (
 	"sort"
 	"strings"
 
-	bundlev1 "github.com/zntrio/harp/api/gen/go/harp/bundle/v1"
-	"github.com/zntrio/harp/pkg/bundle/secret"
-	"github.com/zntrio/harp/pkg/sdk/security"
+	bundlev1 "github.com/zntrio/harp/v1/api/gen/go/harp/bundle/v1"
+	"github.com/zntrio/harp/v1/pkg/bundle/secret"
+	"github.com/zntrio/harp/v1/pkg/sdk/security"
 )
 
 const (

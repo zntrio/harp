@@ -22,9 +22,9 @@ import (
 	"go.uber.org/zap"
 	"gopkg.in/square/go-jose.v2"
 
-	"github.com/zntrio/harp/pkg/sdk/cmdutil"
-	"github.com/zntrio/harp/pkg/sdk/log"
-	"github.com/zntrio/harp/pkg/tasks/keygen"
+	"github.com/zntrio/harp/v1/pkg/sdk/cmdutil"
+	"github.com/zntrio/harp/v1/pkg/sdk/log"
+	"github.com/zntrio/harp/v1/pkg/tasks/keygen"
 )
 
 // -----------------------------------------------------------------------------

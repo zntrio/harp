@@ -31,11 +31,11 @@ import (
 	"github.com/magefile/mage/mg"
 	"github.com/magefile/mage/sh"
 
-	"github.com/zntrio/harp/build/artifact"
-	"github.com/zntrio/harp/build/mage/docker"
-	"github.com/zntrio/harp/build/mage/git"
-	"github.com/zntrio/harp/build/mage/golang"
-	"github.com/zntrio/harp/build/mage/release"
+	"github.com/zntrio/harp/v1/build/artifact"
+	"github.com/zntrio/harp/v1/build/mage/docker"
+	"github.com/zntrio/harp/v1/build/mage/git"
+	"github.com/zntrio/harp/v1/build/mage/golang"
+	"github.com/zntrio/harp/v1/build/mage/release"
 )
 
 // -----------------------------------------------------------------------------
@@ -69,7 +69,7 @@ func (Code) Generate() {
 	color.Cyan("## Generate code")
 	mg.SerialDeps(
 		func() error {
-			return golang.Generate("SDK", "github.com/zntrio/harp/pkg/...")()
+			return golang.Generate("SDK", "github.com/zntrio/harp/v1/pkg/...")()
 		},
 	)
 }
@@ -95,7 +95,7 @@ var Default = Build
 
 var (
 	harpCli = &artifact.Command{
-		Package:     "github.com/zntrio/harp",
+		Package:     "github.com/zntrio/harp/v1",
 		Name:        "Harp",
 		Description: "Secret management toolchain",
 	}
@@ -134,10 +134,10 @@ func (Test) Unit() {
 	color.Cyan("## Unit Tests")
 	mg.SerialDeps(
 		func() error {
-			return golang.UnitTest("github.com/zntrio/harp/pkg/...")()
+			return golang.UnitTest("github.com/zntrio/harp/v1/pkg/...")()
 		},
 		func() error {
-			return golang.UnitTest("github.com/zntrio/harp/cmd/harp/...")()
+			return golang.UnitTest("github.com/zntrio/harp/v1/cmd/harp/...")()
 		},
 	)
 }
@@ -147,7 +147,7 @@ func (Test) CLI() {
 	color.Cyan("## CLI Tests")
 	mg.SerialDeps(
 		func() error {
-			return golang.UnitTest("github.com/zntrio/harp/test/cmd")()
+			return golang.UnitTest("github.com/zntrio/harp/v1/test/cmd")()
 		},
 	)
 }
@@ -161,7 +161,7 @@ func Compile() error {
 	}
 
 	// Build artifact
-	return golang.Build("harp", "github.com/zntrio/harp/cmd/harp", version)()
+	return golang.Build("harp", "github.com/zntrio/harp/v1/cmd/harp", version)()
 }
 
 // Release harp version and cross-compile code to produce all artifacts.
@@ -181,7 +181,7 @@ func Release(ctx context.Context) error {
 		func() error {
 			return golang.Release(
 				"harp",
-				"github.com/zntrio/harp/cmd/harp",
+				"github.com/zntrio/harp/v1/cmd/harp",
 				version,
 				golang.GOOS("darwin"), golang.GOARCH("amd64"),
 			)()
@@ -189,7 +189,7 @@ func Release(ctx context.Context) error {
 		func() error {
 			return golang.Release(
 				"harp",
-				"github.com/zntrio/harp/cmd/harp",
+				"github.com/zntrio/harp/v1/cmd/harp",
 				version,
 				golang.GOOS("darwin"), golang.GOARCH("arm64"),
 			)()
@@ -197,7 +197,7 @@ func Release(ctx context.Context) error {
 		func() error {
 			return golang.Release(
 				"harp",
-				"github.com/zntrio/harp/cmd/harp",
+				"github.com/zntrio/harp/v1/cmd/harp",
 				version,
 				golang.GOOS("linux"), golang.GOARCH("amd64"),
 			)()
@@ -205,7 +205,7 @@ func Release(ctx context.Context) error {
 		func() error {
 			return golang.Release(
 				"harp",
-				"github.com/zntrio/harp/cmd/harp",
+				"github.com/zntrio/harp/v1/cmd/harp",
 				version,
 				golang.GOOS("linux"), golang.GOARCH("arm"), golang.GOARM("7"),
 			)()
@@ -213,7 +213,7 @@ func Release(ctx context.Context) error {
 		func() error {
 			return golang.Release(
 				"harp",
-				"github.com/zntrio/harp/cmd/harp",
+				"github.com/zntrio/harp/v1/cmd/harp",
 				version,
 				golang.GOOS("linux"), golang.GOARCH("arm64"),
 			)()
@@ -221,7 +221,7 @@ func Release(ctx context.Context) error {
 		func() error {
 			return golang.Release(
 				"harp",
-				"github.com/zntrio/harp/cmd/harp",
+				"github.com/zntrio/harp/v1/cmd/harp",
 				version,
 				golang.GOOS("windows"), golang.GOARCH("amd64"),
 			)()
@@ -229,7 +229,7 @@ func Release(ctx context.Context) error {
 		func() error {
 			return golang.Release(
 				"harp",
-				"github.com/zntrio/harp/cmd/harp",
+				"github.com/zntrio/harp/v1/cmd/harp",
 				version,
 				golang.GOOS("windows"), golang.GOARCH("arm64"),
 			)()

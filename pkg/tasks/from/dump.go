@@ -22,9 +22,9 @@ import (
 	"fmt"
 	"io"
 
-	bundlev1 "github.com/zntrio/harp/api/gen/go/harp/bundle/v1"
-	"github.com/zntrio/harp/pkg/bundle"
-	"github.com/zntrio/harp/pkg/tasks"
+	bundlev1 "github.com/zntrio/harp/v1/api/gen/go/harp/bundle/v1"
+	"github.com/zntrio/harp/v1/pkg/bundle"
+	"github.com/zntrio/harp/v1/pkg/tasks"
 )
 
 // BundleDumpTask implements secret-container creation from a Bundle Dump.

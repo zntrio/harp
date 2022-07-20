@@ -26,8 +26,8 @@ import (
 	"github.com/awnumar/memguard"
 	"google.golang.org/protobuf/proto"
 
-	containerv1 "github.com/zntrio/harp/api/gen/go/harp/container/v1"
-	"github.com/zntrio/harp/pkg/sdk/types"
+	containerv1 "github.com/zntrio/harp/v1/api/gen/go/harp/container/v1"
+	"github.com/zntrio/harp/v1/pkg/sdk/types"
 
 	"golang.org/x/crypto/nacl/secretbox"
 )

@@ -23,9 +23,9 @@ import (
 	"fmt"
 	"path"
 
-	"github.com/zntrio/harp/pkg/bundle"
-	"github.com/zntrio/harp/pkg/kv"
-	"github.com/zntrio/harp/pkg/tasks"
+	"github.com/zntrio/harp/v1/pkg/bundle"
+	"github.com/zntrio/harp/v1/pkg/kv"
+	"github.com/zntrio/harp/v1/pkg/tasks"
 )
 
 type PublishKVTask struct {

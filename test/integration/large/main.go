@@ -21,9 +21,9 @@ import (
 	"fmt"
 	"os"
 
-	bundlev1 "github.com/zntrio/harp/api/gen/go/harp/bundle/v1"
-	"github.com/zntrio/harp/pkg/bundle"
-	"github.com/zntrio/harp/pkg/bundle/secret"
+	bundlev1 "github.com/zntrio/harp/v1/api/gen/go/harp/bundle/v1"
+	"github.com/zntrio/harp/v1/pkg/bundle"
+	"github.com/zntrio/harp/v1/pkg/bundle/secret"
 )
 
 func main() {

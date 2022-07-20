@@ -26,7 +26,7 @@ import (
 	"io"
 	"strings"
 
-	"github.com/zntrio/harp/pkg/sdk/ioutil"
+	"github.com/zntrio/harp/v1/pkg/sdk/ioutil"
 )
 
 // -----------------------------------------------------------------------------

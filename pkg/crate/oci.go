@@ -29,12 +29,12 @@ import (
 	ocispec "github.com/opencontainers/image-spec/specs-go/v1"
 	"oras.land/oras-go/pkg/content"
 
-	containerv1 "github.com/zntrio/harp/api/gen/go/harp/container/v1"
-	"github.com/zntrio/harp/build/version"
-	"github.com/zntrio/harp/pkg/container"
-	"github.com/zntrio/harp/pkg/crate/schema"
-	schemav1 "github.com/zntrio/harp/pkg/crate/schema/v1"
-	"github.com/zntrio/harp/pkg/sdk/types"
+	containerv1 "github.com/zntrio/harp/v1/api/gen/go/harp/container/v1"
+	"github.com/zntrio/harp/v1/build/version"
+	"github.com/zntrio/harp/v1/pkg/container"
+	"github.com/zntrio/harp/v1/pkg/crate/schema"
+	schemav1 "github.com/zntrio/harp/v1/pkg/crate/schema/v1"
+	"github.com/zntrio/harp/v1/pkg/sdk/types"
 )
 
 // StoreSetter is the interface used to mock the image store.

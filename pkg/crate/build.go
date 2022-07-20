@@ -28,11 +28,11 @@ import (
 
 	"go.uber.org/zap"
 
-	"github.com/zntrio/harp/pkg/container"
-	"github.com/zntrio/harp/pkg/crate/cratefile"
-	schemav1 "github.com/zntrio/harp/pkg/crate/schema/v1"
-	"github.com/zntrio/harp/pkg/sdk/log"
-	"github.com/zntrio/harp/pkg/template/archive"
+	"github.com/zntrio/harp/v1/pkg/container"
+	"github.com/zntrio/harp/v1/pkg/crate/cratefile"
+	schemav1 "github.com/zntrio/harp/v1/pkg/crate/schema/v1"
+	"github.com/zntrio/harp/v1/pkg/sdk/log"
+	"github.com/zntrio/harp/v1/pkg/template/archive"
 )
 
 const (

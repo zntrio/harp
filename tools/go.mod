@@ -1,4 +1,4 @@
-module github.com/zntrio/harp/tools
+module github.com/zntrio/harp/v1/tools
 
 go 1.18
 

@@ -27,10 +27,10 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/zntrio/harp/pkg/sdk/cmdutil"
-	"github.com/zntrio/harp/pkg/sdk/flags/strvals"
-	"github.com/zntrio/harp/pkg/sdk/log"
-	"github.com/zntrio/harp/pkg/template/values"
+	"github.com/zntrio/harp/v1/pkg/sdk/cmdutil"
+	"github.com/zntrio/harp/v1/pkg/sdk/flags/strvals"
+	"github.com/zntrio/harp/v1/pkg/sdk/log"
+	"github.com/zntrio/harp/v1/pkg/template/values"
 )
 
 // Inspired from Helm v3

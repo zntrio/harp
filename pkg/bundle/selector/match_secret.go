@@ -22,7 +22,7 @@ import (
 
 	"github.com/gobwas/glob"
 
-	bundlev1 "github.com/zntrio/harp/api/gen/go/harp/bundle/v1"
+	bundlev1 "github.com/zntrio/harp/v1/api/gen/go/harp/bundle/v1"
 )
 
 // MatchSecretStrict returns a secret key matcher specification with strict profile.

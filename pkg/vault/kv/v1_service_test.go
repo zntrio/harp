@@ -26,7 +26,7 @@ import (
 	"github.com/golang/mock/gomock"
 	vaultApi "github.com/hashicorp/vault/api"
 
-	"github.com/zntrio/harp/pkg/vault/logical"
+	"github.com/zntrio/harp/v1/pkg/vault/logical"
 )
 
 func Test_KVV1_List(t *testing.T) {

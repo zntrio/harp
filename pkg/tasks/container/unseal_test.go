@@ -25,8 +25,8 @@ import (
 
 	"github.com/awnumar/memguard"
 
-	"github.com/zntrio/harp/pkg/sdk/cmdutil"
-	"github.com/zntrio/harp/pkg/tasks"
+	"github.com/zntrio/harp/v1/pkg/sdk/cmdutil"
+	"github.com/zntrio/harp/v1/pkg/tasks"
 )
 
 func TestUnsealTask_Run(t *testing.T) {

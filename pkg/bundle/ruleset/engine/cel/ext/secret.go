@@ -28,8 +28,8 @@ import (
 	"github.com/google/cel-go/common/types"
 	"github.com/google/cel-go/common/types/ref"
 
-	bundlev1 "github.com/zntrio/harp/api/gen/go/harp/bundle/v1"
-	"github.com/zntrio/harp/pkg/bundle/secret"
+	bundlev1 "github.com/zntrio/harp/v1/api/gen/go/harp/bundle/v1"
+	"github.com/zntrio/harp/v1/pkg/bundle/secret"
 )
 
 // Secrets exported secret operations.

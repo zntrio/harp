@@ -17,7 +17,7 @@
 
 package patch
 
-import bundlev1 "github.com/zntrio/harp/api/gen/go/harp/bundle/v1"
+import bundlev1 "github.com/zntrio/harp/v1/api/gen/go/harp/bundle/v1"
 
 // WithAnnotations returns the given patch spec patch annotations state.
 func WithAnnotations(p *bundlev1.Patch) bool {

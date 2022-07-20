@@ -22,7 +22,7 @@ import (
 
 	"github.com/google/go-cmp/cmp"
 
-	"github.com/zntrio/harp/pkg/bundle"
+	"github.com/zntrio/harp/v1/pkg/bundle"
 )
 
 func TestExpand(t *testing.T) {
