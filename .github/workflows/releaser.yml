@@ -99,7 +99,7 @@ jobs:
             }
           }' | jq '' > gon.json
           gon -log-level=debug -log-json ./gon.json
-          rm -f .dist/harp-darwin-*
+          rm -f .dist/harp-darwin-amd64 .dist/harp-darwin-arm64
       -
         name: Prepare archives
         run: |
