@@ -24,7 +24,7 @@ import (
 	_ "github.com/golang/mock/mockgen/model"
 )
 
-//go:generate mockgen -destination test/mock/transformer.gen.go -package mock github.com/zntrio/harp/pkg/sdk/value Transformer
+//go:generate mockgen -destination test/mock/transformer.gen.go -package mock github.com/zntrio/harp/v1/pkg/sdk/value Transformer
 
 // Transformer declares value transformer contract
 type Transformer interface {
