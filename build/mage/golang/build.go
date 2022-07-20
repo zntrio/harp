@@ -22,8 +22,8 @@ import (
 	"fmt"
 	"os"
 	"runtime"
+	"sort"
 	"strings"
-	"time"
 
 	"github.com/magefile/mage/mg"
 	"github.com/magefile/mage/sh"
@@ -148,21 +148,27 @@ func Build(name, packageName, version string, opts ...BuildOption) func() error 
 
 		// Inject version information
 		varsSetByLinker := map[string]string{
-			"github.com/zntrio/harp/v2/build/version.Name":      name,
-			"github.com/zntrio/harp/v2/build/version.AppName":   packageName,
-			"github.com/zntrio/harp/v2/build/version.Version":   version,
-			"github.com/zntrio/harp/v2/build/version.Commit":    git.Revision,
-			"github.com/zntrio/harp/v2/build/version.Branch":    git.Branch,
-			"github.com/zntrio/harp/v2/build/version.BuildDate": time.Now().Format(time.RFC3339),
+			"github.com/zntrio/harp/v2/build/version.Name":    name,
+			"github.com/zntrio/harp/v2/build/version.AppName": packageName,
+			"github.com/zntrio/harp/v2/build/version.Version": version,
+			"github.com/zntrio/harp/v2/build/version.Commit":  git.Revision,
+			"github.com/zntrio/harp/v2/build/version.Branch":  git.Branch,
+			//"github.com/zntrio/harp/v2/build/version.BuildDate": time.Now().Format(time.RFC3339),
 			"github.com/zntrio/harp/v2/build/version.BuildTags": strCompilationFlags,
 		}
+		linkerKeys := make([]string, 0, len(varsSetByLinker))
+		for k := range varsSetByLinker {
+			linkerKeys = append(linkerKeys, k)
+		}
+		sort.Strings(linkerKeys)
+
 		var linkerArgs []string
-		for name, value := range varsSetByLinker {
-			linkerArgs = append(linkerArgs, "-X", fmt.Sprintf("'%s=%s'", name, value))
+		for _, k := range linkerKeys {
+			linkerArgs = append(linkerArgs, "-X", fmt.Sprintf("'%s=%s'", k, varsSetByLinker[k]))
 		}
 
 		// Strip and remove DWARF
-		linkerArgs = append(linkerArgs, "-s", "-w")
+		linkerArgs = append(linkerArgs, "-s", "-w", "-buildid=")
 
 		// Assemble ldflags
 		ldflagsValue := strings.Join(linkerArgs, " ")
@@ -203,6 +209,6 @@ func Build(name, packageName, version string, opts ...BuildOption) func() error 
 		fmt.Fprintf(os.Stdout, " > Building %s [%s] [os:%s arch:%s%s flags:%v tag:%v]\n", defaultOpts.binaryName, defaultOpts.packageName, defaultOpts.goOS, defaultOpts.goArch, defaultOpts.goArm, strCompilationFlags, version)
 
 		// Compile
-		return sh.RunWith(env, "go", "build", buildMode, buildTags, "-trimpath", "-mod=readonly", "-ldflags", ldflagsValue, "-o", filename, packageName)
+		return sh.RunWith(env, "go", "build", buildMode, buildTags, "-trimpath", "-mod=vendor", "-buildvcs=false", "-ldflags", ldflagsValue, "-o", filename, packageName)
 	}
 }

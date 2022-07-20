@@ -35,7 +35,6 @@ var (
 	Version   = "unknown"
 	Commit    = "unknown"
 	Branch    = "unknown"
-	BuildDate = "unknown"
 	GoVersion = "unknown"
 	BuildTags = "unknown"
 )
@@ -50,7 +49,6 @@ func NewInfo() Info {
 		GitBranch:      Branch,
 		GitCommit:      Commit,
 		BuildTags:      BuildTags,
-		BuildDate:      BuildDate,
 		GoVersion:      fmt.Sprintf("%s %s/%s", runtime.Version(), runtime.GOOS, runtime.GOARCH),
 		BuildDeps:      depsFromBuildInfo(),
 		HarpSdkVersion: sdkVersion,
@@ -67,17 +65,16 @@ type Info struct {
 	BuildTags      string     `json:"build_tags"`
 	GoVersion      string     `json:"go"`
 	BuildDeps      []buildDep `json:"build_deps"`
-	BuildDate      string     `json:"build_date"`
 	HarpSdkVersion string     `json:"harp_sdk_version,omitempty"`
 }
 
 // Full returns full composed version string
 func (i *Info) String() string {
 	if fips.Enabled() {
-		return fmt.Sprintf("%s [%s:%s] (Go: %s, FIPS Mode, Flags: %s, Date: %s)", i.Version, i.GitBranch, i.GitCommit, i.GoVersion, i.BuildTags, BuildDate)
+		return fmt.Sprintf("%s [%s:%s] (Go: %s, FIPS Mode, Flags: %s)", i.Version, i.GitBranch, i.GitCommit, i.GoVersion, i.BuildTags)
 	}
 
-	return fmt.Sprintf("%s [%s:%s] (Go: %s, Flags: %s, Date: %s)", i.Version, i.GitBranch, i.GitCommit, i.GoVersion, i.BuildTags, BuildDate)
+	return fmt.Sprintf("%s [%s:%s] (Go: %s, Flags: %s)", i.Version, i.GitBranch, i.GitCommit, i.GoVersion, i.BuildTags)
 }
 
 // JSON returns json representation of build info
