@@ -28,8 +28,8 @@ import (
 	"github.com/spf13/cobra"
 	"go.uber.org/zap"
 
-	"github.com/elastic/harp/pkg/sdk/flags"
-	"github.com/elastic/harp/pkg/sdk/log"
+	"github.com/zntrio/harp/pkg/sdk/flags"
+	"github.com/zntrio/harp/pkg/sdk/log"
 )
 
 var configNewAsEnvFlag bool

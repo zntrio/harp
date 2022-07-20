@@ -25,7 +25,7 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/elastic/harp/pkg/sdk/log"
+	"github.com/zntrio/harp/pkg/sdk/log"
 	"go.uber.org/zap"
 )
 

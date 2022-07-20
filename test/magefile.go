@@ -15,14 +15,15 @@
 // specific language governing permissions and limitations
 // under the License.
 
-//+build mage
+//go:build mage
+// +build mage
 
 package main
 
 import (
 	"github.com/magefile/mage/mg"
 
-	"github.com/elastic/harp/build/mage/golang"
+	"github.com/zntrio/harp/build/mage/golang"
 )
 
 // -----------------------------------------------------------------------------
@@ -31,14 +32,14 @@ type Fuzz mg.Namespace
 
 func (Fuzz) BundleLoader() {
 	mg.SerialDeps(
-		golang.FuzzBuild("bundle-loader", "github.com/elastic/harp/test/fuzz/bundle/loader"),
+		golang.FuzzBuild("bundle-loader", "github.com/zntrio/harp/test/fuzz/bundle/loader"),
 		golang.FuzzRun("bundle-loader"),
 	)
 }
 
 func (Fuzz) TemplateReader() {
 	mg.SerialDeps(
-		golang.FuzzBuild("template-reader", "github.com/elastic/harp/test/fuzz/template"),
+		golang.FuzzBuild("template-reader", "github.com/zntrio/harp/test/fuzz/template"),
 		golang.FuzzRun("template-reader"),
 	)
 }

@@ -27,10 +27,10 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/elastic/harp/pkg/sdk/cmdutil"
-	"github.com/elastic/harp/pkg/sdk/flags/strvals"
-	"github.com/elastic/harp/pkg/sdk/log"
-	"github.com/elastic/harp/pkg/template/values"
+	"github.com/zntrio/harp/pkg/sdk/cmdutil"
+	"github.com/zntrio/harp/pkg/sdk/flags/strvals"
+	"github.com/zntrio/harp/pkg/sdk/log"
+	"github.com/zntrio/harp/pkg/template/values"
 )
 
 // Inspired from Helm v3

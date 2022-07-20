@@ -27,10 +27,10 @@ import (
 	"go.uber.org/zap"
 	"oras.land/oras-go/pkg/content"
 
-	"github.com/elastic/harp/pkg/crate"
-	"github.com/elastic/harp/pkg/crate/cratefile"
-	"github.com/elastic/harp/pkg/sdk/log"
-	"github.com/elastic/harp/pkg/tasks"
+	"github.com/zntrio/harp/pkg/crate"
+	"github.com/zntrio/harp/pkg/crate/cratefile"
+	"github.com/zntrio/harp/pkg/sdk/log"
+	"github.com/zntrio/harp/pkg/tasks"
 )
 
 // PushTask implements secret-container publication process to and OCI compatible registry.

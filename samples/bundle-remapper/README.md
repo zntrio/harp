@@ -86,7 +86,7 @@ Update dependency references
 
 ```sh
 export HARP_HOME=<path to harp repository>
-go mod edit -replace=github.com/elastic/harp=$HARP_HOME
+go mod edit -replace=github.com/zntrio/harp=$HARP_HOME
 ```
 
 Implement secret path mapper
@@ -120,9 +120,9 @@ import (
  "fmt"
  "strings"
 
- bundlev1 "github.com/elastic/harp/api/gen/go/harp/bundle/v1"
- "github.com/elastic/harp/pkg/bundle/pipeline"
- "github.com/elastic/harp/pkg/sdk/log"
+ bundlev1 "github.com/zntrio/harp/api/gen/go/harp/bundle/v1"
+ "github.com/zntrio/harp/pkg/bundle/pipeline"
+ "github.com/zntrio/harp/pkg/sdk/log"
 
  "go.uber.org/zap"
 )

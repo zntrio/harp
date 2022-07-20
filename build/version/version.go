@@ -25,7 +25,7 @@ import (
 
 	"github.com/dchest/uniuri"
 
-	"github.com/elastic/harp/build/fips"
+	"github.com/zntrio/harp/build/fips"
 )
 
 // Build information. Populated at build-time.
@@ -107,7 +107,7 @@ func getSDKVersion() string {
 	// Look for harp dependency version
 	var sdkVersion string
 	for _, dep := range deps.Deps {
-		if dep.Path == "github.com/elastic/harp" {
+		if dep.Path == "github.com/zntrio/harp" {
 			sdkVersion = dep.Version
 		}
 	}

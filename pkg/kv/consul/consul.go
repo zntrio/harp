@@ -25,8 +25,8 @@ import (
 
 	api "github.com/hashicorp/consul/api"
 
-	"github.com/elastic/harp/pkg/kv"
-	"github.com/elastic/harp/pkg/sdk/types"
+	"github.com/zntrio/harp/pkg/kv"
+	"github.com/zntrio/harp/pkg/sdk/types"
 )
 
 type consulDriver struct {

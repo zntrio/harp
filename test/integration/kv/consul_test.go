@@ -26,8 +26,8 @@ import (
 	"github.com/hashicorp/consul/api"
 	"github.com/stretchr/testify/assert"
 
-	"github.com/elastic/harp/pkg/kv/consul"
-	"github.com/elastic/harp/test/integration/resource"
+	"github.com/zntrio/harp/pkg/kv/consul"
+	"github.com/zntrio/harp/test/integration/resource"
 )
 
 // -----------------------------------------------------------------------------

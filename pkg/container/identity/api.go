@@ -26,9 +26,9 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/elastic/harp/pkg/container/identity/key"
-	"github.com/elastic/harp/pkg/sdk/types"
-	"github.com/elastic/harp/pkg/sdk/value"
+	"github.com/zntrio/harp/pkg/container/identity/key"
+	"github.com/zntrio/harp/pkg/sdk/types"
+	"github.com/zntrio/harp/pkg/sdk/value"
 )
 
 // Identity object to hold container sealer identity information.

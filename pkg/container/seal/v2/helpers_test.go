@@ -27,7 +27,7 @@ import (
 
 	"github.com/stretchr/testify/assert"
 
-	containerv1 "github.com/elastic/harp/api/gen/go/harp/container/v1"
+	containerv1 "github.com/zntrio/harp/api/gen/go/harp/container/v1"
 )
 
 func Test_deriveSharedKeyFromRecipient(t *testing.T) {

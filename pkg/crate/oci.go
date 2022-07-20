@@ -29,12 +29,12 @@ import (
 	ocispec "github.com/opencontainers/image-spec/specs-go/v1"
 	"oras.land/oras-go/pkg/content"
 
-	containerv1 "github.com/elastic/harp/api/gen/go/harp/container/v1"
-	"github.com/elastic/harp/build/version"
-	"github.com/elastic/harp/pkg/container"
-	"github.com/elastic/harp/pkg/crate/schema"
-	schemav1 "github.com/elastic/harp/pkg/crate/schema/v1"
-	"github.com/elastic/harp/pkg/sdk/types"
+	containerv1 "github.com/zntrio/harp/api/gen/go/harp/container/v1"
+	"github.com/zntrio/harp/build/version"
+	"github.com/zntrio/harp/pkg/container"
+	"github.com/zntrio/harp/pkg/crate/schema"
+	schemav1 "github.com/zntrio/harp/pkg/crate/schema/v1"
+	"github.com/zntrio/harp/pkg/sdk/types"
 )
 
 // StoreSetter is the interface used to mock the image store.

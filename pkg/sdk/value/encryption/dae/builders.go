@@ -28,9 +28,9 @@ import (
 
 	miscreant "github.com/miscreant/miscreant.go"
 
-	"github.com/elastic/harp/build/fips"
-	"github.com/elastic/harp/pkg/sdk/value"
-	"github.com/elastic/harp/pkg/sdk/value/encryption"
+	"github.com/zntrio/harp/build/fips"
+	"github.com/zntrio/harp/pkg/sdk/value"
+	"github.com/zntrio/harp/pkg/sdk/value/encryption"
 )
 
 var (

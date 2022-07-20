@@ -25,8 +25,8 @@ import (
 
 	"golang.org/x/crypto/cryptobyte"
 
-	"github.com/elastic/harp/pkg/sdk/value"
-	"github.com/elastic/harp/pkg/sdk/value/encryption"
+	"github.com/zntrio/harp/pkg/sdk/value"
+	"github.com/zntrio/harp/pkg/sdk/value/encryption"
 )
 
 // Transformer returns an envelope encryption value transformer.

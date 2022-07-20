@@ -42,9 +42,9 @@ import (
 	jose "gopkg.in/square/go-jose.v2"
 	"gopkg.in/square/go-jose.v2/jwt"
 
-	"github.com/elastic/harp/build/fips"
-	"github.com/elastic/harp/pkg/sdk/security/crypto/bech32"
-	"github.com/elastic/harp/pkg/sdk/types"
+	"github.com/zntrio/harp/build/fips"
+	"github.com/zntrio/harp/pkg/sdk/security/crypto/bech32"
+	"github.com/zntrio/harp/pkg/sdk/types"
 )
 
 // ToJWK encodes given key using JWK.

@@ -27,7 +27,7 @@ import (
 	pasetov3 "zntr.io/paseto/v3"
 	pasetov4 "zntr.io/paseto/v4"
 
-	"github.com/elastic/harp/pkg/sdk/types"
+	"github.com/zntrio/harp/pkg/sdk/types"
 )
 
 type pasetoTransformer struct {

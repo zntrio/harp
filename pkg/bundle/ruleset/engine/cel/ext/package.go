@@ -26,9 +26,9 @@ import (
 	"github.com/google/cel-go/common/types"
 	"github.com/google/cel-go/common/types/ref"
 
-	bundlev1 "github.com/elastic/harp/api/gen/go/harp/bundle/v1"
-	csov1 "github.com/elastic/harp/pkg/cso/v1"
-	htypes "github.com/elastic/harp/pkg/sdk/types"
+	bundlev1 "github.com/zntrio/harp/api/gen/go/harp/bundle/v1"
+	csov1 "github.com/zntrio/harp/pkg/cso/v1"
+	htypes "github.com/zntrio/harp/pkg/sdk/types"
 )
 
 // Packages exported package operations.

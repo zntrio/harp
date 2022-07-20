@@ -22,7 +22,7 @@ import (
 
 	"github.com/awnumar/memguard"
 
-	containerv1 "github.com/elastic/harp/api/gen/go/harp/container/v1"
+	containerv1 "github.com/zntrio/harp/api/gen/go/harp/container/v1"
 )
 
 // Streategy describes the sealing/unsealing contract.

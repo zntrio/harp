@@ -19,7 +19,7 @@ package envelope
 
 import "context"
 
-//go:generate mockgen -destination test/mock/service.gen.go -package mock github.com/elastic/harp/pkg/sdk/value/encryption/envelope Service
+//go:generate mockgen -destination test/mock/service.gen.go -package mock github.com/zntrio/harp/pkg/sdk/value/encryption/envelope Service
 
 // Service declares envelope encryption service contract.
 type Service interface {

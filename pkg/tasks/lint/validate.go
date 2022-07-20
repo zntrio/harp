@@ -26,11 +26,11 @@ import (
 	"github.com/xeipuuv/gojsonschema"
 	"sigs.k8s.io/yaml"
 
-	"github.com/elastic/harp/pkg/bundle"
-	"github.com/elastic/harp/pkg/bundle/patch"
-	"github.com/elastic/harp/pkg/bundle/ruleset"
-	"github.com/elastic/harp/pkg/bundle/template"
-	"github.com/elastic/harp/pkg/tasks"
+	"github.com/zntrio/harp/pkg/bundle"
+	"github.com/zntrio/harp/pkg/bundle/patch"
+	"github.com/zntrio/harp/pkg/bundle/ruleset"
+	"github.com/zntrio/harp/pkg/bundle/template"
+	"github.com/zntrio/harp/pkg/tasks"
 )
 
 // ValidateTask implements input linter task.

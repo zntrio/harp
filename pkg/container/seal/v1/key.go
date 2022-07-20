@@ -29,8 +29,8 @@ import (
 
 	"github.com/awnumar/memguard"
 
-	"github.com/elastic/harp/pkg/container/seal"
-	"github.com/elastic/harp/pkg/sdk/security/crypto/extra25519"
+	"github.com/zntrio/harp/pkg/container/seal"
+	"github.com/zntrio/harp/pkg/sdk/security/crypto/extra25519"
 )
 
 const (

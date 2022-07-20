@@ -23,9 +23,9 @@ import (
 
 	fuzz "github.com/google/gofuzz"
 
-	bundlev1 "github.com/elastic/harp/api/gen/go/harp/bundle/v1"
-	"github.com/elastic/harp/pkg/bundle/template/visitor/secretbuilder"
-	"github.com/elastic/harp/pkg/template/engine"
+	bundlev1 "github.com/zntrio/harp/api/gen/go/harp/bundle/v1"
+	"github.com/zntrio/harp/pkg/bundle/template/visitor/secretbuilder"
+	"github.com/zntrio/harp/pkg/template/engine"
 )
 
 func TestValidate(t *testing.T) {

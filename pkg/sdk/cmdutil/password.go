@@ -26,7 +26,7 @@ import (
 
 	"github.com/awnumar/memguard"
 
-	"github.com/elastic/harp/pkg/sdk/security"
+	"github.com/zntrio/harp/pkg/sdk/security"
 )
 
 // ReadSecret reads password from Stdin and returns a lockedbuffer.

@@ -22,9 +22,9 @@ import (
 	"go.uber.org/zap"
 	"oras.land/oras-go/pkg/content"
 
-	"github.com/elastic/harp/pkg/sdk/cmdutil"
-	"github.com/elastic/harp/pkg/sdk/log"
-	"github.com/elastic/harp/pkg/tasks/crate"
+	"github.com/zntrio/harp/pkg/sdk/cmdutil"
+	"github.com/zntrio/harp/pkg/sdk/log"
+	"github.com/zntrio/harp/pkg/tasks/crate"
 )
 
 // -----------------------------------------------------------------------------

@@ -22,10 +22,10 @@ import (
 	"errors"
 	"fmt"
 
-	"github.com/elastic/harp/pkg/bundle"
-	"github.com/elastic/harp/pkg/bundle/patch"
-	"github.com/elastic/harp/pkg/sdk/types"
-	"github.com/elastic/harp/pkg/tasks"
+	"github.com/zntrio/harp/pkg/bundle"
+	"github.com/zntrio/harp/pkg/bundle/patch"
+	"github.com/zntrio/harp/pkg/sdk/types"
+	"github.com/zntrio/harp/pkg/tasks"
 )
 
 // PatchTask implements secret container patching task.

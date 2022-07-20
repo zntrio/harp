@@ -25,10 +25,10 @@ import (
 
 	"sigs.k8s.io/yaml"
 
-	"github.com/elastic/harp/pkg/bundle"
-	"github.com/elastic/harp/pkg/bundle/compare"
-	"github.com/elastic/harp/pkg/sdk/types"
-	"github.com/elastic/harp/pkg/tasks"
+	"github.com/zntrio/harp/pkg/bundle"
+	"github.com/zntrio/harp/pkg/bundle/compare"
+	"github.com/zntrio/harp/pkg/sdk/types"
+	"github.com/zntrio/harp/pkg/tasks"
 )
 
 // DiffTask implements secret container difference task.

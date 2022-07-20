@@ -25,14 +25,14 @@ import (
 
 	"github.com/hashicorp/vault/api"
 
-	"github.com/elastic/harp/pkg/bundle"
-	"github.com/elastic/harp/pkg/sdk/cmdutil"
-	"github.com/elastic/harp/pkg/sdk/fsutil"
-	"github.com/elastic/harp/pkg/sdk/types"
-	"github.com/elastic/harp/pkg/tasks"
-	tplcmdutil "github.com/elastic/harp/pkg/template/cmdutil"
-	"github.com/elastic/harp/pkg/template/engine"
-	"github.com/elastic/harp/pkg/vault/kv"
+	"github.com/zntrio/harp/pkg/bundle"
+	"github.com/zntrio/harp/pkg/sdk/cmdutil"
+	"github.com/zntrio/harp/pkg/sdk/fsutil"
+	"github.com/zntrio/harp/pkg/sdk/types"
+	"github.com/zntrio/harp/pkg/tasks"
+	tplcmdutil "github.com/zntrio/harp/pkg/template/cmdutil"
+	"github.com/zntrio/harp/pkg/template/engine"
+	"github.com/zntrio/harp/pkg/vault/kv"
 )
 
 // RenderTask implements single template rendering task.

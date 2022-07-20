@@ -22,9 +22,9 @@ import (
 
 	"github.com/hashicorp/vault/api"
 
-	"github.com/elastic/harp/pkg/vault/cubbyhole"
-	"github.com/elastic/harp/pkg/vault/kv"
-	"github.com/elastic/harp/pkg/vault/transit"
+	"github.com/zntrio/harp/pkg/vault/cubbyhole"
+	"github.com/zntrio/harp/pkg/vault/kv"
+	"github.com/zntrio/harp/pkg/vault/transit"
 )
 
 // -----------------------------------------------------------------------------

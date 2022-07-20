@@ -22,10 +22,10 @@ import (
 	"fmt"
 	"io"
 
-	bundlev1 "github.com/elastic/harp/api/gen/go/harp/bundle/v1"
-	"github.com/elastic/harp/pkg/bundle"
-	"github.com/elastic/harp/pkg/bundle/hcl"
-	"github.com/elastic/harp/pkg/tasks"
+	bundlev1 "github.com/zntrio/harp/api/gen/go/harp/bundle/v1"
+	"github.com/zntrio/harp/pkg/bundle"
+	"github.com/zntrio/harp/pkg/bundle/hcl"
+	"github.com/zntrio/harp/pkg/tasks"
 )
 
 // JSONMapTask implements secret-container creation from JSON Map.

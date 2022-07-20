@@ -26,7 +26,7 @@ The purpose of the Cloud Secret Organization (CSO) is to allow for a common stru
 
 ### What do I need to get started?
 
- - [Elastic Harp](https://github.com/elastic/harp)
+ - [Elastic Harp](https://github.com/zntrio/harp)
  - A set of secrets
  - A text editor, like `vim`
  - `jq` and `yq` for validations
@@ -97,7 +97,7 @@ Now that we have some idea how to structure the secrets, we need to store them. 
 
 `Harp` uses specification documents called `spec` files to determine what to store where. These can be formatted as either YAML or JSON. The format allows `harp` to validate both the location (based on the directory paths above) and the format of a secret. If needed, the `spec` file will instruct `harp` on how to generate a secret based on specific criteria if one does not exist. It is possible, with the right syntax, to populate a completely blank `secret store` with all the values needed for a new service deployment automatically.
 
-The spec file is documented in full in the [https://github.com/elastic/harp/tree/main/docs/onboarding/1-template-engine](Harp Onboarding Docs). There is a LOT in there, and we cannot possible cover all the cases in this document.
+The spec file is documented in full in the [https://github.com/zntrio/harp/tree/main/docs/onboarding/1-template-engine](Harp Onboarding Docs). There is a LOT in there, and we cannot possible cover all the cases in this document.
 
 ### A Sample set of secrets
 

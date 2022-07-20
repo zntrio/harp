@@ -24,8 +24,8 @@ import (
 	"fmt"
 	"io"
 
-	containerv1 "github.com/elastic/harp/api/gen/go/harp/container/v1"
-	"github.com/elastic/harp/pkg/sdk/types"
+	containerv1 "github.com/zntrio/harp/api/gen/go/harp/container/v1"
+	"github.com/zntrio/harp/pkg/sdk/types"
 )
 
 // Seal a secret container

@@ -28,8 +28,8 @@ import (
 	"github.com/magefile/mage/mg"
 	"github.com/magefile/mage/sh"
 
-	"github.com/elastic/harp/build/artifact"
-	"github.com/elastic/harp/build/mage/git"
+	"github.com/zntrio/harp/build/artifact"
+	"github.com/zntrio/harp/build/mage/git"
 )
 
 var dockerTemplate = strings.TrimSpace(`

@@ -30,8 +30,8 @@ import (
 
 	"github.com/google/go-github/v42/github"
 
-	"github.com/elastic/harp/pkg/bundle"
-	"github.com/elastic/harp/pkg/tasks"
+	"github.com/zntrio/harp/pkg/bundle"
+	"github.com/zntrio/harp/pkg/tasks"
 )
 
 type GithubActionTask struct {

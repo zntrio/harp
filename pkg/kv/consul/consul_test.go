@@ -28,8 +28,8 @@ import (
 	"github.com/hashicorp/consul/api"
 	"github.com/stretchr/testify/assert"
 
-	"github.com/elastic/harp/pkg/kv"
-	"github.com/elastic/harp/pkg/kv/consul/mock"
+	"github.com/zntrio/harp/pkg/kv"
+	"github.com/zntrio/harp/pkg/kv/consul/mock"
 )
 
 func Test_consulDriver_withNilClient(t *testing.T) {

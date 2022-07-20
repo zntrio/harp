@@ -24,9 +24,9 @@ import (
 
 	"github.com/awnumar/memguard"
 
-	"github.com/elastic/harp/pkg/container"
-	"github.com/elastic/harp/pkg/sdk/types"
-	"github.com/elastic/harp/pkg/tasks"
+	"github.com/zntrio/harp/pkg/container"
+	"github.com/zntrio/harp/pkg/sdk/types"
+	"github.com/zntrio/harp/pkg/tasks"
 )
 
 // UnsealTask implements secret container unsealing task.

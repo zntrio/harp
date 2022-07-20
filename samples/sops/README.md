@@ -231,7 +231,7 @@ It will generate the following HCL script
 
 ```ruby
 # Generated with Harp Terraformer, Don't modify.
-# https://github.com/elastic/harp-plugins/tree/main/cmd/harp-terraformer
+# https://github.com/zntrio/harp-plugins/tree/main/cmd/harp-terraformer
 # ---
 # SpecificationHash: "8nuVOhyalizDvImmlIAoCqH91OBIPUhL4ab24bpUdNE="
 # Owner: "cloud-security@elastic.co"

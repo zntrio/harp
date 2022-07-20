@@ -27,12 +27,12 @@ import (
 	"github.com/awnumar/memguard"
 	"google.golang.org/protobuf/proto"
 
-	containerv1 "github.com/elastic/harp/api/gen/go/harp/container/v1"
-	"github.com/elastic/harp/pkg/container/identity/key"
-	"github.com/elastic/harp/pkg/container/seal"
-	v1 "github.com/elastic/harp/pkg/container/seal/v1"
-	v2 "github.com/elastic/harp/pkg/container/seal/v2"
-	"github.com/elastic/harp/pkg/sdk/types"
+	containerv1 "github.com/zntrio/harp/api/gen/go/harp/container/v1"
+	"github.com/zntrio/harp/pkg/container/identity/key"
+	"github.com/zntrio/harp/pkg/container/seal"
+	v1 "github.com/zntrio/harp/pkg/container/seal/v1"
+	v2 "github.com/zntrio/harp/pkg/container/seal/v2"
+	"github.com/zntrio/harp/pkg/sdk/types"
 )
 
 const (

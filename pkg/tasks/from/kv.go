@@ -25,12 +25,12 @@ import (
 
 	"go.uber.org/zap"
 
-	bundlev1 "github.com/elastic/harp/api/gen/go/harp/bundle/v1"
-	"github.com/elastic/harp/pkg/bundle"
-	"github.com/elastic/harp/pkg/bundle/secret"
-	"github.com/elastic/harp/pkg/kv"
-	"github.com/elastic/harp/pkg/sdk/log"
-	"github.com/elastic/harp/pkg/tasks"
+	bundlev1 "github.com/zntrio/harp/api/gen/go/harp/bundle/v1"
+	"github.com/zntrio/harp/pkg/bundle"
+	"github.com/zntrio/harp/pkg/bundle/secret"
+	"github.com/zntrio/harp/pkg/kv"
+	"github.com/zntrio/harp/pkg/sdk/log"
+	"github.com/zntrio/harp/pkg/tasks"
 )
 
 type ExtractKVTask struct {

@@ -22,7 +22,7 @@ import (
 
 	"github.com/hashicorp/vault/api"
 
-	vpath "github.com/elastic/harp/pkg/vault/path"
+	vpath "github.com/zntrio/harp/pkg/vault/path"
 )
 
 // Option defines the functional option pattern.

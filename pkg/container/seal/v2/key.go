@@ -31,7 +31,7 @@ import (
 
 	"github.com/awnumar/memguard"
 
-	"github.com/elastic/harp/pkg/container/seal"
+	"github.com/zntrio/harp/pkg/container/seal"
 )
 
 const (

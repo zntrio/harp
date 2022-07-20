@@ -28,7 +28,7 @@ import (
 	"github.com/magefile/mage/mg"
 	"github.com/magefile/mage/sh"
 
-	"github.com/elastic/harp/build/mage/git"
+	"github.com/zntrio/harp/build/mage/git"
 )
 
 var dockerToolTemplate = strings.TrimSpace(`
@@ -62,8 +62,8 @@ LABEL \
     org.opencontainers.image.created=$BUILD_DATE \
     org.opencontainers.image.title="Harp SDK Environment (Go {{.GolangVersion}})" \
     org.opencontainers.image.description="Harp SDK Tools used to build harp and all related tools" \
-    org.opencontainers.image.url="https://github.com/elastic/harp" \
-    org.opencontainers.image.source="https://github.com/elastic/harp.git" \
+    org.opencontainers.image.url="https://github.com/zntrio/harp" \
+    org.opencontainers.image.source="https://github.com/zntrio/harp.git" \
     org.opencontainers.image.revision=$VCS_REF \
     org.opencontainers.image.vendor="Elastic" \
     org.opencontainers.image.version=$VERSION \

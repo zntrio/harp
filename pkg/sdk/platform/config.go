@@ -18,7 +18,7 @@
 package platform
 
 import (
-	"github.com/elastic/harp/pkg/sdk/platform/diagnostic"
+	"github.com/zntrio/harp/pkg/sdk/platform/diagnostic"
 )
 
 // InstrumentationConfig holds all platform instrumentation settings

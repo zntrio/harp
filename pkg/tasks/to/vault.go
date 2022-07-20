@@ -23,10 +23,10 @@ import (
 
 	"github.com/hashicorp/vault/api"
 
-	"github.com/elastic/harp/pkg/bundle"
-	bundlevault "github.com/elastic/harp/pkg/bundle/vault"
-	"github.com/elastic/harp/pkg/tasks"
-	"github.com/elastic/harp/pkg/vault"
+	"github.com/zntrio/harp/pkg/bundle"
+	bundlevault "github.com/zntrio/harp/pkg/bundle/vault"
+	"github.com/zntrio/harp/pkg/tasks"
+	"github.com/zntrio/harp/pkg/vault"
 )
 
 // VaultTask implements secret-container publication process to Vault.

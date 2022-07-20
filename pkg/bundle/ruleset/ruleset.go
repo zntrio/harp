@@ -25,7 +25,7 @@ import (
 
 	"google.golang.org/protobuf/proto"
 
-	bundlev1 "github.com/elastic/harp/api/gen/go/harp/bundle/v1"
+	bundlev1 "github.com/zntrio/harp/api/gen/go/harp/bundle/v1"
 )
 
 // Validate bundle patch.

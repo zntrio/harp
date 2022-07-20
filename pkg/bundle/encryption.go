@@ -25,10 +25,10 @@ import (
 	"github.com/awnumar/memguard"
 	"github.com/golang/protobuf/ptypes/wrappers"
 
-	bundlev1 "github.com/elastic/harp/api/gen/go/harp/bundle/v1"
-	"github.com/elastic/harp/pkg/bundle/secret"
-	"github.com/elastic/harp/pkg/sdk/types"
-	"github.com/elastic/harp/pkg/sdk/value"
+	bundlev1 "github.com/zntrio/harp/api/gen/go/harp/bundle/v1"
+	"github.com/zntrio/harp/pkg/bundle/secret"
+	"github.com/zntrio/harp/pkg/sdk/types"
+	"github.com/zntrio/harp/pkg/sdk/value"
 )
 
 // PartialLock apply conditional transformer according to applicable annotation

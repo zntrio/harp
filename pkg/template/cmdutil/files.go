@@ -21,9 +21,9 @@ import (
 	"fmt"
 	"io/fs"
 
-	"github.com/elastic/harp/pkg/sdk/types"
-	"github.com/elastic/harp/pkg/template/engine"
-	"github.com/elastic/harp/pkg/template/files"
+	"github.com/zntrio/harp/pkg/sdk/types"
+	"github.com/zntrio/harp/pkg/template/engine"
+	"github.com/zntrio/harp/pkg/template/files"
 )
 
 // Files returns template files.

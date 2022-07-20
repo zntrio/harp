@@ -23,7 +23,7 @@ import (
 
 	"github.com/dchest/uniuri"
 
-	"github.com/elastic/harp/pkg/vault/logical"
+	"github.com/zntrio/harp/pkg/vault/logical"
 )
 
 // addToCubbyhole inserts the secrets in a cubbyhole and returns a response-wrapping token

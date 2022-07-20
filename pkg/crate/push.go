@@ -28,7 +28,7 @@ import (
 	"oras.land/oras-go/pkg/oras"
 	"oras.land/oras-go/pkg/target"
 
-	"github.com/elastic/harp/pkg/sdk/types"
+	"github.com/zntrio/harp/pkg/sdk/types"
 )
 
 // Push the given image descriptor in the given repository.

@@ -23,10 +23,10 @@ import (
 	"fmt"
 	"time"
 
-	bundlev1 "github.com/elastic/harp/api/gen/go/harp/bundle/v1"
-	"github.com/elastic/harp/pkg/bundle/secret"
-	"github.com/elastic/harp/pkg/sdk/types"
-	"github.com/elastic/harp/pkg/template/engine"
+	bundlev1 "github.com/zntrio/harp/api/gen/go/harp/bundle/v1"
+	"github.com/zntrio/harp/pkg/bundle/secret"
+	"github.com/zntrio/harp/pkg/sdk/types"
+	"github.com/zntrio/harp/pkg/template/engine"
 )
 
 func parseSecretTemplate(templateContext engine.Context, secretPath string, item *bundlev1.SecretSuffix, data interface{}) (*bundlev1.Package, error) {

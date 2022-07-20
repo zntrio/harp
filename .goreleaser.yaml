@@ -5,9 +5,6 @@ before:
     - go mod tidy
     - go mod vendor
 
-gomod:
-  proxy: true
-
 builds:
   - id: harp
     main: './cmd/harp'
@@ -19,13 +16,13 @@ builds:
     ldflags:
       - '-s'
       - '-w'
-      - '-X github.com/elastic/harp/build/version.Name=harp'
-      - '-X github.com/elastic/harp/build/version.AppName=github.com/elastic/harp/cmd/harp'
-      - '-X github.com/elastic/harp/build/version.Version={{.Version}}'
-      - '-X github.com/elastic/harp/build/version.Commit={{.CommitDate}}'
-      - '-X github.com/elastic/harp/build/version.Branch={{.Branch}}'
-      - '-X github.com/elastic/harp/build/version.BuildDate={{.Date}}'
-      - '-X github.com/elastic/harp/build/version.BuildTags=defaults'
+      - '-X github.com/zntrio/harp/build/version.Name=harp'
+      - '-X github.com/zntrio/harp/build/version.AppName=github.com/zntrio/harp/cmd/harp'
+      - '-X github.com/zntrio/harp/build/version.Version={{.Version}}'
+      - '-X github.com/zntrio/harp/build/version.Commit={{.CommitDate}}'
+      - '-X github.com/zntrio/harp/build/version.Branch={{.Branch}}'
+      - '-X github.com/zntrio/harp/build/version.BuildDate={{.Date}}'
+      - '-X github.com/zntrio/harp/build/version.BuildTags=defaults'
     targets:
       - darwin_amd64
       - darwin_arm64

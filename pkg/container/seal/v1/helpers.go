@@ -30,8 +30,8 @@ import (
 	"github.com/awnumar/memguard"
 	"google.golang.org/protobuf/proto"
 
-	containerv1 "github.com/elastic/harp/api/gen/go/harp/container/v1"
-	"github.com/elastic/harp/pkg/sdk/security"
+	containerv1 "github.com/zntrio/harp/api/gen/go/harp/container/v1"
+	"github.com/zntrio/harp/pkg/sdk/security"
 )
 
 func deriveSharedKeyFromRecipient(publicKey, privateKey *[privateKeySize]byte) *[encryptionKeySize]byte {

@@ -21,7 +21,7 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/elastic/harp/pkg/bundle"
+	"github.com/zntrio/harp/pkg/bundle"
 )
 
 func TestFlatten(t *testing.T) {

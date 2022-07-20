@@ -20,12 +20,12 @@ package values
 import (
 	"fmt"
 
-	"github.com/elastic/harp/pkg/template/values/hcl1"
-	"github.com/elastic/harp/pkg/template/values/hcl2"
-	"github.com/elastic/harp/pkg/template/values/hocon"
-	"github.com/elastic/harp/pkg/template/values/toml"
-	"github.com/elastic/harp/pkg/template/values/xml"
-	"github.com/elastic/harp/pkg/template/values/yaml"
+	"github.com/zntrio/harp/pkg/template/values/hcl1"
+	"github.com/zntrio/harp/pkg/template/values/hcl2"
+	"github.com/zntrio/harp/pkg/template/values/hocon"
+	"github.com/zntrio/harp/pkg/template/values/toml"
+	"github.com/zntrio/harp/pkg/template/values/xml"
+	"github.com/zntrio/harp/pkg/template/values/yaml"
 )
 
 // Parser is the interface implemented by objects that can unmarshal

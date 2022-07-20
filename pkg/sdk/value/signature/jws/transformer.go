@@ -23,8 +23,8 @@ import (
 
 	"gopkg.in/square/go-jose.v2"
 
-	"github.com/elastic/harp/pkg/sdk/types"
-	"github.com/elastic/harp/pkg/sdk/value/signature"
+	"github.com/zntrio/harp/pkg/sdk/types"
+	"github.com/zntrio/harp/pkg/sdk/value/signature"
 )
 
 type jwsTransformer struct {

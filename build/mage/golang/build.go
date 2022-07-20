@@ -28,7 +28,7 @@ import (
 	"github.com/magefile/mage/mg"
 	"github.com/magefile/mage/sh"
 
-	"github.com/elastic/harp/build/mage/git"
+	"github.com/zntrio/harp/build/mage/git"
 )
 
 type buildOpts struct {
@@ -148,13 +148,13 @@ func Build(name, packageName, version string, opts ...BuildOption) func() error 
 
 		// Inject version information
 		varsSetByLinker := map[string]string{
-			"github.com/elastic/harp/build/version.Name":      name,
-			"github.com/elastic/harp/build/version.AppName":   packageName,
-			"github.com/elastic/harp/build/version.Version":   version,
-			"github.com/elastic/harp/build/version.Commit":    git.Revision,
-			"github.com/elastic/harp/build/version.Branch":    git.Branch,
-			"github.com/elastic/harp/build/version.BuildDate": time.Now().Format(time.RFC3339),
-			"github.com/elastic/harp/build/version.BuildTags": strCompilationFlags,
+			"github.com/zntrio/harp/build/version.Name":      name,
+			"github.com/zntrio/harp/build/version.AppName":   packageName,
+			"github.com/zntrio/harp/build/version.Version":   version,
+			"github.com/zntrio/harp/build/version.Commit":    git.Revision,
+			"github.com/zntrio/harp/build/version.Branch":    git.Branch,
+			"github.com/zntrio/harp/build/version.BuildDate": time.Now().Format(time.RFC3339),
+			"github.com/zntrio/harp/build/version.BuildTags": strCompilationFlags,
 		}
 		var linkerArgs []string
 		for name, value := range varsSetByLinker {

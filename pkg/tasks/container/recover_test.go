@@ -23,14 +23,15 @@ import (
 	"io"
 	"testing"
 
-	"github.com/elastic/harp/pkg/sdk/cmdutil"
-	"github.com/elastic/harp/pkg/sdk/value"
-	"github.com/elastic/harp/pkg/sdk/value/encryption"
+	"github.com/zntrio/harp/pkg/sdk/cmdutil"
+	"github.com/zntrio/harp/pkg/sdk/value"
+	"github.com/zntrio/harp/pkg/sdk/value/encryption"
+
 	// Imported for tests
-	_ "github.com/elastic/harp/pkg/sdk/value/encryption/jwe"
-	"github.com/elastic/harp/pkg/sdk/value/identity"
-	"github.com/elastic/harp/pkg/sdk/value/mock"
-	"github.com/elastic/harp/pkg/tasks"
+	_ "github.com/zntrio/harp/pkg/sdk/value/encryption/jwe"
+	"github.com/zntrio/harp/pkg/sdk/value/identity"
+	"github.com/zntrio/harp/pkg/sdk/value/mock"
+	"github.com/zntrio/harp/pkg/tasks"
 )
 
 func TestRecoverTask_Run(t *testing.T) {

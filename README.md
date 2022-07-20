@@ -1,8 +1,8 @@
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
-[![Go Report Card](https://goreportcard.com/badge/github.com/elastic/harp)](https://goreportcard.com/report/github.com/elastic/harp)
+[![Go Report Card](https://goreportcard.com/badge/github.com/zntrio/harp)](https://goreportcard.com/report/github.com/zntrio/harp)
 [![made-with-Go](https://img.shields.io/badge/Made%20with-Go-1f425f.svg)](http://golang.org)
-[![GitHub release](https://img.shields.io/github/release/elastic/harp.svg)](https://github.com/elastic/harp/releases/)
-[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/elastic/harp/graphs/commit-activity)
+[![GitHub release](https://img.shields.io/github/release/elastic/harp.svg)](https://github.com/zntrio/harp/releases/)
+[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/zntrio/harp/graphs/commit-activity)
 
 - [Harp](#harp)
   - [TL;DR.](#tldr)
@@ -143,15 +143,15 @@ Harp provides :
   * A defined common language and complete processes to achieve secret management
     operations;
 * A SDK to create your own tools to orchestrate your secret management pipelines;
-  * A container manipulation library exposed as `github.com/elastic/harp/pkg/container`;
-  * A secret bundle specification to store and manipulate secrets exposed as `github.com/elastic/harp/pkg/bundle`;
-  * An `on-steroid` template engine exposed as `github.com/elastic/harp/pkg/template`
-  * A path name validation library exposed as `github.com/elastic/harp/pkg/cso`
+  * A container manipulation library exposed as `github.com/zntrio/harp/pkg/container`;
+  * A secret bundle specification to store and manipulate secrets exposed as `github.com/zntrio/harp/pkg/bundle`;
+  * An `on-steroid` template engine exposed as `github.com/zntrio/harp/pkg/template`
+  * A path name validation library exposed as `github.com/zntrio/harp/pkg/cso`
 * A CLI for secret management implementation
   * CI/CD integration;
   * Based on human-readable definitions (YAML);
   * In order to create auditable and reproducible pipelines.
-  * An extensible tool which can be enhanced via [plugins](https://github.com/elastic/harp-plugins).
+  * An extensible tool which can be enhanced via [plugins](https://github.com/zntrio/harp-plugins).
 
 And allows :
 
@@ -189,7 +189,7 @@ And allows :
 
 # Homebrew install
 
-Download a [release](https://github.com/elastic/harp/releases) or build from source.
+Download a [release](https://github.com/zntrio/harp/releases) or build from source.
 
 For stable version
 
@@ -200,7 +200,7 @@ brew install elastic/harp/harp
 
 # Build instructions
 
-Download a [release](https://github.com/elastic/harp/releases) or build from source.
+Download a [release](https://github.com/zntrio/harp/releases) or build from source.
 
 ## Clone repository
 
@@ -320,7 +320,7 @@ docker run --rm -ti --read-only elastic/harp:<version>
 
 # Plugins
 
-You can find more Harp feature extensions - <https://github.com/elastic/harp-plugins>
+You can find more Harp feature extensions - <https://github.com/zntrio/harp-plugins>
 
 # Community
 

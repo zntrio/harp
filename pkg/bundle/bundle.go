@@ -26,8 +26,8 @@ import (
 
 	"gitlab.com/NebulousLabs/merkletree"
 
-	bundlev1 "github.com/elastic/harp/api/gen/go/harp/bundle/v1"
-	csov1 "github.com/elastic/harp/pkg/cso/v1"
+	bundlev1 "github.com/zntrio/harp/api/gen/go/harp/bundle/v1"
+	csov1 "github.com/zntrio/harp/pkg/cso/v1"
 )
 
 // Annotate a bundle object.

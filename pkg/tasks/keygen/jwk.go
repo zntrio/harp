@@ -32,7 +32,7 @@ import (
 
 	"gopkg.in/square/go-jose.v2"
 
-	"github.com/elastic/harp/pkg/tasks"
+	"github.com/zntrio/harp/pkg/tasks"
 )
 
 // BundleDumpTask implements secret-container creation from a Bundle Dump.

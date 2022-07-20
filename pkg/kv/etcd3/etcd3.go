@@ -27,8 +27,8 @@ import (
 	clientv3 "go.etcd.io/etcd/client/v3"
 	"go.uber.org/zap"
 
-	"github.com/elastic/harp/pkg/kv"
-	"github.com/elastic/harp/pkg/sdk/log"
+	"github.com/zntrio/harp/pkg/kv"
+	"github.com/zntrio/harp/pkg/sdk/log"
 )
 
 const (

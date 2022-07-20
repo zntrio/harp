@@ -22,12 +22,12 @@ import (
 	"path"
 	"strings"
 
-	"github.com/elastic/harp/pkg/sdk/value"
-	"github.com/elastic/harp/pkg/sdk/value/encryption"
-	"github.com/elastic/harp/pkg/sdk/value/encryption/aead"
-	"github.com/elastic/harp/pkg/sdk/value/encryption/envelope"
-	"github.com/elastic/harp/pkg/sdk/value/encryption/secretbox"
-	vaultpath "github.com/elastic/harp/pkg/vault/path"
+	"github.com/zntrio/harp/pkg/sdk/value"
+	"github.com/zntrio/harp/pkg/sdk/value/encryption"
+	"github.com/zntrio/harp/pkg/sdk/value/encryption/aead"
+	"github.com/zntrio/harp/pkg/sdk/value/encryption/envelope"
+	"github.com/zntrio/harp/pkg/sdk/value/encryption/secretbox"
+	vaultpath "github.com/zntrio/harp/pkg/vault/path"
 )
 
 type DataEncryption string

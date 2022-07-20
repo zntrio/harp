@@ -18,8 +18,8 @@
 package crate
 
 import (
-	containerv1 "github.com/elastic/harp/api/gen/go/harp/container/v1"
-	"github.com/elastic/harp/pkg/crate/schema"
+	containerv1 "github.com/zntrio/harp/api/gen/go/harp/container/v1"
+	"github.com/zntrio/harp/pkg/crate/schema"
 )
 
 const (

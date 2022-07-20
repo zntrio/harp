@@ -24,8 +24,8 @@ import (
 
 	"github.com/hashicorp/vault/api"
 
-	bundlev1 "github.com/elastic/harp/api/gen/go/harp/bundle/v1"
-	"github.com/elastic/harp/pkg/bundle/vault/internal/operation"
+	bundlev1 "github.com/zntrio/harp/api/gen/go/harp/bundle/v1"
+	"github.com/zntrio/harp/pkg/bundle/vault/internal/operation"
 )
 
 // Push the given bundle in Hashicorp Vault.

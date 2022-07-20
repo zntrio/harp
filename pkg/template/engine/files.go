@@ -24,7 +24,7 @@ import (
 
 	"github.com/gobwas/glob"
 
-	"github.com/elastic/harp/pkg/template/files"
+	"github.com/zntrio/harp/pkg/template/files"
 )
 
 // Files is a map of files that can be accessed from a template.

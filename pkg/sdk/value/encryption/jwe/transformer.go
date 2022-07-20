@@ -23,8 +23,8 @@ import (
 
 	"gopkg.in/square/go-jose.v2"
 
-	"github.com/elastic/harp/pkg/sdk/types"
-	"github.com/elastic/harp/pkg/sdk/value"
+	"github.com/zntrio/harp/pkg/sdk/types"
+	"github.com/zntrio/harp/pkg/sdk/value"
 )
 
 // PBKDF2SaltSize is the default size of the salt for PBKDF2, 128-bit salt.

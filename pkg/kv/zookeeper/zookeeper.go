@@ -25,7 +25,7 @@ import (
 
 	zk "github.com/go-zookeeper/zk"
 
-	"github.com/elastic/harp/pkg/kv"
+	"github.com/zntrio/harp/pkg/kv"
 )
 
 type zkDriver struct {

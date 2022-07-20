@@ -24,10 +24,10 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/elastic/harp/build/fips"
-	pasetov4 "github.com/elastic/harp/pkg/sdk/security/crypto/paseto/v4"
-	"github.com/elastic/harp/pkg/sdk/value"
-	"github.com/elastic/harp/pkg/sdk/value/encryption"
+	"github.com/zntrio/harp/build/fips"
+	pasetov4 "github.com/zntrio/harp/pkg/sdk/security/crypto/paseto/v4"
+	"github.com/zntrio/harp/pkg/sdk/value"
+	"github.com/zntrio/harp/pkg/sdk/value/encryption"
 )
 
 func init() {

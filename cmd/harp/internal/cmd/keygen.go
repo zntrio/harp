@@ -20,7 +20,7 @@ package cmd
 import (
 	"github.com/spf13/cobra"
 
-	"github.com/elastic/harp/build/fips"
+	"github.com/zntrio/harp/build/fips"
 )
 
 // -----------------------------------------------------------------------------

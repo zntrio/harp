@@ -29,8 +29,8 @@ import (
 	"filippo.io/age"
 	"filippo.io/age/armor"
 
-	"github.com/elastic/harp/pkg/sdk/value"
-	"github.com/elastic/harp/pkg/sdk/value/encryption"
+	"github.com/zntrio/harp/pkg/sdk/value"
+	"github.com/zntrio/harp/pkg/sdk/value/encryption"
 )
 
 const (

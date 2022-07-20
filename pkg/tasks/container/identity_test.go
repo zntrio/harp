@@ -23,11 +23,11 @@ import (
 	"io"
 	"testing"
 
-	"github.com/elastic/harp/pkg/sdk/cmdutil"
-	"github.com/elastic/harp/pkg/sdk/value"
-	"github.com/elastic/harp/pkg/sdk/value/identity"
-	"github.com/elastic/harp/pkg/sdk/value/mock"
-	"github.com/elastic/harp/pkg/tasks"
+	"github.com/zntrio/harp/pkg/sdk/cmdutil"
+	"github.com/zntrio/harp/pkg/sdk/value"
+	"github.com/zntrio/harp/pkg/sdk/value/identity"
+	"github.com/zntrio/harp/pkg/sdk/value/mock"
+	"github.com/zntrio/harp/pkg/tasks"
 )
 
 func TestIdentityTask_Run(t *testing.T) {

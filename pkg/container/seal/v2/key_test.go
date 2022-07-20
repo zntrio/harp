@@ -23,7 +23,7 @@ import (
 	"github.com/awnumar/memguard"
 	"github.com/stretchr/testify/assert"
 
-	"github.com/elastic/harp/pkg/container/seal"
+	"github.com/zntrio/harp/pkg/container/seal"
 )
 
 func TestGenerateKey(t *testing.T) {

@@ -24,11 +24,11 @@ import (
 	clientv3 "go.etcd.io/etcd/client/v3"
 	"go.uber.org/zap"
 
-	"github.com/elastic/harp/pkg/kv/etcd3"
-	"github.com/elastic/harp/pkg/sdk/cmdutil"
-	"github.com/elastic/harp/pkg/sdk/log"
-	"github.com/elastic/harp/pkg/sdk/tlsconfig"
-	"github.com/elastic/harp/pkg/tasks/to"
+	"github.com/zntrio/harp/pkg/kv/etcd3"
+	"github.com/zntrio/harp/pkg/sdk/cmdutil"
+	"github.com/zntrio/harp/pkg/sdk/log"
+	"github.com/zntrio/harp/pkg/sdk/tlsconfig"
+	"github.com/zntrio/harp/pkg/tasks/to"
 )
 
 // -----------------------------------------------------------------------------

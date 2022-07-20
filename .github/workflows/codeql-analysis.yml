@@ -47,7 +47,7 @@ jobs:
     -
       name: Build Harp
       run: |
-        go mod vendor && go build -mod=vendor -o bin/harp github.com/elastic/harp/cmd/harp
+        go mod vendor && go build -mod=vendor -o bin/harp github.com/zntrio/harp/cmd/harp
       env:
         DOCKERFILE_ONLY: 1
         GOLANG_IMAGE: ${{ matrix.golang-image }}

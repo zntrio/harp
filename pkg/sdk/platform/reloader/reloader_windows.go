@@ -15,6 +15,7 @@
 // specific language governing permissions and limitations
 // under the License.
 
+//go:build windows
 // +build windows
 
 package reloader
@@ -25,7 +26,7 @@ import (
 
 	"github.com/oklog/run"
 
-	"github.com/elastic/harp/pkg/sdk/log"
+	"github.com/zntrio/harp/pkg/sdk/log"
 )
 
 // UnsupportedReloader is the file descriptor reloader mock for Windows.

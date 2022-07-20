@@ -25,9 +25,9 @@ import (
 	"github.com/spf13/cobra"
 	"go.uber.org/zap"
 
-	csov1 "github.com/elastic/harp/pkg/cso/v1"
-	"github.com/elastic/harp/pkg/sdk/cmdutil"
-	"github.com/elastic/harp/pkg/sdk/log"
+	csov1 "github.com/zntrio/harp/pkg/cso/v1"
+	"github.com/zntrio/harp/pkg/sdk/cmdutil"
+	"github.com/zntrio/harp/pkg/sdk/log"
 )
 
 var (

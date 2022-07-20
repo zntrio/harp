@@ -15,6 +15,7 @@
 // specific language governing permissions and limitations
 // under the License.
 
+//go:build go1.16
 // +build go1.16
 
 package fs
@@ -25,12 +26,12 @@ import (
 
 	fuzz "github.com/google/gofuzz"
 
-	bundlev1 "github.com/elastic/harp/api/gen/go/harp/bundle/v1"
+	bundlev1 "github.com/zntrio/harp/api/gen/go/harp/bundle/v1"
 )
 
 func TestFromBundle(t *testing.T) {
 	type args struct {
-		b     *bundlev1.Bundle
+		b *bundlev1.Bundle
 	}
 	tests := []struct {
 		name    string

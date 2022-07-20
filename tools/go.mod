@@ -1,4 +1,4 @@
-module github.com/elastic/harp/tools
+module github.com/zntrio/harp/tools
 
 go 1.18
 

@@ -26,10 +26,10 @@ import (
 
 	"github.com/gobwas/glob"
 
-	bundlev1 "github.com/elastic/harp/api/gen/go/harp/bundle/v1"
-	"github.com/elastic/harp/pkg/bundle/ruleset/engine"
-	"github.com/elastic/harp/pkg/bundle/ruleset/engine/cel"
-	"github.com/elastic/harp/pkg/bundle/ruleset/engine/rego"
+	bundlev1 "github.com/zntrio/harp/api/gen/go/harp/bundle/v1"
+	"github.com/zntrio/harp/pkg/bundle/ruleset/engine"
+	"github.com/zntrio/harp/pkg/bundle/ruleset/engine/cel"
+	"github.com/zntrio/harp/pkg/bundle/ruleset/engine/rego"
 )
 
 // Evaluate given bundl using the loaded ruleset.

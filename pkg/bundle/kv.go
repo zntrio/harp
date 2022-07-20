@@ -23,8 +23,8 @@ import (
 
 	"github.com/gobwas/glob"
 
-	bundlev1 "github.com/elastic/harp/api/gen/go/harp/bundle/v1"
-	"github.com/elastic/harp/pkg/bundle/secret"
+	bundlev1 "github.com/zntrio/harp/api/gen/go/harp/bundle/v1"
+	"github.com/zntrio/harp/pkg/bundle/secret"
 )
 
 // KV describes map[string]interface{} alias

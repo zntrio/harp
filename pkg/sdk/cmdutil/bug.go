@@ -28,7 +28,7 @@ import (
 
 	exec "golang.org/x/sys/execabs"
 
-	"github.com/elastic/harp/build/version"
+	"github.com/zntrio/harp/build/version"
 )
 
 // BugReport generates a bug report body

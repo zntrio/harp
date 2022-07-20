@@ -29,7 +29,7 @@ import (
 
 	"github.com/pkg/errors"
 
-	"github.com/elastic/harp/build/fips"
+	"github.com/zntrio/harp/build/fips"
 )
 
 // Keypair generates crypto keys according to given key type.

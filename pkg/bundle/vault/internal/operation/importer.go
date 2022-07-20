@@ -30,11 +30,11 @@ import (
 	"github.com/hashicorp/vault/api"
 	"go.uber.org/zap"
 
-	bundlev1 "github.com/elastic/harp/api/gen/go/harp/bundle/v1"
-	"github.com/elastic/harp/pkg/bundle/secret"
-	"github.com/elastic/harp/pkg/sdk/log"
-	"github.com/elastic/harp/pkg/vault/kv"
-	vpath "github.com/elastic/harp/pkg/vault/path"
+	bundlev1 "github.com/zntrio/harp/api/gen/go/harp/bundle/v1"
+	"github.com/zntrio/harp/pkg/bundle/secret"
+	"github.com/zntrio/harp/pkg/sdk/log"
+	"github.com/zntrio/harp/pkg/vault/kv"
+	vpath "github.com/zntrio/harp/pkg/vault/path"
 )
 
 // Importer initialize a secret importer operation

@@ -23,10 +23,10 @@ import (
 	"fmt"
 	"io"
 
-	bundlev1 "github.com/elastic/harp/api/gen/go/harp/bundle/v1"
-	containerv1 "github.com/elastic/harp/api/gen/go/harp/container/v1"
-	"github.com/elastic/harp/pkg/container"
-	"github.com/elastic/harp/pkg/sdk/types"
+	bundlev1 "github.com/zntrio/harp/api/gen/go/harp/bundle/v1"
+	containerv1 "github.com/zntrio/harp/api/gen/go/harp/container/v1"
+	"github.com/zntrio/harp/pkg/container"
+	"github.com/zntrio/harp/pkg/sdk/types"
 )
 
 // Statistic hold bundle statistic information

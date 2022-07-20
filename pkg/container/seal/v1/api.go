@@ -20,7 +20,7 @@ package v1
 import (
 	"crypto/ed25519"
 
-	"github.com/elastic/harp/pkg/container/seal"
+	"github.com/zntrio/harp/pkg/container/seal"
 )
 
 const (

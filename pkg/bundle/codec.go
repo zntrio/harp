@@ -27,10 +27,10 @@ import (
 	"google.golang.org/protobuf/encoding/protojson"
 	"google.golang.org/protobuf/proto"
 
-	bundlev1 "github.com/elastic/harp/api/gen/go/harp/bundle/v1"
-	"github.com/elastic/harp/pkg/bundle/secret"
-	"github.com/elastic/harp/pkg/sdk/security"
-	"github.com/elastic/harp/pkg/sdk/types"
+	bundlev1 "github.com/zntrio/harp/api/gen/go/harp/bundle/v1"
+	"github.com/zntrio/harp/pkg/bundle/secret"
+	"github.com/zntrio/harp/pkg/sdk/security"
+	"github.com/zntrio/harp/pkg/sdk/types"
 )
 
 // Load a file bundle from the buffer.
