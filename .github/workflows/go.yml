@@ -40,7 +40,7 @@ jobs:
         name: Install Go
         uses: actions/setup-go@v3
         with:
-          go-version: 1.18
+          go-version: 1.19
       -
         name: Checkout code
         uses: actions/checkout@v3
@@ -58,8 +58,8 @@ jobs:
       fail-fast: true
       matrix:
         go-version:
-          - "1.17"
           - "1.18"
+          - "1.19"
     runs-on: ubuntu-latest
     needs: [golangci-lint, go-mod]
     steps:
@@ -107,7 +107,7 @@ jobs:
         name: Install Go
         uses: actions/setup-go@v3
         with:
-          go-version: 1.18
+          go-version: 1.19
       -
         uses: actions/checkout@v3
       -
@@ -134,7 +134,7 @@ jobs:
         name: Install Go
         uses: actions/setup-go@v3
         with:
-          go-version: 1.18 # test only the latest go version to speed up CI
+          go-version: 1.19 # test only the latest go version to speed up CI
       -
         name: Cache Go modules
         uses: actions/cache@v3.0.5
@@ -150,7 +150,7 @@ jobs:
         name: Setup gotestsum
         uses: autero1/action-gotestsum@v1.0.0
         with:
-          gotestsum_version: 1.7.0
+          gotestsum_version: 1.8.1
       -
         name: Run tests
         run: gotestsum --format short-verbose ./pkg/...
@@ -172,7 +172,7 @@ jobs:
         name: Install Go
         uses: actions/setup-go@v3
         with:
-          go-version: 1.18 # test only the latest go version to speed up CI
+          go-version: 1.19 # test only the latest go version to speed up CI
       -
         name: Cache Go modules
         uses: actions/cache@v3.0.5
@@ -188,7 +188,7 @@ jobs:
         name: Setup gotestsum
         uses: autero1/action-gotestsum@v1.0.0
         with:
-          gotestsum_version: 1.7.0
+          gotestsum_version: 1.8.1
       -
         name: Run tests
         run: gotestsum --format short-verbose ./pkg/...
@@ -210,7 +210,7 @@ jobs:
         name: Install Go
         uses: actions/setup-go@v3
         with:
-          go-version: 1.18 # test only the latest go version to speed up CI
+          go-version: 1.19 # test only the latest go version to speed up CI
       -
         name: Cache Go modules
         uses: actions/cache@v3.0.5
@@ -226,7 +226,7 @@ jobs:
         name: Setup gotestsum
         uses: autero1/action-gotestsum@v1.0.0
         with:
-          gotestsum_version: 1.7.0
+          gotestsum_version: 1.8.1
       -
         name: Run tests
         run: gotestsum --format short-verbose ./pkg/...

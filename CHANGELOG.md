@@ -1,7 +1,4 @@
-## 0.3.1
-
-### NOT RELEASED YET
-
+## NOT RELEASED YET
 ## 0.3.0
 
 ### 2022-07-20

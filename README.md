@@ -20,7 +20,7 @@
   - [Clone repository](#clone-repository)
   - [Manual dev environment](#manual-dev-environment)
     - [Check your go version](#check-your-go-version)
-      - [Go 1.18](#go-118)
+      - [Go 1.19](#go-119)
     - [Install mage](#install-mage)
       - [From source](#from-source)
     - [Daily](#daily)
@@ -215,13 +215,13 @@ $ export HARP_REPOSITORY=$(pwd)/harp
 
 > Only last 2 minor versions of a major are supported.
 
-#### Go 1.18
+#### Go 1.19
 
 `Harp` is compiled with :
 
 ```sh
 $ go version
-go version go1.18.4 linux/amd64
+go version go1.19 linux/amd64
 ```
 
 > Simple go version manager - <https://github.com/stefanmaric/g>

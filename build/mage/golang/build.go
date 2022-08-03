@@ -84,6 +84,7 @@ func GOARM(value string) BuildOption {
 // -----------------------------------------------------------------------------
 
 // Build the given binary using the given package.
+//
 //nolint:funlen // to refactor
 func Build(name, packageName, version string, opts ...BuildOption) func() error {
 	const (
@@ -148,12 +149,11 @@ func Build(name, packageName, version string, opts ...BuildOption) func() error 
 
 		// Inject version information
 		varsSetByLinker := map[string]string{
-			"github.com/zntrio/harp/v2/build/version.Name":    name,
-			"github.com/zntrio/harp/v2/build/version.AppName": packageName,
-			"github.com/zntrio/harp/v2/build/version.Version": version,
-			"github.com/zntrio/harp/v2/build/version.Commit":  git.Revision,
-			"github.com/zntrio/harp/v2/build/version.Branch":  git.Branch,
-			//"github.com/zntrio/harp/v2/build/version.BuildDate": time.Now().Format(time.RFC3339),
+			"github.com/zntrio/harp/v2/build/version.Name":      name,
+			"github.com/zntrio/harp/v2/build/version.AppName":   packageName,
+			"github.com/zntrio/harp/v2/build/version.Version":   version,
+			"github.com/zntrio/harp/v2/build/version.Commit":    git.Revision,
+			"github.com/zntrio/harp/v2/build/version.Branch":    git.Branch,
 			"github.com/zntrio/harp/v2/build/version.BuildTags": strCompilationFlags,
 		}
 		linkerKeys := make([]string, 0, len(varsSetByLinker))
