@@ -18,6 +18,7 @@
 package bundle
 
 import (
+	"bytes"
 	"encoding/json"
 	"fmt"
 	"io"
@@ -29,8 +30,13 @@ import (
 
 	bundlev1 "github.com/zntrio/harp/v2/api/gen/go/harp/bundle/v1"
 	"github.com/zntrio/harp/v2/pkg/bundle/secret"
+	"github.com/zntrio/harp/v2/pkg/sdk/ioutil"
 	"github.com/zntrio/harp/v2/pkg/sdk/security"
 	"github.com/zntrio/harp/v2/pkg/sdk/types"
+)
+
+const (
+	maxBundleSize = 100 * 1024 * 1024 // 100MB
 )
 
 // Load a file bundle from the buffer.
@@ -40,14 +46,17 @@ func Load(r io.Reader) (*bundlev1.Bundle, error) {
 		return nil, fmt.Errorf("unable to process nil reader")
 	}
 
-	decoded, err := io.ReadAll(r)
-	if err != nil {
-		return nil, fmt.Errorf("unable to decompress bundle content")
+	var err error
+
+	// Use buffered copy
+	decoded := &bytes.Buffer{}
+	if err = ioutil.Copy(maxBundleSize, decoded, r); err != nil {
+		return nil, fmt.Errorf("unable to load bundle content")
 	}
 
 	// Deserialize protobuf payload
 	bundle := &bundlev1.Bundle{}
-	if err = proto.Unmarshal(decoded, bundle); err != nil {
+	if err = proto.Unmarshal(decoded.Bytes(), bundle); err != nil {
 		return nil, fmt.Errorf("unable to decode bundle content")
 	}
 

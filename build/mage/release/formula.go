@@ -148,7 +148,7 @@ func HomebrewFormula(cmd *artifact.Command) func() error {
 
 		// Prepare hasher
 		h := sha256.New()
-		if _, err := io.Copy(h, f); err != nil {
+		if _, err := io.Copy(h, io.LimitReader(f, 50*1024*1024)); err != nil {
 			return "", err
 		}
 

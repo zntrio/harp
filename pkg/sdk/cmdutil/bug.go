@@ -27,6 +27,7 @@ import (
 	"runtime"
 
 	"github.com/zntrio/harp/v2/build/version"
+	"github.com/zntrio/harp/v2/pkg/sdk/log"
 
 	exec "golang.org/x/sys/execabs"
 )
@@ -161,13 +162,16 @@ func printGlibcVersion(w io.Writer) {
 	if err != nil {
 		return
 	}
-	defer os.Remove(srcfile)
+	defer func() {
+		log.CheckErr("unable to remove the go-bug.c file", os.Remove(srcfile))
+	}()
 	cmd := exec.Command("gcc", "-o", outfile, srcfile)
 	if _, err = cmd.CombinedOutput(); err != nil {
 		return
 	}
-	defer os.Remove(outfile)
-
+	defer func() {
+		log.CheckErr("unable to remove the go-bug file", os.Remove(outfile))
+	}()
 	cmd = exec.Command("ldd", outfile)
 	out, err := cmd.CombinedOutput()
 	if err != nil {

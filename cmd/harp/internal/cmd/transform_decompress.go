@@ -18,12 +18,11 @@
 package cmd
 
 import (
-	"io"
-
 	"github.com/spf13/cobra"
 	"go.uber.org/zap"
 
 	"github.com/zntrio/harp/v2/pkg/sdk/cmdutil"
+	"github.com/zntrio/harp/v2/pkg/sdk/ioutil"
 	"github.com/zntrio/harp/v2/pkg/sdk/log"
 	"github.com/zntrio/harp/v2/pkg/sdk/value/compression"
 )
@@ -31,9 +30,10 @@ import (
 // -----------------------------------------------------------------------------
 
 type transformDecompressParams struct {
-	inputPath  string
-	outputPath string
-	algorithm  string
+	inputPath             string
+	outputPath            string
+	algorithm             string
+	maxDecompressionGuard uint16
 }
 
 var transformDecompressCmd = func() *cobra.Command {
@@ -92,8 +92,11 @@ var transformDecompressCmd = func() *cobra.Command {
 				log.For(ctx).Fatal("unable to write encoded content", zap.Error(err))
 			}
 
+			// Compute max decompression size
+			maxDecompressionSize := int64(params.maxDecompressionGuard) * 1024 * 1024
+
 			// Process input as a stream.
-			if _, err := io.Copy(writer, compressedReader); err != nil {
+			if err := ioutil.Copy(maxDecompressionSize, writer, compressedReader); err != nil {
 				log.SafeClose(compressedReader, "unable to close the compression writer")
 				log.For(ctx).Fatal("unable to process input", zap.Error(err))
 			}
@@ -107,6 +110,7 @@ var transformDecompressCmd = func() *cobra.Command {
 	cmd.Flags().StringVar(&params.inputPath, "in", "-", "Input path ('-' for stdin or filename)")
 	cmd.Flags().StringVar(&params.outputPath, "out", "-", "Output path ('-' for stdout or filename)")
 	cmd.Flags().StringVar(&params.algorithm, "algorithm", "gzip", "Compression algorithm")
+	cmd.Flags().Uint16Var(&params.maxDecompressionGuard, "max-decompression-guard", 100, "Decompression guard in MB")
 
 	return cmd
 }

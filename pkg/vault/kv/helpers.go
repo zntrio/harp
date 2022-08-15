@@ -19,8 +19,10 @@ package kv
 
 import (
 	"errors"
+	"io"
 
 	"github.com/hashicorp/vault/api"
+	"github.com/zntrio/harp/v2/pkg/sdk/log"
 )
 
 // IsKVv2 detect if the givent path match a kv v2 engine.
@@ -47,7 +49,9 @@ func kvPreflightVersionRequest(client *api.Client, secretPath string) (mountPath
 	r := client.NewRequest("GET", "/v1/sys/internal/ui/mounts/"+secretPath)
 	resp, err := client.RawRequest(r)
 	if resp != nil {
-		defer resp.Body.Close()
+		defer func(closer io.Closer) {
+			log.SafeClose(closer, "unable to successful close request body")
+		}(resp.Body)
 	}
 	if err != nil {
 		// If we get a 404 we are using an older version of vault, default to

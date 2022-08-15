@@ -29,13 +29,15 @@ import (
 	"filippo.io/age"
 	"filippo.io/age/armor"
 
+	"github.com/zntrio/harp/v2/pkg/sdk/ioutil"
 	"github.com/zntrio/harp/v2/pkg/sdk/value"
 	"github.com/zntrio/harp/v2/pkg/sdk/value/encryption"
 )
 
 const (
-	agePublicPrefix  = "age-recipients"
-	agePrivatePrefix = "age-identity"
+	agePublicPrefix   = "age-recipients"
+	agePrivatePrefix  = "age-identity"
+	ageMaxPayloadSize = 25 * 1024 * 1024
 )
 
 func init() {
@@ -126,7 +128,7 @@ func (d *ageTransformer) To(_ context.Context, input []byte) ([]byte, error) {
 	}
 
 	// Copy stream
-	if _, err := io.Copy(w, in); err != nil {
+	if err := ioutil.Copy(ageMaxPayloadSize, w, in); err != nil {
 		return nil, err
 	}
 
@@ -170,7 +172,7 @@ func (d *ageTransformer) From(_ context.Context, input []byte) ([]byte, error) {
 	}
 
 	// Copy stream
-	if _, err := io.Copy(&out, w); err != nil {
+	if err := ioutil.Copy(ageMaxPayloadSize, &out, w); err != nil {
 		return nil, err
 	}
 
