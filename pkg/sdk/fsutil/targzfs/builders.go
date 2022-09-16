@@ -27,6 +27,8 @@ import (
 	"io/fs"
 	"os"
 	"path"
+
+	"github.com/zntrio/harp/v2/pkg/sdk/ioutil"
 )
 
 // FromFile creates an archive filesystem from a filename.
@@ -43,8 +45,6 @@ func FromFile(name string) (fs.FS, error) {
 
 // FromReader exposes the contents of the given reader (which is a .tar.gz file)
 // as an fs.FS.
-//
-//nolint:funlen,gocyclo // to refactor
 func FromReader(r io.Reader) (fs.FS, error) {
 	gz, err := gzip.NewReader(r)
 	if err != nil {
@@ -53,28 +53,13 @@ func FromReader(r io.Reader) (fs.FS, error) {
 
 	// Retrieve TAR content from GZIP
 	var (
-		tarContents      bytes.Buffer
-		tarContentLength = int64(0)
+		tarContents bytes.Buffer
 	)
 
 	// Chunked read with hard limit to prevent/reduce zipbomb vulnerability
 	// exploitation.
-	for {
-		written, err := io.CopyN(&tarContents, gz, 1024)
-		if err != nil {
-			if errors.Is(err, io.EOF) {
-				break
-			}
-			return nil, err
-		}
-
-		// Add to length
-		tarContentLength += written
-
-		// Check max size
-		if tarContentLength > maxDecompressedSize {
-			return nil, errors.New("the archive contains a too large content (>25MB)")
-		}
+	if err := ioutil.Copy(maxDecompressedSize, &tarContents, gz); err != nil {
+		return nil, fmt.Errorf("unable to decompress the archive: %w", err)
 	}
 
 	// Close the gzip decompressor
@@ -83,7 +68,7 @@ func FromReader(r io.Reader) (fs.FS, error) {
 	}
 
 	// TAR format reader
-	tarReader := tar.NewReader(bytes.NewBuffer(tarContents.Bytes()))
+	tarReader := tar.NewReader(&tarContents)
 
 	// Prepare in-memory filesystem.
 	ret := &tarGzFs{
@@ -101,8 +86,11 @@ func FromReader(r io.Reader) (fs.FS, error) {
 			}
 			return nil, fmt.Errorf("unable to read .tar.gz entry: %w", err)
 		}
+		if hdr != nil && len(ret.files) > maxFileCount {
+			return nil, errors.New("interrupted extraction, too many files in the archive")
+		}
 
-		// Clean file path.
+		// Clean file path. (ZipSlip)
 		name := path.Clean(hdr.Name)
 		if name == "." {
 			continue
@@ -110,28 +98,13 @@ func FromReader(r io.Reader) (fs.FS, error) {
 
 		// Load content in memory
 		var (
-			fileContents      bytes.Buffer
-			fileContentLength = int64(0)
+			fileContents bytes.Buffer
 		)
 
 		// Chunked read with hard limit to prevent/reduce post decompression
 		// explosion
-		for {
-			written, err := io.CopyN(&fileContents, tarReader, 1024)
-			if err != nil {
-				if errors.Is(err, io.EOF) {
-					break
-				}
-				return nil, err
-			}
-
-			// Add to length
-			fileContentLength += written
-
-			// Check max size
-			if fileContentLength > maxDecompressedSize {
-				return nil, errors.New("the archive contains a too large file (>25MB)")
-			}
+		if err := ioutil.Copy(maxFileSize, &fileContents, tarReader); err != nil {
+			return nil, fmt.Errorf("unable to copy file content to memory: %w", err)
 		}
 
 		// Register file
@@ -152,11 +125,6 @@ func FromReader(r io.Reader) (fs.FS, error) {
 			if parent, ok := ret.files[dir]; ok {
 				parent.entries = append(parent.entries, e)
 			}
-		}
-
-		// Check file count limit
-		if len(ret.files) > maxFileCount {
-			return nil, errors.New("interrupted extraction, too many files in the archive")
 		}
 	}
 

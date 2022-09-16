@@ -28,7 +28,7 @@ var (
 )
 
 // Copy uses a buffered CopyN and a hardlimit to stop read from the reader when
-// the maxSize amount of data has been writtent to the given writer.
+// the maxSize amount of data has been written to the given writer.
 func Copy(maxSize int64, w io.Writer, r io.Reader) error {
 	var (
 		contentLength = int64(0)

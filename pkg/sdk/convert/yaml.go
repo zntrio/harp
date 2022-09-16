@@ -25,9 +25,15 @@ import (
 	"io"
 	"reflect"
 
+	"google.golang.org/protobuf/encoding/protojson"
+	"google.golang.org/protobuf/proto"
 	"sigs.k8s.io/yaml"
 
 	"github.com/zntrio/harp/v2/pkg/sdk/types"
+)
+
+var (
+	maxPayloadSize = int64(25 << 20) // 25MB
 )
 
 // YAMLtoJSON reads a given reader in order to extract a JSON representation
@@ -47,6 +53,35 @@ func YAMLtoJSON(r io.Reader) (io.Reader, error) {
 	return jsonReader, nil
 }
 
+// PBtoYAML converts a protobuf object to a YAML representation
+func PBtoYAML(msg proto.Message) ([]byte, error) {
+	// Check arguments
+	if types.IsNil(msg) {
+		return nil, fmt.Errorf("msg is nil")
+	}
+
+	// Encode protbuf message as JSON
+	pb, err := protojson.Marshal(msg)
+	if err != nil {
+		return nil, fmt.Errorf("unable to encode protbuf message to JSON: %w", err)
+	}
+
+	// Decode input as JSON
+	var jsonObj interface{}
+	if errDecode := yaml.Unmarshal(pb, &jsonObj); errDecode != nil {
+		return nil, fmt.Errorf("unable to decode JSON input: %w", errDecode)
+	}
+
+	// Marshal as YAML
+	out, errEncode := yaml.Marshal(jsonObj)
+	if errEncode != nil {
+		return nil, fmt.Errorf("unable to produce YAML output: %w", errEncode)
+	}
+
+	// No error
+	return out, nil
+}
+
 // -----------------------------------------------------------------------------
 
 // loadFromYAML reads YAML definition and returns the PB struct.
@@ -61,7 +96,7 @@ func loadFromYAML(r io.Reader) (io.Reader, error) {
 	}
 
 	// Drain input reader
-	in, err := io.ReadAll(r)
+	in, err := io.ReadAll(io.LimitReader(r, maxPayloadSize))
 	if err != nil && !errors.Is(err, io.EOF) {
 		return nil, fmt.Errorf("unable to drain input reader: %w", err)
 	}

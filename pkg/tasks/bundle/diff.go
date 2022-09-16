@@ -23,10 +23,9 @@ import (
 	"errors"
 	"fmt"
 
-	"sigs.k8s.io/yaml"
-
 	"github.com/zntrio/harp/v2/pkg/bundle"
 	"github.com/zntrio/harp/v2/pkg/bundle/compare"
+	"github.com/zntrio/harp/v2/pkg/sdk/convert"
 	"github.com/zntrio/harp/v2/pkg/sdk/types"
 	"github.com/zntrio/harp/v2/pkg/tasks"
 )
@@ -100,8 +99,8 @@ func (t *DiffTask) Run(ctx context.Context) error {
 			return fmt.Errorf("unable to convert oplog as a bundle patch: %w", err)
 		}
 
-		// Marshal YAML Patch
-		out, err := yaml.Marshal(patch)
+		// Marshal as YAML
+		out, err := convert.PBtoYAML(patch)
 		if err != nil {
 			return fmt.Errorf("unable to marshal patch as YAML: %w", err)
 		}
