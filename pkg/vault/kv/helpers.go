@@ -18,16 +18,18 @@
 package kv
 
 import (
+	"context"
 	"errors"
 	"io"
 
 	"github.com/hashicorp/vault/api"
+
 	"github.com/zntrio/harp/v2/pkg/sdk/log"
 )
 
 // IsKVv2 detect if the givent path match a kv v2 engine.
-func isKVv2(secretPath string, client *api.Client) (mountPath string, isV2 bool, err error) {
-	mountPath, version, err := kvPreflightVersionRequest(client, secretPath)
+func isKVv2(ctx context.Context, secretPath string, client *api.Client) (mountPath string, isV2 bool, err error) {
+	mountPath, version, err := kvPreflightVersionRequest(ctx, client, secretPath)
 	if err != nil {
 		return "", false, err
 	}
@@ -36,7 +38,7 @@ func isKVv2(secretPath string, client *api.Client) (mountPath string, isV2 bool,
 }
 
 //nolint:gocyclo,staticcheck // to refactor
-func kvPreflightVersionRequest(client *api.Client, secretPath string) (mountPath string, backendVersion int, err error) {
+func kvPreflightVersionRequest(ctx context.Context, client *api.Client, secretPath string) (mountPath string, backendVersion int, err error) {
 	// We don't want to use a wrapping call here so save any custom value and
 	// restore after
 	currentWrappingLookupFunc := client.CurrentWrappingLookupFunc()
@@ -47,7 +49,7 @@ func kvPreflightVersionRequest(client *api.Client, secretPath string) (mountPath
 	defer client.SetOutputCurlString(currentOutputCurlString)
 
 	r := client.NewRequest("GET", "/v1/sys/internal/ui/mounts/"+secretPath)
-	resp, err := client.RawRequest(r)
+	resp, err := client.RawRequestWithContext(ctx, r)
 	if resp != nil {
 		defer func(closer io.Closer) {
 			log.SafeClose(closer, "unable to successful close request body")

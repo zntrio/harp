@@ -44,7 +44,7 @@ const (
 
 // -----------------------------------------------------------------------------
 
-func executeRule(r *bundlev1.PatchRule, p *bundlev1.Package, values map[string]interface{}) (ruleAction, error) {
+func executeRule(ctx context.Context, r *bundlev1.PatchRule, p *bundlev1.Package, values map[string]interface{}) (ruleAction, error) {
 	// Check parameters
 	if r == nil {
 		return packageUnchanged, fmt.Errorf("cannot process nil rule")
@@ -57,7 +57,7 @@ func executeRule(r *bundlev1.PatchRule, p *bundlev1.Package, values map[string]i
 	}
 
 	// Compile selector
-	s, err := compileSelector(r.Selector, values)
+	s, err := compileSelector(ctx, r.Selector, values)
 	if err != nil {
 		return packageUnchanged, fmt.Errorf("unable to compile selector: %w", err)
 	}
@@ -83,7 +83,7 @@ func executeRule(r *bundlev1.PatchRule, p *bundlev1.Package, values map[string]i
 }
 
 //nolint:gocyclo,funlen // to refactor
-func compileSelector(s *bundlev1.PatchSelector, values map[string]interface{}) (selector.Specification, error) {
+func compileSelector(ctx context.Context, s *bundlev1.PatchSelector, values map[string]interface{}) (selector.Specification, error) {
 	// Check parameters
 	if s == nil {
 		return nil, fmt.Errorf("cannot process nil selector")
@@ -197,13 +197,13 @@ func compileSelector(s *bundlev1.PatchSelector, values map[string]interface{}) (
 		}
 
 		// Build the specification
-		return selector.MatchRego(context.Background(), string(policyFile))
+		return selector.MatchRego(ctx, string(policyFile))
 	}
 
 	// Has rego policy
 	if s.Rego != "" {
 		// Return specification
-		return selector.MatchRego(context.Background(), s.Rego)
+		return selector.MatchRego(ctx, s.Rego)
 	}
 
 	// Has CEL expressions

@@ -79,7 +79,7 @@ func (t *RenderTask) Run(ctx context.Context) error {
 	}
 
 	// Prepare render context
-	renderCtx, err := prepareRenderContext(&renderContextConfig{
+	renderCtx, err := prepareRenderContext(ctx, &renderContextConfig{
 		ValueFiles:    t.ValueFiles,
 		SecretLoaders: t.SecretLoaders,
 		Values:        t.Values,
@@ -127,7 +127,7 @@ type renderContextConfig struct {
 	FileRootPath  fs.FS
 }
 
-func prepareRenderContext(cfg *renderContextConfig) (engine.Context, error) {
+func prepareRenderContext(ctx context.Context, cfg *renderContextConfig) (engine.Context, error) {
 	// Load values
 	valueOpts := tplcmdutil.ValueOptions{
 		ValueFiles:   cfg.ValueFiles,
@@ -166,7 +166,7 @@ func prepareRenderContext(cfg *renderContextConfig) (engine.Context, error) {
 				return nil, fmt.Errorf("unable to initialize vault secret loader: %w", errVault)
 			}
 
-			secretReaders = append(secretReaders, kv.SecretGetter(vaultClient))
+			secretReaders = append(secretReaders, kv.SecretGetter(ctx, vaultClient))
 			continue
 		}
 

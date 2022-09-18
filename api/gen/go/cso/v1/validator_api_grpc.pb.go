@@ -62,19 +62,21 @@ func (c *validatorAPIClient) Validate(ctx context.Context, in *ValidateRequest, 
 }
 
 // ValidatorAPIServer is the server API for ValidatorAPI service.
-// All implementations should embed UnimplementedValidatorAPIServer
+// All implementations must embed UnimplementedValidatorAPIServer
 // for forward compatibility
 type ValidatorAPIServer interface {
 	// Validate given path according to CSO sepcification.
 	Validate(context.Context, *ValidateRequest) (*ValidateResponse, error)
+	mustEmbedUnimplementedValidatorAPIServer()
 }
 
-// UnimplementedValidatorAPIServer should be embedded to have forward compatible implementations.
+// UnimplementedValidatorAPIServer must be embedded to have forward compatible implementations.
 type UnimplementedValidatorAPIServer struct{}
 
 func (UnimplementedValidatorAPIServer) Validate(context.Context, *ValidateRequest) (*ValidateResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Validate not implemented")
 }
+func (UnimplementedValidatorAPIServer) mustEmbedUnimplementedValidatorAPIServer() {}
 
 // UnsafeValidatorAPIServer may be embedded to opt out of forward compatibility for this service.
 // Use of this interface is not recommended, as added methods to ValidatorAPIServer will

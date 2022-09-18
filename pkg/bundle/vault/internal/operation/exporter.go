@@ -109,7 +109,7 @@ func (op *exporter) Run(ctx context.Context) error {
 				defer sem.Release(1)
 
 				if err := gReaderCtx.Err(); err != nil {
-					// Context has already an error
+					//nolint:nilerr // Context has already an error
 					return nil
 				}
 

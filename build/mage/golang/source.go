@@ -62,6 +62,7 @@ func CollectGoFiles() error {
 	var sourceOut bytes.Buffer
 	var testOut bytes.Buffer
 
+	//nolint:gosec // controlled input
 	cmdSource := exec.Command(
 		"go",
 		"list",
@@ -85,6 +86,7 @@ func CollectGoFiles() error {
 		CollectedGoSourceFiles[pth] = true
 	}
 
+	//nolint:gosec // controlled input
 	cmdTest := exec.Command(
 		"go",
 		"list",

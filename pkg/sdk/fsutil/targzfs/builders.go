@@ -25,16 +25,16 @@ import (
 	"fmt"
 	"io"
 	"io/fs"
-	"os"
 	"path"
+	"path/filepath"
 
 	"github.com/zntrio/harp/v2/pkg/sdk/ioutil"
 )
 
 // FromFile creates an archive filesystem from a filename.
-func FromFile(name string) (fs.FS, error) {
+func FromFile(root fs.FS, name string) (fs.FS, error) {
 	// Open the target file
-	fn, err := os.Open(name)
+	fn, err := root.Open(filepath.Clean(name))
 	if err != nil {
 		return nil, fmt.Errorf("unable to open archive %q: %w", name, err)
 	}

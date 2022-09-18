@@ -23,6 +23,7 @@ import (
 	"fmt"
 	"io"
 	"os"
+	"path/filepath"
 	"strings"
 	"text/template"
 
@@ -140,8 +141,14 @@ type formulaModel struct {
 // HomebrewFormula generates HomeBrew formula for given command.
 func HomebrewFormula(cmd *artifact.Command) func() error {
 	sha256sum := func(filename string) (string, error) {
+		// Check input file
+		binFile := filepath.Clean(filename)
+		if !strings.HasPrefix(binFile, "dist/") {
+			return "", fmt.Errorf("unable to load file from %q", filename)
+		}
+
 		// Open file
-		f, err := os.Open(filename)
+		f, err := os.Open(binFile)
 		if err != nil {
 			return "", err
 		}

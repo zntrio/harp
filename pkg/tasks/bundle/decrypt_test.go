@@ -40,13 +40,9 @@ func TestDecryptTask_Run(t *testing.T) {
 		OutputWriter    tasks.WriterProvider
 		Transformers    []value.Transformer
 	}
-	type args struct {
-		ctx context.Context
-	}
 	tests := []struct {
 		name    string
 		fields  fields
-		args    args
 		wantErr bool
 	}{
 		{

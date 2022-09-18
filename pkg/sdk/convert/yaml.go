@@ -32,9 +32,7 @@ import (
 	"github.com/zntrio/harp/v2/pkg/sdk/types"
 )
 
-var (
-	maxPayloadSize = int64(25 << 20) // 25MB
-)
+var maxPayloadSize = int64(25 << 20) // 25MB
 
 // YAMLtoJSON reads a given reader in order to extract a JSON representation
 func YAMLtoJSON(r io.Reader) (io.Reader, error) {

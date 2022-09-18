@@ -333,6 +333,7 @@ func lengthPrefixedArray(value []byte) []byte {
 	result := make([]byte, 4)
 	binary.BigEndian.PutUint32(result, uint32(len(value)))
 
+	//nolint:makezero // expected behavior
 	return append(result, value...)
 }
 

@@ -65,7 +65,7 @@ func (t *FileSystemTask) Run(ctx context.Context) error {
 	}
 
 	// Prepare render context
-	renderCtx, err := prepareRenderContext(&renderContextConfig{
+	renderCtx, err := prepareRenderContext(ctx, &renderContextConfig{
 		ValueFiles:    t.ValueFiles,
 		SecretLoaders: t.SecretLoaders,
 		Values:        t.Values,
@@ -89,7 +89,7 @@ func (t *FileSystemTask) Run(ctx context.Context) error {
 			return errWalk
 		}
 		if d.IsDir() {
-			return outFs.MkdirAll(path, 0o755)
+			return outFs.MkdirAll(path, 0o750)
 		}
 
 		// Get file content.

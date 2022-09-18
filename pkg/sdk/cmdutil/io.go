@@ -105,6 +105,9 @@ func Writer(name string) (io.Writer, error) {
 		err    error
 	)
 
+	// Clean input filename
+	name = filepath.Clean(name)
+
 	// Create output writer
 	switch name {
 	case "", "-":
@@ -112,6 +115,7 @@ func Writer(name string) (io.Writer, error) {
 		writer = os.Stdout
 	default:
 		// Open output file
+		//nolint:gosec // expected behavior
 		writer, err = os.OpenFile(name, os.O_CREATE|os.O_WRONLY, 0o400)
 		if err != nil {
 			return nil, fmt.Errorf("unable to open '%s' for write: %w", name, err)

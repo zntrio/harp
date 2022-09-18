@@ -21,7 +21,6 @@ import (
 	"bytes"
 	"encoding/hex"
 	"io"
-	"io/ioutil"
 	"testing"
 
 	"github.com/google/go-cmp/cmp"
@@ -220,6 +219,6 @@ func Test_Dump_Fuzz(t *testing.T) {
 		f.Fuzz(&input)
 
 		// Execute
-		Dump(ioutil.Discard, &input)
+		Dump(io.Discard, &input)
 	}
 }

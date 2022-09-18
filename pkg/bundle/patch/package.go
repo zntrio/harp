@@ -18,6 +18,7 @@
 package patch
 
 import (
+	"context"
 	"encoding/base64"
 	"fmt"
 	"sort"
@@ -82,7 +83,7 @@ func Checksum(spec *bundlev1.Patch) (string, error) {
 // Apply given patch to the given bundle.
 //
 //nolint:interfacer,gocyclo,funlen // Explicit type restriction
-func Apply(spec *bundlev1.Patch, b *bundlev1.Bundle, values map[string]interface{}, o ...OptionFunc) (*bundlev1.Bundle, error) {
+func Apply(ctx context.Context, spec *bundlev1.Patch, b *bundlev1.Bundle, values map[string]interface{}, o ...OptionFunc) (*bundlev1.Bundle, error) {
 	// Validate spec
 	if err := Validate(spec); err != nil {
 		return nil, fmt.Errorf("unable to validate spec: %w", err)
@@ -141,7 +142,7 @@ func Apply(spec *bundlev1.Patch, b *bundlev1.Bundle, values map[string]interface
 			Name: r.Selector.MatchPath.Strict,
 		}
 
-		_, err := executeRule(r, p, values)
+		_, err := executeRule(ctx, r, p, values)
 		if err != nil {
 			return nil, fmt.Errorf("unable to execute rule index %d: %w", i, err)
 		}
@@ -164,7 +165,7 @@ func Apply(spec *bundlev1.Patch, b *bundlev1.Bundle, values map[string]interface
 
 		// Process all packages
 		for i, p := range bCopy.Packages {
-			action, err := executeRule(r, p, values)
+			action, err := executeRule(ctx, r, p, values)
 			if err != nil {
 				return nil, fmt.Errorf("unable to execute rule index %d: %w", ri, err)
 			}

@@ -59,6 +59,7 @@ func tag() (string, error) {
 func TagMatch(match string) (string, error) {
 	tag, err := sh.Output("git", "describe", "--match", match)
 	if err != nil {
+		//nolint: nilerr // Expected behavior
 		return "", nil
 	}
 

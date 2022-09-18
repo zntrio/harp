@@ -24,6 +24,7 @@ import (
 	"io/fs"
 	"os"
 	"path/filepath"
+	"strings"
 
 	"go.uber.org/zap"
 
@@ -51,13 +52,19 @@ func Dump(srcFs fs.FS, outPath string) error {
 
 		// Check folder hierarchy existence.
 		if _, err := os.Stat(relativeDir); os.IsNotExist(err) {
-			if err := os.MkdirAll(relativeDir, 0o755); err != nil {
+			if err := os.MkdirAll(relativeDir, 0o750); err != nil {
 				return fmt.Errorf("unable to create intermediate directories for path '%s': %w", relativeDir, err)
 			}
 		}
 
+		// Encsure not out of safe directory file creation.
+		cleanTargetPath := filepath.Clean(targetPath)
+		if !strings.HasPrefix(cleanTargetPath, outPath) {
+			return fmt.Errorf("unable to create %q file, the path is not in the expected output path", targetPath)
+		}
+
 		// Create file
-		targetFile, err := os.Create(targetPath)
+		targetFile, err := os.Create(cleanTargetPath)
 		if err != nil {
 			return fmt.Errorf("unable to create the output file: %w", err)
 		}

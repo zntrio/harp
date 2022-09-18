@@ -27,16 +27,16 @@ import (
 // SecretGetter pull a secret from Vault using given path.
 //
 // To be used of template function.
-func SecretGetter(client *api.Client) func(string) (map[string]interface{}, error) {
+func SecretGetter(ctx context.Context, client *api.Client) func(string) (map[string]interface{}, error) {
 	return func(path string) (map[string]interface{}, error) {
 		// Create dedicated service reader
-		service, err := New(client, path)
+		service, err := New(client, path, WithContext(ctx))
 		if err != nil {
 			return nil, fmt.Errorf("unable to prepare vault reader for path '%s': %w", path, err)
 		}
 
 		// Delegate to reader
-		data, _, err := service.Read(context.Background(), path)
+		data, _, err := service.Read(ctx, path)
 		return data, err
 	}
 }

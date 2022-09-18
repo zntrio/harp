@@ -32,7 +32,7 @@ var ErrNotSupported = errors.New("not supported filesystem path")
 
 func From(rootPath string) (fs.FS, error) {
 	// Get absolute path
-	absPath, errPath := filepath.Abs(rootPath)
+	absPath, errPath := filepath.Abs(filepath.Clean(rootPath))
 	if errPath != nil {
 		return nil, fmt.Errorf("unable to get absolute path: %w", errPath)
 	}
@@ -50,7 +50,7 @@ func From(rootPath string) (fs.FS, error) {
 	switch {
 	case !fi.IsDir() && strings.HasSuffix(absPath, ".tar.gz"):
 		// Create in-memory filesystem.
-		fileRootFS, errRootFS = targzfs.FromFile(absPath)
+		fileRootFS, errRootFS = targzfs.FromFile(os.DirFS(filepath.Dir(absPath)), filepath.Base(absPath))
 	case fi.IsDir():
 		fileRootFS = os.DirFS(absPath)
 	default:

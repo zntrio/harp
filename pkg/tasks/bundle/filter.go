@@ -22,6 +22,7 @@ import (
 	"errors"
 	"fmt"
 	"os"
+	"path/filepath"
 	"regexp"
 
 	"github.com/jmespath/go-jmespath"
@@ -223,7 +224,7 @@ func (t *FilterTask) regoFilter(ctx context.Context, in []*bundlev1.Package, pol
 	}
 
 	// Read policy file
-	policy, err := os.ReadFile(policyFile)
+	policy, err := os.ReadFile(filepath.Clean(policyFile))
 	if err != nil {
 		return nil, fmt.Errorf("unable to read the filter policy file: %w", err)
 	}

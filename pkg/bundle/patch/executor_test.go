@@ -18,6 +18,7 @@
 package patch
 
 import (
+	"context"
 	"testing"
 
 	fuzz "github.com/google/gofuzz"
@@ -65,7 +66,7 @@ func Test_executeRule_Fuzz(t *testing.T) {
 		f.Fuzz(&spec.Spec.Rules[0])
 
 		// Execute
-		executeRule(spec.Spec.Rules[0], &p, values)
+		executeRule(context.Background(), spec.Spec.Rules[0], &p, values)
 	}
 }
 
@@ -95,7 +96,7 @@ func Test_compileSelector_Fuzz(t *testing.T) {
 		f.Fuzz(&spec.Spec.Rules[0].Selector)
 
 		// Execute
-		compileSelector(spec.Spec.Rules[0].Selector, values)
+		compileSelector(context.Background(), spec.Spec.Rules[0].Selector, values)
 	}
 }
 

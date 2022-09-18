@@ -18,6 +18,7 @@
 package kv
 
 import (
+	"context"
 	"fmt"
 
 	"github.com/hashicorp/vault/api"
@@ -31,6 +32,14 @@ type Option func(opts *Options)
 // Options defiens the default option value.
 type Options struct {
 	useCustomMetadata bool
+	ctx               context.Context
+}
+
+// WithContext adds given context to all queries.
+func WithContext(ctx context.Context) Option {
+	return func(opts *Options) {
+		opts.ctx = ctx
+	}
 }
 
 // WithVaultMetatadata enable/disable the custom metadata storage strategy (requires Vault >=1.9).
@@ -45,20 +54,21 @@ func New(client *api.Client, path string, opts ...Option) (Service, error) {
 	// Sanitize path
 	secretPath := vpath.SanitizePath(path)
 
-	// Detect mount path
-	mountPath, v2, err := isKVv2(secretPath, client)
-	if err != nil {
-		return nil, fmt.Errorf("vault: unable to detect k/v backend version: %w", err)
-	}
-
 	// Defines default flag.
 	dopts := &Options{
 		useCustomMetadata: false,
+		ctx:               context.Background(),
 	}
 
 	// Apply option function.
 	for _, o := range opts {
 		o(dopts)
+	}
+
+	// Detect mount path
+	mountPath, v2, err := isKVv2(dopts.ctx, secretPath, client)
+	if err != nil {
+		return nil, fmt.Errorf("vault: unable to detect k/v backend version: %w", err)
 	}
 
 	// Build the service according to mountPath version

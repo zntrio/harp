@@ -125,7 +125,7 @@ func runPull(ctx context.Context, client *api.Client, paths []string, opts *opti
 		exportBuilder := func(p string) func() error {
 			return func() error {
 				// Create dedicated service reader
-				service, err := kv.New(client, p, kv.WithVaultMetatadata(opts.withVaultMetadata))
+				service, err := kv.New(client, p, kv.WithVaultMetatadata(opts.withVaultMetadata), kv.WithContext(gReaderctx))
 				if err != nil {
 					return fmt.Errorf("unable to prepare vault reader for path '%s': %w", p, err)
 				}

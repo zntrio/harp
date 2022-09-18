@@ -29,6 +29,7 @@ import (
 	"encoding/pem"
 	"fmt"
 	"os"
+	"path/filepath"
 
 	"github.com/pkg/errors"
 	"go.step.sm/crypto/pemutil"
@@ -117,7 +118,7 @@ func certPool(caFile string, exclusivePool bool) (*x509.CertPool, error) {
 			return nil, fmt.Errorf("failed to read system certificates: %w", err)
 		}
 	}
-	content, err := os.ReadFile(caFile)
+	content, err := os.ReadFile(filepath.Clean(caFile))
 	if err != nil {
 		return nil, fmt.Errorf("could not read CA certificate %q: %w", caFile, err)
 	}

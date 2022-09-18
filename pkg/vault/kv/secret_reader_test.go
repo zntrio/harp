@@ -18,6 +18,7 @@
 package kv
 
 import (
+	"context"
 	"errors"
 	"fmt"
 	"net/http"
@@ -57,7 +58,7 @@ func TestSecretReader_NotFound(t *testing.T) {
 	}
 
 	// Build reader
-	underTest := SecretGetter(vaultClient)
+	underTest := SecretGetter(context.Background(), vaultClient)
 
 	_, err = underTest("application/secret/not/found")
 	if err != nil && !errors.Is(err, ErrPathNotFound) {
@@ -92,7 +93,7 @@ func TestSecretReader_Found(t *testing.T) {
 	}
 
 	// Build reader
-	underTest := SecretGetter(vaultClient)
+	underTest := SecretGetter(context.Background(), vaultClient)
 
 	res, err := underTest("application/secret/found")
 	if err != nil {

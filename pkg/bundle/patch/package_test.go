@@ -18,6 +18,7 @@
 package patch
 
 import (
+	"context"
 	"os"
 	"reflect"
 	"testing"
@@ -222,7 +223,7 @@ func TestApply_Fuzz(t *testing.T) {
 		f.Fuzz(&file)
 
 		// Execute
-		Apply(spec, &file, values)
+		Apply(context.Background(), spec, &file, values)
 	}
 }
 
@@ -681,7 +682,7 @@ func TestApply(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			got, err := Apply(tt.args.spec, tt.args.b, tt.args.values, tt.args.options...)
+			got, err := Apply(context.Background(), tt.args.spec, tt.args.b, tt.args.values, tt.args.options...)
 			if (err != nil) != tt.wantErr {
 				t.Errorf("Apply() error = %v, wantErr %v", err, tt.wantErr)
 				return

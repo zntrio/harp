@@ -39,6 +39,7 @@ type readerTestCase struct {
 	wantErr bool
 }
 
+//nolint:unparam // rootPath has always the same value for the moment
 func generateReaderTests(t *testing.T, rootPath, state string, wantErr bool) []readerTestCase {
 	tests := []readerTestCase{}
 	// Generate invalid test cases

@@ -39,13 +39,9 @@ func TestEncryptTask_Run(t *testing.T) {
 		TransformerMap    map[string]value.Transformer
 		SkipUnresolved    bool
 	}
-	type args struct {
-		ctx context.Context
-	}
 	tests := []struct {
 		name    string
 		fields  fields
-		args    args
 		wantErr bool
 	}{
 		{

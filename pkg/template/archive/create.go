@@ -69,7 +69,7 @@ func Create(fileSystem fs.FS, w io.Writer, opts ...CreateOption) error {
 	}
 
 	// Compile inclusion filters
-	var includes []glob.Glob
+	includes := []glob.Glob{}
 	for _, f := range dopts.includeGlobs {
 		// Try to compile glob filter.
 		filter, err := glob.Compile(f)
@@ -82,7 +82,7 @@ func Create(fileSystem fs.FS, w io.Writer, opts ...CreateOption) error {
 	}
 
 	// Compile explusion filters
-	var excludes []glob.Glob
+	excludes := []glob.Glob{}
 	for _, f := range dopts.excludeGlobs {
 		// Try to compile glob filter.
 		filter, err := glob.Compile(f)

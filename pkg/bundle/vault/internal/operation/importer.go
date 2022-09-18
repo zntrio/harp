@@ -109,7 +109,7 @@ func (op *importer) Run(ctx context.Context) error {
 				defer sem.Release(1)
 
 				if err := gWriterCtx.Err(); err != nil {
-					// Context has already an error
+					//nolint:nilerr // Context has already an error
 					return nil
 				}
 
@@ -161,7 +161,7 @@ func (op *importer) Run(ctx context.Context) error {
 				// Check backend initialization
 				if _, ok := op.backends[rootPath]; !ok {
 					// Initialize new service for backend
-					service, err := kv.New(op.client, rootPath, kv.WithVaultMetatadata(op.withVaultMetadata))
+					service, err := kv.New(op.client, rootPath, kv.WithVaultMetatadata(op.withVaultMetadata), kv.WithContext(gWriterCtx))
 					if err != nil {
 						return fmt.Errorf("unable to initialize Vault service for '%s' KV backend: %w", op.prefix, err)
 					}

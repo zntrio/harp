@@ -115,7 +115,7 @@ func ExtractImage(store StoreGetter) (*Image, error) {
 		return nil, fmt.Errorf("unable to retrieve config from crate: %w", err)
 	}
 
-	var containers []*SealedContainer
+	containers := []*SealedContainer{}
 	// Retrieve container
 	for _, layerName := range cfg.Containers() {
 		c, err := getSealedContainer(store, layerName)
@@ -131,7 +131,7 @@ func ExtractImage(store StoreGetter) (*Image, error) {
 	}
 
 	// Retrieve archives
-	var archives []*TemplateArchive
+	archives := []*TemplateArchive{}
 	for _, layerName := range cfg.Templates() {
 		c, err := getTemplateArchive(store, layerName)
 		if err != nil {

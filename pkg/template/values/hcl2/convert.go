@@ -204,11 +204,13 @@ func (c *converter) convertTemplateConditional(expr *hclsyntax.ConditionalExpr) 
 	builder.WriteString("}")
 	trueResult, err := c.convertStringPart(expr.TrueResult)
 	if err != nil {
+		//nolint:nilerr // expected behavior
 		return "", nil
 	}
 	builder.WriteString(trueResult)
 	falseResult, err := c.convertStringPart(expr.FalseResult)
 	if err != nil {
+		//nolint:nilerr // expected behavior
 		return "", nil
 	}
 	if len(falseResult) > 0 {

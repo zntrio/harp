@@ -165,6 +165,7 @@ func printGlibcVersion(w io.Writer) {
 	defer func() {
 		log.CheckErr("unable to remove the go-bug.c file", os.Remove(srcfile))
 	}()
+	//nolint:gosec // controlled inputs
 	cmd := exec.Command("gcc", "-o", outfile, srcfile)
 	if _, err = cmd.CombinedOutput(); err != nil {
 		return
@@ -172,6 +173,7 @@ func printGlibcVersion(w io.Writer) {
 	defer func() {
 		log.CheckErr("unable to remove the go-bug file", os.Remove(outfile))
 	}()
+	//nolint:gosec // controlled inputs
 	cmd = exec.Command("ldd", outfile)
 	out, err := cmd.CombinedOutput()
 	if err != nil {
