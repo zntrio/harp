@@ -600,6 +600,11 @@ linters:
 #  enable-all: true
   disable:
     - scopelint
+    - varcheck
+    - deadcode
+    - structcheck
+    - rowserrcheck
+    - sqlclosecheck
 #    - maligned
 #    - prealloc
   presets:

@@ -29,7 +29,8 @@ import (
 )
 
 // Etcd creates a test etcd server inside a Docker container.
-func Etcd(ctx context.Context, tb testing.TB) string {
+// nolint: contextcheck // false positive
+func Etcd(_ context.Context, tb testing.TB) string {
 	pool, err := dockertest.NewPool("")
 	if err != nil {
 		tb.Fatalf("couldn't connect to docker: %v", err)

@@ -54,6 +54,7 @@ var toZookeeperCmd = func() *cobra.Command {
 			defer cancel()
 
 			// Create config
+			// nolint: contextcheck // zk lib doesn't support to pass a caller context yet
 			client, _, err := zk.Connect(params.endpoints, params.dialTimeout)
 			if err != nil {
 				log.For(ctx).Fatal("unable to connect to zookeeper cluster", zap.Error(err))

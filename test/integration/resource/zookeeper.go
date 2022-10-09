@@ -29,7 +29,8 @@ import (
 )
 
 // Zookeeper creates a test zookeeper server inside a Docker container.
-func Zookeeper(ctx context.Context, tb testing.TB) string {
+// nolint: contextcheck // false positive
+func Zookeeper(_ context.Context, tb testing.TB) string {
 	pool, err := dockertest.NewPool("")
 	if err != nil {
 		tb.Fatalf("couldn't connect to docker: %v", err)
