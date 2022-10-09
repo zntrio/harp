@@ -35,6 +35,12 @@ harp crate copy [flags]
       --to-username string     Registry username
 ```
 
+### Options inherited from parent commands
+
+```
+      --config string   config file
+```
+
 ### SEE ALSO
 
 * [harp crate](harp_crate.md)	 - Crate management commands

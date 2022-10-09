@@ -46,6 +46,7 @@ type SealTask struct {
 	JSONOutput               bool
 	DisableContainerIdentity bool
 	SealVersion              uint
+	PreSharedKey             *memguard.LockedBuffer
 }
 
 // Run the task.
@@ -123,8 +124,24 @@ func (t *SealTask) Run(ctx context.Context) error {
 		containerKey = containerSecretKey
 	}
 
+	// Seal options
+	sopts := []container.Option{
+		container.WithPeerPublicKeys(t.PeerPublicKeys),
+	}
+
+	// Process pre-shared key
+	if t.PreSharedKey != nil {
+		// Try to decode preshared key
+		psk, errDecode := base64.RawURLEncoding.DecodeString(t.PreSharedKey.String())
+		if errDecode != nil {
+			return fmt.Errorf("unable to decode pre-shared key: %w", errDecode)
+		}
+		sopts = append(sopts, container.WithPreSharedKey(memguard.NewBufferFromBytes(psk)))
+		t.PreSharedKey.Destroy()
+	}
+
 	// Seal the container
-	sealedContainer, err := container.Seal(rand.Reader, in, t.PeerPublicKeys...)
+	sealedContainer, err := container.Seal(rand.Reader, in, sopts...)
 	if err != nil {
 		return fmt.Errorf("unable to seal container: %w", err)
 	}

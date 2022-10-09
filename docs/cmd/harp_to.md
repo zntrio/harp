@@ -8,6 +8,12 @@ Secret container conversion commands
   -h, --help   help for to
 ```
 
+### Options inherited from parent commands
+
+```
+      --config string   config file
+```
+
 ### SEE ALSO
 
 * [harp](harp.md)	 - Extensible secret management tool

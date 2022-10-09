@@ -19,6 +19,7 @@ package container
 
 import (
 	"context"
+	"encoding/base64"
 	"errors"
 	"fmt"
 
@@ -34,6 +35,7 @@ type UnsealTask struct {
 	ContainerReader tasks.ReaderProvider
 	OutputWriter    tasks.WriterProvider
 	ContainerKey    *memguard.LockedBuffer
+	PreSharedKey    *memguard.LockedBuffer
 }
 
 // Run the task.
@@ -61,8 +63,22 @@ func (t *UnsealTask) Run(ctx context.Context) error {
 		return fmt.Errorf("unable to read input container: %w", err)
 	}
 
-	// Unseal the bundle
-	out, err := container.Unseal(in, t.ContainerKey)
+	// Seal options
+	sopts := []container.Option{}
+
+	// Process pre-shared key
+	if t.PreSharedKey != nil {
+		// Try to decode preshared key
+		psk, errDecode := base64.RawURLEncoding.DecodeString(t.PreSharedKey.String())
+		if errDecode != nil {
+			return fmt.Errorf("unable to decode pre-shared key: %w", errDecode)
+		}
+		sopts = append(sopts, container.WithPreSharedKey(memguard.NewBufferFromBytes(psk)))
+		t.PreSharedKey.Destroy()
+	}
+
+	// Unseal the container
+	out, err := container.Unseal(in, t.ContainerKey, sopts...)
 	if err != nil {
 		return fmt.Errorf("unable to unseal bundle content: %w", err)
 	}

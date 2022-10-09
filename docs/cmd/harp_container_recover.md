@@ -18,6 +18,12 @@ harp container recover [flags]
       --vault-transit-path string   Vault transit backend mount path (default "transit")
 ```
 
+### Options inherited from parent commands
+
+```
+      --config string   config file
+```
+
 ### SEE ALSO
 
 * [harp container](harp_container.md)	 - Secret container commands

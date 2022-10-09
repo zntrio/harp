@@ -17,6 +17,12 @@ harp share put [flags]
       --ttl duration       Token expiration (default 30s)
 ```
 
+### Options inherited from parent commands
+
+```
+      --config string   config file
+```
+
 ### SEE ALSO
 
 * [harp share](harp_share.md)	 - Share secret using Vault Cubbyhole

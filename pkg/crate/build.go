@@ -65,7 +65,7 @@ func Build(rootFs fs.FS, spec *cratefile.Config) (*Image, error) {
 		log.Bg().Info("Sealing container ...", zap.String("container", spec.Container.Path))
 
 		// Seal with appropriate algorithm
-		sc, err := container.Seal(rand.Reader, c, spec.Container.Identities...)
+		sc, err := container.Seal(rand.Reader, c, container.WithPeerPublicKeys(spec.Container.Identities))
 		if err != nil {
 			return nil, fmt.Errorf("unable to seal container '%s': %w", spec.Container.Path, err)
 		}

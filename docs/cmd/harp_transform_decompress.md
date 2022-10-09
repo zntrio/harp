@@ -37,10 +37,17 @@ harp transform decompress [flags]
 ### Options
 
 ```
-      --algorithm string   Compression algorithm (default "gzip")
-  -h, --help               help for decompress
-      --in string          Input path ('-' for stdin or filename) (default "-")
-      --out string         Output path ('-' for stdout or filename) (default "-")
+      --algorithm string                 Compression algorithm (default "gzip")
+  -h, --help                             help for decompress
+      --in string                        Input path ('-' for stdin or filename) (default "-")
+      --max-decompression-guard uint16   Decompression guard in MB (default 100)
+      --out string                       Output path ('-' for stdout or filename) (default "-")
+```
+
+### Options inherited from parent commands
+
+```
+      --config string   config file
 ```
 
 ### SEE ALSO

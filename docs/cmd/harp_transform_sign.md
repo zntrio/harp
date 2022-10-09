@@ -18,6 +18,12 @@ harp transform sign [flags]
       --pre-hashed      The input is already pre-hashed
 ```
 
+### Options inherited from parent commands
+
+```
+      --config string   config file
+```
+
 ### SEE ALSO
 
 * [harp transform](harp_transform.md)	 - Transform input value using encryption transformers

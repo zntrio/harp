@@ -32,6 +32,7 @@ type containerUnsealParams struct {
 	inputPath       string
 	outputPath      string
 	containerKeyRaw string
+	preSharedKeyRaw string
 }
 
 var containerUnsealCmd = func() *cobra.Command {
@@ -63,6 +64,9 @@ var containerUnsealCmd = func() *cobra.Command {
 				OutputWriter:    cmdutil.StdoutWriter(),
 				ContainerKey:    containerKey,
 			}
+			if params.preSharedKeyRaw != "" {
+				t.PreSharedKey = memguard.NewBufferFromBytes([]byte(params.preSharedKeyRaw))
+			}
 
 			// Run the task
 			if err := t.Run(ctx); err != nil {
@@ -76,6 +80,7 @@ var containerUnsealCmd = func() *cobra.Command {
 	cmd.Flags().StringVar(&params.outputPath, "out", "", "Unsealed container output ('-' for stdout or filename)")
 	cmd.Flags().StringVar(&params.containerKeyRaw, "key", "", "Container key")
 	log.CheckErr("unable to mark 'key' flag as required.", cmd.MarkFlagRequired("key"))
+	cmd.Flags().StringVar(&params.preSharedKeyRaw, "pre-shared-key", "", "Use a pre-shared-key to unseal the container")
 
 	return cmd
 }

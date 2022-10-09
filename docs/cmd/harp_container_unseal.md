@@ -9,10 +9,17 @@ harp container unseal [flags]
 ### Options
 
 ```
-  -h, --help         help for unseal
-      --in string    Sealed container input ('-' for stdin or filename)
-      --key string   Container key
-      --out string   Unsealed container output ('-' for stdout or filename)
+  -h, --help                    help for unseal
+      --in string               Sealed container input ('-' for stdin or filename)
+      --key string              Container key
+      --out string              Unsealed container output ('-' for stdout or filename)
+      --pre-shared-key string   Use a pre-shared-key to unseal the container
+```
+
+### Options inherited from parent commands
+
+```
+      --config string   config file
 ```
 
 ### SEE ALSO

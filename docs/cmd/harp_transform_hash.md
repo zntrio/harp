@@ -45,6 +45,12 @@ harp transform hash [flags]
       --validate string    Expecetd hash to validate the output with. Decoded using the given encoding strategy.
 ```
 
+### Options inherited from parent commands
+
+```
+      --config string   config file
+```
+
 ### SEE ALSO
 
 * [harp transform](harp_transform.md)	 - Transform input value using encryption transformers

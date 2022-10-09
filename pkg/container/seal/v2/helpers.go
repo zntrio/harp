@@ -40,9 +40,20 @@ import (
 	"golang.org/x/crypto/hkdf"
 )
 
-func tryRecipientKeys(derivedKey *[32]byte, recipients []*containerv1.Recipient) (*[32]byte, error) {
+func pskStretch(key, salt []byte) *[preSharedKeySize]byte {
+	pskh := hmac.New(sha512.New, key)
+	pskh.Write(salt)
+	hashPsk := pskh.Sum(nil)
+
+	psk := &[preSharedKeySize]byte{}
+	copy(psk[:], hashPsk[:preSharedKeySize])
+
+	return psk
+}
+
+func tryRecipientKeys(derivedKey *[32]byte, recipients []*containerv1.Recipient, preSharedKey *[preSharedKeySize]byte) (*[32]byte, error) {
 	// Calculate recipient identifier
-	identifier, err := keyIdentifierFromDerivedKey(derivedKey)
+	identifier, err := keyIdentifierFromDerivedKey(derivedKey, preSharedKey)
 	if err != nil {
 		return nil, fmt.Errorf("unable to generate identifier: %w", err)
 	}
@@ -254,7 +265,7 @@ func computeProtectedHash(headerHash, content []byte) []byte {
 	return protected.Bytes()
 }
 
-func packRecipient(rand io.Reader, payloadKey *[32]byte, ephPrivKey *ecdsa.PrivateKey, peerPublicKey *ecdsa.PublicKey) (*containerv1.Recipient, error) {
+func packRecipient(rand io.Reader, payloadKey *[32]byte, ephPrivKey *ecdsa.PrivateKey, peerPublicKey *ecdsa.PublicKey, preSharedKey *[preSharedKeySize]byte) (*containerv1.Recipient, error) {
 	// Check arguments
 	if payloadKey == nil {
 		return nil, fmt.Errorf("unable to proceed with nil payload key")
@@ -267,13 +278,13 @@ func packRecipient(rand io.Reader, payloadKey *[32]byte, ephPrivKey *ecdsa.Priva
 	}
 
 	// Create identifier
-	recipientKey, err := deriveSharedKeyFromRecipient(peerPublicKey, ephPrivKey)
+	recipientKey, err := deriveSharedKeyFromRecipient(peerPublicKey, ephPrivKey, preSharedKey)
 	if err != nil {
 		return nil, fmt.Errorf("unable to execute key agreement: %w", err)
 	}
 
 	// Calculate identifier
-	identifier, err := keyIdentifierFromDerivedKey(recipientKey)
+	identifier, err := keyIdentifierFromDerivedKey(recipientKey, preSharedKey)
 	if err != nil {
 		return nil, fmt.Errorf("unable to derive key identifier: %w", err)
 	}
@@ -294,7 +305,7 @@ func packRecipient(rand io.Reader, payloadKey *[32]byte, ephPrivKey *ecdsa.Priva
 	return recipient, nil
 }
 
-func deriveSharedKeyFromRecipient(publicKey *ecdsa.PublicKey, privateKey *ecdsa.PrivateKey) (*[32]byte, error) {
+func deriveSharedKeyFromRecipient(publicKey *ecdsa.PublicKey, privateKey *ecdsa.PrivateKey, preSharedKey *[preSharedKeySize]byte) (*[32]byte, error) {
 	// Compute Z - ECDH(localPrivate, remotePublic)
 	Z, _ := privateKey.Curve.ScalarMult(publicKey.X, publicKey.Y, privateKey.D.Bytes())
 
@@ -311,15 +322,33 @@ func deriveSharedKeyFromRecipient(publicKey *ecdsa.PublicKey, privateKey *ecdsa.
 		return nil, fmt.Errorf("unable to derive shared secret: %w", err)
 	}
 
+	// Apply psk, this will act as a second knowledge factor to allow container
+	// unseal
+	if preSharedKey != nil {
+		// Compute HMAC-SHA512 of the shared secret.
+		pskh := hmac.New(sha512.New, preSharedKey[:])
+		pskh.Write([]byte{0x00, 0x00, 0x00, 0x01})
+		pskh.Write(sharedSecret[:])
+		skHash := pskh.Sum(nil)
+		copy(sharedSecret[:], skHash[:encryptionKeySize])
+	}
+
 	// No error
 	return &sharedSecret, nil
 }
 
-func keyIdentifierFromDerivedKey(derivedKey *[32]byte) ([]byte, error) {
+func keyIdentifierFromDerivedKey(derivedKey *[32]byte, preSharedKey *[preSharedKeySize]byte) ([]byte, error) {
 	// HMAC-SHA512
 	h := hmac.New(sha512.New, []byte("harp signcryption box key identifier"))
 	if _, err := h.Write(derivedKey[:]); err != nil {
 		return nil, fmt.Errorf("unable to generate recipient identifier")
+	}
+
+	// Apply psk if specified
+	if preSharedKey != nil {
+		if _, err := h.Write(preSharedKey[:]); err != nil {
+			return nil, fmt.Errorf("unable to generate recipient identifier")
+		}
 	}
 
 	// Return 32 bytes truncated hash.

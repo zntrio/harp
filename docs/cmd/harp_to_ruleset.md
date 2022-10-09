@@ -14,6 +14,12 @@ harp to ruleset [flags]
       --out string   Output RuleSet specification path ('' for stdout or filename)
 ```
 
+### Options inherited from parent commands
+
+```
+      --config string   config file
+```
+
 ### SEE ALSO
 
 * [harp to](harp_to.md)	 - Secret container conversion commands

@@ -15,6 +15,12 @@ harp from consul [flags]
       --paths strings                  Exported base paths
 ```
 
+### Options inherited from parent commands
+
+```
+      --config string   config file
+```
+
 ### SEE ALSO
 
 * [harp from](harp_from.md)	 - Secret container generation commands

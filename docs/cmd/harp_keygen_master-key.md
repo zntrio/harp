@@ -12,6 +12,12 @@ harp keygen master-key [flags]
   -h, --help   help for master-key
 ```
 
+### Options inherited from parent commands
+
+```
+      --config string   config file
+```
+
 ### SEE ALSO
 
 * [harp keygen](harp_keygen.md)	 - Key generation commands

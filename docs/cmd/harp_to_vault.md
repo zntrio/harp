@@ -18,6 +18,12 @@ harp to vault [flags]
       --worker-count int      Active worker count limit (default 4)
 ```
 
+### Options inherited from parent commands
+
+```
+      --config string   config file
+```
+
 ### SEE ALSO
 
 * [harp to](harp_to.md)	 - Secret container conversion commands

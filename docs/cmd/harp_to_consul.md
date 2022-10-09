@@ -15,6 +15,12 @@ harp to consul [flags]
   -s, --secret-as-leaf   Expand package path to secrets for provisioning
 ```
 
+### Options inherited from parent commands
+
+```
+      --config string   config file
+```
+
 ### SEE ALSO
 
 * [harp to](harp_to.md)	 - Secret container conversion commands

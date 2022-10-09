@@ -8,6 +8,12 @@ Manage harp plugins
   -h, --help   help for plugin
 ```
 
+### Options inherited from parent commands
+
+```
+      --config string   config file
+```
+
 ### SEE ALSO
 
 * [harp](harp.md)	 - Extensible secret management tool

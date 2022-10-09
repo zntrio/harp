@@ -23,6 +23,12 @@ $ harp to gha --in secret.container --owner elastic --owner harp --secret-filter
       --secret-filter string   Specify secret filter as Glob (*_KEY, private*) (default "*")
 ```
 
+### Options inherited from parent commands
+
+```
+      --config string   config file
+```
+
 ### SEE ALSO
 
 * [harp to](harp_to.md)	 - Secret container conversion commands

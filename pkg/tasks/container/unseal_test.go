@@ -34,6 +34,7 @@ func TestUnsealTask_Run(t *testing.T) {
 		ContainerReader tasks.ReaderProvider
 		OutputWriter    tasks.WriterProvider
 		ContainerKey    *memguard.LockedBuffer
+		PreSharedKey    *memguard.LockedBuffer
 	}
 	type args struct {
 		ctx context.Context

@@ -19,6 +19,12 @@ harp container identity [flags]
       --version uint                Select identity version (0:legacy, 1:modern, 2:nist) (default 1)
 ```
 
+### Options inherited from parent commands
+
+```
+      --config string   config file
+```
+
 ### SEE ALSO
 
 * [harp container](harp_container.md)	 - Secret container commands

@@ -25,6 +25,12 @@ harp completion powershell [flags]
       --no-descriptions   disable completion descriptions
 ```
 
+### Options inherited from parent commands
+
+```
+      --config string   config file
+```
+
 ### SEE ALSO
 
 * [harp completion](harp_completion.md)	 - Generate the autocompletion script for the specified shell

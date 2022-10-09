@@ -29,6 +29,12 @@ harp bundle lint [flags]
       --spec string   RuleSet specification path ('-' for stdin or filename)
 ```
 
+### Options inherited from parent commands
+
+```
+      --config string   config file
+```
+
 ### SEE ALSO
 
 * [harp bundle](harp_bundle.md)	 - Bundle commands

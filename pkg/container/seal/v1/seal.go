@@ -34,10 +34,18 @@ import (
 	"golang.org/x/crypto/nacl/secretbox"
 )
 
-// Seal a secret container
-//
+// Seal a secret container with identities
+func (a *adapter) Seal(rand io.Reader, container *containerv1.Container, encodedPeersPublicKey ...string) (*containerv1.Container, error) {
+	return a.seal(rand, container, nil, encodedPeersPublicKey...)
+}
+
+// Seal a secret container with identities and preshared key
+func (a *adapter) SealWithPSK(rand io.Reader, container *containerv1.Container, psk *memguard.LockedBuffer, encodedPeersPublicKey ...string) (*containerv1.Container, error) {
+	return a.seal(rand, container, psk, encodedPeersPublicKey...)
+}
+
 //nolint:funlen,gocyclo // To refactor
-func (a *adapter) Seal(rand io.Reader, container *containerv1.Container, encodedPeerPublicKeys ...string) (*containerv1.Container, error) {
+func (a *adapter) seal(rand io.Reader, container *containerv1.Container, preSharedKey *memguard.LockedBuffer, encodedPeerPublicKeys ...string) (*containerv1.Container, error) {
 	// Check parameters
 	if types.IsNil(container) {
 		return nil, fmt.Errorf("unable to process nil container")
@@ -99,6 +107,15 @@ func (a *adapter) Seal(rand io.Reader, container *containerv1.Container, encoded
 		SealVersion:         SealVersion,
 	}
 
+	// Compute preshared key
+	var psk *[preSharedKeySize]byte
+	if preSharedKey != nil {
+		psk, err = pskStretch(preSharedKey.Bytes(), containerHeaders.EncryptionPublicKey)
+		if err != nil {
+			return nil, fmt.Errorf("unable to stretch preshared key: %w", err)
+		}
+	}
+
 	// Process recipients
 	for _, peerPublicKey := range peerPublicKeys {
 		if types.IsNil(peerPublicKey) {
@@ -110,7 +127,7 @@ func (a *adapter) Seal(rand io.Reader, container *containerv1.Container, encoded
 		}
 
 		// Pack recipient using its public key
-		r, errPack := packRecipient(rand, &payloadKey, encPriv, peerPublicKey)
+		r, errPack := packRecipient(rand, &payloadKey, encPriv, peerPublicKey, psk)
 		if errPack != nil {
 			return nil, fmt.Errorf("unable to pack container recipient (%X): %w", *peerPublicKey, err)
 		}

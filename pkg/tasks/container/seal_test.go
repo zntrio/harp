@@ -23,6 +23,7 @@ import (
 	"io"
 	"testing"
 
+	"github.com/awnumar/memguard"
 	fuzz "github.com/google/gofuzz"
 
 	"github.com/zntrio/harp/v2/pkg/sdk/cmdutil"
@@ -41,6 +42,7 @@ func TestSealTask_Run_V1(t *testing.T) {
 		DCKDTarget               string
 		JSONOutput               bool
 		DisableContainerIdentity bool
+		PreSharedKey             *memguard.LockedBuffer
 	}
 	type args struct {
 		ctx context.Context
@@ -144,6 +146,17 @@ func TestSealTask_Run_V1(t *testing.T) {
 			},
 			wantErr: false,
 		},
+		{
+			name: "valid with psk",
+			fields: fields{
+				ContainerReader:       cmdutil.FileReader("../../../test/fixtures/bundles/complete.bundle"),
+				SealedContainerWriter: cmdutil.DiscardWriter(),
+				OutputWriter:          cmdutil.DiscardWriter(),
+				PeerPublicKeys:        []string{pub},
+				PreSharedKey:          memguard.NewBufferFromBytes([]byte("Kw6tb0QWUH3vueG5uCvS6lAnUa00a5-lsM2aqOZk3MFvoDTUUyhjIdb6ZAG7eQt3LJ1QnJQQAZBLVGXQkx33kg")),
+			},
+			wantErr: false,
+		},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
@@ -156,6 +169,8 @@ func TestSealTask_Run_V1(t *testing.T) {
 				DCKDTarget:               tt.fields.DCKDTarget,
 				JSONOutput:               tt.fields.JSONOutput,
 				DisableContainerIdentity: tt.fields.DisableContainerIdentity,
+				SealVersion:              1,
+				PreSharedKey:             tt.fields.PreSharedKey,
 			}
 			if err := tr.Run(tt.args.ctx); (err != nil) != tt.wantErr {
 				t.Errorf("SealTask.Run() error = %v, wantErr %v", err, tt.wantErr)
@@ -176,6 +191,7 @@ func TestSealTask_Run_V2(t *testing.T) {
 		DCKDTarget               string
 		JSONOutput               bool
 		DisableContainerIdentity bool
+		PreSharedKey             *memguard.LockedBuffer
 	}
 	type args struct {
 		ctx context.Context
@@ -279,6 +295,17 @@ func TestSealTask_Run_V2(t *testing.T) {
 			},
 			wantErr: false,
 		},
+		{
+			name: "valid with psk",
+			fields: fields{
+				ContainerReader:       cmdutil.FileReader("../../../test/fixtures/bundles/complete.bundle"),
+				SealedContainerWriter: cmdutil.DiscardWriter(),
+				OutputWriter:          cmdutil.DiscardWriter(),
+				PeerPublicKeys:        []string{pk},
+				PreSharedKey:          memguard.NewBufferFromBytes([]byte("Kw6tb0QWUH3vueG5uCvS6lAnUa00a5-lsM2aqOZk3MFvoDTUUyhjIdb6ZAG7eQt3LJ1QnJQQAZBLVGXQkx33kg")),
+			},
+			wantErr: false,
+		},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
@@ -292,6 +319,7 @@ func TestSealTask_Run_V2(t *testing.T) {
 				JSONOutput:               tt.fields.JSONOutput,
 				DisableContainerIdentity: tt.fields.DisableContainerIdentity,
 				SealVersion:              2,
+				PreSharedKey:             tt.fields.PreSharedKey,
 			}
 			if err := tr.Run(tt.args.ctx); (err != nil) != tt.wantErr {
 				t.Errorf("SealTask.Run() error = %v, wantErr %v", err, tt.wantErr)

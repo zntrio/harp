@@ -14,6 +14,12 @@ harp from jsonmap [flags]
       --out string   Container output ('-' for stdout or filename) (default "-")
 ```
 
+### Options inherited from parent commands
+
+```
+      --config string   config file
+```
+
 ### SEE ALSO
 
 * [harp from](harp_from.md)	 - Secret container generation commands

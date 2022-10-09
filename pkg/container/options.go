@@ -15,37 +15,29 @@
 // specific language governing permissions and limitations
 // under the License.
 
-package cmd
+package container
 
-import (
-	"github.com/spf13/cobra"
+import "github.com/awnumar/memguard"
 
-	"github.com/zntrio/harp/v2/build/fips"
-)
+// Option describes generate container operation options.
+type Option func(opts *Options)
 
-// -----------------------------------------------------------------------------
+// Options defines the operation settings
+type Options struct {
+	psk            *memguard.LockedBuffer
+	peersPublicKey []string
+}
 
-var keygenCmd = func() *cobra.Command {
-	cmd := &cobra.Command{
-		Use:     "keygen",
-		Aliases: []string{"kg"},
-		Short:   "Key generation commands",
+// WithPreSharedKey sets the pre-sharey used for seal/unseal operations.
+func WithPreSharedKey(psk *memguard.LockedBuffer) Option {
+	return func(opts *Options) {
+		opts.psk = psk
 	}
+}
 
-	// Subcommands
-	cmd.AddCommand(keygenFernetCmd())
-	cmd.AddCommand(keygenAESCmd())
-	cmd.AddCommand(keygenMasterKeyCmd())
-	cmd.AddCommand(keygenKeypairCmd())
-	cmd.AddCommand(keygenPreSharedKeyCmd())
-
-	if !fips.Enabled() {
-		cmd.AddCommand(keygenSecretBoxCmd())
-		cmd.AddCommand(keygenChaChaCmd())
-		cmd.AddCommand(keygenXChaChaCmd())
-		cmd.AddCommand(keygenAESPMACSIVCmd())
-		cmd.AddCommand(keygenAESSIVCmd())
-		cmd.AddCommand(keygenPasetoCmd())
+// WithPeerPublicKeys sets the public key which are able to unseal the container
+func WithPeerPublicKeys(peers []string) Option {
+	return func(opts *Options) {
+		opts.peersPublicKey = peers
 	}
-	return cmd
 }

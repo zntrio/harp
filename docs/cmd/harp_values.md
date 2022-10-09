@@ -17,6 +17,12 @@ harp values [flags]
   -f, --values stringArray       Specifies value files to load. Use <path>:<type>[:<prefix>] to override type detection (json,yaml,xml,hocon,toml)
 ```
 
+### Options inherited from parent commands
+
+```
+      --config string   config file
+```
+
 ### SEE ALSO
 
 * [harp](harp.md)	 - Extensible secret management tool

@@ -18,6 +18,7 @@
 package cmd
 
 import (
+	"github.com/awnumar/memguard"
 	"github.com/spf13/cobra"
 	"go.uber.org/zap"
 
@@ -42,6 +43,7 @@ type containerSealParams struct {
 	noContainerIdentity bool
 	jsonOutput          bool
 	sealVersion         uint
+	preSharedKeyRaw     string
 }
 
 var containerSealCmd = func() *cobra.Command {
@@ -57,7 +59,7 @@ var containerSealCmd = func() *cobra.Command {
 
 			var sealingPublicKeys types.StringArray
 
-			// Load idenity from files
+			// Load identity from files
 			for _, f := range params.identityFilePaths {
 				if f == "" {
 					// Ignore empty
@@ -107,6 +109,9 @@ var containerSealCmd = func() *cobra.Command {
 				PeerPublicKeys:        sealingPublicKeys,
 				SealVersion:           params.sealVersion,
 			}
+			if params.preSharedKeyRaw != "" {
+				t.PreSharedKey = memguard.NewBufferFromBytes([]byte(params.preSharedKeyRaw))
+			}
 
 			// Run the task
 			if err := t.Run(ctx); err != nil {
@@ -131,6 +136,7 @@ var containerSealCmd = func() *cobra.Command {
 	cmd.Flags().StringVar(&params.masterKey, "dckd-master-key", "", "Master key used for deterministic container key derivation")
 	cmd.Flags().StringVar(&params.target, "dckd-target", "", "Target parameter for deterministic container key derivation")
 	cmd.Flags().UintVar(&params.sealVersion, "seal-version", sealVersion, "Select the sealing strategy version (1:modern, 2:fips-compliant)")
+	cmd.Flags().StringVar(&params.preSharedKeyRaw, "pre-shared-key", "", "Use a pre-shared-key to seal the container to act as a second factor")
 
 	return cmd
 }

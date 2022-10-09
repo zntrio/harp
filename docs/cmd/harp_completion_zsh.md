@@ -11,6 +11,10 @@ to enable it.  You can execute the following once:
 
 	echo "autoload -U compinit; compinit" >> ~/.zshrc
 
+To load completions in your current shell session:
+
+	source <(harp completion zsh); compdef _harp harp
+
 To load completions for every new session, execute once:
 
 #### Linux:
@@ -19,7 +23,7 @@ To load completions for every new session, execute once:
 
 #### macOS:
 
-	harp completion zsh > /usr/local/share/zsh/site-functions/_harp
+	harp completion zsh > $(brew --prefix)/share/zsh/site-functions/_harp
 
 You will need to start a new shell for this setup to take effect.
 
@@ -33,6 +37,12 @@ harp completion zsh [flags]
 ```
   -h, --help              help for zsh
       --no-descriptions   disable completion descriptions
+```
+
+### Options inherited from parent commands
+
+```
+      --config string   config file
 ```
 
 ### SEE ALSO

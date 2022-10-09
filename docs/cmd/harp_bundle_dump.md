@@ -52,6 +52,12 @@ harp bundle dump [flags]
       --skip-template   Drop template from dump
 ```
 
+### Options inherited from parent commands
+
+```
+      --config string   config file
+```
+
 ### SEE ALSO
 
 * [harp bundle](harp_bundle.md)	 - Bundle commands

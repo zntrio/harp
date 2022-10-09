@@ -32,6 +32,12 @@ harp bundle diff [flags]
       --patch        Output as a bundle patch
 ```
 
+### Options inherited from parent commands
+
+```
+      --config string   config file
+```
+
 ### SEE ALSO
 
 * [harp bundle](harp_bundle.md)	 - Bundle commands

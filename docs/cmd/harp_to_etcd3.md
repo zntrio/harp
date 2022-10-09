@@ -25,6 +25,12 @@ harp to etcd3 [flags]
       --username string         Etcd cluster connection username
 ```
 
+### Options inherited from parent commands
+
+```
+      --config string   config file
+```
+
 ### SEE ALSO
 
 * [harp to](harp_to.md)	 - Secret container conversion commands

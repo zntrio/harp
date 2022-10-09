@@ -21,6 +21,7 @@ import (
 	"bytes"
 	"testing"
 
+	"github.com/awnumar/memguard"
 	"github.com/stretchr/testify/assert"
 	"golang.org/x/crypto/nacl/box"
 
@@ -39,7 +40,8 @@ func Test_deriveSharedKeyFromRecipient(t *testing.T) {
 	assert.NotNil(t, sk2)
 
 	// ECDH(pk2, sk1)
-	dk1 := deriveSharedKeyFromRecipient(pk2, sk1)
+	dk1, err := deriveSharedKeyFromRecipient(pk2, sk1, nil)
+	assert.NoError(t, err)
 	assert.Equal(t, &[32]byte{
 		0xd1, 0xc0, 0x22, 0x38, 0x31, 0x6d, 0x7d, 0x6b,
 		0x57, 0x88, 0x72, 0x3d, 0xc2, 0x82, 0xd7, 0xe2,
@@ -48,11 +50,83 @@ func Test_deriveSharedKeyFromRecipient(t *testing.T) {
 	}, dk1)
 
 	// ECDH(pk1, sk2)
-	dk2 := deriveSharedKeyFromRecipient(pk1, sk2)
+	dk2, err := deriveSharedKeyFromRecipient(pk1, sk2, nil)
 	assert.NoError(t, err)
 
 	// ECDH(pk1, sk2) == ECDH(pk2, sk1)
 	assert.Equal(t, dk1, dk2)
+}
+
+func Test_deriveSharedKeyFromRecipient_WithPSK(t *testing.T) {
+	var psk [preSharedKeySize]byte
+	memguard.WipeBytes(psk[:]) // Ensure zeroed psk
+
+	pk1, sk1, err := box.GenerateKey(bytes.NewReader([]byte("00001-deterministic-buffer-for-tests-26FBE7DED9E992BC36C06C988C1AC8A1E672B4B5959EF60672A983EFA7C8EE0F")))
+	assert.NoError(t, err)
+	assert.NotNil(t, pk1)
+	assert.NotNil(t, sk1)
+
+	pk2, sk2, err := box.GenerateKey(bytes.NewReader([]byte("00002-deterministic-buffer-for-tests-37ACB0DD3A3CE5A0960CCE0F6A0D7E663DFFD221FBE8EEB03B20D3AD91BCDD55")))
+	assert.NoError(t, err)
+	assert.NotNil(t, pk2)
+	assert.NotNil(t, sk2)
+
+	t.Run("same psk", func(t *testing.T) {
+		// ECDH-PSK(pk2, sk1, psk)
+		dk1, err := deriveSharedKeyFromRecipient(pk2, sk1, &psk)
+		assert.NoError(t, err)
+		assert.Equal(t, &[32]byte{
+			0xa2, 0x1c, 0xe3, 0xca, 0x42, 0x75, 0x71, 0x95,
+			0x7, 0x9e, 0x96, 0x10, 0xa1, 0x7c, 0x83, 0x2,
+			0x44, 0xda, 0x91, 0xef, 0xc3, 0x56, 0xb5, 0x1e,
+			0x2d, 0x4b, 0x24, 0xde, 0x3f, 0x7c, 0x5b, 0x19,
+		}, dk1)
+
+		// ECDH-PSK(pk1, sk2, psk)
+		dk2, err := deriveSharedKeyFromRecipient(pk1, sk2, &psk)
+		assert.NoError(t, err)
+
+		// ECDH-PSK(pk1, sk2, psk) == ECDH(pk2, sk1, psk)
+		assert.Equal(t, dk1, dk2)
+	})
+
+	t.Run("only seal psk", func(t *testing.T) {
+		// ECDH-PSK(pk2, sk1, psk)
+		dk1, err := deriveSharedKeyFromRecipient(pk2, sk1, &psk)
+		assert.NoError(t, err)
+		assert.Equal(t, &[32]byte{
+			0xa2, 0x1c, 0xe3, 0xca, 0x42, 0x75, 0x71, 0x95,
+			0x7, 0x9e, 0x96, 0x10, 0xa1, 0x7c, 0x83, 0x2,
+			0x44, 0xda, 0x91, 0xef, 0xc3, 0x56, 0xb5, 0x1e,
+			0x2d, 0x4b, 0x24, 0xde, 0x3f, 0x7c, 0x5b, 0x19,
+		}, dk1)
+
+		// ECDH(pk1, sk2)
+		dk2, err := deriveSharedKeyFromRecipient(pk1, sk2, nil)
+		assert.NoError(t, err)
+
+		// ECDH(pk1, sk2, psk) != ECDH(pk2, sk1)
+		assert.NotEqual(t, dk1, dk2)
+	})
+
+	t.Run("only unseal psk", func(t *testing.T) {
+		// ECDH(pk2, sk1)
+		dk1, err := deriveSharedKeyFromRecipient(pk2, sk1, nil)
+		assert.NoError(t, err)
+
+		// ECDH(pk1, sk2)
+		dk2, err := deriveSharedKeyFromRecipient(pk1, sk2, &psk)
+		assert.NoError(t, err)
+		assert.Equal(t, &[32]byte{
+			0xa2, 0x1c, 0xe3, 0xca, 0x42, 0x75, 0x71, 0x95,
+			0x7, 0x9e, 0x96, 0x10, 0xa1, 0x7c, 0x83, 0x2,
+			0x44, 0xda, 0x91, 0xef, 0xc3, 0x56, 0xb5, 0x1e,
+			0x2d, 0x4b, 0x24, 0xde, 0x3f, 0x7c, 0x5b, 0x19,
+		}, dk2)
+
+		// ECDH(pk1, sk2, psk) != ECDH-PSK(pk2, sk1, psk)
+		assert.NotEqual(t, dk1, dk2)
+	})
 }
 
 func Test_keyIdentifierFromDerivedKey(t *testing.T) {
@@ -63,13 +137,34 @@ func Test_keyIdentifierFromDerivedKey(t *testing.T) {
 		0x28, 0xb0, 0x86, 0x73, 0x15, 0x2e, 0x6e, 0x5,
 	}
 
-	id, err := keyIdentifierFromDerivedKey(dk)
+	id, err := keyIdentifierFromDerivedKey(dk, nil)
 	assert.NoError(t, err)
 	assert.Equal(t, []byte{
 		0xdd, 0x3e, 0x93, 0x8a, 0x57, 0x74, 0xbd, 0xf5,
 		0xed, 0xe, 0x9a, 0xae, 0x86, 0xd5, 0xd6, 0xf7,
 		0xfc, 0xbb, 0x3d, 0xe0, 0x54, 0xa8, 0x18, 0x38,
 		0x5e, 0xea, 0xa6, 0x46, 0xa9, 0xb0, 0xc8, 0x57,
+	}, id)
+}
+
+func Test_keyIdentifierFromDerivedKey_WithPSK(t *testing.T) {
+	var psk [preSharedKeySize]byte
+	memguard.WipeBytes(psk[:]) // Ensure zeroed psk
+
+	dk := &[32]byte{
+		0xd1, 0xc0, 0x22, 0x38, 0x31, 0x6d, 0x7d, 0x6b,
+		0x57, 0x88, 0x72, 0x3d, 0xc2, 0x82, 0xd7, 0xe2,
+		0xfa, 0x6, 0x43, 0xb0, 0x98, 0x6f, 0x8, 0xe6,
+		0x28, 0xb0, 0x86, 0x73, 0x15, 0x2e, 0x6e, 0x5,
+	}
+
+	id, err := keyIdentifierFromDerivedKey(dk, &psk)
+	assert.NoError(t, err)
+	assert.Equal(t, []byte{
+		0xa8, 0xc3, 0x54, 0x67, 0xe0, 0x1e, 0x55, 0x8b,
+		0xfc, 0xd8, 0x34, 0xe0, 0x19, 0x3e, 0x3f, 0xae,
+		0x9a, 0xd0, 0xcf, 0xb6, 0x50, 0xd9, 0x71, 0x36,
+		0x4c, 0x48, 0xb5, 0x9e, 0xeb, 0xe3, 0x46, 0xf7,
 	}, id)
 }
 
@@ -86,7 +181,7 @@ func Test_packRecipient(t *testing.T) {
 	assert.NotNil(t, pk2)
 	assert.NotNil(t, sk2)
 
-	recipient, err := packRecipient(bytes.NewReader([]byte("00003-deterministic-buffer-for-tests")), payloadKey, sk1, pk2)
+	recipient, err := packRecipient(bytes.NewReader([]byte("00003-deterministic-buffer-for-tests")), payloadKey, sk1, pk2, nil)
 	assert.NoError(t, err)
 	assert.NotNil(t, recipient)
 	assert.Equal(t, []byte{
@@ -108,6 +203,44 @@ func Test_packRecipient(t *testing.T) {
 	}, recipient.Key)
 }
 
+func Test_packRecipient_WithPSK(t *testing.T) {
+	var psk [preSharedKeySize]byte
+	memguard.WipeBytes(psk[:]) // Ensure zeroed psk
+
+	payloadKey := &[32]byte{}
+
+	pk1, sk1, err := box.GenerateKey(bytes.NewReader([]byte("00001-deterministic-buffer-for-tests-26FBE7DED9E992BC36C06C988C1AC8A1E672B4B5959EF60672A983EFA7C8EE0F")))
+	assert.NoError(t, err)
+	assert.NotNil(t, pk1)
+	assert.NotNil(t, sk1)
+
+	pk2, sk2, err := box.GenerateKey(bytes.NewReader([]byte("00002-deterministic-buffer-for-tests-37ACB0DD3A3CE5A0960CCE0F6A0D7E663DFFD221FBE8EEB03B20D3AD91BCDD55")))
+	assert.NoError(t, err)
+	assert.NotNil(t, pk2)
+	assert.NotNil(t, sk2)
+
+	recipient, err := packRecipient(bytes.NewReader([]byte("00003-deterministic-buffer-for-tests")), payloadKey, sk1, pk2, &psk)
+	assert.NoError(t, err)
+	assert.NotNil(t, recipient)
+	assert.Equal(t, []byte{
+		0x67, 0xbc, 0xce, 0x91, 0x97, 0xb1, 0xf9, 0xa,
+		0xc1, 0xdc, 0x86, 0x9a, 0xc3, 0xac, 0xf7, 0xe2,
+		0x68, 0xeb, 0x5a, 0xec, 0x2f, 0xe9, 0x69, 0x33,
+		0x28, 0xdf, 0xcd, 0xea, 0x80, 0xc4, 0xad, 0x5e,
+	}, recipient.Identifier)
+	assert.Equal(t, []byte{
+		0x30, 0x30, 0x30, 0x30, 0x33, 0x2d, 0x64, 0x65,
+		0x74, 0x65, 0x72, 0x6d, 0x69, 0x6e, 0x69, 0x73,
+		0x74, 0x69, 0x63, 0x2d, 0x62, 0x75, 0x66, 0x66,
+		0x63, 0xc1, 0x70, 0x34, 0x3c, 0xde, 0xfd, 0xff,
+		0x27, 0x68, 0x14, 0xbf, 0x1f, 0xa, 0x1d, 0x95,
+		0x75, 0x90, 0xa8, 0xfd, 0x8e, 0x54, 0x51, 0xce,
+		0xbc, 0xe6, 0x12, 0x11, 0xa3, 0x25, 0xba, 0xf2,
+		0xdb, 0x25, 0xd3, 0x4f, 0x69, 0xdc, 0x11, 0xbe,
+		0xb9, 0x47, 0x57, 0xf5, 0x5f, 0x5b, 0x6a, 0x2b,
+	}, recipient.Key)
+}
+
 func Test_tryRecipientKeys(t *testing.T) {
 	payloadKey := &[32]byte{}
 
@@ -121,7 +254,7 @@ func Test_tryRecipientKeys(t *testing.T) {
 	assert.NotNil(t, pk2)
 	assert.NotNil(t, sk2)
 
-	recipient, err := packRecipient(bytes.NewReader([]byte("00003-deterministic-buffer-for-tests")), payloadKey, sk1, pk2)
+	recipient, err := packRecipient(bytes.NewReader([]byte("00003-deterministic-buffer-for-tests")), payloadKey, sk1, pk2, nil)
 	assert.NoError(t, err)
 	assert.NotNil(t, recipient)
 	assert.Equal(t, []byte{
@@ -144,7 +277,8 @@ func Test_tryRecipientKeys(t *testing.T) {
 
 	// -------------------------------------------------------------------------
 	// ECDH(pk2, sk1)
-	dk := deriveSharedKeyFromRecipient(pk2, sk1)
+	dk, err := deriveSharedKeyFromRecipient(pk2, sk1, nil)
+	assert.NoError(t, err)
 	assert.Equal(t, &[32]byte{
 		0xd1, 0xc0, 0x22, 0x38, 0x31, 0x6d, 0x7d, 0x6b,
 		0x57, 0x88, 0x72, 0x3d, 0xc2, 0x82, 0xd7, 0xe2,
@@ -158,14 +292,80 @@ func Test_tryRecipientKeys(t *testing.T) {
 		0xfc, 0xbb, 0x3d, 0xe0, 0x54, 0xa8, 0x18, 0x38,
 		0x5e, 0xea, 0xa6, 0x46, 0xa9, 0xb0, 0xc8, 0x57,
 	}
-	id, err := keyIdentifierFromDerivedKey(dk)
+	id, err := keyIdentifierFromDerivedKey(dk, nil)
 	assert.NoError(t, err)
 	assert.Equal(t, expectedID, id)
 	assert.Equal(t, expectedID, recipient.Identifier)
 
 	decodedPayloadKey, err := tryRecipientKeys(dk, []*containerv1.Recipient{
 		recipient,
-	})
+	}, nil)
+	assert.NoError(t, err)
+	assert.Equal(t, payloadKey[:], decodedPayloadKey)
+}
+
+func Test_tryRecipientKeys_WithPSK(t *testing.T) {
+	var psk [preSharedKeySize]byte
+	memguard.WipeBytes(psk[:]) // Ensure zeroed psk
+
+	payloadKey := &[32]byte{}
+
+	pk1, sk1, err := box.GenerateKey(bytes.NewReader([]byte("00001-deterministic-buffer-for-tests-26FBE7DED9E992BC36C06C988C1AC8A1E672B4B5959EF60672A983EFA7C8EE0F")))
+	assert.NoError(t, err)
+	assert.NotNil(t, pk1)
+	assert.NotNil(t, sk1)
+
+	pk2, sk2, err := box.GenerateKey(bytes.NewReader([]byte("00002-deterministic-buffer-for-tests-37ACB0DD3A3CE5A0960CCE0F6A0D7E663DFFD221FBE8EEB03B20D3AD91BCDD55")))
+	assert.NoError(t, err)
+	assert.NotNil(t, pk2)
+	assert.NotNil(t, sk2)
+
+	recipient, err := packRecipient(bytes.NewReader([]byte("00003-deterministic-buffer-for-tests")), payloadKey, sk1, pk2, &psk)
+	assert.NoError(t, err)
+	assert.NotNil(t, recipient)
+	assert.Equal(t, []byte{
+		0x67, 0xbc, 0xce, 0x91, 0x97, 0xb1, 0xf9, 0xa,
+		0xc1, 0xdc, 0x86, 0x9a, 0xc3, 0xac, 0xf7, 0xe2,
+		0x68, 0xeb, 0x5a, 0xec, 0x2f, 0xe9, 0x69, 0x33,
+		0x28, 0xdf, 0xcd, 0xea, 0x80, 0xc4, 0xad, 0x5e,
+	}, recipient.Identifier)
+	assert.Equal(t, []byte{
+		0x30, 0x30, 0x30, 0x30, 0x33, 0x2d, 0x64, 0x65,
+		0x74, 0x65, 0x72, 0x6d, 0x69, 0x6e, 0x69, 0x73,
+		0x74, 0x69, 0x63, 0x2d, 0x62, 0x75, 0x66, 0x66,
+		0x63, 0xc1, 0x70, 0x34, 0x3c, 0xde, 0xfd, 0xff,
+		0x27, 0x68, 0x14, 0xbf, 0x1f, 0xa, 0x1d, 0x95,
+		0x75, 0x90, 0xa8, 0xfd, 0x8e, 0x54, 0x51, 0xce,
+		0xbc, 0xe6, 0x12, 0x11, 0xa3, 0x25, 0xba, 0xf2,
+		0xdb, 0x25, 0xd3, 0x4f, 0x69, 0xdc, 0x11, 0xbe,
+		0xb9, 0x47, 0x57, 0xf5, 0x5f, 0x5b, 0x6a, 0x2b,
+	}, recipient.Key)
+
+	// -------------------------------------------------------------------------
+	// ECDH-PSK(pk2, sk1, psk)
+	dk, err := deriveSharedKeyFromRecipient(pk2, sk1, &psk)
+	assert.NoError(t, err)
+	assert.Equal(t, &[32]byte{
+		0xa2, 0x1c, 0xe3, 0xca, 0x42, 0x75, 0x71, 0x95,
+		0x7, 0x9e, 0x96, 0x10, 0xa1, 0x7c, 0x83, 0x2,
+		0x44, 0xda, 0x91, 0xef, 0xc3, 0x56, 0xb5, 0x1e,
+		0x2d, 0x4b, 0x24, 0xde, 0x3f, 0x7c, 0x5b, 0x19,
+	}, dk)
+
+	expectedID := []byte{
+		0x67, 0xbc, 0xce, 0x91, 0x97, 0xb1, 0xf9, 0xa,
+		0xc1, 0xdc, 0x86, 0x9a, 0xc3, 0xac, 0xf7, 0xe2,
+		0x68, 0xeb, 0x5a, 0xec, 0x2f, 0xe9, 0x69, 0x33,
+		0x28, 0xdf, 0xcd, 0xea, 0x80, 0xc4, 0xad, 0x5e,
+	}
+	id, err := keyIdentifierFromDerivedKey(dk, &psk)
+	assert.NoError(t, err)
+	assert.Equal(t, expectedID, id)
+	assert.Equal(t, expectedID, recipient.Identifier)
+
+	decodedPayloadKey, err := tryRecipientKeys(dk, []*containerv1.Recipient{
+		recipient,
+	}, &psk)
 	assert.NoError(t, err)
 	assert.Equal(t, payloadKey[:], decodedPayloadKey)
 }

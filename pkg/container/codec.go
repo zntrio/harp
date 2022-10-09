@@ -129,7 +129,7 @@ func Dump(w io.Writer, c *containerv1.Container) error {
 }
 
 // Unseal a sealed container with the given identity
-func Unseal(container *containerv1.Container, identity *memguard.LockedBuffer) (*containerv1.Container, error) {
+func Unseal(container *containerv1.Container, identity *memguard.LockedBuffer, opts ...Option) (*containerv1.Container, error) {
 	// Check parameters
 	if types.IsNil(container) {
 		return nil, fmt.Errorf("unable to process nil container")
@@ -146,6 +146,14 @@ func Unseal(container *containerv1.Container, identity *memguard.LockedBuffer) (
 		return nil, fmt.Errorf("unable to unseal container")
 	}
 
+	// Compute default option values
+	dopts := &Options{
+		psk: nil,
+	}
+	for _, o := range opts {
+		o(dopts)
+	}
+
 	// Build appropriate unseal strategy processor.
 	var ss seal.Strategy
 	switch container.Headers.SealVersion {
@@ -156,7 +164,7 @@ func Unseal(container *containerv1.Container, identity *memguard.LockedBuffer) (
 	}
 
 	// Delegate to strategy
-	return ss.Unseal(container, identity)
+	return ss.UnsealWithPSK(container, identity, dopts.psk)
 }
 
 // IsSealed returns true if the given container is sealed.
@@ -183,7 +191,7 @@ func IsSealed(container *containerv1.Container) bool {
 	return true
 }
 
-func Seal(rand io.Reader, container *containerv1.Container, encodedPeersPublicKey ...string) (*containerv1.Container, error) {
+func Seal(rand io.Reader, container *containerv1.Container, opts ...Option) (*containerv1.Container, error) {
 	// Check parameters
 	if types.IsNil(container) {
 		return nil, errors.New("unable to seal a nil container")
@@ -192,10 +200,18 @@ func Seal(rand io.Reader, container *containerv1.Container, encodedPeersPublicKe
 		return nil, errors.New("the container is already sealed")
 	}
 
+	// Compute default option values
+	dopts := &Options{
+		psk: nil,
+	}
+	for _, o := range opts {
+		o(dopts)
+	}
+
 	// Validate peer public keys
 	hasV1 := false
 	hasV2 := false
-	for i, pub := range encodedPeersPublicKey {
+	for i, pub := range dopts.peersPublicKey {
 		switch {
 		case strings.HasPrefix(pub, "v1.sk."):
 			hasV1 = true
@@ -209,7 +225,7 @@ func Seal(rand io.Reader, container *containerv1.Container, encodedPeersPublicKe
 			}
 
 			// Replace identity key by sealing key
-			encodedPeersPublicKey[i] = identityPublicKey.SealingKey()
+			dopts.peersPublicKey[i] = identityPublicKey.SealingKey()
 		case strings.HasPrefix(pub, "v2.sk."):
 			hasV2 = true
 		case strings.HasPrefix(pub, "v2.ipk."):
@@ -222,7 +238,7 @@ func Seal(rand io.Reader, container *containerv1.Container, encodedPeersPublicKe
 			}
 
 			// Replace identity key by sealing key
-			encodedPeersPublicKey[i] = identityPublicKey.SealingKey()
+			dopts.peersPublicKey[i] = identityPublicKey.SealingKey()
 		default:
 			return nil, fmt.Errorf("invalid key '%s'", pub)
 		}
@@ -243,5 +259,5 @@ func Seal(rand io.Reader, container *containerv1.Container, encodedPeersPublicKe
 	}
 
 	// Delegate to strategy
-	return ss.Seal(rand, container, encodedPeersPublicKey...)
+	return ss.SealWithPSK(rand, container, dopts.psk, dopts.peersPublicKey...)
 }

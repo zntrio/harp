@@ -47,6 +47,12 @@ harp bundle encrypt [flags]
   -s, --skip-unresolved-key-alias   Skip unresolved key alias during partial bundle encryption
 ```
 
+### Options inherited from parent commands
+
+```
+      --config string   config file
+```
+
 ### SEE ALSO
 
 * [harp bundle](harp_bundle.md)	 - Bundle commands

@@ -33,6 +33,7 @@ const (
 	publicKeySize              = 49
 	privateKeySize             = 48
 	encryptionKeySize          = 32
+	preSharedKeySize           = 64
 	nonceSize                  = 16
 	macSize                    = 48
 	signatureSize              = 96

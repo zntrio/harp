@@ -14,6 +14,12 @@ harp cso parse [flags]
       --text          Display path component as text
 ```
 
+### Options inherited from parent commands
+
+```
+      --config string   config file
+```
+
 ### SEE ALSO
 
 * [harp cso](harp_cso.md)	 - CSO commands

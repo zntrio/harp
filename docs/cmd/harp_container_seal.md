@@ -18,7 +18,14 @@ harp container seal [flags]
       --json                        Display seal info as json
       --no-container-identity       Disable container identity
       --out string                  Sealed container output ('-' for stdout or filename)
+      --pre-shared-key string       Use a pre-shared-key to seal the container to act as a second factor
       --seal-version uint           Select the sealing strategy version (1:modern, 2:fips-compliant) (default 1)
+```
+
+### Options inherited from parent commands
+
+```
+      --config string   config file
 ```
 
 ### SEE ALSO

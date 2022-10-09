@@ -8,6 +8,12 @@ Transform input value using encryption transformers
   -h, --help   help for transform
 ```
 
+### Options inherited from parent commands
+
+```
+      --config string   config file
+```
+
 ### SEE ALSO
 
 * [harp](harp.md)	 - Extensible secret management tool

@@ -13,6 +13,12 @@ harp config new [flags]
   -h, --help   help for new
 ```
 
+### Options inherited from parent commands
+
+```
+      --config string   config file
+```
+
 ### SEE ALSO
 
 * [harp config](harp_config.md)	 - Manage Service Configuration

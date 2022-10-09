@@ -15,6 +15,12 @@ harp from zookeeper [flags]
   -k, --last-path-item-as-secret-key   Use the last path element as secret key
 ```
 
+### Options inherited from parent commands
+
+```
+      --config string   config file
+```
+
 ### SEE ALSO
 
 * [harp from](harp_from.md)	 - Secret container generation commands

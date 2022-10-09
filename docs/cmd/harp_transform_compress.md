@@ -43,6 +43,12 @@ harp transform compress [flags]
       --out string         Output path ('-' for stdout or filename) (default "-")
 ```
 
+### Options inherited from parent commands
+
+```
+      --config string   config file
+```
+
 ### SEE ALSO
 
 * [harp transform](harp_transform.md)	 - Transform input value using encryption transformers

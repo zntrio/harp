@@ -33,9 +33,17 @@ import (
 )
 
 // Unseal a sealed container with the given identity
-//
-//nolint:gocyclo,funlen // To refactor
 func (a *adapter) Unseal(container *containerv1.Container, identity *memguard.LockedBuffer) (*containerv1.Container, error) {
+	return a.unseal(container, identity, nil)
+}
+
+// Unseal a sealed container with the given identity and the given preshared key
+func (a *adapter) UnsealWithPSK(container *containerv1.Container, identity, preSharedKey *memguard.LockedBuffer) (*containerv1.Container, error) {
+	return a.unseal(container, identity, preSharedKey)
+}
+
+//nolint:gocyclo,funlen // To refactor
+func (a *adapter) unseal(container *containerv1.Container, identity, preSharedKey *memguard.LockedBuffer) (*containerv1.Container, error) {
 	// Check parameters
 	if types.IsNil(container) {
 		return nil, fmt.Errorf("unable to process nil container")
@@ -70,18 +78,30 @@ func (a *adapter) Unseal(container *containerv1.Container, identity *memguard.Lo
 	var pk [privateKeySize]byte
 	copy(pk[:], privRaw[:privateKeySize])
 
+	// Compute preshared key
+	var psk *[preSharedKeySize]byte
+	if preSharedKey != nil {
+		psk, err = pskStretch(preSharedKey.Bytes(), publicKey[:])
+		if err != nil {
+			return nil, fmt.Errorf("unable to stretch preshared key: %w", err)
+		}
+	}
+
 	// Precompute identifier
-	derivedKey := deriveSharedKeyFromRecipient(&publicKey, &pk)
+	derivedKey, err := deriveSharedKeyFromRecipient(&publicKey, &pk, psk)
+	if err != nil {
+		return nil, fmt.Errorf("unable to compute recipient shared key: %w", err)
+	}
 
 	// Try recipients
-	payloadKey, err := tryRecipientKeys(derivedKey, container.Headers.Recipients)
+	payloadKey, err := tryRecipientKeys(derivedKey, container.Headers.Recipients, psk)
 	if err != nil {
-		return nil, fmt.Errorf("unable to unseal container: error occurred during recipient key tests: %w", err)
+		return nil, fmt.Errorf("error occurred during recipient key tests: %w", err)
 	}
 
 	// Check private key
 	if len(payloadKey) != encryptionKeySize {
-		return nil, fmt.Errorf("unable to unseal container: invalid encryption key size")
+		return nil, fmt.Errorf("invalid encryption key size")
 	}
 	var encryptionKey [encryptionKeySize]byte
 	copy(encryptionKey[:], payloadKey[:encryptionKeySize])
@@ -96,7 +116,7 @@ func (a *adapter) Unseal(container *containerv1.Container, identity *memguard.Lo
 		return nil, fmt.Errorf("invalid container key")
 	}
 	if len(containerSignKeyRaw) != ed25519.PublicKeySize {
-		return nil, fmt.Errorf("unable to unseal container: invalid signature key size")
+		return nil, fmt.Errorf("invalid signature key size")
 	}
 
 	// Compute headers hash

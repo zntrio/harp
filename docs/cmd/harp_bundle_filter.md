@@ -68,6 +68,12 @@ harp bundle filter [flags]
       --query string          JMESPath query used as package filter
 ```
 
+### Options inherited from parent commands
+
+```
+      --config string   config file
+```
+
 ### SEE ALSO
 
 * [harp bundle](harp_bundle.md)	 - Bundle commands

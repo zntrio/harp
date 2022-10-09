@@ -16,6 +16,12 @@ harp bundle prefixer [flags]
   -r, --remove          Remove the given prefix from the package paths
 ```
 
+### Options inherited from parent commands
+
+```
+      --config string   config file
+```
+
 ### SEE ALSO
 
 * [harp bundle](harp_bundle.md)	 - Bundle commands

@@ -1,7 +1,24 @@
 ## NOT RELEASED YET
-## 0.3.0
+
+## 2.1.0
+
+FEATURES:
+
+* container/seal:
+  *  Support Pre-shared Key sealing to reduce blast radius in the case of an identity leak. [#106](https://github.com/zntrio/harp/pull/106)
+
+DIST:
+
+* CI:
+  * Build with Golang 1.19.2
+
+## 2.0.0
 
 ### 2022-07-20
+
+BREAKING-CHANGES:
+
+* Package renamed from `github.com/elastic/harp` to `github.com/zntrio/harp/v2`.
 
 DIST:
 

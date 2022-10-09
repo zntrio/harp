@@ -6,7 +6,7 @@
 // not use this file except in compliance with the License.
 // You may obtain a copy of the License at
 //
-//     http://www.apache.org/licenses/LICENSE-2.0
+//	http://www.apache.org/licenses/LICENSE-2.0
 //
 // Unless required by applicable law or agreed to in writing,
 // software distributed under the License is distributed on an
@@ -108,6 +108,67 @@ func TestSeal(t *testing.T) {
 	}
 }
 
+func TestSealWithPSK(t *testing.T) {
+	psk := memguard.NewBufferRandom(64)
+
+	type args struct {
+		container      *containerv1.Container
+		peersPublicKey []string
+	}
+	tests := []struct {
+		name    string
+		args    args
+		want    *containerv1.Container
+		wantErr bool
+	}{
+		{
+			name:    "nil",
+			wantErr: true,
+		},
+		{
+			name: "empty container",
+			args: args{
+				container: &containerv1.Container{},
+			},
+			wantErr: true,
+		},
+		{
+			name: "empty container headers",
+			args: args{
+				container: &containerv1.Container{
+					Headers: &containerv1.Header{},
+				},
+			},
+			wantErr: true,
+		},
+		// ---------------------------------------------------------------------
+		{
+			name: "valid",
+			args: args{
+				container: &containerv1.Container{
+					Headers: &containerv1.Header{},
+					Raw:     []byte{0x01, 0x02, 0x03, 0x04},
+				},
+				peersPublicKey: []string{
+					"v2.sk.AuSjVpMZben6n9fXiaDj8bMjSvhcZ9n7c82VOt7v9_UBzZJaMLamkQUFAVp_9frpAg",
+					"v2.sk.A0V1xCxGNtVAE9EVhaKi-pIADhd1in8xV_FI5Y0oHSHLAkew9gDAqiALSd6VgvBCbQ",
+				},
+			},
+			wantErr: false,
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			adapter := New()
+			_, err := adapter.SealWithPSK(rand.Reader, tt.args.container, psk, tt.args.peersPublicKey...)
+			if (err != nil) != tt.wantErr {
+				t.Errorf("Seal() error = %v, wantErr %v", err, tt.wantErr)
+				return
+			}
+		})
+	}
+}
+
 // -----------------------------------------------------------------------------
 
 func Test_Seal_Unseal(t *testing.T) {
@@ -130,6 +191,36 @@ func Test_Seal_Unseal(t *testing.T) {
 	}
 
 	unsealed, err := adapter.Unseal(sealed, memguard.NewBufferFromBytes([]byte(privKey)))
+	if err != nil {
+		t.Fatalf("unable to unseal container: %v", err)
+	}
+
+	if diff := cmp.Diff(unsealed, input, ignoreOpts...); diff != "" {
+		t.Errorf("Seal/Unseal()\n-got/+want\ndiff %s", diff)
+	}
+}
+
+func Test_Seal_Unseal_WithPSK(t *testing.T) {
+	psk := memguard.NewBufferRandom(64)
+	adapter := New()
+
+	pubKey, privKey, err := adapter.GenerateKey()
+	assert.NoError(t, err)
+
+	input := &containerv1.Container{
+		Headers: &containerv1.Header{
+			ContentEncoding: "gzip",
+			ContentType:     "application/vnd.harp.v1.Bundle",
+		},
+		Raw: []byte{0x00, 0x00},
+	}
+
+	sealed, err := adapter.SealWithPSK(rand.Reader, input, psk, pubKey)
+	if err != nil {
+		t.Fatalf("unable to seal container: %v", err)
+	}
+
+	unsealed, err := adapter.UnsealWithPSK(sealed, memguard.NewBufferFromBytes([]byte(privKey)), psk)
 	if err != nil {
 		t.Fatalf("unable to unseal container: %v", err)
 	}

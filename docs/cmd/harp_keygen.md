@@ -8,6 +8,12 @@ Key generation commands
   -h, --help   help for keygen
 ```
 
+### Options inherited from parent commands
+
+```
+      --config string   config file
+```
+
 ### SEE ALSO
 
 * [harp](harp.md)	 - Extensible secret management tool
@@ -19,6 +25,7 @@ Key generation commands
 * [harp keygen jwk](harp_keygen_jwk.md)	 - Generate a JWK encoded key pair
 * [harp keygen master-key](harp_keygen_master-key.md)	 - Generate and print a container master key
 * [harp keygen paseto](harp_keygen_paseto.md)	 - Generate and print an v4.local paseto key
+* [harp keygen pre-shared-key](harp_keygen_pre-shared-key.md)	 - Generate and print a container pre-shared-key
 * [harp keygen secretbox](harp_keygen_secretbox.md)	 - Generate and print a secretbox keypair
 * [harp keygen xchacha](harp_keygen_xchacha.md)	 - Generate and print a xchacha20poly1305 key
 

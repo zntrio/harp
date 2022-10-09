@@ -31,8 +31,12 @@ type Strategy interface {
 	GenerateKey(...GenerateOption) (publicKey, privateKey string, err error)
 	// Seal the given container using the implemented algorithm.
 	Seal(io.Reader, *containerv1.Container, ...string) (*containerv1.Container, error)
+	// Seal the given container using the implemented algorithm.
+	SealWithPSK(io.Reader, *containerv1.Container, *memguard.LockedBuffer, ...string) (*containerv1.Container, error)
 	// Unseal the given container using the given identity.
-	Unseal(*containerv1.Container, *memguard.LockedBuffer) (*containerv1.Container, error)
+	Unseal(c *containerv1.Container, id *memguard.LockedBuffer) (*containerv1.Container, error)
+	// UnsealWithPSK unseals the given container using the given identity and the gievn preshared key.
+	UnsealWithPSK(c *containerv1.Container, id *memguard.LockedBuffer, psk *memguard.LockedBuffer) (*containerv1.Container, error)
 }
 
 // GenerateOptions represents container key generation options.

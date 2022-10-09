@@ -51,6 +51,12 @@ harp bundle decrypt [flags]
   -s, --skip-not-decryptable   Skip not decryptable secrets without raising an error.
 ```
 
+### Options inherited from parent commands
+
+```
+      --config string   config file
+```
+
 ### SEE ALSO
 
 * [harp bundle](harp_bundle.md)	 - Bundle commands

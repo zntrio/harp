@@ -15,6 +15,12 @@ harp bundle read [flags]
       --path string    Secret path
 ```
 
+### Options inherited from parent commands
+
+```
+      --config string   config file
+```
+
 ### SEE ALSO
 
 * [harp bundle](harp_bundle.md)	 - Bundle commands

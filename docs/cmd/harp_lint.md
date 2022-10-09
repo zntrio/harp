@@ -39,6 +39,12 @@ harp lint [flags]
       --schema-only     Display the JSON Schema
 ```
 
+### Options inherited from parent commands
+
+```
+      --config string   config file
+```
+
 ### SEE ALSO
 
 * [harp](harp.md)	 - Extensible secret management tool

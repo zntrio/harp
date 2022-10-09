@@ -14,6 +14,12 @@ harp version [flags]
       --with-modules   Display builtin go modules
 ```
 
+### Options inherited from parent commands
+
+```
+      --config string   config file
+```
+
 ### SEE ALSO
 
 * [harp](harp.md)	 - Extensible secret management tool

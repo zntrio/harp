@@ -13,6 +13,12 @@ harp keygen aes-gcm [flags]
       --size uint16   Specify an AES key size (128, 192, 256) (default 128)
 ```
 
+### Options inherited from parent commands
+
+```
+      --config string   config file
+```
+
 ### SEE ALSO
 
 * [harp keygen](harp_keygen.md)	 - Key generation commands

@@ -34,7 +34,21 @@ import (
 	"golang.org/x/crypto/nacl/secretbox"
 )
 
-func deriveSharedKeyFromRecipient(publicKey, privateKey *[privateKeySize]byte) *[encryptionKeySize]byte {
+func pskStretch(key, salt []byte) (*[preSharedKeySize]byte, error) {
+	pskh, err := blake2b.New512(key)
+	if err != nil {
+		return nil, fmt.Errorf("unable to prepare preshared key: %w", err)
+	}
+	pskh.Write(salt)
+	hashPsk := pskh.Sum(nil)
+
+	psk := &[preSharedKeySize]byte{}
+	copy(psk[:], hashPsk[:preSharedKeySize])
+
+	return psk, nil
+}
+
+func deriveSharedKeyFromRecipient(publicKey, privateKey *[privateKeySize]byte, preSharedKey *[preSharedKeySize]byte) (*[encryptionKeySize]byte, error) {
 	// Prepare nonce
 	var nonce [nonceSize]byte
 	copy(nonce[:], "harp_derived_id_sboxkey0")
@@ -48,8 +62,22 @@ func deriveSharedKeyFromRecipient(publicKey, privateKey *[privateKeySize]byte) *
 	derivedKey := box.Seal(nil, zero, &nonce, publicKey, privateKey)
 	copy(sharedKey[:], derivedKey[len(derivedKey)-encryptionKeySize:])
 
+	// Apply psk, this will act as a second knowledge factor to allow container
+	// unseal
+	if preSharedKey != nil {
+		// Compute HMAC-Blakeb of the shared secret.
+		pskh, err := blake2b.New(encryptionKeySize, preSharedKey[:])
+		if err != nil {
+			return nil, fmt.Errorf("unable to initialize PSK derivation: %w", err)
+		}
+		pskh.Write([]byte{0x00, 0x00, 0x00, 0x01})
+		pskh.Write(sharedKey[:])
+		skHash := pskh.Sum(nil)
+		copy(sharedKey[:], skHash[:encryptionKeySize])
+	}
+
 	// No error
-	return &sharedKey
+	return &sharedKey, nil
 }
 
 func computeHeaderHash(headers *containerv1.Header) ([]byte, error) {
@@ -84,7 +112,7 @@ func computeProtectedHash(headerHash, content []byte) []byte {
 	return protected.Bytes()
 }
 
-func packRecipient(rand io.Reader, payloadKey, ephPrivKey, peerPublicKey *[publicKeySize]byte) (*containerv1.Recipient, error) {
+func packRecipient(rand io.Reader, payloadKey, ephPrivKey, peerPublicKey *[publicKeySize]byte, preSharedKey *[preSharedKeySize]byte) (*containerv1.Recipient, error) {
 	// Check arguments
 	if payloadKey == nil {
 		return nil, fmt.Errorf("unable to proceed with nil payload key")
@@ -96,11 +124,14 @@ func packRecipient(rand io.Reader, payloadKey, ephPrivKey, peerPublicKey *[publi
 		return nil, fmt.Errorf("unable to proceed with nil public key")
 	}
 
-	// Create identifier
-	recipientKey := deriveSharedKeyFromRecipient(peerPublicKey, ephPrivKey)
+	// Create recipient key
+	recipientKey, err := deriveSharedKeyFromRecipient(peerPublicKey, ephPrivKey, preSharedKey)
+	if err != nil {
+		return nil, fmt.Errorf("unable to derive shared recipient encryption key: %w", err)
+	}
 
 	// Calculate identifier
-	identifier, err := keyIdentifierFromDerivedKey(recipientKey)
+	identifier, err := keyIdentifierFromDerivedKey(recipientKey, preSharedKey)
 	if err != nil {
 		return nil, fmt.Errorf("unable to derive key identifier: %w", err)
 	}
@@ -121,7 +152,7 @@ func packRecipient(rand io.Reader, payloadKey, ephPrivKey, peerPublicKey *[publi
 	return recipient, nil
 }
 
-func keyIdentifierFromDerivedKey(derivedKey *[encryptionKeySize]byte) ([]byte, error) {
+func keyIdentifierFromDerivedKey(derivedKey *[encryptionKeySize]byte, preSharedKey *[preSharedKeySize]byte) ([]byte, error) {
 	// Hash the derived key
 	h, err := blake2b.New512([]byte("harp signcryption box key identifier"))
 	if err != nil {
@@ -131,13 +162,20 @@ func keyIdentifierFromDerivedKey(derivedKey *[encryptionKeySize]byte) ([]byte, e
 		return nil, fmt.Errorf("unable to generate recipient identifier")
 	}
 
+	// Apply psk if specified
+	if preSharedKey != nil {
+		if _, err := h.Write(preSharedKey[:]); err != nil {
+			return nil, fmt.Errorf("unable to generate recipient identifier")
+		}
+	}
+
 	// Return 32 bytes trucanted hash.
 	return h.Sum(nil)[0:keyIdentifierSize], nil
 }
 
-func tryRecipientKeys(derivedKey *[encryptionKeySize]byte, recipients []*containerv1.Recipient) ([]byte, error) {
+func tryRecipientKeys(derivedKey *[encryptionKeySize]byte, recipients []*containerv1.Recipient, preSharedKey *[preSharedKeySize]byte) ([]byte, error) {
 	// Calculate recipient identifier
-	identifier, err := keyIdentifierFromDerivedKey(derivedKey)
+	identifier, err := keyIdentifierFromDerivedKey(derivedKey, preSharedKey)
 	if err != nil {
 		return nil, fmt.Errorf("unable to generate identifier: %w", err)
 	}

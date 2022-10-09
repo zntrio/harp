@@ -34,6 +34,7 @@ const (
 	encryptionKeySize          = 32
 	keyIdentifierSize          = 32
 	nonceSize                  = 24
+	preSharedKeySize           = 64
 	signatureSize              = ed25519.SignatureSize
 	messageLimit               = 64 * 1024 * 1024
 

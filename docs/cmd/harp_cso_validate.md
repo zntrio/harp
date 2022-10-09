@@ -17,6 +17,12 @@ harp cso validate [flags]
       --paths-from string    Path to read path from ('-' for stdin or filename)
 ```
 
+### Options inherited from parent commands
+
+```
+      --config string   config file
+```
+
 ### SEE ALSO
 
 * [harp cso](harp_cso.md)	 - CSO commands

@@ -24,12 +24,22 @@ import (
 	"fmt"
 	"io"
 
+	"github.com/awnumar/memguard"
 	containerv1 "github.com/zntrio/harp/v2/api/gen/go/harp/container/v1"
 	"github.com/zntrio/harp/v2/pkg/sdk/types"
 )
 
-// Seal a secret container
+// Seal a secret container with identities
 func (a *adapter) Seal(rand io.Reader, container *containerv1.Container, encodedPeersPublicKey ...string) (*containerv1.Container, error) {
+	return a.seal(rand, container, nil, encodedPeersPublicKey...)
+}
+
+// Seal a secret container with identities and preshared key
+func (a *adapter) SealWithPSK(rand io.Reader, container *containerv1.Container, preSharedKey *memguard.LockedBuffer, encodedPeersPublicKey ...string) (*containerv1.Container, error) {
+	return a.seal(rand, container, preSharedKey, encodedPeersPublicKey...)
+}
+
+func (a *adapter) seal(rand io.Reader, container *containerv1.Container, preSharedKey *memguard.LockedBuffer, encodedPeersPublicKey ...string) (*containerv1.Container, error) {
 	// Check parameters
 	if types.IsNil(container) {
 		return nil, fmt.Errorf("unable to process nil container")
@@ -74,6 +84,12 @@ func (a *adapter) Seal(rand io.Reader, container *containerv1.Container, encoded
 		SealVersion:         SealVersion,
 	}
 
+	// Compute preshared key
+	var psk *[preSharedKeySize]byte
+	if preSharedKey != nil {
+		psk = pskStretch(preSharedKey.Bytes(), containerHeaders.EncryptionPublicKey)
+	}
+
 	// Process recipients
 	for _, peerPublicKey := range peersPublicKey {
 		// Ignore nil key
@@ -82,7 +98,7 @@ func (a *adapter) Seal(rand io.Reader, container *containerv1.Container, encoded
 		}
 
 		// Pack recipient using its public key
-		r, errPack := packRecipient(rand, payloadKey, encPriv, peerPublicKey)
+		r, errPack := packRecipient(rand, payloadKey, encPriv, peerPublicKey, psk)
 		if errPack != nil {
 			return nil, fmt.Errorf("unable to pack container recipient (%X): %w", *peerPublicKey, err)
 		}

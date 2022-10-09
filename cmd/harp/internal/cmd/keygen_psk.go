@@ -18,34 +18,32 @@
 package cmd
 
 import (
+	"encoding/base64"
+	"fmt"
+	"os"
+
+	"github.com/awnumar/memguard"
 	"github.com/spf13/cobra"
 
-	"github.com/zntrio/harp/v2/build/fips"
+	"github.com/zntrio/harp/v2/pkg/sdk/cmdutil"
 )
 
 // -----------------------------------------------------------------------------
 
-var keygenCmd = func() *cobra.Command {
+var keygenPreSharedKeyCmd = func() *cobra.Command {
 	cmd := &cobra.Command{
-		Use:     "keygen",
-		Aliases: []string{"kg"},
-		Short:   "Key generation commands",
+		Use:     "pre-shared-key",
+		Aliases: []string{"psk"},
+		Short:   "Generate and print a container pre-shared-key",
+		Run:     runKeygenPreSharedKey,
 	}
 
-	// Subcommands
-	cmd.AddCommand(keygenFernetCmd())
-	cmd.AddCommand(keygenAESCmd())
-	cmd.AddCommand(keygenMasterKeyCmd())
-	cmd.AddCommand(keygenKeypairCmd())
-	cmd.AddCommand(keygenPreSharedKeyCmd())
-
-	if !fips.Enabled() {
-		cmd.AddCommand(keygenSecretBoxCmd())
-		cmd.AddCommand(keygenChaChaCmd())
-		cmd.AddCommand(keygenXChaChaCmd())
-		cmd.AddCommand(keygenAESPMACSIVCmd())
-		cmd.AddCommand(keygenAESSIVCmd())
-		cmd.AddCommand(keygenPasetoCmd())
-	}
 	return cmd
+}
+
+func runKeygenPreSharedKey(cmd *cobra.Command, args []string) {
+	_, cancel := cmdutil.Context(cmd.Context(), "harp-keygen-psk", conf.Debug.Enabled, conf.Instrumentation.Logs.Level)
+	defer cancel()
+
+	fmt.Fprintf(os.Stdout, "%s", base64.RawURLEncoding.EncodeToString(memguard.NewBufferRandom(64).Bytes()))
 }

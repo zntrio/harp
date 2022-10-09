@@ -21,7 +21,7 @@ To load completions for every new session, execute once:
 
 #### macOS:
 
-	harp completion bash > /usr/local/etc/bash_completion.d/harp
+	harp completion bash > $(brew --prefix)/etc/bash_completion.d/harp
 
 You will need to start a new shell for this setup to take effect.
 
@@ -35,6 +35,12 @@ harp completion bash
 ```
   -h, --help              help for bash
       --no-descriptions   disable completion descriptions
+```
+
+### Options inherited from parent commands
+
+```
+      --config string   config file
 ```
 
 ### SEE ALSO
