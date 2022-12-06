@@ -12,7 +12,7 @@ require github.com/gogo/protobuf v1.3.2 // indirect
 
 // GHSA
 require (
-	github.com/containerd/containerd v1.6.9 // indirect
+	github.com/containerd/containerd v1.6.10 // indirect
 	github.com/opencontainers/image-spec v1.0.3-0.20211202183452-c5a74bcca799
 	github.com/opencontainers/runc v1.1.3 // indirect
 )
@@ -59,7 +59,7 @@ require (
 	github.com/mcuadros/go-defaults v1.2.0
 	github.com/miscreant/miscreant.go v0.0.0-20200214223636-26d376326b75
 	github.com/oklog/run v1.1.0
-	github.com/open-policy-agent/opa v0.46.1
+	github.com/open-policy-agent/opa v0.47.0
 	github.com/opencontainers/go-digest v1.0.0
 	github.com/ory/dockertest/v3 v3.9.1
 	github.com/pelletier/go-toml v1.9.5
@@ -165,8 +165,8 @@ require (
 	github.com/morikuni/aec v1.0.0 // indirect
 	github.com/pelletier/go-toml/v2 v2.0.5 // indirect
 	github.com/pmezard/go-difflib v1.0.0 // indirect
-	github.com/prometheus/client_golang v1.13.1 // indirect
-	github.com/prometheus/client_model v0.2.0 // indirect
+	github.com/prometheus/client_golang v1.14.0 // indirect
+	github.com/prometheus/client_model v0.3.0 // indirect
 	github.com/prometheus/common v0.37.0 // indirect
 	github.com/prometheus/procfs v0.8.0 // indirect
 	github.com/rcrowley/go-metrics v0.0.0-20200313005456-10cdbea86bc0 // indirect
