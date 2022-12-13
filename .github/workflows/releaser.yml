@@ -45,11 +45,10 @@ jobs:
             ${{ runner.os }}-go-
       -
         name: Download cyclonedx-gomod
-        uses: Zenithar/gh-gomod-generate-sbom@v1.0.1
+        uses: Zenithar/gh-gomod-generate-sbom@v1.0.2
         with:
           version: v1.2.0
-        env:
-          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+          github-token: ${{ secrets.GITHUB_TOKEN }}
       -
         name: Install Cosign
         uses: sigstore/cosign-installer@v2.8.1
