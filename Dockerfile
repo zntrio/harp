@@ -18,7 +18,7 @@ RUN \
   apk add --no-cache curl upx && \
   curl -sLO https://github.com/zntrio/harp/releases/download/v${VERSION}/harp-${DOWNLOAD_ARCH}.tar.gz && \
   curl -sLO https://github.com/zntrio/harp/releases/download/v${VERSION}/harp-${DOWNLOAD_ARCH}.tar.gz.sig && \
-  curl -sLO https://raw.githubusercontent.com/elastic/harp/v${VERSION}/build/artifact/cosign.pub && \
+  curl -sLO https://raw.githubusercontent.com/zntrio/harp/v${VERSION}/build/artifact/cosign.pub && \
   cosign verify-blob --key /tmp/cosign.pub --signature harp-${DOWNLOAD_ARCH}.tar.gz.sig harp-${DOWNLOAD_ARCH}.tar.gz && \
   tar -vxf harp-${DOWNLOAD_ARCH}.tar.gz && \
   mv /tmp/harp-${DOWNLOAD_ARCH} /tmp/harp && \

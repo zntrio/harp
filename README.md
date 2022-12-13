@@ -1,7 +1,7 @@
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 [![Go Report Card](https://goreportcard.com/badge/github.com/zntrio/harp)](https://goreportcard.com/report/github.com/zntrio/harp)
 [![made-with-Go](https://img.shields.io/badge/Made%20with-Go-1f425f.svg)](http://golang.org)
-[![GitHub release](https://img.shields.io/github/release/elastic/harp.svg)](https://github.com/zntrio/harp/releases/)
+[![GitHub release](https://img.shields.io/github/release/zntrio/harp.svg)](https://github.com/zntrio/harp/releases/)
 [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/zntrio/harp/graphs/commit-activity)
 
 - [Harp](#harp)
@@ -36,6 +36,12 @@
 
 Harp is for Harpocrates (Ancient Greek: Ἁρποκράτης) the god of silence, secrets
 and confidentiality in the Hellenistic religion. - [Wikipedia](https://en.wikipedia.org/wiki/Harpocrates)
+
+> This tool was initially developed while I was at Elastic, to be able to continue
+> to maintain Harp without the upstream dependency, I decided to do a hard-fork 
+> of the Elastic repository. 
+>
+> I'm going to introduce breaking changes from the Elastic original version.
 
 ## TL;DR.
 
@@ -169,7 +175,7 @@ And allows :
 
 ## FAQ
 
-* Is it used internally at Elastic? - Yes. It is used to generate bootstrap
+* Is it used internally at zntrio? - Yes. It is used to generate bootstrap
   secrets used to bootstrap the new region infrastructure components.
   #ChickenEggProblem
 
@@ -194,8 +200,8 @@ Download a [release](https://github.com/zntrio/harp/releases) or build from sour
 For stable version
 
 ```sh
-brew tap elastic/harp
-brew install elastic/harp/harp
+brew tap zntrio/harp
+brew install zntrio/harp/harp
 ```
 
 # Build instructions
@@ -205,7 +211,7 @@ Download a [release](https://github.com/zntrio/harp/releases) or build from sour
 ## Clone repository
 
 ```sh
-$ git clone git@github.com:elastic/harp.git
+$ git clone git@github.com:zntrio/harp.git
 $ export HARP_REPOSITORY=$(pwd)/harp
 ```
 
@@ -290,23 +296,23 @@ Or you can download `harp-tools` from GitHub registry
 
 ```sh
 # Standard usecase
-$ docker pull ghcr.io/elastic/harp/harp-tools:latest
+$ docker pull ghcr.io/zntrio/harp/harp-tools:latest
 # FIPS compliant go toolchain
-$ docker pull ghcr.io/elastic/harp/harp-tools-fips:latest
+$ docker pull ghcr.io/zntrio/harp/harp-tools-fips:latest
 ```
 
 Check image integrity with `cosign` and the public key `build/artifact/cosign.pub`
 
 ```sh
-cosign verify --key build/artifact/cosign.pub ghcr.io/elastic/harp/harp-tools:latest
+cosign verify --key build/artifact/cosign.pub ghcr.io/zntrio/harp/harp-tools:latest
 
-Verification for ghcr.io/elastic/harp/harp-tools:latest --
+Verification for ghcr.io/zntrio/harp/harp-tools:latest --
 The following checks were performed on each of these signatures:
   - The cosign claims were validated
   - The signatures were verified against the specified public key
   - Any certificates were verified against the Fulcio roots.
 
-[{"critical":{"identity":{"docker-reference":"ghcr.io/elastic/harp/harp-tools"},"image":{"docker-manifest-digest":"sha256:1be31528e7b00c9e836479aadfdf49319f3b4d7916e705c43ffd0b14965763a8"},"type":"cosign container image signature"},"optional":{"ref":"40714fef947d018e6053991f5ddb54283f466b04","repo":"elastic/harp","workflow":"Build and push docker tools"}}]
+[{"critical":{"identity":{"docker-reference":"ghcr.io/zntrio/harp/harp-tools"},"image":{"docker-manifest-digest":"sha256:1be31528e7b00c9e836479aadfdf49319f3b4d7916e705c43ffd0b14965763a8"},"type":"cosign container image signature"},"optional":{"ref":"40714fef947d018e6053991f5ddb54283f466b04","repo":"zntrio/harp","workflow":"Build and push docker tools"}}]
 ```
 
 ### For CLI
@@ -315,7 +321,7 @@ The following checks were performed on each of these signatures:
 # or docker image [distroless:static, rootless, noshell]
 mage docker:harp
 # To execute in the container
-docker run --rm -ti --read-only elastic/harp:<version>
+docker run --rm -ti --read-only zntrio/harp:<version>
 ```
 
 # Plugins

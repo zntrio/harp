@@ -110,7 +110,7 @@ func Build() error {
 	color.Red("# Build Info ---------------------------------------------------------------")
 	fmt.Printf("Go version : %s\n", runtime.Version())
 
-	version, err := git.TagMatch("cmd/harp/v*")
+	version, err := git.TagMatch("v*")
 	if err != nil {
 		return err
 	}
@@ -155,7 +155,7 @@ func (Test) CLI() {
 // Compile harp code to create an executable.
 func Compile() error {
 	// Extract git version
-	version, err := git.TagMatch("cmd/harp/v*")
+	version, err := git.TagMatch("v*")
 	if err != nil {
 		return err
 	}
@@ -170,7 +170,7 @@ func Release(ctx context.Context) error {
 	color.Red(fmt.Sprintf("# Releasing (%s) ---------------------------------------------------", os.Getenv("RELEASE")))
 
 	// Extract git version
-	version, err := git.TagMatch("cmd/harp/v*")
+	version, err := git.TagMatch("v*")
 	if err != nil {
 		return err
 	}
