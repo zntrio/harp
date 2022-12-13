@@ -43,9 +43,12 @@ func Reader(name string) (io.Reader, error) {
 		err    error
 	)
 
+	// Clean input filename
+	name = filepath.Clean(name)
+
 	// Create input reader
 	switch name {
-	case "", "-":
+	case "", ".", "-":
 		// Check stdin
 		info, errStat := os.Stdin.Stat()
 		if errStat != nil {
@@ -110,7 +113,7 @@ func Writer(name string) (io.Writer, error) {
 
 	// Create output writer
 	switch name {
-	case "", "-":
+	case "", ".", "-":
 		// Stdout
 		writer = os.Stdout
 	default:
