@@ -19,8 +19,7 @@
 
 package main
 
-import (
-	// Register hash functions
+import ( // Register hash functions
 	//nolint:gosec // For legacy compatibility
 	_ "crypto/md5"
 	//nolint:gosec // For legacy compatibility
