@@ -26,9 +26,6 @@
     - [Daily](#daily)
   - [With nix-shell](#with-nix-shell)
   - [Bootstrap tools](#bootstrap-tools)
-  - [Docker](#docker)
-    - [For Tools](#for-tools)
-    - [For CLI](#for-cli)
 - [Plugins](#plugins)
 - [Community](#community)
 
@@ -88,7 +85,11 @@ in their products, and/or extend the Harp pipeline features by creating new
   handle in time (naming is hard) and secret naming could not be helped to
   get a consistent, reliable and flexible secret tree;
 * Secret storage backend can use various implementations in different environments
-  and should be provisioned consistently.
+  and should be provisioned consistently;
+* When you use `Terraform` for secret management, you have the cleartext value 
+  stored in the state. To protect the state you have to deploy a complex infrastructure.
+  To simplify this we use harp for secret provisioning and use the secret reference
+  in the Terraform topology.
 
 ## Use cases
 
@@ -280,48 +281,6 @@ go mod tidy
 go mod vendor
 # Pull tools sources, compile them and install executable in tools/bin
 mage
-```
-
-## Docker
-
-### For Tools
-
-You have to build this image once before executing artifact pipelines.
-
-```sh
-mage docker:tools
-```
-
-Or you can download `harp-tools` from GitHub registry
-
-```sh
-# Standard usecase
-$ docker pull ghcr.io/zntrio/harp/harp-tools:latest
-# FIPS compliant go toolchain
-$ docker pull ghcr.io/zntrio/harp/harp-tools-fips:latest
-```
-
-Check image integrity with `cosign` and the public key `build/artifact/cosign.pub`
-
-```sh
-cosign verify --key build/artifact/cosign.pub ghcr.io/zntrio/harp/harp-tools:latest
-
-Verification for ghcr.io/zntrio/harp/harp-tools:latest --
-The following checks were performed on each of these signatures:
-  - The cosign claims were validated
-  - The signatures were verified against the specified public key
-  - Any certificates were verified against the Fulcio roots.
-
-[{"critical":{"identity":{"docker-reference":"ghcr.io/zntrio/harp/harp-tools"},"image":{"docker-manifest-digest":"sha256:1be31528e7b00c9e836479aadfdf49319f3b4d7916e705c43ffd0b14965763a8"},"type":"cosign container image signature"},"optional":{"ref":"40714fef947d018e6053991f5ddb54283f466b04","repo":"zntrio/harp","workflow":"Build and push docker tools"}}]
-```
-
-### For CLI
-
-```sh
-# or docker image [distroless:static, rootless, noshell]
-mage docker:harp
-# To execute in the container
-docker run --rm -ti --read-only zntrio/harp:<version>
 ```
 
 # Plugins
