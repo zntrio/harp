@@ -34,7 +34,13 @@ jobs:
       - 
         uses: step-security/harden-runner@v2.0.0
         with:
-          egress-policy: audit
+          disable-sudo: true
+          egress-policy: block
+          allowed-endpoints: >
+            api.github.com:443
+            github.com:443
+            proxy.golang.org:443
+            storage.googleapis.com:443
       -
         name: Cancel previous workflows
         uses: styfle/cancel-workflow-action@0.11.0
@@ -69,7 +75,14 @@ jobs:
       - 
         uses: step-security/harden-runner@v2.0.0
         with:
-          egress-policy: audit
+          disable-sudo: true
+          egress-policy: block
+          allowed-endpoints: >
+            api.github.com:443
+            github.com:443
+            objects.githubusercontent.com:443
+            proxy.golang.org:443
+            raw.githubusercontent.com:443
       -
         name: Cancel previous workflows
         uses: styfle/cancel-workflow-action@0.11.0
@@ -108,7 +121,14 @@ jobs:
       - 
         uses: step-security/harden-runner@v2.0.0
         with:
-          egress-policy: audit
+          disable-sudo: true
+          egress-policy: block
+          allowed-endpoints: >
+            api.github.com:443
+            github.com:443
+            objects.githubusercontent.com:443
+            proxy.golang.org:443
+            raw.githubusercontent.com:443
       -
         name: Cancel previous workflows
         uses: styfle/cancel-workflow-action@0.11.0
@@ -136,7 +156,12 @@ jobs:
       - 
         uses: step-security/harden-runner@v2.0.0
         with:
-          egress-policy: audit
+          disable-sudo: true
+          egress-policy: block
+          allowed-endpoints: >
+            api.github.com:443
+            github.com:443
+            objects.githubusercontent.com:443
       -
         name: Cancel previous workflows
         uses: styfle/cancel-workflow-action@0.11.0
@@ -175,10 +200,6 @@ jobs:
     needs: [go-mod, compile-dryrun, golangci-lint] # run after golangci-lint action to not produce duplicated errors
     runs-on: windows-latest
     steps:
-      - 
-        uses: step-security/harden-runner@v2.0.0
-        with:
-          egress-policy: audit
       -
         name: Cancel previous workflows
         uses: styfle/cancel-workflow-action@0.11.0
@@ -217,10 +238,6 @@ jobs:
     needs: [go-mod, compile-dryrun, golangci-lint] # run after golangci-lint action to not produce duplicated errors
     runs-on: macos-latest
     steps:
-      - 
-        uses: step-security/harden-runner@v2.0.0
-        with:
-          egress-policy: audit
       -
         name: Cancel previous workflows
         uses: styfle/cancel-workflow-action@0.11.0
