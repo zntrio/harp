@@ -31,6 +31,10 @@ jobs:
     name: "Check go modules declaration"
     runs-on: ubuntu-latest
     steps:
+      - 
+        uses: step-security/harden-runner@ebacdc22ef6c2cfb85ee5ded8f2e640f4c776dd5
+        with:
+          egress-policy: audit
       -
         name: Cancel previous workflows
         uses: styfle/cancel-workflow-action@0.11.0
@@ -62,6 +66,10 @@ jobs:
     runs-on: ubuntu-latest
     needs: [golangci-lint, go-mod]
     steps:
+      - 
+        uses: step-security/harden-runner@ebacdc22ef6c2cfb85ee5ded8f2e640f4c776dd5
+        with:
+          egress-policy: audit
       -
         name: Cancel previous workflows
         uses: styfle/cancel-workflow-action@0.11.0
@@ -97,6 +105,10 @@ jobs:
     name: "GolangCI-lint"
     runs-on: ubuntu-latest
     steps:
+      - 
+        uses: step-security/harden-runner@ebacdc22ef6c2cfb85ee5ded8f2e640f4c776dd5
+        with:
+          egress-policy: audit
       -
         name: Cancel previous workflows
         uses: styfle/cancel-workflow-action@0.11.0
@@ -121,6 +133,10 @@ jobs:
     needs: [go-mod, compile-dryrun, golangci-lint] # run after golangci-lint action to not produce duplicated errors
     runs-on: ubuntu-latest
     steps:
+      - 
+        uses: step-security/harden-runner@ebacdc22ef6c2cfb85ee5ded8f2e640f4c776dd5
+        with:
+          egress-policy: audit
       -
         name: Cancel previous workflows
         uses: styfle/cancel-workflow-action@0.11.0
@@ -159,6 +175,10 @@ jobs:
     needs: [go-mod, compile-dryrun, golangci-lint] # run after golangci-lint action to not produce duplicated errors
     runs-on: windows-latest
     steps:
+      - 
+        uses: step-security/harden-runner@ebacdc22ef6c2cfb85ee5ded8f2e640f4c776dd5
+        with:
+          egress-policy: audit
       -
         name: Cancel previous workflows
         uses: styfle/cancel-workflow-action@0.11.0
@@ -197,6 +217,10 @@ jobs:
     needs: [go-mod, compile-dryrun, golangci-lint] # run after golangci-lint action to not produce duplicated errors
     runs-on: macos-latest
     steps:
+      - 
+        uses: step-security/harden-runner@ebacdc22ef6c2cfb85ee5ded8f2e640f4c776dd5
+        with:
+          egress-policy: audit
       -
         name: Cancel previous workflows
         uses: styfle/cancel-workflow-action@0.11.0
