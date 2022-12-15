@@ -33,6 +33,7 @@ jobs:
         uses: step-security/harden-runner@v2.0.0
         with:
           disable-sudo: true
+          disable-telemetry: true
           egress-policy: block
           allowed-endpoints: >
             api.github.com:443

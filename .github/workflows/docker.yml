@@ -21,6 +21,7 @@ jobs:
         uses: step-security/harden-runner@v2.0.0
         with:
           egress-policy: audit
+          disable-telemetry: true
       -
         name: Cancel previous workflows
         uses: styfle/cancel-workflow-action@0.11.0
