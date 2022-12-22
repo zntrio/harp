@@ -85,6 +85,7 @@ jobs:
             objects.githubusercontent.com:443
             proxy.golang.org:443
             raw.githubusercontent.com:443
+            storage.googleapis.com:443
       -
         name: Cancel previous workflows
         uses: styfle/cancel-workflow-action@0.11.0
@@ -132,6 +133,7 @@ jobs:
             objects.githubusercontent.com:443
             proxy.golang.org:443
             raw.githubusercontent.com:443
+            storage.googleapis.com:443
       -
         name: Cancel previous workflows
         uses: styfle/cancel-workflow-action@0.11.0
