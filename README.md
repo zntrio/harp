@@ -15,17 +15,16 @@
   - [What can I do?](#what-can-i-do)
   - [FAQ](#faq)
   - [License](#license)
-- [Homebrew install](#homebrew-install)
 - [Build instructions](#build-instructions)
   - [Clone repository](#clone-repository)
-  - [Manual dev environment](#manual-dev-environment)
-    - [Check your go version](#check-your-go-version)
-      - [Go 1.19](#go-119)
-    - [Install mage](#install-mage)
-      - [From source](#from-source)
-    - [Daily](#daily)
-  - [With nix-shell](#with-nix-shell)
-  - [Bootstrap tools](#bootstrap-tools)
+  - [Setup dev environment](#setup-dev-environment)
+    - [With nix flake](#with-nix-flake)
+    - [Non-nix managed environment](#non-nix-managed-environment)
+      - [Check your go version](#check-your-go-version)
+      - [Install mage](#install-mage)
+        - [From source](#from-source)
+      - [Bootstrap tools](#bootstrap-tools)
+  - [Mage targets](#mage-targets)
 - [Plugins](#plugins)
 - [Community](#community)
 
@@ -194,17 +193,6 @@ And allows :
 
 `harp` artifacts and source code is released under [Apache 2.0 Software License](LICENSE).
 
-# Homebrew install
-
-Download a [release](https://github.com/zntrio/harp/releases) or build from source.
-
-For stable version
-
-```sh
-brew tap zntrio/harp
-brew install zntrio/harp/harp
-```
-
 # Build instructions
 
 Download a [release](https://github.com/zntrio/harp/releases) or build from source.
@@ -216,46 +204,9 @@ $ git clone git@github.com:zntrio/harp.git
 $ export HARP_REPOSITORY=$(pwd)/harp
 ```
 
-## Manual dev environment
+## Setup dev environment
 
-### Check your go version
-
-> Only last 2 minor versions of a major are supported.
-
-#### Go 1.19
-
-`Harp` is compiled with :
-
-```sh
-$ go version
-go version go1.19 linux/amd64
-```
-
-> Simple go version manager - <https://github.com/stefanmaric/g>
-
-### Install mage
-
-[Mage](https://magefile.org/) is an alternative to Make where language used is Go.
-You can install it using 2 different methods.
-
-#### From source
-
-```sh
-# Install mage
-git clone https://github.com/magefile/mage
-cd mage
-go run bootstrap.go
-```
-
-### Daily
-
-```sh
-export PATH=$HARP_REPOSITORY/tools/bin:$PATH
-# Build harp in bin folder
-mage
-```
-
-## With nix-shell
+### With nix flake
 
 Install `nix` on your system, if not already installed.
 
@@ -268,10 +219,39 @@ $ curl -L https://nixos.org/nix/install | sh
 
 ```sh
 $ cd $HARP_REPOSITORY
-$ nix-shell
+$ nix develop
 ```
 
-## Bootstrap tools
+### Non-nix managed environment
+
+#### Check your go version
+
+> Only last 2 minor versions of a major are supported.
+
+`Harp` is compiled with :
+
+```sh
+$ go version
+go version go1.19 linux/amd64
+```
+
+> Simple go version manager - <https://github.com/stefanmaric/g>
+
+#### Install mage
+
+[Mage](https://magefile.org/) is an alternative to Make where language used is Go.
+You can install it using 2 different methods.
+
+##### From source
+
+```sh
+# Install mage
+git clone https://github.com/magefile/mage
+cd mage
+go run bootstrap.go
+```
+
+#### Bootstrap tools
 
 ```sh
 # Go to tools submodule
@@ -281,6 +261,29 @@ go mod tidy
 go mod vendor
 # Pull tools sources, compile them and install executable in tools/bin
 mage
+```
+
+## Mage targets
+
+```sh
+❯ mage -l
+Targets:
+  api:generate     protobuf objects from proto definitions.
+  build*           harp executable.
+  code:format      source code and process imports.
+  code:generate    SDK code (mocks, tests, etc.)
+  code:licenser    apply copyright banner to source code.
+  code:lint        code using golangci-lint.
+  compile          harp code to create an executable.
+  docker:harp      build harp docker image
+  docker:tools     prepares docker images with go toolchain and project tools.
+  homebrew         generates homebrew formula from compiled artifacts.
+  release          harp version and cross-compile code to produce all artifacts.
+  releaser:harp    releases harp artifacts using docker pipeline.
+  test:cli         Test harp application.
+  test:unit        Test harp application.
+
+* default target
 ```
 
 # Plugins
