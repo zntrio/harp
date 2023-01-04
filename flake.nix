@@ -110,6 +110,7 @@
               pkgs.protoc-gen-go
               pkgs.protoc-gen-go-grpc
               pkgs.just
+              pkgs.cue
             ];
           };
       });

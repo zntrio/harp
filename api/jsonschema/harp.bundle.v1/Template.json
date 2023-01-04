@@ -1,7 +1,7 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$schema": "http://json-schema.org/schema#",
   "$ref": "#/definitions/Template",
-  "$id": "https://ela.st/harp-v1-template.json",
+  "$id": "harp-v1-template.json",
   "definitions": {
     "Template": {
       "properties": {

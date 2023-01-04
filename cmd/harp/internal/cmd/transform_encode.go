@@ -47,6 +47,7 @@ var transformEncodeCmd = func() *cobra.Command {
 	  * hex/base16 - returns the hexadecimal encoded input
 	  * base32 - returns the Base32 encoded input
 	  * base32hex - returns the Base32 with extended alphabet encoded input
+	  * base62 - returns the Base62 encoded input
 	  * base64 - returns the Base64 encoded input
 	  * base64raw - returns the Base64 encoded input without "=" padding
 	  * base64url - returns the Base64 encoded input using URL safe characters

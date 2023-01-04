@@ -25,6 +25,8 @@ import (
 	"fmt"
 	"io"
 	"strings"
+
+	"github.com/lytics/base62"
 )
 
 // -----------------------------------------------------------------------------
@@ -46,6 +48,8 @@ func NewReader(r io.Reader, encoding string) (io.Reader, error) {
 		decoderReader = base32.NewDecoder(base32.StdEncoding, r)
 	case "base32hex":
 		decoderReader = base32.NewDecoder(base32.HexEncoding, r)
+	case "base62":
+		decoderReader = base62.NewDecoder(base62.StdEncoding, r)
 	case "base64":
 		decoderReader = base64.NewDecoder(base64.StdEncoding, r)
 	case "base64raw":

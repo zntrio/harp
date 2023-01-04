@@ -55,6 +55,7 @@ require (
 	github.com/imdario/mergo v0.3.13
 	github.com/jmespath/go-jmespath v0.4.0
 	github.com/klauspost/compress v1.15.14
+	github.com/lytics/base62 v0.0.0-20180808010106-0ee4de5a5d6d
 	github.com/magefile/mage v1.14.0
 	github.com/mcuadros/go-defaults v1.2.0
 	github.com/miscreant/miscreant.go v0.0.0-20200214223636-26d376326b75
@@ -124,6 +125,7 @@ require (
 	github.com/docker/go-connections v0.4.0 // indirect
 	github.com/docker/go-metrics v0.0.1 // indirect
 	github.com/docker/go-units v0.4.0 // indirect
+	github.com/essentialkaos/branca v1.3.2
 	github.com/fsnotify/fsnotify v1.6.0 // indirect
 	github.com/ghodss/yaml v1.0.0 // indirect
 	github.com/google/go-querystring v1.1.0 // indirect

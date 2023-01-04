@@ -1,7 +1,7 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$schema": "http://json-schema.org/schema#",
   "$ref": "#/definitions/RuleSet",
-  "$id": "https://ela.st/harp-v1-ruleset.json",
+  "$id": "harp-v1-ruleset.json",
   "definitions": {
     "RuleSet": {
       "properties": {
@@ -26,6 +26,7 @@
           "description": "RuleSet specification"
         }
       },
+      "required": ["apiVersion", "kind", "meta", "spec"],
       "additionalProperties": false,
       "type": "object",
       "title": "Rule Set",

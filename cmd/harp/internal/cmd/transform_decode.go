@@ -44,14 +44,15 @@ var transformDecodeCmd = func() *cobra.Command {
 
 	Supported codecs:
 	  * identity - returns the unmodified input
-	  * hex/base16 - returns the hexadecimal encoded input
-	  * base32 - returns the Base32 encoded input
-	  * base32hex - returns the Base32 with extended alphabet encoded input
-	  * base64 - returns the Base64 encoded input
-	  * base64raw - returns the Base64 encoded input without "=" padding
-	  * base64url - returns the Base64 encoded input using URL safe characters
-	  * base64urlraw - returns the Base64 encoded input using URL safe characters without "=" padding
-	  * base85 - returns the Base85 encoded input`)
+	  * hex/base16 - returns the hexadecimal decoded input
+	  * base32 - returns the Base32 decoded input
+	  * base32hex - returns the Base32 with extended alphabet decoded input
+	  * base62 - returns the Base62 decoded input
+	  * base64 - returns the Base64 decoded input
+	  * base64raw - returns the Base64 decoded input without "=" padding
+	  * base64url - returns the Base64 decoded input using URL safe characters
+	  * base64urlraw - returns the Base64 decoded input using URL safe characters without "=" padding
+	  * base85 - returns the Base85 decoded input`)
 
 	examples := cmdutil.Examples(`
 		# Decode base64 from stdin

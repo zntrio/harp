@@ -26,6 +26,7 @@ import (
 	"io"
 	"strings"
 
+	"github.com/lytics/base62"
 	"github.com/zntrio/harp/v2/pkg/sdk/ioutil"
 )
 
@@ -48,6 +49,8 @@ func NewWriter(w io.Writer, encoding string) (io.WriteCloser, error) {
 		encoderWriter = base32.NewEncoder(base32.StdEncoding, w)
 	case "base32hex":
 		encoderWriter = base32.NewEncoder(base32.HexEncoding, w)
+	case "base62":
+		encoderWriter = base62.NewEncoder(base62.StdEncoding, w)
 	case "base64":
 		encoderWriter = base64.NewEncoder(base64.StdEncoding, w)
 	case "base64raw":

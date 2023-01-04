@@ -102,9 +102,9 @@ func LineReader(name string) ([]string, error) {
 
 // Writer creates a writer according to the given name value
 // Use "" or "-" for Stdout writer, else use a filename.
-func Writer(name string) (io.Writer, error) {
+func Writer(name string) (io.WriteCloser, error) {
 	var (
-		writer io.Writer
+		writer *os.File
 		err    error
 	)
 
@@ -119,7 +119,7 @@ func Writer(name string) (io.Writer, error) {
 	default:
 		// Open output file
 		//nolint:gosec // expected behavior
-		writer, err = os.OpenFile(name, os.O_CREATE|os.O_WRONLY, 0o400)
+		writer, err = os.OpenFile(name, os.O_CREATE|os.O_WRONLY|os.O_EXCL, 0o400)
 		if err != nil {
 			return nil, fmt.Errorf("unable to open '%s' for write: %w", name, err)
 		}

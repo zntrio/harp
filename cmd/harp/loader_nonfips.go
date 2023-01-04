@@ -35,6 +35,7 @@ import (
 	// Register encryption transformers
 	_ "github.com/zntrio/harp/v2/pkg/sdk/value/encryption/aead"
 	_ "github.com/zntrio/harp/v2/pkg/sdk/value/encryption/age"
+	_ "github.com/zntrio/harp/v2/pkg/sdk/value/encryption/branca"
 	_ "github.com/zntrio/harp/v2/pkg/sdk/value/encryption/dae"
 	_ "github.com/zntrio/harp/v2/pkg/sdk/value/encryption/fernet"
 	_ "github.com/zntrio/harp/v2/pkg/sdk/value/encryption/jwe"

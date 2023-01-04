@@ -1,7 +1,7 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$schema": "http://json-schema.org/schema#",
   "$ref": "#/definitions/Bundle",
-  "$id": "https://ela.st/harp-v1-bundle.json",
+  "id": "harp-v1-bundle.json",
   "definitions": {
     "Bundle": {
       "properties": {
@@ -669,6 +669,7 @@
           "description": "REQUIRED. Short description for template role."
         }
       },
+      "required": ["name", "owner", "description"],
       "additionalProperties": false,
       "type": "object",
       "title": "Template Meta",
