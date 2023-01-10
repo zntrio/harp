@@ -232,7 +232,7 @@ $ nix develop
 
 ```sh
 $ go version
-go version go1.19 linux/amd64
+go version go1.19.4 linux/amd64
 ```
 
 > Simple go version manager - <https://github.com/stefanmaric/g>
