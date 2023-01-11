@@ -86,7 +86,7 @@ require (
 	golang.org/x/sync v0.1.0
 	golang.org/x/sys v0.4.0
 	golang.org/x/term v0.4.0
-	google.golang.org/grpc v1.51.0
+	google.golang.org/grpc v1.52.0
 	google.golang.org/protobuf v1.28.1
 	gopkg.in/square/go-jose.v2 v2.6.0
 	gopkg.in/yaml.v3 v3.0.1
@@ -195,7 +195,7 @@ require (
 	golang.org/x/text v0.6.0 // indirect
 	golang.org/x/time v0.0.0-20220609170525-579cf78fd858 // indirect
 	google.golang.org/appengine v1.6.7 // indirect
-	google.golang.org/genproto v0.0.0-20221027153422-115e99e71e1c // indirect
+	google.golang.org/genproto v0.0.0-20221118155620-16455021b5e6 // indirect
 	gopkg.in/ini.v1 v1.67.0 // indirect
 	gopkg.in/yaml.v2 v2.4.0 // indirect
 )
