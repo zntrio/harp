@@ -92,7 +92,7 @@ require (
 	gopkg.in/yaml.v3 v3.0.1
 	oras.land/oras-go v1.2.2
 	sigs.k8s.io/yaml v1.3.0
-	zntr.io/paseto v1.1.1
+	zntr.io/paseto v1.2.0
 )
 
 require (
