@@ -23,7 +23,7 @@ jobs:
 
     steps:
     - 
-      uses: step-security/harden-runner@v2.0.0
+      uses: step-security/harden-runner@v2.1.0
       with:
         egress-policy: audit
         disable-telemetry: true

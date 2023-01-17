@@ -30,7 +30,7 @@ jobs:
     if: (github.actor != 'dependabot[bot]')
     steps:
       - 
-        uses: step-security/harden-runner@v2.0.0
+        uses: step-security/harden-runner@v2.1.0
         with:
           disable-sudo: true
           disable-telemetry: true
