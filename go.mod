@@ -49,7 +49,7 @@ require (
 	github.com/hashicorp/consul/api v1.18.0
 	github.com/hashicorp/go-cleanhttp v0.5.2
 	github.com/hashicorp/hcl v1.0.0
-	github.com/hashicorp/hcl/v2 v2.15.0
+	github.com/hashicorp/hcl/v2 v2.16.0
 	github.com/hashicorp/vault/api v1.8.3
 	github.com/iancoleman/strcase v0.2.0
 	github.com/imdario/mergo v0.3.13
