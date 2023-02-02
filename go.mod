@@ -3,19 +3,12 @@ module github.com/zntrio/harp/v2
 go 1.18
 
 replace (
-	github.com/containerd/containerd => github.com/containerd/containerd v1.6.12
+	github.com/containerd/containerd => github.com/containerd/containerd v1.6.16
 	github.com/satori/go.uuid => github.com/satori/go.uuid v1.2.1-0.20181028125025-b2ce2384e17b
 )
 
-// Nancy findings
-require github.com/gogo/protobuf v1.3.2 // indirect
-
 // GHSA
-require (
-	github.com/containerd/containerd v1.6.15 // indirect
-	github.com/opencontainers/image-spec v1.1.0-rc2
-	github.com/opencontainers/runc v1.1.3 // indirect
-)
+require github.com/opencontainers/image-spec v1.1.0-rc2
 
 require (
 	filippo.io/age v1.1.1
@@ -93,6 +86,12 @@ require (
 	oras.land/oras-go v1.2.2
 	sigs.k8s.io/yaml v1.3.0
 	zntr.io/paseto v1.2.0
+)
+
+require (
+	github.com/containerd/containerd v1.6.15 // indirect
+	github.com/gogo/protobuf v1.3.2 // indirect
+	github.com/opencontainers/runc v1.1.2 // indirect
 )
 
 require (
