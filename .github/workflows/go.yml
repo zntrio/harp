@@ -36,7 +36,7 @@ jobs:
         with:
           disable-sudo: true
           disable-telemetry: true
-          egress-policy: block
+          egress-policy: audit
           allowed-endpoints: >
             api.github.com:443
             github.com:443
@@ -79,7 +79,7 @@ jobs:
         with:
           disable-sudo: true
           disable-telemetry: true
-          egress-policy: block
+          egress-policy: audit
           allowed-endpoints: >
             api.github.com:443
             github.com:443
@@ -127,7 +127,7 @@ jobs:
         with:
           disable-sudo: true
           disable-telemetry: true
-          egress-policy: block
+          egress-policy: audit
           allowed-endpoints: >
             api.github.com:443
             github.com:443
@@ -164,7 +164,7 @@ jobs:
         with:
           disable-sudo: true
           disable-telemetry: true
-          egress-policy: block
+          egress-policy: audit
           allowed-endpoints: >
             api.github.com:443
             github.com:443
