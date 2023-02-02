@@ -51,7 +51,7 @@ jobs:
         name: Install Go
         uses: actions/setup-go@v3
         with:
-          go-version: 1.20
+          go-version: "1.20"
       -
         name: Checkout code
         uses: actions/checkout@v3
@@ -144,7 +144,7 @@ jobs:
         name: Install Go
         uses: actions/setup-go@v3
         with:
-          go-version: 1.20
+          go-version: '1.20'
       -
         uses: actions/checkout@v3
       -
@@ -181,7 +181,7 @@ jobs:
         name: Install Go
         uses: actions/setup-go@v3
         with:
-          go-version: 1.20 # test only the latest go version to speed up CI
+          go-version: '1.20' # test only the latest go version to speed up CI
       -
         name: Cache Go modules
         uses: actions/cache@v3.2.4
@@ -219,7 +219,7 @@ jobs:
         name: Install Go
         uses: actions/setup-go@v3
         with:
-          go-version: 1.20 # test only the latest go version to speed up CI
+          go-version: '1.20' # test only the latest go version to speed up CI
       -
         name: Cache Go modules
         uses: actions/cache@v3.2.4
@@ -257,7 +257,7 @@ jobs:
         name: Install Go
         uses: actions/setup-go@v3
         with:
-          go-version: 1.20 # test only the latest go version to speed up CI
+          go-version: '1.20' # test only the latest go version to speed up CI
       -
         name: Cache Go modules
         uses: actions/cache@v3.2.4
