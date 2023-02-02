@@ -18,13 +18,13 @@
 package key
 
 import (
-	"crypto/ecdsa"
 	"crypto/ed25519"
 	"crypto/elliptic"
 	"encoding/base64"
 	"fmt"
 	"io"
 
+	"github.com/zntrio/harp/v2/pkg/sdk/security/crypto/deterministicecdsa"
 	"golang.org/x/crypto/nacl/box"
 )
 
@@ -62,7 +62,7 @@ func Ed25519(random io.Reader) (*JSONWebKey, string, error) {
 
 func P384(random io.Reader) (*JSONWebKey, string, error) {
 	// Generate ecdsa P-384 keys as identity
-	priv, err := ecdsa.GenerateKey(elliptic.P384(), random)
+	priv, err := deterministicecdsa.GenerateKey(elliptic.P384(), random)
 	if err != nil {
 		return nil, "", fmt.Errorf("unable to generate identity keypair: %w", err)
 	}

@@ -19,7 +19,6 @@ package v2
 
 import (
 	"bytes"
-	"crypto/ecdsa"
 	"crypto/elliptic"
 	"crypto/rand"
 	"reflect"
@@ -29,14 +28,15 @@ import (
 	"github.com/stretchr/testify/assert"
 
 	containerv1 "github.com/zntrio/harp/v2/api/gen/go/harp/container/v1"
+	"github.com/zntrio/harp/v2/pkg/sdk/security/crypto/deterministicecdsa"
 )
 
 func Test_deriveSharedKeyFromRecipient(t *testing.T) {
-	key1, err := ecdsa.GenerateKey(elliptic.P384(), bytes.NewReader([]byte("00001-deterministic-buffer-for-tests-26FBE7DED9E992BC36C06C988C1AC8A1E672B4B5959EF60672A983EFA7C8EE0F")))
+	key1, err := deterministicecdsa.GenerateKey(elliptic.P384(), bytes.NewReader([]byte("00001-deterministic-buffer-for-tests-26FBE7DED9E992BC36C06C988C1AC8A1E672B4B5959EF60672A983EFA7C8EE0F")))
 	assert.NoError(t, err)
 	assert.NotNil(t, key1)
 
-	key2, err := ecdsa.GenerateKey(elliptic.P384(), bytes.NewReader([]byte("00002-deterministic-buffer-for-tests-37ACB0DD3A3CE5A0960CCE0F6A0D7E663DFFD221FBE8EEB03B20D3AD91BCDD55")))
+	key2, err := deterministicecdsa.GenerateKey(elliptic.P384(), bytes.NewReader([]byte("00002-deterministic-buffer-for-tests-37ACB0DD3A3CE5A0960CCE0F6A0D7E663DFFD221FBE8EEB03B20D3AD91BCDD55")))
 	assert.NoError(t, err)
 	assert.NotNil(t, key2)
 
@@ -58,11 +58,11 @@ func Test_deriveSharedKeyFromRecipient_WithPSK(t *testing.T) {
 	var psk [preSharedKeySize]byte
 	memguard.WipeBytes(psk[:]) // Ensure zeroed psk
 
-	key1, err := ecdsa.GenerateKey(elliptic.P384(), bytes.NewReader([]byte("00001-deterministic-buffer-for-tests-26FBE7DED9E992BC36C06C988C1AC8A1E672B4B5959EF60672A983EFA7C8EE0F")))
+	key1, err := deterministicecdsa.GenerateKey(elliptic.P384(), bytes.NewReader([]byte("00001-deterministic-buffer-for-tests-26FBE7DED9E992BC36C06C988C1AC8A1E672B4B5959EF60672A983EFA7C8EE0F")))
 	assert.NoError(t, err)
 	assert.NotNil(t, key1)
 
-	key2, err := ecdsa.GenerateKey(elliptic.P384(), bytes.NewReader([]byte("00002-deterministic-buffer-for-tests-37ACB0DD3A3CE5A0960CCE0F6A0D7E663DFFD221FBE8EEB03B20D3AD91BCDD55")))
+	key2, err := deterministicecdsa.GenerateKey(elliptic.P384(), bytes.NewReader([]byte("00002-deterministic-buffer-for-tests-37ACB0DD3A3CE5A0960CCE0F6A0D7E663DFFD221FBE8EEB03B20D3AD91BCDD55")))
 	assert.NoError(t, err)
 	assert.NotNil(t, key2)
 
@@ -122,11 +122,11 @@ func Test_keyIdentifierFromDerivedKey_WithPSK(t *testing.T) {
 func Test_packRecipient(t *testing.T) {
 	payloadKey := &[32]byte{}
 
-	key1, err := ecdsa.GenerateKey(elliptic.P384(), bytes.NewReader([]byte("00001-deterministic-buffer-for-tests-26FBE7DED9E992BC36C06C988C1AC8A1E672B4B5959EF60672A983EFA7C8EE0F")))
+	key1, err := deterministicecdsa.GenerateKey(elliptic.P384(), bytes.NewReader([]byte("00001-deterministic-buffer-for-tests-26FBE7DED9E992BC36C06C988C1AC8A1E672B4B5959EF60672A983EFA7C8EE0F")))
 	assert.NoError(t, err)
 	assert.NotNil(t, key1)
 
-	key2, err := ecdsa.GenerateKey(elliptic.P384(), bytes.NewReader([]byte("00002-deterministic-buffer-for-tests-37ACB0DD3A3CE5A0960CCE0F6A0D7E663DFFD221FBE8EEB03B20D3AD91BCDD55")))
+	key2, err := deterministicecdsa.GenerateKey(elliptic.P384(), bytes.NewReader([]byte("00002-deterministic-buffer-for-tests-37ACB0DD3A3CE5A0960CCE0F6A0D7E663DFFD221FBE8EEB03B20D3AD91BCDD55")))
 	assert.NoError(t, err)
 	assert.NotNil(t, key2)
 
@@ -148,11 +148,11 @@ func Test_packRecipient_WithPSK(t *testing.T) {
 
 	payloadKey := &[32]byte{}
 
-	key1, err := ecdsa.GenerateKey(elliptic.P384(), bytes.NewReader([]byte("00001-deterministic-buffer-for-tests-26FBE7DED9E992BC36C06C988C1AC8A1E672B4B5959EF60672A983EFA7C8EE0F")))
+	key1, err := deterministicecdsa.GenerateKey(elliptic.P384(), bytes.NewReader([]byte("00001-deterministic-buffer-for-tests-26FBE7DED9E992BC36C06C988C1AC8A1E672B4B5959EF60672A983EFA7C8EE0F")))
 	assert.NoError(t, err)
 	assert.NotNil(t, key1)
 
-	key2, err := ecdsa.GenerateKey(elliptic.P384(), bytes.NewReader([]byte("00002-deterministic-buffer-for-tests-37ACB0DD3A3CE5A0960CCE0F6A0D7E663DFFD221FBE8EEB03B20D3AD91BCDD55")))
+	key2, err := deterministicecdsa.GenerateKey(elliptic.P384(), bytes.NewReader([]byte("00002-deterministic-buffer-for-tests-37ACB0DD3A3CE5A0960CCE0F6A0D7E663DFFD221FBE8EEB03B20D3AD91BCDD55")))
 	assert.NoError(t, err)
 	assert.NotNil(t, key2)
 
@@ -171,11 +171,11 @@ func Test_packRecipient_WithPSK(t *testing.T) {
 func Test_tryRecipientKeys(t *testing.T) {
 	payloadKey := &[32]byte{}
 
-	key1, err := ecdsa.GenerateKey(elliptic.P384(), bytes.NewReader([]byte("00001-deterministic-buffer-for-tests-26FBE7DED9E992BC36C06C988C1AC8A1E672B4B5959EF60672A983EFA7C8EE0F")))
+	key1, err := deterministicecdsa.GenerateKey(elliptic.P384(), bytes.NewReader([]byte("00001-deterministic-buffer-for-tests-26FBE7DED9E992BC36C06C988C1AC8A1E672B4B5959EF60672A983EFA7C8EE0F")))
 	assert.NoError(t, err)
 	assert.NotNil(t, key1)
 
-	key2, err := ecdsa.GenerateKey(elliptic.P384(), bytes.NewReader([]byte("00002-deterministic-buffer-for-tests-37ACB0DD3A3CE5A0960CCE0F6A0D7E663DFFD221FBE8EEB03B20D3AD91BCDD55")))
+	key2, err := deterministicecdsa.GenerateKey(elliptic.P384(), bytes.NewReader([]byte("00002-deterministic-buffer-for-tests-37ACB0DD3A3CE5A0960CCE0F6A0D7E663DFFD221FBE8EEB03B20D3AD91BCDD55")))
 	assert.NoError(t, err)
 	assert.NotNil(t, key2)
 
@@ -224,11 +224,11 @@ func Test_tryRecipientKeys_WithPSK(t *testing.T) {
 
 	payloadKey := &[32]byte{}
 
-	key1, err := ecdsa.GenerateKey(elliptic.P384(), bytes.NewReader([]byte("00001-deterministic-buffer-for-tests-26FBE7DED9E992BC36C06C988C1AC8A1E672B4B5959EF60672A983EFA7C8EE0F")))
+	key1, err := deterministicecdsa.GenerateKey(elliptic.P384(), bytes.NewReader([]byte("00001-deterministic-buffer-for-tests-26FBE7DED9E992BC36C06C988C1AC8A1E672B4B5959EF60672A983EFA7C8EE0F")))
 	assert.NoError(t, err)
 	assert.NotNil(t, key1)
 
-	key2, err := ecdsa.GenerateKey(elliptic.P384(), bytes.NewReader([]byte("00002-deterministic-buffer-for-tests-37ACB0DD3A3CE5A0960CCE0F6A0D7E663DFFD221FBE8EEB03B20D3AD91BCDD55")))
+	key2, err := deterministicecdsa.GenerateKey(elliptic.P384(), bytes.NewReader([]byte("00002-deterministic-buffer-for-tests-37ACB0DD3A3CE5A0960CCE0F6A0D7E663DFFD221FBE8EEB03B20D3AD91BCDD55")))
 	assert.NoError(t, err)
 	assert.NotNil(t, key2)
 

@@ -31,6 +31,7 @@ import (
 	"github.com/awnumar/memguard"
 
 	"github.com/zntrio/harp/v2/pkg/container/seal"
+	"github.com/zntrio/harp/v2/pkg/sdk/security/crypto/deterministicecdsa"
 
 	"golang.org/x/crypto/pbkdf2"
 )
@@ -78,7 +79,7 @@ func (a *adapter) GenerateKey(fopts ...seal.GenerateOption) (publicKey, privateK
 	}
 
 	// Generate ECDSA P-384 container key pair
-	priv, errGen := ecdsa.GenerateKey(elliptic.P384(), opts.RandomSource)
+	priv, errGen := deterministicecdsa.GenerateKey(elliptic.P384(), opts.RandomSource)
 	if errGen != nil {
 		return "", "", fmt.Errorf("unable to generate container key: %w", errGen)
 	}

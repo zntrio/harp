@@ -18,7 +18,6 @@
 package main
 
 import (
-	"math/rand"
 	"time"
 
 	"github.com/zntrio/harp/v2/cmd/harp/internal/cmd"
@@ -28,9 +27,6 @@ import (
 func init() {
 	// Set default timezone to UTC
 	time.Local = time.UTC
-
-	// Initialize random number generator
-	rand.Seed(time.Now().Unix())
 }
 
 func main() {
