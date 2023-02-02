@@ -37,7 +37,7 @@ func NewFactory(logger *zap.Logger) LoggerFactory {
 
 // -----------------------------------------------------------------------------
 
-// Name returns the logger adapter name
+// Name returns the logger adapter name.
 func (b factory) Name() string {
 	return "zap"
 }

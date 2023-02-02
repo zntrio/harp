@@ -28,7 +28,7 @@ import (
 	"github.com/zntrio/harp/v2/pkg/sdk/types"
 )
 
-// YAML a given reader in order to extract a BundlePatch sepcification
+// YAML a given reader in order to extract a BundlePatch sepcification.
 func YAML(r io.Reader) (*bundlev1.RuleSet, error) {
 	// Check arguments
 	if types.IsNil(r) {

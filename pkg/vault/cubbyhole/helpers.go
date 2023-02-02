@@ -26,7 +26,7 @@ import (
 	"github.com/zntrio/harp/v2/pkg/vault/logical"
 )
 
-// addToCubbyhole inserts the secrets in a cubbyhole and returns a response-wrapping token
+// addToCubbyhole inserts the secrets in a cubbyhole and returns a response-wrapping token.
 func addToCubbyhole(v logical.Logical, mountPath, secret string) (string, error) {
 	// Generate a path
 	secretPath := fmt.Sprintf("%s/harp/%s/%d", mountPath, uniuri.NewLen(64), time.Now().UnixNano())
@@ -49,7 +49,7 @@ func addToCubbyhole(v logical.Logical, mountPath, secret string) (string, error)
 	return s.WrapInfo.Token, nil
 }
 
-// unWrap unwraps the received token and returns the secret as a string
+// unWrap unwraps the received token and returns the secret as a string.
 func unWrap(v logical.Logical, token string) (string, error) {
 	// Unwrap the given token
 	s, err := v.Unwrap(token)

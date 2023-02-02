@@ -30,7 +30,7 @@ type Options struct {
 	kpf           KVProcessorFunc
 }
 
-// Option represents option function
+// Option represents option function.
 type Option func(*Options)
 
 // InputReader defines the input reader used to retrieve the bundle content.

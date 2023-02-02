@@ -23,12 +23,12 @@ import (
 	bundlev1 "github.com/zntrio/harp/v2/api/gen/go/harp/bundle/v1"
 )
 
-// Reader exposes bundle reader contract
+// Reader exposes bundle reader contract.
 type Reader interface {
 	Read(reader io.Reader) (*bundlev1.Bundle, error)
 }
 
-// Writer exposes bundle writer contract
+// Writer exposes bundle writer contract.
 type Writer interface {
 	Write(file *bundlev1.Bundle) error
 }
@@ -53,12 +53,12 @@ var (
 	packageEncryptedValueType   = "harp.elastic.co/v1/package#encryptedValue"
 )
 
-// AnnotationOwner defines annotations owner contract
+// AnnotationOwner defines annotations owner contract.
 type AnnotationOwner interface {
 	GetAnnotations() map[string]string
 }
 
-// LabelOwner defines label owner contract
+// LabelOwner defines label owner contract.
 type LabelOwner interface {
 	GetLabels() map[string]string
 }

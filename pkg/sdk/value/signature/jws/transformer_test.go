@@ -107,7 +107,7 @@ func mustDecodeJWK(input []byte) *jose.JSONWebKey {
 	return &jwk
 }
 
-// -----------------------------------------------------------------------------
+// -----------------------------------------------------------------------------.
 func Test_jwsTransformer_To(t *testing.T) {
 	type fields struct {
 		key jose.SigningKey

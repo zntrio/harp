@@ -34,7 +34,7 @@ import (
 
 var maxPayloadSize = int64(25 << 20) // 25MB
 
-// YAMLtoJSON reads a given reader in order to extract a JSON representation
+// YAMLtoJSON reads a given reader in order to extract a JSON representation.
 func YAMLtoJSON(r io.Reader) (io.Reader, error) {
 	// Check arguments
 	if types.IsNil(r) {
@@ -51,7 +51,7 @@ func YAMLtoJSON(r io.Reader) (io.Reader, error) {
 	return jsonReader, nil
 }
 
-// PBtoYAML converts a protobuf object to a YAML representation
+// PBtoYAML converts a protobuf object to a YAML representation.
 func PBtoYAML(msg proto.Message) ([]byte, error) {
 	// Check arguments
 	if types.IsNil(msg) {
@@ -121,7 +121,7 @@ func loadFromYAML(r io.Reader) (io.Reader, error) {
 	return bytes.NewReader(jsonData), nil
 }
 
-// Converts map[interface{}]interface{} into map[string]interface{} for json.Marshaler
+// Converts map[interface{}]interface{} into map[string]interface{} for json.Marshaler.
 func convertMapStringInterface(val interface{}) (interface{}, error) {
 	switch items := val.(type) {
 	case map[interface{}]interface{}:

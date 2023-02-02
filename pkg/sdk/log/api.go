@@ -23,7 +23,7 @@ import (
 	"go.uber.org/zap/zapcore"
 )
 
-// Logger is a simplified abstraction of the zap.Logger
+// Logger is a simplified abstraction of the zap.Logger.
 type Logger interface {
 	Debug(msg string, fields ...zapcore.Field)
 	Info(msg string, fields ...zapcore.Field)
@@ -33,7 +33,7 @@ type Logger interface {
 	With(fields ...zapcore.Field) Logger
 }
 
-// LoggerFactory defines logger factory contract
+// LoggerFactory defines logger factory contract.
 type LoggerFactory interface {
 	Name() string
 	Bg() Logger

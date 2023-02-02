@@ -78,7 +78,7 @@ func Run(ctx context.Context, opts ...Option) error {
 	return nil
 }
 
-// Apply a pipeline process to the given bundle
+// Apply a pipeline process to the given bundle.
 func Apply(ctx context.Context, input *bundlev1.Bundle, opts ...Option) (*bundlev1.Bundle, error) {
 	v := &bundleVisitor{
 		ctx:      ctx,
@@ -105,7 +105,7 @@ func Apply(ctx context.Context, input *bundlev1.Bundle, opts ...Option) (*bundle
 
 // -----------------------------------------------------------------------------
 
-// Context is used to pass current node location to processor
+// Context is used to pass current node location to processor.
 type defaultContext struct {
 	File    *bundlev1.Bundle
 	Package *bundlev1.Package

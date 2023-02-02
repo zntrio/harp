@@ -26,7 +26,7 @@ import (
 	"github.com/zntrio/harp/v2/pkg/tasks/bundle"
 )
 
-// -----------------------------------------------------------------------------
+// -----------------------------------------------------------------------------.
 type bundleFilterParams struct {
 	inputPath      string
 	outputPath     string

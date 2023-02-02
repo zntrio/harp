@@ -27,7 +27,7 @@ import (
 	"github.com/zntrio/harp/v2/pkg/sdk/log"
 )
 
-// AsEnvVariables sets struct values from environment variables
+// AsEnvVariables sets struct values from environment variables.
 func AsEnvVariables(o interface{}, prefix string, skipCommented bool) map[string]string {
 	r := map[string]string{}
 	prefix = strings.ToUpper(prefix)

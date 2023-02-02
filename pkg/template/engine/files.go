@@ -71,7 +71,7 @@ func (f Files) Get(name string) string {
 //
 // {{ range $name, $content := .Files.Glob("foo/**") }}
 // {{ $name }}: |
-// {{ .Files.Get($name) | indent 4 }}{{ end }}
+// {{ .Files.Get($name) | indent 4 }}{{ end }}.
 func (f Files) Glob(pattern string) Files {
 	g, err := glob.Compile(pattern, '/')
 	if err != nil {
@@ -98,7 +98,7 @@ func (f Files) Glob(pattern string) Files {
 //
 //	data:
 //
-// {{ .Files.Glob("config/**").AsConfig() | toYaml | indent 4 }}
+// {{ .Files.Glob("config/**").AsConfig() | toYaml | indent 4 }}.
 func (f Files) AsConfig() map[string]string {
 	if f == nil {
 		return nil
@@ -124,7 +124,7 @@ func (f Files) AsConfig() map[string]string {
 //
 //	data:
 //
-// {{ .Files.Glob("secrets/*").AsSecrets() | toYaml }}
+// {{ .Files.Glob("secrets/*").AsSecrets() | toYaml }}.
 func (f Files) AsSecrets() map[string]string {
 	if f == nil {
 		return nil
@@ -145,7 +145,7 @@ func (f Files) AsSecrets() map[string]string {
 // This is designed to be called from a template.
 //
 // {{ range .Files.Lines "foo/bar.html" }}
-// {{ . }}{{ end }}
+// {{ . }}{{ end }}.
 func (f Files) Lines(filePath string) []string {
 	if f == nil || f[filePath] == nil {
 		return []string{}

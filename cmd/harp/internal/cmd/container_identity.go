@@ -31,7 +31,7 @@ import (
 	"github.com/zntrio/harp/v2/pkg/vault"
 )
 
-// -----------------------------------------------------------------------------
+// -----------------------------------------------------------------------------.
 type containerIdentityParams struct {
 	outputPath       string
 	description      string

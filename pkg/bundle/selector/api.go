@@ -17,7 +17,7 @@
 
 package selector
 
-// Specification contract
+// Specification contract.
 type Specification interface {
 	IsSatisfiedBy(object interface{}) bool
 }

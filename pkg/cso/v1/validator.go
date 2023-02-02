@@ -44,7 +44,7 @@ var validators = map[string]func([]string) error{
 	"artifact": validateArtifact,
 }
 
-// Validate path according to to CSO model
+// Validate path according to to CSO model.
 func Validate(path string) error {
 	// Validate path
 	if err := validation.Validate(path,

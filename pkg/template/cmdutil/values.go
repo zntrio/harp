@@ -45,7 +45,7 @@ type ValueOptions struct {
 }
 
 // MergeValues merges values from files specified via -f/--values and directly
-// via --set, --set-string, or --set-file, marshaling them to YAML
+// via --set, --set-string, or --set-file, marshaling them to YAML.
 func (opts *ValueOptions) MergeValues() (map[string]interface{}, error) {
 	base := map[string]interface{}{}
 

@@ -19,7 +19,7 @@ package config
 
 import "github.com/zntrio/harp/v2/pkg/sdk/platform"
 
-// Configuration contains harp settings
+// Configuration contains harp settings.
 type Configuration struct {
 	Debug struct {
 		Enabled bool `toml:"enabled" default:"false" comment:"Activate debug mode"`

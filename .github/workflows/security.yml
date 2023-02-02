@@ -34,7 +34,7 @@ jobs:
         with:
           disable-sudo: true
           disable-telemetry: true
-          egress-policy: audit
+          egress-policy: block
           allowed-endpoints: >
             api.github.com:443
             ghcr.io:443

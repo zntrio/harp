@@ -27,7 +27,7 @@ import (
 	"github.com/zntrio/harp/v2/pkg/bundle/secret"
 )
 
-// KV describes map[string]interface{} alias
+// KV describes map[string]interface{} alias.
 type KV map[string]interface{}
 
 // Glob returns package objects that have name matching the given pattern.

@@ -154,7 +154,7 @@ func (d *zkDriver) Close() error {
 
 // -----------------------------------------------------------------------------
 
-// Normalize the key for usage in Consul
+// Normalize the key for usage in Consul.
 func (d *zkDriver) normalize(key string) string {
 	key = kv.Normalize(key)
 	return strings.TrimSuffix(key, "/")
@@ -163,7 +163,7 @@ func (d *zkDriver) normalize(key string) string {
 // -----------------------------------------------------------------------------
 
 // createFullPath creates the entire path for a directory
-// that does not exist
+// that does not exist.
 func (d *zkDriver) createFullPath(path []string) error {
 	for i := 1; i <= len(path); i++ {
 		newpath := "/" + strings.Join(path[:i], "/")

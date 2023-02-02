@@ -45,7 +45,7 @@ func init() {
 	encryption.Register(agePrivatePrefix, Transformer)
 }
 
-// Transformer returns a fernet encryption transformer
+// Transformer returns a fernet encryption transformer.
 func Transformer(key string) (value.Transformer, error) {
 	switch {
 	case strings.HasPrefix(key, "age-recipients:"):

@@ -28,7 +28,7 @@ import (
 	tplcmdutil "github.com/zntrio/harp/v2/pkg/template/cmdutil"
 )
 
-// -----------------------------------------------------------------------------
+// -----------------------------------------------------------------------------.
 type bundlePatchParams struct {
 	inputPath         string
 	outputPath        string

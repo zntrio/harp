@@ -37,7 +37,7 @@ type jmesPathMatcher struct {
 	exp *jmespath.JMESPath
 }
 
-// IsSatisfiedBy returns specification satisfaction status
+// IsSatisfiedBy returns specification satisfaction status.
 func (s *jmesPathMatcher) IsSatisfiedBy(object interface{}) bool {
 	// If object is a package
 	if p, ok := object.(*bundlev1.Package); ok {

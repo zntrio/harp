@@ -214,7 +214,7 @@ func (d *etcd3Driver) Close() error {
 
 // -----------------------------------------------------------------------------
 
-// Normalize the key for usage in Consul
+// Normalize the key for usage in Consul.
 func (d *etcd3Driver) normalize(key string) string {
 	key = kv.Normalize(key)
 	return strings.TrimPrefix(key, "/")

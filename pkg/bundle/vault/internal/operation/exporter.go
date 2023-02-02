@@ -41,7 +41,7 @@ import (
 	"golang.org/x/sync/semaphore"
 )
 
-// Exporter initialize a secret exporter operation
+// Exporter initialize a secret exporter operation.
 func Exporter(service kv.Service, backendPath string, output chan *bundlev1.Package, withMetadata bool, maxWorkerCount int64) Operation {
 	return &exporter{
 		service:        service,

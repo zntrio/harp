@@ -27,7 +27,7 @@ import (
 	"github.com/zntrio/harp/v2/pkg/tasks/container"
 )
 
-// -----------------------------------------------------------------------------
+// -----------------------------------------------------------------------------.
 type containerUnsealParams struct {
 	inputPath       string
 	outputPath      string

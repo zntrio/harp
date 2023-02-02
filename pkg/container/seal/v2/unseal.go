@@ -34,12 +34,12 @@ import (
 	"github.com/zntrio/harp/v2/pkg/sdk/types"
 )
 
-// Unseal a sealed container with the given identity
+// Unseal a sealed container with the given identity.
 func (a *adapter) Unseal(container *containerv1.Container, identity *memguard.LockedBuffer) (*containerv1.Container, error) {
 	return a.unseal(container, identity, nil)
 }
 
-// Unseal a sealed container with the given identity and the given preshared key
+// Unseal a sealed container with the given identity and the given preshared key.
 func (a *adapter) UnsealWithPSK(container *containerv1.Container, identity, preSharedKey *memguard.LockedBuffer) (*containerv1.Container, error) {
 	return a.unseal(container, identity, preSharedKey)
 }

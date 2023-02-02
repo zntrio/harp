@@ -29,7 +29,7 @@ type Context interface {
 
 // -----------------------------------------------------------------------------
 
-// ContextOption defines context functional builder function
+// ContextOption defines context functional builder function.
 type ContextOption func(*context)
 
 // WithName sets the template name.
@@ -110,7 +110,7 @@ type context struct {
 	files         Files
 }
 
-// Name returns template name
+// Name returns template name.
 func (ctx *context) Name() string {
 	return ctx.name
 }

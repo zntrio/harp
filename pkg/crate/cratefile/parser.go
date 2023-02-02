@@ -36,7 +36,7 @@ func ParseFile(filename string) (*Config, error) {
 // read to completion (EOF) before returning so ensure that the reader
 // does not block forever.
 //
-// format is either "hcl" or "json"
+// format is either "hcl" or "json".
 func Parse(r io.Reader, filename, format string) (*Config, error) {
 	src, err := io.ReadAll(r)
 	if err != nil {

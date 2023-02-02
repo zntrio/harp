@@ -29,7 +29,7 @@ import (
 // ErrNoHome is raised when tilde expansion failed.
 var ErrNoHome = errors.New("no home found")
 
-// Expand a given path using `~` notation for HOMEDIR
+// Expand a given path using `~` notation for HOMEDIR.
 func Expand(path string) (string, error) {
 	// Check condition
 	if !strings.HasPrefix(path, "~") {

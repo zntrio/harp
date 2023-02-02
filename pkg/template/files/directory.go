@@ -23,13 +23,13 @@ import (
 	"path/filepath"
 )
 
-// DirLoader loads a chart from a directory
+// DirLoader loads a chart from a directory.
 type DirLoader struct {
 	filesystem fs.FS
 	name       string
 }
 
-// Load loads the chart
+// Load loads the chart.
 func (l DirLoader) Load() ([]*BufferedFile, error) {
 	return LoadDir(l.filesystem, l.name)
 }

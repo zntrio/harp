@@ -169,7 +169,7 @@ func (o *pluginListOptions) Run(cmd *cobra.Command) error {
 
 // -----------------------------------------------------------------------------
 
-// pathVerifier receives a path and determines if it is valid or not
+// pathVerifier receives a path and determines if it is valid or not.
 type pathVerifier interface {
 	// Verify determines if a given path is valid
 	Verify(path string) []error

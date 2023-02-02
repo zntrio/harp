@@ -31,10 +31,10 @@ import (
 	"github.com/zntrio/harp/v2/pkg/sdk/log"
 )
 
-// Parser is a HOCON parser
+// Parser is a HOCON parser.
 type Parser struct{}
 
-// Unmarshal unmarshals HOCON files
+// Unmarshal unmarshals HOCON files.
 func (i *Parser) Unmarshal(p []byte, v interface{}) error {
 	// Parse HOCON configuration
 	rootCfg := configuration.ParseString(string(p), hoconIncludeCallback).Root()

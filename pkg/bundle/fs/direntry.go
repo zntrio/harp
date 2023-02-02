@@ -26,7 +26,7 @@ type dirEntry struct {
 	fi fs.FileInfo
 }
 
-// Compile time type assertion
+// Compile time type assertion.
 var _ fs.DirEntry = (*dirEntry)(nil)
 
 // -----------------------------------------------------------------------------

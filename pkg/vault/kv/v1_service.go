@@ -38,7 +38,7 @@ func V1(l logical.Logical, mountPath string) Service {
 	}
 }
 
-// -----------------------------------------------------------------------------
+// -----------------------------------------------------------------------------.
 func (s *kvv1Backend) List(ctx context.Context, path string) ([]string, error) {
 	// Clean path first
 	secretPath := vpath.SanitizePath(path)

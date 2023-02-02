@@ -38,7 +38,7 @@ import (
 
 // -----------------------------------------------------------------------------
 
-// Server represents platform server
+// Server represents platform server.
 type Server struct {
 	Debug           bool
 	Name            string
@@ -50,7 +50,7 @@ type Server struct {
 	Builder         func(ln net.Listener, group *run.Group)
 }
 
-// Serve starts the server listening process
+// Serve starts the server listening process.
 func Serve(ctx context.Context, srv *Server) error {
 	// Generate an instance identifier
 	appID := uniuri.NewLen(64)

@@ -34,7 +34,7 @@ import (
 
 var configNewAsEnvFlag bool
 
-// NewConfigCommand initialize a cobra config command tree
+// NewConfigCommand initialize a cobra config command tree.
 func NewConfigCommand(conf interface{}, envPrefix string) *cobra.Command {
 	// Uppercase the prefix
 	upPrefix := strings.ToUpper(envPrefix)

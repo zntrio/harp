@@ -91,7 +91,7 @@ type celMatcher struct {
 	ruleset []cel.Program
 }
 
-// IsSatisfiedBy returns specification satisfaction status
+// IsSatisfiedBy returns specification satisfaction status.
 func (s *celMatcher) IsSatisfiedBy(object interface{}) bool {
 	// If object is a package
 	if p, ok := object.(*bundlev1.Package); ok {

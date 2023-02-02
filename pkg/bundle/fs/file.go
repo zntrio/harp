@@ -39,7 +39,7 @@ type file struct {
 	closed     bool
 }
 
-// Compile time type assertion
+// Compile time type assertion.
 var _ fs.File = (*file)(nil)
 
 // -----------------------------------------------------------------------------

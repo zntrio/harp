@@ -30,7 +30,7 @@ import (
 	"github.com/zntrio/harp/v2/pkg/vault"
 )
 
-// -----------------------------------------------------------------------------
+// -----------------------------------------------------------------------------.
 type containerRecoveryParams struct {
 	identityPath     string
 	key              string

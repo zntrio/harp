@@ -41,7 +41,7 @@ var (
 
 // -----------------------------------------------------------------------------
 
-// RootCmd describes root command of the tool
+// RootCmd describes root command of the tool.
 var mainCmd = func() *cobra.Command {
 	cmd := &cobra.Command{
 		Use:   "harp",
@@ -87,7 +87,7 @@ func init() {
 
 // -----------------------------------------------------------------------------
 
-// Execute main command
+// Execute main command.
 func Execute() error {
 	args := os.Args
 

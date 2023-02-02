@@ -30,7 +30,7 @@ import (
 var (
 	// Block decompression if the TAR archive is larger than 25MB.
 	maxDecompressedSize = int64(25 * 1024 * 1024)
-	// Maximum file size to load in memory (2MB)
+	// Maximum file size to load in memory (2MB).
 	maxFileSize = int64(2 * 1024 * 1024)
 	// Block decompression if the archive has more than 1k files.
 	maxFileCount = 1000

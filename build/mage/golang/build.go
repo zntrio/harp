@@ -46,35 +46,35 @@ type BuildOption func(*buildOpts)
 
 // -----------------------------------------------------------------------------
 
-// WithCGO enables CGO compilation
+// WithCGO enables CGO compilation.
 func WithCGO() BuildOption {
 	return func(opts *buildOpts) {
 		opts.cgoEnabled = true
 	}
 }
 
-// WithPIE enables Position Independent Executable compilation
+// WithPIE enables Position Independent Executable compilation.
 func WithPIE() BuildOption {
 	return func(opts *buildOpts) {
 		opts.pieEnabled = true
 	}
 }
 
-// GOOS sets the GOOS value during build
+// GOOS sets the GOOS value during build.
 func GOOS(value string) BuildOption {
 	return func(opts *buildOpts) {
 		opts.goOS = value
 	}
 }
 
-// GOARCH sets the GOARCH value during build
+// GOARCH sets the GOARCH value during build.
 func GOARCH(value string) BuildOption {
 	return func(opts *buildOpts) {
 		opts.goArch = value
 	}
 }
 
-// GOARM sets the GOARM value during build
+// GOARM sets the GOARM value during build.
 func GOARM(value string) BuildOption {
 	return func(opts *buildOpts) {
 		opts.goArm = value

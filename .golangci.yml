@@ -592,12 +592,12 @@ linters-settings:
 linters:
 #  disable-all: true
   enable:
+    - asciicheck
     - prealloc
     - megacheck
     - govet
     - exportloopref
     - forbidigo
-#  enable-all: true
   disable:
     - scopelint
     - varcheck
@@ -605,11 +605,11 @@ linters:
     - structcheck
     - rowserrcheck
     - sqlclosecheck
-#    - maligned
-#    - prealloc
+    - musttag
   presets:
     - bugs
     - unused
+    - performance
   fast: false
 
 

@@ -27,7 +27,7 @@ import (
 // -----------------------------------------------------------------------------
 
 // CheckAuthentication verifies that the connection to vault is setup correctly
-// by retrieving information about the configured token
+// by retrieving information about the configured token.
 func CheckAuthentication(ctx context.Context, client *api.Client) ([]string, error) {
 	tokenInfo, tokenErr := client.Auth().Token().LookupSelfWithContext(ctx)
 	if tokenErr != nil {

@@ -26,7 +26,7 @@ import (
 	"github.com/zntrio/harp/v2/pkg/sdk/value"
 )
 
-// -----------------------------------------------------------------------------
+// -----------------------------------------------------------------------------.
 var _ value.Transformer = (*mockedTransformer)(nil)
 
 type mockedTransformer struct {
@@ -40,7 +40,7 @@ func (m *mockedTransformer) From(ctx context.Context, input []byte) ([]byte, err
 	return input, m.err
 }
 
-// -----------------------------------------------------------------------------
+// -----------------------------------------------------------------------------.
 func TestPartialLock(t *testing.T) {
 	type args struct {
 		ctx            context.Context

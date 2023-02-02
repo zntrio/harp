@@ -32,7 +32,7 @@ type fileInfo struct {
 	mode    fs.FileMode
 }
 
-// Compile time type assertion
+// Compile time type assertion.
 var _ fs.FileInfo = (*fileInfo)(nil)
 
 // -----------------------------------------------------------------------------

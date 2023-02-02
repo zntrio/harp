@@ -70,7 +70,7 @@ func mustDecodeJWK(input []byte) *jose.JSONWebKey {
 	return &jwk
 }
 
-// -----------------------------------------------------------------------------
+// -----------------------------------------------------------------------------.
 func Test_rawTransformer_Roundtrip(t *testing.T) {
 	testcases := []struct {
 		name       string

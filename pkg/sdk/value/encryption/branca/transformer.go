@@ -33,7 +33,7 @@ func init() {
 	encryption.Register("branca", Transformer)
 }
 
-// Transformer returns a branca encryption transformer
+// Transformer returns a branca encryption transformer.
 func Transformer(key string) (value.Transformer, error) {
 	// Remove the prefix
 	key = strings.TrimPrefix(key, "branca:")

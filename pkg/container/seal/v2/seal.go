@@ -30,12 +30,12 @@ import (
 	"github.com/zntrio/harp/v2/pkg/sdk/types"
 )
 
-// Seal a secret container with identities
+// Seal a secret container with identities.
 func (a *adapter) Seal(rand io.Reader, container *containerv1.Container, encodedPeersPublicKey ...string) (*containerv1.Container, error) {
 	return a.seal(rand, container, nil, encodedPeersPublicKey...)
 }
 
-// Seal a secret container with identities and preshared key
+// Seal a secret container with identities and preshared key.
 func (a *adapter) SealWithPSK(rand io.Reader, container *containerv1.Container, preSharedKey *memguard.LockedBuffer, encodedPeersPublicKey ...string) (*containerv1.Container, error) {
 	return a.seal(rand, container, preSharedKey, encodedPeersPublicKey...)
 }

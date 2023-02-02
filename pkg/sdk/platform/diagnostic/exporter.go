@@ -28,19 +28,19 @@ import (
 	"github.com/zntrio/harp/v2/pkg/sdk/log"
 )
 
-// Register adds diagnostic tools to main process
+// Register adds diagnostic tools to main process.
 func Register(ctx context.Context, conf *Config, r *http.ServeMux) (func(), error) {
 	if conf.GOPS.Enabled {
 		// Start diagnostic handler
 		if conf.GOPS.RemoteURL != "" {
 			log.For(ctx).Info("Starting gops agent", zap.String("url", conf.GOPS.RemoteURL))
-			//nolint:contextcheck // gops doesn't support ctx param
+
 			if err := agent.Listen(agent.Options{Addr: conf.GOPS.RemoteURL}); err != nil {
 				log.For(ctx).Error("Error on starting gops agent", zap.Error(err))
 			}
 		} else {
 			log.For(ctx).Info("Starting gops agent locally")
-			//nolint:contextcheck // gops doesn't support ctx param
+
 			if err := agent.Listen(agent.Options{}); err != nil {
 				log.For(ctx).Error("Error on starting gops agent locally", zap.Error(err))
 			}

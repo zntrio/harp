@@ -18,6 +18,7 @@
 package strvals
 
 import (
+	"bytes"
 	"testing"
 
 	"sigs.k8s.io/yaml"
@@ -352,7 +353,7 @@ func TestParseSet(t *testing.T) {
 			t.Fatalf("Error serializing parsed value: %s", err)
 		}
 
-		if string(y1) != string(y2) {
+		if !bytes.Equal(y1, y2) {
 			t.Errorf("%s: Expected:\n%s\nGot:\n%s", tt.str, y1, y2)
 		}
 	}
@@ -377,7 +378,7 @@ func TestParseSet(t *testing.T) {
 			t.Fatalf("Error serializing parsed value: %s", err)
 		}
 
-		if string(y1) != string(y2) {
+		if !bytes.Equal(y1, y2) {
 			t.Errorf("%s: Expected:\n%s\nGot:\n%s", tt.str, y1, y2)
 		}
 	}
@@ -413,7 +414,7 @@ func TestParseInto(t *testing.T) {
 		t.Fatalf("Error serializing parsed value: %s", err)
 	}
 
-	if string(y1) != string(y2) {
+	if !bytes.Equal(y1, y2) {
 		t.Errorf("%s: Expected:\n%s\nGot:\n%s", input, y1, y2)
 	}
 }
@@ -447,7 +448,7 @@ func TestParseIntoString(t *testing.T) {
 		t.Fatalf("Error serializing parsed value: %s", err)
 	}
 
-	if string(y1) != string(y2) {
+	if !bytes.Equal(y1, y2) {
 		t.Errorf("%s: Expected:\n%s\nGot:\n%s", input, y1, y2)
 	}
 }
@@ -480,7 +481,7 @@ func TestParseFile(t *testing.T) {
 		t.Fatalf("Error serializing parsed value: %s", err)
 	}
 
-	if string(y1) != string(y2) {
+	if !bytes.Equal(y1, y2) {
 		t.Errorf("%s: Expected:\n%s\nGot:\n%s", input, y1, y2)
 	}
 }
@@ -513,7 +514,7 @@ func TestParseIntoFile(t *testing.T) {
 		t.Fatalf("Error serializing parsed value: %s", err)
 	}
 
-	if string(y1) != string(y2) {
+	if !bytes.Equal(y1, y2) {
 		t.Errorf("%s: Expected:\n%s\nGot:\n%s", input, y1, y2)
 	}
 }

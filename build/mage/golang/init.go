@@ -25,7 +25,7 @@ import (
 	"github.com/fatih/color"
 )
 
-// Keep only last 2 versions
+// Keep only last 2 versions.
 var goVersions = []string{
 	"~1.20",
 	"~1.19",

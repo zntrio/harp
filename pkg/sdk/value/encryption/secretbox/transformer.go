@@ -34,7 +34,7 @@ func init() {
 	}
 }
 
-// Transformer returns a Nacl SecretBox encryption value transformer
+// Transformer returns a Nacl SecretBox encryption value transformer.
 func Transformer(key string) (value.Transformer, error) {
 	// Remove the prefix
 	key = strings.TrimPrefix(key, "secretbox:")

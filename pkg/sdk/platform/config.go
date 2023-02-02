@@ -21,7 +21,7 @@ import (
 	"github.com/zntrio/harp/v2/pkg/sdk/platform/diagnostic"
 )
 
-// InstrumentationConfig holds all platform instrumentation settings
+// InstrumentationConfig holds all platform instrumentation settings.
 type InstrumentationConfig struct {
 	Network    string `toml:"network" default:"tcp" comment:"Network class used for listen (tcp, tcp4, tcp6, unixsocket)"`
 	Listen     string `toml:"listen" default:":5556" comment:"Listen address for instrumentation server"`

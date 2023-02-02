@@ -47,7 +47,7 @@ func ToYAML(s string) (string, error) {
 
 // Parse parses a set line.
 //
-// A set line is of the form name1=value1,name2=value2
+// A set line is of the form name1=value1,name2=value2.
 func Parse(s string) (map[string]interface{}, error) {
 	vals := map[string]interface{}{}
 	scanner := bytes.NewBufferString(s)
@@ -58,7 +58,7 @@ func Parse(s string) (map[string]interface{}, error) {
 
 // ParseString parses a set line and forces a string value.
 //
-// A set line is of the form name1=value1,name2=value2
+// A set line is of the form name1=value1,name2=value2.
 func ParseString(s string) (map[string]interface{}, error) {
 	vals := map[string]interface{}{}
 	scanner := bytes.NewBufferString(s)
@@ -82,7 +82,7 @@ func ParseInto(s string, dest map[string]interface{}) error {
 // A set line is of the form name1=path1,name2=path2
 //
 // When the files at path1 and path2 contained "val1" and "val2" respectively, the set line is consumed as
-// name1=val1,name2=val2
+// name1=val1,name2=val2.
 func ParseFile(s string, reader RunesValueReader) (map[string]interface{}, error) {
 	vals := map[string]interface{}{}
 	scanner := bytes.NewBufferString(s)
@@ -110,14 +110,14 @@ func ParseIntoFile(s string, dest map[string]interface{}, reader RunesValueReade
 }
 
 // RunesValueReader is a function that takes the given value (a slice of runes)
-// and returns the parsed value
+// and returns the parsed value.
 type RunesValueReader func([]rune) (interface{}, error)
 
 // parser is a simple parser that takes a strvals line and parses it into a
 // map representation.
 //
 // where sc is the source of the original data being parsed
-// where data is the final parsed data from the parses with correct types
+// where data is the final parsed data from the parses with correct types.
 type parser struct {
 	sc     *bytes.Buffer
 	data   map[string]interface{}

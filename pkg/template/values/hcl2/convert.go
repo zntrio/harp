@@ -34,7 +34,7 @@ import (
 type jsonObj map[string]interface{}
 
 // Convert an hcl File to a json serializable object
-// This assumes that the body is a hclsyntax.Body
+// This assumes that the body is a hclsyntax.Body.
 func convertFile(file *hcl.File) (jsonObj, error) {
 	c := converter{bytes: file.Bytes}
 	body, ok := file.Body.(*hclsyntax.Body)

@@ -47,10 +47,10 @@ const (
 	CustomMetadataValueSizeLimit = 512
 )
 
-// SecretData is a secret body
+// SecretData is a secret body.
 type SecretData map[string]interface{}
 
-// SecretMetadata is secret data attached metadata
+// SecretMetadata is secret data attached metadata.
 type SecretMetadata map[string]interface{}
 
 // SecretLister repesents secret key listing feature contract.

@@ -52,7 +52,7 @@ func TestParseFile(t *testing.T) {
 			_, err := ParseFile(filepath.Join("testdata", fi.Name()))
 			require.NoError(t, err)
 
-			//goldie.Assert(t, fi.Name(), []byte(spew.Sdump(cfg)))
+			// goldie.Assert(t, fi.Name(), []byte(spew.Sdump(cfg)))
 		})
 	}
 }

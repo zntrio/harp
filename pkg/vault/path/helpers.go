@@ -27,7 +27,7 @@ func SanitizePath(s string) string {
 	return ensureNoTrailingSlash(ensureNoLeadingSlash(strings.TrimSpace(s)))
 }
 
-// AddPrefixToVKVPath add an apiPrefix accoding to mount path
+// AddPrefixToVKVPath add an apiPrefix accoding to mount path.
 func AddPrefixToVKVPath(p, mountPath, apiPrefix string) string {
 	switch {
 	case p == mountPath, p == strings.TrimSuffix(mountPath, "/"):

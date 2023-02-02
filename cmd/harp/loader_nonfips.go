@@ -20,7 +20,6 @@
 package main
 
 import (
-	// Register hash functions
 	//nolint:gosec // For legacy compatibility
 	_ "crypto/md5"
 	//nolint:gosec // For legacy compatibility
@@ -28,11 +27,7 @@ import (
 	_ "crypto/sha256"
 	_ "crypto/sha512"
 
-	_ "golang.org/x/crypto/blake2b"
-	_ "golang.org/x/crypto/blake2s"
-	_ "golang.org/x/crypto/sha3"
-
-	// Register encryption transformers
+	// Register encryption transformers.
 	_ "github.com/zntrio/harp/v2/pkg/sdk/value/encryption/aead"
 	_ "github.com/zntrio/harp/v2/pkg/sdk/value/encryption/age"
 	_ "github.com/zntrio/harp/v2/pkg/sdk/value/encryption/branca"
@@ -45,4 +40,8 @@ import (
 	_ "github.com/zntrio/harp/v2/pkg/sdk/value/signature/paseto"
 	_ "github.com/zntrio/harp/v2/pkg/sdk/value/signature/raw"
 	_ "github.com/zntrio/harp/v2/pkg/vault"
+
+	_ "golang.org/x/crypto/blake2b"
+	_ "golang.org/x/crypto/blake2s"
+	_ "golang.org/x/crypto/sha3"
 )

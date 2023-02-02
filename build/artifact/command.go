@@ -21,7 +21,7 @@ import (
 	"github.com/iancoleman/strcase"
 )
 
-// Command specification
+// Command specification.
 type Command struct {
 	Name        string
 	Description string

@@ -26,7 +26,7 @@ import (
 	"github.com/zntrio/harp/v2/pkg/tasks/bundle"
 )
 
-// -----------------------------------------------------------------------------
+// -----------------------------------------------------------------------------.
 type bundleLintParams struct {
 	inputPath string
 	specPath  string

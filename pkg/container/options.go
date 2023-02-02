@@ -22,7 +22,7 @@ import "github.com/awnumar/memguard"
 // Option describes generate container operation options.
 type Option func(opts *Options)
 
-// Options defines the operation settings
+// Options defines the operation settings.
 type Options struct {
 	psk            *memguard.LockedBuffer
 	peersPublicKey []string
@@ -35,7 +35,7 @@ func WithPreSharedKey(psk *memguard.LockedBuffer) Option {
 	}
 }
 
-// WithPeerPublicKeys sets the public key which are able to unseal the container
+// WithPeerPublicKeys sets the public key which are able to unseal the container.
 func WithPeerPublicKeys(peers []string) Option {
 	return func(opts *Options) {
 		opts.peersPublicKey = peers

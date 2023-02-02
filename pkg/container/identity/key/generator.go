@@ -25,6 +25,7 @@ import (
 	"io"
 
 	"github.com/zntrio/harp/v2/pkg/sdk/security/crypto/deterministicecdsa"
+
 	"golang.org/x/crypto/nacl/box"
 )
 

@@ -36,12 +36,12 @@ const (
 
 var ringMapNames = strings.Split("invalid;unknown;meta;infra;platform;product;app;artifact", ";")
 
-// ToRingName returns the ring level name
+// ToRingName returns the ring level name.
 func ToRingName(lvl csov1.RingLevel) string {
 	return ringMapNames[lvl]
 }
 
-// FromRingName returns the ring level object according to given name
+// FromRingName returns the ring level object according to given name.
 func FromRingName(name string) csov1.RingLevel {
 	var i int32
 
@@ -59,12 +59,12 @@ func FromRingName(name string) csov1.RingLevel {
 
 var qualityMapNames = strings.Split("invalid;unknown;production;staging;qa;dev", ";")
 
-// ToStageName return the stage name
+// ToStageName return the stage name.
 func ToStageName(lvl csov1.QualityLevel) string {
 	return qualityMapNames[lvl]
 }
 
-// FromStageName returns the stage level object from given name
+// FromStageName returns the stage level object from given name.
 func FromStageName(name string) csov1.QualityLevel {
 	var i int32
 

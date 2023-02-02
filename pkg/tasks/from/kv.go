@@ -133,7 +133,7 @@ func (t *ExtractKVTask) Run(ctx context.Context) error {
 	return nil
 }
 
-// -----------------------------------------------------------------------------
+// -----------------------------------------------------------------------------.
 func (t *ExtractKVTask) packSecret(key string, value interface{}) (*bundlev1.KV, error) {
 	// Pack secret value
 	payload, err := secret.Pack(value)

@@ -166,7 +166,7 @@ func (d *consulDriver) Close() error {
 
 // -----------------------------------------------------------------------------
 
-// Normalize the key for usage in Consul
+// Normalize the key for usage in Consul.
 func (d *consulDriver) normalize(key string) string {
 	key = kv.Normalize(key)
 	return strings.TrimPrefix(key, "/")

@@ -37,7 +37,7 @@ import (
 	"golang.org/x/sync/semaphore"
 )
 
-// Importer initialize a secret importer operation
+// Importer initialize a secret importer operation.
 func Importer(client *api.Client, bundleFile *bundlev1.Bundle, prefix string, withMetadata, withVaultMetadata bool, maxWorkerCount int64) Operation {
 	return &importer{
 		client:            client,
@@ -64,7 +64,8 @@ type importer struct {
 }
 
 // Run the implemented operation
-// nolint:gocognit,funlen,gocyclo // To refactor
+//
+//nolint:gocognit,funlen,gocyclo // To refactor
 func (op *importer) Run(ctx context.Context) error {
 	// Initialize sub context
 	g, gctx := errgroup.WithContext(ctx)

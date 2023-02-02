@@ -27,7 +27,7 @@ import (
 	"github.com/zntrio/harp/v2/pkg/tasks/keygen"
 )
 
-// -----------------------------------------------------------------------------
+// -----------------------------------------------------------------------------.
 type keygenJWKParams struct {
 	outputPath         string
 	signatureAlgorithm string

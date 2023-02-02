@@ -48,7 +48,7 @@ func Test_Transformer_Age_InvalidKey(t *testing.T) {
 
 func Test_Transformer_From(t *testing.T) {
 	identity := `age-identity:AGE-SECRET-KEY-1W8E69DQEVASNK68FX7C6QLD99KTG96RHWW0EZ3RD0L29AHV4S84QHUAP4C`
-	//recipient := `age-recipients:age1ce20pmz8z0ue97v7rz838v6pcpvzqan30lr40tjlzy40ez8eldrqf2zuxe`
+	// recipient := `age-recipients:age1ce20pmz8z0ue97v7rz838v6pcpvzqan30lr40tjlzy40ez8eldrqf2zuxe`
 
 	// Prepare testcases
 	testCases := []struct {

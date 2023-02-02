@@ -42,7 +42,7 @@ type PluginHandler interface {
 	Execute(executablePath string, cmdArgs, environment []string) error
 }
 
-// DefaultPluginHandler implements PluginHandler
+// DefaultPluginHandler implements PluginHandler.
 type DefaultPluginHandler struct {
 	ValidPrefixes []string
 }
@@ -55,7 +55,7 @@ func NewDefaultPluginHandler(validPrefixes []string) *DefaultPluginHandler {
 	}
 }
 
-// Lookup implements PluginHandler
+// Lookup implements PluginHandler.
 func (h *DefaultPluginHandler) Lookup(filename string) (string, bool) {
 	for _, prefix := range h.ValidPrefixes {
 		path, err := exec.LookPath(fmt.Sprintf("%s-%s", prefix, filename))
@@ -68,7 +68,7 @@ func (h *DefaultPluginHandler) Lookup(filename string) (string, bool) {
 	return "", false
 }
 
-// Execute implements PluginHandler
+// Execute implements PluginHandler.
 func (h *DefaultPluginHandler) Execute(executablePath string, cmdArgs, environment []string) error {
 	// Windows does not support exec syscall.
 	if runtime.GOOS == "windows" {

@@ -27,7 +27,7 @@ import (
 	"github.com/zntrio/harp/v2/pkg/sdk/value"
 	"github.com/zntrio/harp/v2/pkg/sdk/value/encryption"
 
-	// Import for tests
+	// Import for tests.
 	_ "github.com/zntrio/harp/v2/pkg/sdk/value/encryption/aead"
 	"github.com/zntrio/harp/v2/pkg/sdk/value/identity"
 	"github.com/zntrio/harp/v2/pkg/sdk/value/mock"

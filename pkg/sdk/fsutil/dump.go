@@ -31,7 +31,7 @@ import (
 	"github.com/zntrio/harp/v2/pkg/sdk/log"
 )
 
-// Dump the given vfs to the outputpath
+// Dump the given vfs to the outputpath.
 func Dump(srcFs fs.FS, outPath string) error {
 	return fs.WalkDir(srcFs, ".", func(path string, d fs.DirEntry, errWalk error) error {
 		// Raise immediately the error if any.

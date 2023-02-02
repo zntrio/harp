@@ -302,7 +302,7 @@ func Test_UnSeal_Fuzz(t *testing.T) {
 	}
 }
 
-// -----------------------------------------------------------------------------
+// -----------------------------------------------------------------------------.
 func benchmarkSeal(container *containerv1.Container, peersPublicKeys []string, b *testing.B) {
 	adapter := New()
 	for n := 0; n < b.N; n++ {

@@ -39,7 +39,7 @@ const (
 	MasterWordCount = 24
 )
 
-// Diceware generates a passphrase using english words
+// Diceware generates a passphrase using english words.
 func Diceware(count int) (string, error) {
 	// Check parameters
 	if count < MinWordCount {
@@ -59,22 +59,22 @@ func Diceware(count int) (string, error) {
 	return strings.Join(list, "-"), nil
 }
 
-// Basic generates 4 words diceware passphrase
+// Basic generates 4 words diceware passphrase.
 func Basic() (string, error) {
 	return Diceware(BasicWordCount)
 }
 
-// Strong generates 8 words diceware passphrase
+// Strong generates 8 words diceware passphrase.
 func Strong() (string, error) {
 	return Diceware(StrongWordCount)
 }
 
-// Paranoid generates 12 words diceware passphrase
+// Paranoid generates 12 words diceware passphrase.
 func Paranoid() (string, error) {
 	return Diceware(ParanoidWordCount)
 }
 
-// Master generates 24 words diceware passphrase
+// Master generates 24 words diceware passphrase.
 func Master() (string, error) {
 	return Diceware(MasterWordCount)
 }

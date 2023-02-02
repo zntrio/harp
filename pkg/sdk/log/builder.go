@@ -26,7 +26,7 @@ import (
 
 // -----------------------------------------------------------------------------
 
-// Options declares logger options for builder
+// Options declares logger options for builder.
 type Options struct {
 	Debug     bool
 	LogLevel  string
@@ -39,7 +39,7 @@ type Options struct {
 
 // -----------------------------------------------------------------------------
 
-// DefaultOptions defines default logger options
+// DefaultOptions defines default logger options.
 var DefaultOptions = &Options{
 	Debug:     false,
 	LogLevel:  "info",
@@ -52,7 +52,7 @@ var DefaultOptions = &Options{
 
 // -----------------------------------------------------------------------------
 
-// Setup the logger
+// Setup the logger.
 func Setup(ctx context.Context, opts *Options) {
 	// Initialize logs
 	var config zap.Config

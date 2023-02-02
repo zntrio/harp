@@ -267,7 +267,6 @@ func TestEvaluate(t *testing.T) {
 				t.Errorf("Evaluate() error = %v, wantErr %v", err, tt.wantErr)
 				return
 			}
-
 		})
 	}
 }

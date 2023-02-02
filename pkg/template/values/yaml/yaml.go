@@ -23,10 +23,10 @@ import (
 	"sigs.k8s.io/yaml"
 )
 
-// Parser is an XML parser
+// Parser is an XML parser.
 type Parser struct{}
 
-// Unmarshal unmarshals YAML files
+// Unmarshal unmarshals YAML files.
 func (p *Parser) Unmarshal(body []byte, v interface{}) error {
 	if err := yaml.Unmarshal(body, v); err != nil {
 		return fmt.Errorf("unmarshal yaml: %w", err)

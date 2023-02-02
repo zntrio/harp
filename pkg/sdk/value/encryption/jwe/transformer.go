@@ -34,7 +34,7 @@ const PBKDF2SaltSize = 16
 // iterations. Nist recommends at least 10k, 1Passsword uses 100k.
 const PBKDF2Iterations = 500001
 
-// transformer returns a JWE encryption transformer
+// transformer returns a JWE encryption transformer.
 func transformer(key interface{}, keyAlgorithm jose.KeyAlgorithm, contentEncryption jose.ContentEncryption) (value.Transformer, error) {
 	if types.IsNil(key) {
 		return nil, fmt.Errorf("jwe: encryption key must not be nil")

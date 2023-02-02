@@ -28,7 +28,7 @@ import (
 	"github.com/zntrio/harp/v2/pkg/tasks/bundle"
 )
 
-// -----------------------------------------------------------------------------
+// -----------------------------------------------------------------------------.
 type bundleDecryptParams struct {
 	inputPath          string
 	outputPath         string

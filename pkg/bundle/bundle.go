@@ -40,7 +40,7 @@ func Labelize(obj LabelOwner, key, value string) {
 	updateLabels(obj, obj.GetLabels(), key, value)
 }
 
-// Tree returns a merkle tree based on secrets hierarchy
+// Tree returns a merkle tree based on secrets hierarchy.
 func Tree(b *bundlev1.Bundle) (*merkletree.Tree, *Statistic, error) {
 	// Check bundle
 	if b == nil {
@@ -137,7 +137,7 @@ func SecretReader(b *bundlev1.Bundle) func(path string) (map[string]interface{},
 	}
 }
 
-// -----------------------------------------------------------------------------
+// -----------------------------------------------------------------------------.
 func updateAnnotations(obj interface{}, m map[string]string, key, value string) {
 	// Check allocation
 	if m == nil {

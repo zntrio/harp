@@ -31,7 +31,7 @@ type Ring interface {
 }
 
 var (
-	// RingMeta represents R0 secrets
+	// RingMeta represents R0 secrets.
 	RingMeta Ring = &ring{
 		level:  0,
 		name:   "Meta",
@@ -40,7 +40,7 @@ var (
 			return csoPath("meta/%s", 1, values...)
 		},
 	}
-	// RingInfra represents R1 secrets
+	// RingInfra represents R1 secrets.
 	RingInfra = &ring{
 		level:  1,
 		name:   "Infrastructure",
@@ -49,7 +49,7 @@ var (
 			return csoPath("infra/%s/%s/%s/%s/%s", 5, values...)
 		},
 	}
-	// RingPlatform repsents R2 secrets
+	// RingPlatform repsents R2 secrets.
 	RingPlatform = &ring{
 		level:  2,
 		name:   "Platform",
@@ -58,7 +58,7 @@ var (
 			return csoPath("platform/%s/%s/%s/%s/%s", 5, values...)
 		},
 	}
-	// RingProduct represents R3 secrets
+	// RingProduct represents R3 secrets.
 	RingProduct = &ring{
 		level:  3,
 		name:   "Product",
@@ -67,7 +67,7 @@ var (
 			return csoPath("product/%s/%s/%s/%s", 4, values...)
 		},
 	}
-	// RingApplication represents R4 secrets
+	// RingApplication represents R4 secrets.
 	RingApplication = &ring{
 		level:  4,
 		name:   "Application",
@@ -76,7 +76,7 @@ var (
 			return csoPath("app/%s/%s/%s/%s/%s/%s", 6, values...)
 		},
 	}
-	// RingArtifact represents R5 secrets
+	// RingArtifact represents R5 secrets.
 	RingArtifact = &ring{
 		level:  5,
 		name:   "Artifact",
@@ -114,7 +114,7 @@ func (r ring) Path(values ...string) (string, error) {
 
 // -----------------------------------------------------------------------------
 
-// csoPath build and validate a secret path according to CSO specification
+// csoPath build and validate a secret path according to CSO specification.
 func csoPath(format string, count int, values ...string) (string, error) {
 	// Check values count
 	if len(values) < count {

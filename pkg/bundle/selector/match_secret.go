@@ -46,14 +46,14 @@ func MatchSecretGlob(pattern string) Specification {
 	}
 }
 
-// matchSecret checks if secret key match the given string
+// matchSecret checks if secret key match the given string.
 type matchSecret struct {
 	strict string
 	regex  *regexp.Regexp
 	g      glob.Glob
 }
 
-// IsSatisfiedBy returns specification satisfaction status
+// IsSatisfiedBy returns specification satisfaction status.
 func (s *matchSecret) IsSatisfiedBy(object interface{}) bool {
 	match := false
 

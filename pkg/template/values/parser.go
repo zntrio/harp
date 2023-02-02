@@ -29,12 +29,12 @@ import (
 )
 
 // Parser is the interface implemented by objects that can unmarshal
-// bytes into a golang interface
+// bytes into a golang interface.
 type Parser interface {
 	Unmarshal(p []byte, v interface{}) error
 }
 
-// GetParser gets a file parser based on the file type and input
+// GetParser gets a file parser based on the file type and input.
 func GetParser(fileType string) (Parser, error) {
 	switch fileType {
 	case "toml":

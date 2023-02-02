@@ -24,7 +24,7 @@ import (
 	"github.com/magefile/mage/sh"
 )
 
-// Generate invoke the go:generate task on given package
+// Generate invoke the go:generate task on given package.
 func Generate(name, packageName string) func() error {
 	return func() error {
 		fmt.Fprintf(os.Stdout, " > %s [%s]\n", name, packageName)

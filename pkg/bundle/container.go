@@ -29,7 +29,7 @@ import (
 	"github.com/zntrio/harp/v2/pkg/sdk/types"
 )
 
-// Statistic hold bundle statistic information
+// Statistic hold bundle statistic information.
 type Statistic struct {
 	PackageCount                 uint32
 	CSOCompliantPackageNameCount uint32

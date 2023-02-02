@@ -18,7 +18,7 @@
 package docker
 
 const (
-	// Standard build mode
+	// Standard build mode.
 	golangImage     = "golang:1.18"
 	golangVersion   = "1.18.4"
 	goBoringVersion = "1.18.4b7"

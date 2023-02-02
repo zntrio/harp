@@ -67,7 +67,6 @@ func TestGenerateKey(t *testing.T) {
 		assert.Equal(t, "v2.ck.VHJBdjBLWWJsMktxQ285ZoFXc5G4HY_0qSMZAibGlchUmqt915byglIOGeel-5X5", pk)
 		assert.NotNil(t, pub)
 		assert.Equal(t, "v2.sk.A0V1xCxGNtVAE9EVhaKi-pIADhd1in8xV_FI5Y0oHSHLAkew9gDAqiALSd6VgvBCbQ", pub)
-
 	})
 
 	t.Run("default", func(t *testing.T) {

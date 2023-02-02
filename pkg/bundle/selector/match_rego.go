@@ -52,7 +52,7 @@ type regoMatcher struct {
 	query rego.PreparedEvalQuery
 }
 
-// IsSatisfiedBy returns specification satisfaction status
+// IsSatisfiedBy returns specification satisfaction status.
 func (s *regoMatcher) IsSatisfiedBy(object interface{}) bool {
 	// If object is a package
 	if p, ok := object.(*bundlev1.Package); ok {

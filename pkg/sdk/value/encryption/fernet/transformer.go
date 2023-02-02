@@ -33,7 +33,7 @@ func init() {
 	encryption.Register("fernet", Transformer)
 }
 
-// Transformer returns a fernet encryption transformer
+// Transformer returns a fernet encryption transformer.
 func Transformer(key string) (value.Transformer, error) {
 	// Remove the prefix
 	key = strings.TrimPrefix(key, "fernet:")

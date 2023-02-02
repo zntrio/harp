@@ -378,7 +378,6 @@ func Test_EncryptDecryptJWE(t *testing.T) {
 }
 
 func TestToJWS(t *testing.T) {
-
 	_, ecPriv, err := generateKeyPair("ec")
 	if err != nil {
 		t.Error("unable to generate ec key")

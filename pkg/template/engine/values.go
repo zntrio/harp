@@ -170,8 +170,8 @@ func istable(v interface{}) bool {
 	return ok
 }
 
-// parsePath splits the given path using "."
+// parsePath splits the given path using ".".
 func parsePath(key string) []string { return strings.Split(key, ".") }
 
-// joinPath joins all path elements with "."
+// joinPath joins all path elements with ".".
 func joinPath(path ...string) string { return strings.Join(path, ".") }

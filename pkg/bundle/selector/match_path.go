@@ -61,14 +61,14 @@ func MatchPathGlob(pattern string) (Specification, error) {
 	}, nil
 }
 
-// MatchPath checks if secret path match the given string
+// MatchPath checks if secret path match the given string.
 type matchPath struct {
 	strict string
 	regex  *regexp.Regexp
 	g      glob.Glob
 }
 
-// IsSatisfiedBy returns specification satisfaction status
+// IsSatisfiedBy returns specification satisfaction status.
 func (s *matchPath) IsSatisfiedBy(object interface{}) bool {
 	// If object is a package
 	if p, ok := object.(*bundlev1.Package); ok {

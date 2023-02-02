@@ -209,7 +209,7 @@ func AsProtoJSON(w io.Writer, b *bundlev1.Bundle) error {
 	return nil
 }
 
-// AsMap returns a bundle as map
+// AsMap returns a bundle as map.
 func AsMap(b *bundlev1.Bundle) (KV, error) {
 	// Check input
 	if b == nil {

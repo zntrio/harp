@@ -20,13 +20,13 @@ package value
 import (
 	"context"
 
-	// For tests
+	// For tests.
 	_ "github.com/golang/mock/mockgen/model"
 )
 
 //go:generate mockgen -destination test/mock/transformer.gen.go -package mock github.com/zntrio/harp/v2/pkg/sdk/value Transformer
 
-// Transformer declares value transformer contract
+// Transformer declares value transformer contract.
 type Transformer interface {
 	To(ctx context.Context, input []byte) ([]byte, error)
 	From(ctx context.Context, input []byte) ([]byte, error)

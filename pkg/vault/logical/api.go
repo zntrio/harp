@@ -21,7 +21,7 @@ import "github.com/hashicorp/vault/api"
 
 //go:generate mockgen -destination logical.mock.go -package logical github.com/zntrio/harp/v2/pkg/vault/logical Logical
 
-// Logical backend interface
+// Logical backend interface.
 type Logical interface {
 	Read(path string) (*api.Secret, error)
 	ReadWithData(path string, data map[string][]string) (*api.Secret, error)

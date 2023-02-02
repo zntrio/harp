@@ -42,7 +42,7 @@ import (
 	"github.com/zntrio/harp/v2/pkg/sdk/security/crypto/bech32"
 	"github.com/zntrio/harp/v2/pkg/sdk/types"
 
-	// Import Blake2b
+	// Import Blake2b.
 	_ "golang.org/x/crypto/blake2b"
 	"golang.org/x/crypto/ssh"
 )
@@ -414,7 +414,7 @@ func Bech32Decode(in string) (interface{}, error) {
 
 // ToTLSA encodes the given certificate using TLSA encoding strategy.
 // selector 0 - Raw / 1 - Public Key
-// mtype 0 - Raw / 1 - SHA256 / 2 - SHA512
+// mtype 0 - Raw / 1 - SHA256 / 2 - SHA512.
 func ToTLSA(selector, mtype uint8, cert *x509.Certificate) (string, error) {
 	var (
 		preimage asn1.RawContent

@@ -22,32 +22,32 @@ import (
 	"go.uber.org/zap/zapcore"
 )
 
-// logger delegates all calls to the underlying zap.Logger
+// logger delegates all calls to the underlying zap.Logger.
 type logger struct {
 	logger *zap.Logger
 }
 
-// Debug logs an debug msg with fields
+// Debug logs an debug msg with fields.
 func (l logger) Debug(msg string, fields ...zapcore.Field) {
 	l.logger.Debug(msg, fields...)
 }
 
-// Info logs an info msg with fields
+// Info logs an info msg with fields.
 func (l logger) Info(msg string, fields ...zapcore.Field) {
 	l.logger.Info(msg, fields...)
 }
 
-// Error logs an error msg with fields
+// Error logs an error msg with fields.
 func (l logger) Error(msg string, fields ...zapcore.Field) {
 	l.logger.Error(msg, fields...)
 }
 
-// Warn logs a warning with fields
+// Warn logs a warning with fields.
 func (l logger) Warn(msg string, fields ...zapcore.Field) {
 	l.logger.Warn(msg, fields...)
 }
 
-// Fatal logs a fatal error msg with fields
+// Fatal logs a fatal error msg with fields.
 func (l logger) Fatal(msg string, fields ...zapcore.Field) {
 	l.logger.Fatal(msg, fields...)
 }

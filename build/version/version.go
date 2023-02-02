@@ -68,7 +68,7 @@ type Info struct {
 	HarpSdkVersion string     `json:"harp_sdk_version,omitempty"`
 }
 
-// Full returns full composed version string
+// Full returns full composed version string.
 func (i *Info) String() string {
 	if fips.Enabled() {
 		return fmt.Sprintf("%s [%s:%s] (Go: %s, FIPS Mode, Flags: %s)", i.Version, i.GitBranch, i.GitCommit, i.GoVersion, i.BuildTags)
@@ -77,7 +77,7 @@ func (i *Info) String() string {
 	return fmt.Sprintf("%s [%s:%s] (Go: %s, Flags: %s)", i.Version, i.GitBranch, i.GitCommit, i.GoVersion, i.BuildTags)
 }
 
-// JSON returns json representation of build info
+// JSON returns json representation of build info.
 func (i *Info) JSON() string {
 	payload, err := json.Marshal(i)
 	if err != nil {
@@ -87,7 +87,7 @@ func (i *Info) JSON() string {
 	return string(payload)
 }
 
-// ID returns an instance id
+// ID returns an instance id.
 func ID() string {
 	return uniuri.NewLen(64)
 }

@@ -19,12 +19,12 @@ package types
 
 import "strings"
 
-// StringArray describes string array type
+// StringArray describes string array type.
 type StringArray []string
 
 // -----------------------------------------------------------------------------
 
-// Contains checks if item is in collection
+// Contains checks if item is in collection.
 func (s StringArray) Contains(item string) bool {
 	for _, v := range s {
 		if strings.EqualFold(item, v) {

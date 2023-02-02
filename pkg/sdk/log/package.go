@@ -34,7 +34,7 @@ func init() {
 	SetLoggerFactory(NewFactory(zap.L()))
 }
 
-// SetLoggerFactory defines the default package logger
+// SetLoggerFactory defines the default package logger.
 func SetLoggerFactory(instance LoggerFactory) {
 	if defaultFactory != nil {
 		defaultFactory.Bg().Debug("Replacing logger factory", zap.String("old", defaultFactory.Name()), zap.String("new", instance.Name()))
@@ -46,22 +46,22 @@ func SetLoggerFactory(instance LoggerFactory) {
 
 // -----------------------------------------------------------------------------
 
-// Bg delegates a no-context logger
+// Bg delegates a no-context logger.
 func Bg() Logger {
 	return checkFactory(defaultFactory).Bg()
 }
 
-// For delegates a context logger
+// For delegates a context logger.
 func For(ctx context.Context) Logger {
 	return checkFactory(defaultFactory).For(ctx)
 }
 
-// Default returns the logger factory
+// Default returns the logger factory.
 func Default() LoggerFactory {
 	return checkFactory(defaultFactory)
 }
 
-// CheckErr handles error correctly
+// CheckErr handles error correctly.
 func CheckErr(msg string, err error, fields ...zapcore.Field) {
 	if err != nil {
 		fields = append(fields, zap.Error(err))
@@ -69,7 +69,7 @@ func CheckErr(msg string, err error, fields ...zapcore.Field) {
 	}
 }
 
-// CheckErrCtx handles error correctly
+// CheckErrCtx handles error correctly.
 func CheckErrCtx(ctx context.Context, msg string, err error, fields ...zapcore.Field) {
 	if err != nil {
 		fields = append(fields, zap.Error(errors.WithStack(err)))
@@ -77,7 +77,7 @@ func CheckErrCtx(ctx context.Context, msg string, err error, fields ...zapcore.F
 	}
 }
 
-// SafeClose handles the closer error
+// SafeClose handles the closer error.
 func SafeClose(c io.Closer, msg string, fields ...zapcore.Field) {
 	if cerr := c.Close(); cerr != nil {
 		fields = append(fields, zap.Error(errors.WithStack(cerr)))
@@ -85,7 +85,7 @@ func SafeClose(c io.Closer, msg string, fields ...zapcore.Field) {
 	}
 }
 
-// SafeCloseCtx handles the closer error
+// SafeCloseCtx handles the closer error.
 func SafeCloseCtx(ctx context.Context, c io.Closer, msg string, fields ...zapcore.Field) {
 	if cerr := c.Close(); cerr != nil {
 		fields = append(fields, zap.Error(errors.WithStack(cerr)))

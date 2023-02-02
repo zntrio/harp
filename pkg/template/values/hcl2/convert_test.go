@@ -134,7 +134,7 @@ const outputc = `{
 	}
 }`
 
-// Test that conversion works as expected
+// Test that conversion works as expected.
 func TestConversion(t *testing.T) {
 	testTable := map[string]struct {
 		input  string

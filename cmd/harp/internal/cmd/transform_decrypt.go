@@ -30,7 +30,7 @@ import (
 	"github.com/zntrio/harp/v2/pkg/sdk/value/encryption"
 )
 
-// -----------------------------------------------------------------------------
+// -----------------------------------------------------------------------------.
 type transformDecryptParams struct {
 	inputPath              string
 	outputPath             string

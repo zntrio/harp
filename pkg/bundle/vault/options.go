@@ -34,7 +34,7 @@ type options struct {
 // Option defines the functional pattern for bundle operation settings.
 type Option func(*options) error
 
-// WithExcludePath register a path exclusion regexp
+// WithExcludePath register a path exclusion regexp.
 func WithExcludePath(value string) Option {
 	return func(opts *options) error {
 		// Compile RegExp first
@@ -51,7 +51,7 @@ func WithExcludePath(value string) Option {
 	}
 }
 
-// WithIncludePath register a path inclusion regexp
+// WithIncludePath register a path inclusion regexp.
 func WithIncludePath(value string) Option {
 	return func(opts *options) error {
 		// Compile RegExp first
@@ -68,7 +68,7 @@ func WithIncludePath(value string) Option {
 	}
 }
 
-// WithPrefix add a prefix to path value
+// WithPrefix add a prefix to path value.
 func WithPrefix(value string) Option {
 	return func(opts *options) error {
 		opts.prefix = value

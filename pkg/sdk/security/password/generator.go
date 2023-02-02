@@ -29,7 +29,7 @@ const (
 	MaxPasswordLen = 1024
 )
 
-// Generate a custom password
+// Generate a custom password.
 func Generate(length, numDigits, numSymbol int, noUpper, allowRepeat bool) (string, error) {
 	// Check parameters
 	if length < 0 || length > MaxPasswordLen {

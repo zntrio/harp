@@ -38,7 +38,7 @@ type directory struct {
 	children map[string]interface{}
 }
 
-// Compile time type assertion
+// Compile time type assertion.
 var _ fs.ReadDirFile = (*directory)(nil)
 
 // -----------------------------------------------------------------------------

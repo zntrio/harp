@@ -23,7 +23,7 @@ import (
 	bundlev1 "github.com/zntrio/harp/v2/api/gen/go/harp/bundle/v1"
 )
 
-// Processor declares a bundle processor contract
+// Processor declares a bundle processor contract.
 type Processor func(context.Context, *bundlev1.Bundle) error
 
 // Context defines tree processing context.

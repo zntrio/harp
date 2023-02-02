@@ -25,7 +25,7 @@ import (
 	"github.com/hashicorp/hcl/v2/hclsyntax"
 )
 
-// Parser is a HCL2 parser
+// Parser is a HCL2 parser.
 type Parser struct{}
 
 // Unmarshal HCL2.0 scripts.

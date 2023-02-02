@@ -60,7 +60,7 @@ type Options struct {
 	ClientAuth tls.ClientAuthType
 }
 
-// Extra (server-side) accepted CBC cipher suites - will phase out in the future
+// Extra (server-side) accepted CBC cipher suites - will phase out in the future.
 var acceptedCBCCiphers = []uint16{
 	tls.TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA,
 	tls.TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA,
@@ -76,7 +76,7 @@ var DefaultServerAcceptedCiphers = append(clientCipherSuites, acceptedCBCCiphers
 // allTLSVersions lists all the TLS versions and is used by the code that validates
 // a uint16 value as a TLS version.
 var allTLSVersions = map[uint16]struct{}{
-	// nolint:staticcheck // SSL30 disabled
+	//nolint:staticcheck // SSL30 disabled
 	tls.VersionSSL30: {},
 	tls.VersionTLS10: {},
 	tls.VersionTLS11: {},
@@ -128,7 +128,7 @@ func certPool(caFile string, exclusivePool bool) (*x509.CertPool, error) {
 	return certPool, nil
 }
 
-// isValidMinVersion checks that the input value is a valid tls minimum version
+// isValidMinVersion checks that the input value is a valid tls minimum version.
 func isValidMinVersion(version uint16) bool {
 	_, ok := allTLSVersions[version]
 	return ok
@@ -151,7 +151,7 @@ func adjustMinVersion(options *Options, config *tls.Config) error {
 }
 
 // IsErrEncryptedKey returns true if the 'err' is an error of incorrect
-// password when tryin to decrypt a TLS private key
+// password when tryin to decrypt a TLS private key.
 func IsErrEncryptedKey(err error) bool {
 	return errors.Is(errors.Cause(err), x509.IncorrectPasswordError)
 }
