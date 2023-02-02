@@ -39,8 +39,10 @@ jobs:
           egress-policy: block
           allowed-endpoints: >
             api.github.com:443
+            objects.githubusercontent.com:443
             github.com:443
             proxy.golang.org:443
+            raw.githubusercontent.com:443
             storage.googleapis.com:443
       -
         name: Cancel previous workflows
@@ -197,7 +199,7 @@ jobs:
         name: Setup gotestsum
         uses: autero1/action-gotestsum@v1.0.0
         with:
-          gotestsum_version: 1.9.0
+          gotestsum_version: '1.9.0'
       -
         name: Run tests
         run: gotestsum --format short-verbose ./pkg/...
@@ -235,7 +237,7 @@ jobs:
         name: Setup gotestsum
         uses: autero1/action-gotestsum@v1.0.0
         with:
-          gotestsum_version: 1.9.0
+          gotestsum_version: '1.9.0'
       -
         name: Run tests
         run: gotestsum --format short-verbose ./pkg/...
@@ -273,7 +275,7 @@ jobs:
         name: Setup gotestsum
         uses: autero1/action-gotestsum@v1.0.0
         with:
-          gotestsum_version: 1.9.0
+          gotestsum_version: '1.9.0'
       -
         name: Run tests
         run: gotestsum --format short-verbose ./pkg/...
