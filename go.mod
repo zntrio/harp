@@ -37,7 +37,7 @@ require (
 	github.com/google/go-cmp v0.5.9
 	github.com/google/go-github/v42 v42.0.0
 	github.com/google/gofuzz v1.2.0
-	github.com/google/gops v0.3.26
+	github.com/google/gops v0.3.27
 	github.com/gosimple/slug v1.13.1
 	github.com/hashicorp/consul/api v1.18.0
 	github.com/hashicorp/go-cleanhttp v0.5.2
