@@ -89,7 +89,7 @@ require (
 )
 
 require (
-	github.com/containerd/containerd v1.6.16 // indirect
+	github.com/containerd/containerd v1.6.18 // indirect
 	github.com/gogo/protobuf v1.3.2 // indirect
 	github.com/opencontainers/runc v1.1.2 // indirect
 )

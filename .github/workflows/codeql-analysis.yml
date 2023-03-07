@@ -23,10 +23,17 @@ jobs:
 
     steps:
     - 
-      uses: step-security/harden-runner@v2.2.0
+      name: Harden Runner
+      uses: step-security/harden-runner@c8454efe5d0bdefd25384362fe217428ca277d57 # v2.2.0
       with:
-        egress-policy: audit
-        disable-telemetry: true
+        disable-sudo: true
+        egress-policy: block
+        allowed-endpoints: >
+          api.github.com:443
+          github.com:443
+          go.dev:443
+          golang.org:443
+          storage.googleapis.com:443
     -
       name: Cancel previous workflows
       uses: styfle/cancel-workflow-action@0.11.0
@@ -48,7 +55,7 @@ jobs:
       name: Set up Go
       uses: actions/setup-go@v3
       with:
-        go-version: 1.20
+        go-version: "1.20"
     -
       name: Build Harp
       run: |

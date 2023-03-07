@@ -2,8 +2,8 @@ module github.com/zntrio/harp/v2/tools
 
 go 1.19
 
-// CVE-2022-41717
-replace golang.org/x/net => golang.org/x/net v0.5.0
+// CVE-2022-41723
+replace golang.org/x/net => golang.org/x/net v0.7.0
 
 require (
 	github.com/CycloneDX/cyclonedx-gomod v1.3.0
@@ -208,9 +208,9 @@ require (
 	golang.org/x/mod v0.7.0 // indirect
 	golang.org/x/net v0.5.0 // indirect
 	golang.org/x/sync v0.1.0 // indirect
-	golang.org/x/sys v0.4.0 // indirect
-	golang.org/x/term v0.4.0 // indirect
-	golang.org/x/text v0.6.0 // indirect
+	golang.org/x/sys v0.5.0 // indirect
+	golang.org/x/term v0.5.0 // indirect
+	golang.org/x/text v0.7.0 // indirect
 	golang.org/x/tools v0.5.0 // indirect
 	gonum.org/v1/gonum v0.7.0 // indirect
 	gopkg.in/ini.v1 v1.67.0 // indirect
