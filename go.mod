@@ -123,7 +123,7 @@ require (
 	github.com/docker/go-connections v0.4.0 // indirect
 	github.com/docker/go-metrics v0.0.1 // indirect
 	github.com/docker/go-units v0.4.0 // indirect
-	github.com/essentialkaos/branca v1.3.2
+	github.com/essentialkaos/branca v1.3.3
 	github.com/fsnotify/fsnotify v1.6.0 // indirect
 	github.com/ghodss/yaml v1.0.0 // indirect
 	github.com/google/go-querystring v1.1.0 // indirect
