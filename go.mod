@@ -46,7 +46,7 @@ require (
 	github.com/hashicorp/hcl/v2 v2.16.2
 	github.com/hashicorp/vault/api v1.9.0
 	github.com/iancoleman/strcase v0.2.0
-	github.com/imdario/mergo v0.3.13
+	github.com/imdario/mergo v0.3.14
 	github.com/jmespath/go-jmespath v0.4.0
 	github.com/klauspost/compress v1.16.3
 	github.com/lytics/base62 v0.0.0-20180808010106-0ee4de5a5d6d
