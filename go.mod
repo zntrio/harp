@@ -23,7 +23,7 @@ require (
 	github.com/common-nighthawk/go-figure v0.0.0-20210622060536-734e95fb86be
 	github.com/davecgh/go-spew v1.1.1
 	github.com/dchest/uniuri v1.2.0
-	github.com/fatih/color v1.14.1
+	github.com/fatih/color v1.15.0
 	github.com/fatih/structs v1.1.0
 	github.com/fernet/fernet-go v0.0.0-20211208181803-9f70042a33ee
 	github.com/go-akka/configuration v0.0.0-20200606091224-a002c0330665
