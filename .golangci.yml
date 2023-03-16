@@ -105,7 +105,7 @@ linters-settings:
     # switch
     default-signifies-exhaustive: false
 
-  exhaustivestruct:
+  #exhaustivestruct:
     # Struct Patterns is list of expressions to match struct packages and names
     # The struct packages have the form example.com/package.ExampleStruct
     # The matching patterns can use matching syntax from https://pkg.go.dev/path#Match
@@ -127,7 +127,7 @@ linters-settings:
     lines: 60
     statements: 40
 
-  gci:
+  #gci:
     # put imports beginning with prefix after 3rd-party packages;
     # only support one prefix
     # if not set, use goimports.local-prefixes
@@ -215,7 +215,7 @@ linters-settings:
     # comments to be checked: `declarations`, `toplevel`, or `all`
     scope: declarations
     # list of regexps for excluding particular comment lines from check
-    exclude:
+    # exclude:
     # example: exclude comments which contain numbers
     # - '[0-9]+'
     # check that each sentence starts with a capital letter
@@ -267,7 +267,7 @@ linters-settings:
 #    template-path:
     # also as alternative of directive 'template' you may put the path to file with the template source
 
-  goimports:
+  #goimports:
     # put imports beginning with prefix after 3rd-party packages;
     # it's a comma-separated list of prefixes
 #    local-prefixes: github.com/org/project
@@ -280,7 +280,13 @@ linters-settings:
     settings:
       mnd:
         # the list of enabled checks, see https://github.com/tommy-muehle/go-mnd/#checks for description.
-        checks: argument,case,condition,operation,return,assign
+        checks: 
+          - argument
+          - case
+          - condition
+          - operation
+          - return
+          - assign
         # ignored-numbers: 1000
         # ignored-files: magic_.*.go
         # ignored-functions: math.*
@@ -526,7 +532,7 @@ linters-settings:
         avro: snake
         mapstructure: kebab
 
-  testpackage:
+  # testpackage:
     # regexp pattern to skip files
 #    skip-regexp: (export|internal)_test\.go
 
@@ -555,7 +561,7 @@ linters-settings:
 
   unused:
     # Select the Go version to target. The default is '1.13'.
-    go: "1.18"
+    go: "1.19"
 
   whitespace:
     multi-if: false   # Enforces newlines (or comments) after every multi-line if statement

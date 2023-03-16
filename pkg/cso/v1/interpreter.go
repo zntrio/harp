@@ -70,7 +70,7 @@ func Interpret(secret *csov1.Secret, templates map[csov1.RingLevel]string, w io.
 		err = t.Execute(w, secret.GetApplication())
 	case csov1.RingLevel_RING_LEVEL_ARTIFACT:
 		err = t.Execute(w, secret.GetArtifact())
-	case csov1.RingLevel_RING_LEVEL_INVALID, csov1.RingLevel_RING_LEVEL_UNKNOWN:
+	case csov1.RingLevel_RING_LEVEL_UNSPECIFIED, csov1.RingLevel_RING_LEVEL_UNKNOWN:
 		err = fmt.Errorf("invalid secret ring %v", secret.RingLevel)
 	default:
 		err = fmt.Errorf("invalid secret ring %v", secret.RingLevel)

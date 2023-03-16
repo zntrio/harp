@@ -187,7 +187,7 @@ func Build(name, packageName, version string, opts ...BuildOption) func() error 
 		}
 
 		// Create output directory
-		if errMkDir := os.Mkdir("bin", 0o744); errMkDir != nil {
+		if errMkDir := os.Mkdir("bin", 0o700); errMkDir != nil {
 			if !errors.Is(errMkDir, os.ErrExist) {
 				return fmt.Errorf("unable to create output directory: %w", errMkDir)
 			}

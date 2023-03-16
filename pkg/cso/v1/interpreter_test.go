@@ -72,7 +72,7 @@ func TestCso_Interpret_Text(t *testing.T) {
 				RingLevel: csov1.RingLevel_RING_LEVEL_PLATFORM,
 				Path: &csov1.Secret_Platform{
 					Platform: &csov1.Platform{
-						Stage:       csov1.QualityLevel_QUALITY_LEVEL_INVALID,
+						Stage:       csov1.QualityLevel_QUALITY_LEVEL_STAGING,
 						Name:        "customer-1",
 						Region:      "us-east-1",
 						ServiceName: "adminconsole",
@@ -80,7 +80,7 @@ func TestCso_Interpret_Text(t *testing.T) {
 					},
 				},
 			},
-			expected: `Give me a platform secret named "database/creds", for a service named "adminconsole", located in region "us-east-1", part of a "QUALITY_LEVEL_INVALID" platform named "customer-1".`,
+			expected: `Give me a platform secret named "database/creds", for a service named "adminconsole", located in region "us-east-1", part of a "QUALITY_LEVEL_STAGING" platform named "customer-1".`,
 		},
 		{
 			desc:    "Product path",
@@ -105,7 +105,7 @@ func TestCso_Interpret_Text(t *testing.T) {
 				RingLevel: csov1.RingLevel_RING_LEVEL_APPLICATION,
 				Path: &csov1.Secret_Application{
 					Application: &csov1.Application{
-						Stage:          csov1.QualityLevel_QUALITY_LEVEL_INVALID,
+						Stage:          csov1.QualityLevel_QUALITY_LEVEL_PRODUCTION,
 						PlatformName:   "customer-1",
 						ProductName:    "ece",
 						ProductVersion: "v1.0.0",
@@ -114,7 +114,7 @@ func TestCso_Interpret_Text(t *testing.T) {
 					},
 				},
 			},
-			expected: `Give me an application secret named "http/jwt_hmac", concerning the component "server", for a product named "ece", in version "v1.0.0", running on a "QUALITY_LEVEL_INVALID" platform named "customer-1".`,
+			expected: `Give me an application secret named "http/jwt_hmac", concerning the component "server", for a product named "ece", in version "v1.0.0", running on a "QUALITY_LEVEL_PRODUCTION" platform named "customer-1".`,
 		},
 		{
 			desc:    "Artifact path",

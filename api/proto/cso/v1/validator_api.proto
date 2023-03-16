@@ -30,7 +30,7 @@ option php_namespace = "Cso\\V1";
 import "cso/v1/secret.proto";
 
 // ValidatorAPI repesents CSO validation service contract.
-service ValidatorAPI {
+service ValidatorService {
   // Validate given path according to CSO sepcification.
   rpc Validate(ValidateRequest) returns (ValidateResponse);
 }

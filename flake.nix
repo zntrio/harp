@@ -27,91 +27,87 @@
       in
       rec
       {
-        tools.gci = pkgs.buildGoModule rec {
-          pname = "gci";
-          version = "0a02b8b306dcdb9b8dd57ca5b1d4c161767bb545";
-
-          src = pkgs.fetchFromGitHub {
-            owner = "daixiang0";
-            repo = "gci";
-            rev = "${version}";
-            sha256 = "sha256-qWEEcIbTgYmGVnnTW+hM8e8nw5VLWN1TwzdUIZrxF3s=";
-          };
-
-          vendorSha256 = "sha256-dlt+i/pEP3RzW4JwndKTU7my2Nn7/2rLFlk8n1sFR60=";
-
-          nativeBuildInputs = [ pkgs.installShellFiles ];
-        };
-
-        tools.wwhrd = pkgs.buildGoModule rec {
-          pname = "wwhrd";
-          version = "13b50a0e5c6316c9126c537d140dd3efba040e41";
-
-          src = pkgs.fetchFromGitHub {
-            owner = "frapposelli";
-            repo = "wwhrd";
-            rev = "${version}";
-            sha256 = "sha256-z6xhRKTqsPFT0I76IVZKcCG90kR/0kKNvZbfPNFaJWw=";
-          };
-
-          vendorSha256 = null;
-
-          nativeBuildInputs = [ pkgs.installShellFiles ];
-        };
-
-        tools.cyclonedx-gomod = pkgs.buildGoModule rec {
-          pname = "cyclonedx-gomod";
-          version = "0313c5f801f55fcb38d7d18aa5b5f8c68b7667f4";
-
-          src = pkgs.fetchFromGitHub {
-            owner = "CycloneDX";
-            repo = "cyclonedx-gomod";
-            rev = "${version}";
-            sha256 = "sha256-BjzZYakILJuK+sU0hkPDSs4Jt/48oYX1t5pN+xzJXTk=";
-          };
-
-          vendorSha256 = "sha256-8j39II91QjRqBNHu3jf5p850YAO6PqLcoOKMXsp1wXw=";
-          subPackages = [ "cmd/cyclonedx-gomod" ];
-
-          nativeBuildInputs = [ pkgs.installShellFiles ];
-        };
-
-        packages.harp = pkgs.callPackage ./default.nix {
+        packages.default = pkgs.callPackage ./default.nix {
           inherit rev;
         };
 
-        defaultPackage = packages.harp;
+        devShells = {
+          default =
+            let
+              devtools = {
+                gci = pkgs.buildGoModule rec {
+                  pname = "gci";
+                  version = "8f9a4e94ae2a8db0093d52281bf7ac0c83eed0ce";
 
-        apps = {
-          harp = utils.lib.mkApp {
-            drv = packages.harp;
-            exePath = "/bin/harp";
-          };
+                  src = pkgs.fetchFromGitHub {
+                    owner = "daixiang0";
+                    repo = "gci";
+                    rev = "${version}";
+                    sha256 = "sha256-qWEEcIbTgYmGVnnTW+hM8e8nw5VLWN1TwzdUIZrxF3s=";
+                  };
 
-          default = apps.harp;
+                  vendorSha256 = "sha256-dlt+i/pEP3RzW4JwndKTU7my2Nn7/2rLFlk8n1sFR60=";
+
+                  nativeBuildInputs = [ pkgs.installShellFiles ];
+                };
+
+                wwhrd = pkgs.buildGoModule rec {
+                  pname = "wwhrd";
+                  version = "a4048a3e900ae413910a8477d7c8c2cf9eb9fc3a";
+
+                  src = pkgs.fetchFromGitHub {
+                    owner = "frapposelli";
+                    repo = "wwhrd";
+                    rev = "${version}";
+                    sha256 = "sha256-z6xhRKTqsPFT0I76IVZKcCG90kR/0kKNvZbfPNFaJWw=";
+                  };
+
+                  vendorSha256 = null;
+
+                  nativeBuildInputs = [ pkgs.installShellFiles ];
+                };
+
+                cyclonedx-gomod = pkgs.buildGoModule rec {
+                  pname = "cyclonedx-gomod";
+                  version = "2fe0a1da390fbc17df326f35139a5a4d9e1ffe65";
+
+                  src = pkgs.fetchFromGitHub {
+                    owner = "CycloneDX";
+                    repo = "cyclonedx-gomod";
+                    rev = "${version}";
+                    sha256 = "sha256-BjzZYakILJuK+sU0hkPDSs4Jt/48oYX1t5pN+xzJXTk=";
+                  };
+
+                  vendorSha256 = "sha256-8j39II91QjRqBNHu3jf5p850YAO6PqLcoOKMXsp1wXw=";
+                  subPackages = [ "cmd/cyclonedx-gomod" ];
+
+                  nativeBuildInputs = [ pkgs.installShellFiles ];
+                };
+              };
+            in
+            pkgs.mkShell
+              {
+                buildInputs = [
+                  pkgs.go_1_20
+                  pkgs.gopls
+                  pkgs.gotools
+                  pkgs.go-tools
+                  pkgs.gotestsum
+                  pkgs.gofumpt
+                  pkgs.golangci-lint
+                  devtools.gci
+                  devtools.cyclonedx-gomod
+                  devtools.wwhrd
+                  pkgs.mage
+                  pkgs.buf
+                  pkgs.mockgen
+                  pkgs.protobuf
+                  pkgs.protoc-gen-go
+                  pkgs.protoc-gen-go-grpc
+                  pkgs.cue
+                ];
+              };
         };
-
-        devShell = pkgs.mkShell
-          {
-            buildInputs = [
-              pkgs.go_1_19
-              pkgs.gopls
-              pkgs.gotools
-              pkgs.go-tools
-              pkgs.gotestsum
-              pkgs.gofumpt
-              pkgs.golangci-lint
-              tools.gci
-              tools.cyclonedx-gomod
-              tools.wwhrd
-              pkgs.mage
-              pkgs.mockgen
-              pkgs.protobuf
-              pkgs.protoc-gen-go
-              pkgs.protoc-gen-go-grpc
-              pkgs.just
-              pkgs.cue
-            ];
-          };
-      });
+      }
+    );
 }

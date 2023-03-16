@@ -19,13 +19,13 @@ syntax = "proto3";
 
 package harp.bundle.v1;
 
-option csharp_namespace = "harp.Bundle.V1";
+option csharp_namespace = "Harp.Bundle.V1";
 option go_package = "github.com/zntrio/harp/v2/api/gen/go/harp/bundle/v1;bundlev1";
 option java_multiple_files = true;
 option java_outer_classname = "PatchProto";
 option java_package = "com.github.elastic.cloudsec.harp.bundle.v1";
 option objc_class_prefix = "SBX";
-option php_namespace = "harp\\Bundle\\V1";
+option php_namespace = "Harp\\Bundle\\V1";
 
 // Patch represents bundle patch definition.
 message Patch {
@@ -58,7 +58,7 @@ message PatchSpec {
 
 message PatchExecutor {
   // Enable/Disable annotations after patch application.
-  bool disableAnnotations = 1;
+  bool disable_annotations = 1;
 }
 
 // PatchRule represents an operation to apply to a given bundle.
@@ -74,15 +74,15 @@ message PatchRule {
 // PatchSelector represents selecting strategies used to match a bundle resource.
 message PatchSelector {
   // Match a package by using its path (secret path).
-  PatchSelectorMatchPath matchPath = 1;
+  PatchSelectorMatchPath match_path = 1;
   // Match a package using a JMESPath query.
-  string jmesPath = 2;
+  string jmes_path = 2;
   // Match a package using a Rego policy.
   string rego = 3;
   // Match a package using a REgo policy stored in an external file.
-  string regoFile = 4;
+  string rego_file = 4;
   // Match a package by secret.
-  PatchSelectorMatchSecret matchSecret = 5;
+  PatchSelectorMatchSecret match_secret = 5;
   // Match a package using CEL expressions.
   repeated string cel = 6;
 }
@@ -160,7 +160,7 @@ message PatchOperation {
   map<string,string> update = 3;
   // Replace case-sensitive existing key using the associated value.
   // Value can be templatized.
-  map<string,string> replaceKeys = 4;
+  map<string,string> replace_keys = 4;
   // Remove all keys matching these given regexp.
-  repeated string removeKeys = 5;
+  repeated string remove_keys = 5;
 }
