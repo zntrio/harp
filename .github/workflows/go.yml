@@ -32,7 +32,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - 
-        uses: step-security/harden-runner@v2.2.0
+        uses: step-security/harden-runner@1f99358870fe1c846a3ccba386cc2b2246836776
         with:
           disable-sudo: true
           disable-telemetry: true
@@ -77,7 +77,7 @@ jobs:
     needs: [golangci-lint, go-mod]
     steps:
       - 
-        uses: step-security/harden-runner@v2.2.0
+        uses: step-security/harden-runner@1f99358870fe1c846a3ccba386cc2b2246836776
         with:
           disable-sudo: true
           disable-telemetry: true
@@ -125,7 +125,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - 
-        uses: step-security/harden-runner@v2.2.0
+        uses: step-security/harden-runner@1f99358870fe1c846a3ccba386cc2b2246836776
         with:
           disable-sudo: true
           disable-telemetry: true
@@ -162,7 +162,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - 
-        uses: step-security/harden-runner@v2.2.0
+        uses: step-security/harden-runner@1f99358870fe1c846a3ccba386cc2b2246836776
         with:
           disable-sudo: true
           disable-telemetry: true
