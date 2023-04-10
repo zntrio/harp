@@ -15,7 +15,7 @@ require (
 	filippo.io/age v1.1.1
 	filippo.io/edwards25519 v1.0.0
 	github.com/MakeNowJust/heredoc/v2 v2.0.1
-	github.com/Masterminds/semver/v3 v3.2.0
+	github.com/Masterminds/semver/v3 v3.2.1
 	github.com/Masterminds/sprig/v3 v3.2.3
 	github.com/alessio/shellescape v1.4.1
 	github.com/awnumar/memguard v0.22.3
