@@ -53,13 +53,13 @@
 
                 wwhrd = pkgs.buildGoModule rec {
                   pname = "wwhrd";
-                  version = "a4048a3e900ae413910a8477d7c8c2cf9eb9fc3a";
+                  version = "4d1d970b7dd8b2c09f0dd46cc749faeb0cee1f9d";
 
                   src = pkgs.fetchFromGitHub {
                     owner = "frapposelli";
                     repo = "wwhrd";
                     rev = "${version}";
-                    sha256 = "sha256-z6xhRKTqsPFT0I76IVZKcCG90kR/0kKNvZbfPNFaJWw=";
+                    sha256 = "sha256-OxJFxa833AmjFIOeLI94SxpP/Jlz7d4qglQwQm9TPG4=";
                   };
 
                   vendorSha256 = null;
@@ -69,16 +69,16 @@
 
                 cyclonedx-gomod = pkgs.buildGoModule rec {
                   pname = "cyclonedx-gomod";
-                  version = "2fe0a1da390fbc17df326f35139a5a4d9e1ffe65";
+                  version = "8d48a3aabb6623b715555cc53d1ad61bfd9d3e20";
 
                   src = pkgs.fetchFromGitHub {
                     owner = "CycloneDX";
                     repo = "cyclonedx-gomod";
                     rev = "${version}";
-                    sha256 = "sha256-BjzZYakILJuK+sU0hkPDSs4Jt/48oYX1t5pN+xzJXTk=";
+                    sha256 = "sha256-wrBFt06ym3tfSMJW+1KSv6J9dGwGqpqHIgjn50VlU0k=";
                   };
 
-                  vendorSha256 = "sha256-8j39II91QjRqBNHu3jf5p850YAO6PqLcoOKMXsp1wXw=";
+                  vendorSha256 = "sha256-1gEDHn7EcNVY10ahaEirn8KghgxpsS2pLC7HoycE428=";
                   subPackages = [ "cmd/cyclonedx-gomod" ];
 
                   nativeBuildInputs = [ pkgs.installShellFiles ];

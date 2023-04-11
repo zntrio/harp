@@ -1,12 +1,12 @@
-{ lib, buildGo119Module, rev }:
-buildGo119Module rec {
+{ lib, buildGoModule, rev }:
+buildGoModule rec {
   pname = "harp";
   version = rev;
 
   src = lib.cleanSource ./.;
 
   subPackages = [ "cmd/harp" ];
-  vendorSha256 = "sha256-Nx3VN16jbXCjffbSzewzUOVECT/qntEy1Llc/kmnKqI=";
+  vendorSha256 = "sha256-cCmLfSatJ0dJuj1G7PPSY1mZpd+nbQpEdiVczrL7ryM=";
   ldflags = [ 
     "-s" "-w" "-buildid="
     "-X github.com/zntrio/harp/v2/build/version.Name=harp"
