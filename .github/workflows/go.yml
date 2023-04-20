@@ -197,7 +197,7 @@ jobs:
         run: go mod download
       -
         name: Setup gotestsum
-        uses: autero1/action-gotestsum@v1.0.0
+        uses: autero1/action-gotestsum@v2.0.0
         with:
           gotestsum_version: '1.9.0'
       -
@@ -235,7 +235,7 @@ jobs:
         run: go mod download
       -
         name: Setup gotestsum
-        uses: autero1/action-gotestsum@v1.0.0
+        uses: autero1/action-gotestsum@v2.0.0
         with:
           gotestsum_version: '1.9.0'
       -
@@ -273,7 +273,7 @@ jobs:
         run: go mod download
       -
         name: Setup gotestsum
-        uses: autero1/action-gotestsum@v1.0.0
+        uses: autero1/action-gotestsum@v2.0.0
         with:
           gotestsum_version: '1.9.0'
       -
