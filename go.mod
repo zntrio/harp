@@ -11,7 +11,7 @@ replace (
 // GHSA
 require (
 	github.com/docker/docker v23.0.3+incompatible // indirect
-	github.com/opencontainers/image-spec v1.1.0-rc2.0.20221005185240-3a7f492d3f1b
+	github.com/opencontainers/image-spec v1.1.0-rc.3
 	github.com/opencontainers/runc v1.1.5 // indirect
 )
 
@@ -59,7 +59,7 @@ require (
 	github.com/mcuadros/go-defaults v1.2.0
 	github.com/miscreant/miscreant.go v0.0.0-20200214223636-26d376326b75
 	github.com/oklog/run v1.1.0
-	github.com/open-policy-agent/opa v0.52.0
+	github.com/open-policy-agent/opa v0.47.4
 	github.com/opencontainers/go-digest v1.0.0
 	github.com/ory/dockertest/v3 v3.10.0
 	github.com/pelletier/go-toml v1.9.5
@@ -89,7 +89,7 @@ require (
 	google.golang.org/protobuf v1.30.0
 	gopkg.in/square/go-jose.v2 v2.6.0
 	gopkg.in/yaml.v3 v3.0.1
-	oras.land/oras-go v1.2.3
+	oras.land/oras-go v1.2.1
 	sigs.k8s.io/yaml v1.3.0
 	zntr.io/paseto v1.2.0
 )
