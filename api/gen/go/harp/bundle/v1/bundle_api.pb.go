@@ -24,10 +24,11 @@
 package bundlev1
 
 import (
-	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
-	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
 	sync "sync"
+
+	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
+	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 )
 
 const (
@@ -212,11 +213,13 @@ func file_harp_bundle_v1_bundle_api_proto_rawDescGZIP() []byte {
 	return file_harp_bundle_v1_bundle_api_proto_rawDescData
 }
 
-var file_harp_bundle_v1_bundle_api_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
-var file_harp_bundle_v1_bundle_api_proto_goTypes = []interface{}{
-	(*GetSecretRequest)(nil),  // 0: harp.bundle.v1.GetSecretRequest
-	(*GetSecretResponse)(nil), // 1: harp.bundle.v1.GetSecretResponse
-}
+var (
+	file_harp_bundle_v1_bundle_api_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
+	file_harp_bundle_v1_bundle_api_proto_goTypes  = []interface{}{
+		(*GetSecretRequest)(nil),  // 0: harp.bundle.v1.GetSecretRequest
+		(*GetSecretResponse)(nil), // 1: harp.bundle.v1.GetSecretResponse
+	}
+)
 var file_harp_bundle_v1_bundle_api_proto_depIdxs = []int32{
 	0, // 0: harp.bundle.v1.BundleService.GetSecret:input_type -> harp.bundle.v1.GetSecretRequest
 	1, // 1: harp.bundle.v1.BundleService.GetSecret:output_type -> harp.bundle.v1.GetSecretResponse

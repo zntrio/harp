@@ -25,6 +25,7 @@ package csov1
 
 import (
 	context "context"
+
 	grpc "google.golang.org/grpc"
 	codes "google.golang.org/grpc/codes"
 	status "google.golang.org/grpc/status"
@@ -74,8 +75,7 @@ type ValidatorServiceServer interface {
 }
 
 // UnimplementedValidatorServiceServer must be embedded to have forward compatible implementations.
-type UnimplementedValidatorServiceServer struct {
-}
+type UnimplementedValidatorServiceServer struct{}
 
 func (UnimplementedValidatorServiceServer) Validate(context.Context, *ValidateRequest) (*ValidateResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Validate not implemented")

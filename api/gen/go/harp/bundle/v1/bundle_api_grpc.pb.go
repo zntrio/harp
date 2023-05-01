@@ -25,6 +25,7 @@ package bundlev1
 
 import (
 	context "context"
+
 	grpc "google.golang.org/grpc"
 	codes "google.golang.org/grpc/codes"
 	status "google.golang.org/grpc/status"
@@ -74,8 +75,7 @@ type BundleServiceServer interface {
 }
 
 // UnimplementedBundleServiceServer must be embedded to have forward compatible implementations.
-type UnimplementedBundleServiceServer struct {
-}
+type UnimplementedBundleServiceServer struct{}
 
 func (UnimplementedBundleServiceServer) GetSecret(context.Context, *GetSecretRequest) (*GetSecretResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetSecret not implemented")
