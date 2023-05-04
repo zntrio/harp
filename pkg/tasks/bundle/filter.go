@@ -138,7 +138,7 @@ func (t *FilterTask) keepFilter(in []*bundlev1.Package, paths []string, reverseL
 	for _, includePath := range paths {
 		includePathRegexp, errInclude := regexp.Compile(includePath)
 		if errInclude != nil {
-			return nil, fmt.Errorf("unable to compile keep regexp '%s': %w", includePath, errInclude)
+			return nil, fmt.Errorf("unable to compile keep regexp %q: %w", includePath, errInclude)
 		}
 
 		for _, p := range in {
@@ -167,7 +167,7 @@ func (t *FilterTask) excludeFilter(in []*bundlev1.Package, paths []string, rever
 	for _, excludePath := range paths {
 		excludePathRegexp, errExclude := regexp.Compile(excludePath)
 		if errExclude != nil {
-			return nil, fmt.Errorf("unable to compile exclusion regexp '%s': %w", excludePath, errExclude)
+			return nil, fmt.Errorf("unable to compile exclusion regexp %q: %w", excludePath, errExclude)
 		}
 
 		for _, p := range in {
@@ -196,7 +196,7 @@ func (t *FilterTask) jmespathFilter(in []*bundlev1.Package, filter string, rever
 	// Compile expression first
 	exp, errJMESPath := jmespath.Compile(filter)
 	if errJMESPath != nil {
-		return nil, fmt.Errorf("unable to compile JMESPath filter '%s': %w", filter, errJMESPath)
+		return nil, fmt.Errorf("unable to compile JMESPath filter %q: %w", filter, errJMESPath)
 	}
 
 	// Initialize selector

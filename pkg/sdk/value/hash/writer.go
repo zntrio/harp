@@ -57,10 +57,10 @@ func NewHasher(algorithm string) (hash.Hash, error) {
 	// Resolve algorithm
 	hf, ok := name2Hash[algorithm]
 	if !ok {
-		return nil, fmt.Errorf("unsupported hash algorithm '%s'", algorithm)
+		return nil, fmt.Errorf("unsupported hash algorithm %q", algorithm)
 	}
 	if !hf.Available() {
-		return nil, fmt.Errorf("hash algorithm '%s' is not available", algorithm)
+		return nil, fmt.Errorf("hash algorithm %q is not available", algorithm)
 	}
 
 	// Build hash instance.

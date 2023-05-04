@@ -50,6 +50,7 @@ func Pull(ctx context.Context, client *api.Client, paths []string, opts ...Optio
 		defaultWithSecretMetadata = false
 		defaultWithVaultMetadata  = false
 		defaultWorkerCount        = int64(4)
+		defaultContinueOnError = false
 	)
 
 	// Create default option instance
@@ -60,6 +61,7 @@ func Pull(ctx context.Context, client *api.Client, paths []string, opts ...Optio
 		withSecretMetadata: defaultWithSecretMetadata,
 		withVaultMetadata:  defaultWithVaultMetadata,
 		workerCount:        defaultWorkerCount,
+		continueOnError: defaultContinueOnError,
 	}
 
 	// Apply option functions
@@ -127,11 +129,11 @@ func runPull(ctx context.Context, client *api.Client, paths []string, opts *opti
 				// Create dedicated service reader
 				service, err := kv.New(client, p, kv.WithVaultMetatadata(opts.withVaultMetadata), kv.WithContext(gReaderctx))
 				if err != nil {
-					return fmt.Errorf("unable to prepare vault reader for path '%s': %w", p, err)
+					return fmt.Errorf("unable to prepare vault reader for path %q: %w", p, err)
 				}
 
 				// Create an exporter
-				op := operation.Exporter(service, vpath.SanitizePath(p), packageChan, opts.withSecretMetadata, opts.workerCount)
+				op := operation.Exporter(service, vpath.SanitizePath(p), packageChan, opts.withSecretMetadata, opts.workerCount, opts.continueOnError)
 
 				// Run the job
 				if err := op.Run(gReaderctx); err != nil {

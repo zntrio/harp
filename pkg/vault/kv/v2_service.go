@@ -114,23 +114,23 @@ func (s *kvv2Backend) ReadVersion(ctx context.Context, path string, version uint
 		secret, err = s.logical.Read(vpath.AddPrefixToVKVPath(secretPath, s.mountPath, "data"))
 	}
 	if err != nil {
-		return nil, nil, fmt.Errorf("unable to retrieve secret for path '%s': %w", path, err)
+		return nil, nil, fmt.Errorf("unable to retrieve secret for path %q: %w", path, err)
 	}
 	if secret == nil {
-		return nil, nil, fmt.Errorf("unable to retrieve secret for path '%s': %w", path, ErrPathNotFound)
+		return nil, nil, fmt.Errorf("unable to retrieve secret for path %q: %w", path, ErrPathNotFound)
 	}
 	if secret.Data == nil {
-		return nil, nil, fmt.Errorf("unable to retrieve secret for path '%s': %w", path, ErrNoData)
+		return nil, nil, fmt.Errorf("unable to retrieve secret for path %q: %w", path, ErrNoData)
 	}
 
 	// Check v2 backend
 	data, ok := secret.Data["data"]
 	if !ok {
-		return nil, nil, fmt.Errorf("unable to extract values for path '%s', secret backend supposed to be a v2 but it's not", path)
+		return nil, nil, fmt.Errorf("unable to extract values for path %q, secret backend supposed to be a v2 but it's not", path)
 	}
 	metadata, ok := secret.Data["metadata"].(map[string]interface{})
 	if !ok {
-		return nil, nil, fmt.Errorf("unable to extract metadata for path '%s', secret backend supposed to be a v2 but it's not", path)
+		return nil, nil, fmt.Errorf("unable to extract metadata for path %q, secret backend supposed to be a v2 but it's not", path)
 	}
 
 	// Check data
@@ -142,13 +142,13 @@ func (s *kvv2Backend) ReadVersion(ctx context.Context, path string, version uint
 	if s.customMetadataEnabled {
 		rawMeta, errMeta := s.logical.Read(vpath.AddPrefixToVKVPath(secretPath, s.mountPath, "metadata"))
 		if errMeta != nil {
-			return nil, nil, fmt.Errorf("unable to extract secret metadata for path '%s': %w", path, errMeta)
+			return nil, nil, fmt.Errorf("unable to extract secret metadata for path %q: %w", path, errMeta)
 		}
 		if rawMeta == nil {
-			return nil, nil, fmt.Errorf("unable to retrieve secret metadata for path '%s': %w", path, ErrPathNotFound)
+			return nil, nil, fmt.Errorf("unable to retrieve secret metadata for path %q: %w", path, ErrPathNotFound)
 		}
 		if rawMeta.Data == nil {
-			return nil, nil, fmt.Errorf("unable to retrieve secret metadata for path '%s': %w", path, ErrNoData)
+			return nil, nil, fmt.Errorf("unable to retrieve secret metadata for path %q: %w", path, ErrNoData)
 		}
 
 		// Check if response contains custom_metadata
@@ -184,14 +184,14 @@ func (s *kvv2Backend) WriteWithMeta(ctx context.Context, path string, data Secre
 		// Check key and value constraints
 		for k, v := range meta {
 			if len(k) > CustomMetadataKeySizeLimit {
-				return fmt.Errorf("custom meta '%s' could not be stored, it must be less than 128 bytes", k)
+				return fmt.Errorf("custom meta %q could not be stored, it must be less than 128 bytes", k)
 			}
 			raw, ok := v.(string)
 			if !ok {
-				return fmt.Errorf("custom meta '%s' must be a string", k)
+				return fmt.Errorf("custom meta %q must be a string", k)
 			}
 			if len(raw) > CustomMetadataValueSizeLimit {
-				return fmt.Errorf("custom meta '%s' value is too large (%d), it must be less than 512 bytes", k, len(raw))
+				return fmt.Errorf("custom meta %q value is too large (%d), it must be less than 512 bytes", k, len(raw))
 			}
 		}
 	} else if len(meta) > 0 {
@@ -204,7 +204,7 @@ func (s *kvv2Backend) WriteWithMeta(ctx context.Context, path string, data Secre
 		"data": data,
 	})
 	if err != nil {
-		return fmt.Errorf("unable to write secret data for path '%s': %w", path, err)
+		return fmt.Errorf("unable to write secret data for path %q: %w", path, err)
 	}
 
 	// Write metadata
@@ -213,7 +213,7 @@ func (s *kvv2Backend) WriteWithMeta(ctx context.Context, path string, data Secre
 			"custom_metadata": meta,
 		})
 		if err != nil {
-			return fmt.Errorf("unable to write secret metadata for path '%s': %w", path, err)
+			return fmt.Errorf("unable to write secret metadata for path %q: %w", path, err)
 		}
 	}
 

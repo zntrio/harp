@@ -85,7 +85,7 @@ func (t *ExtractKVTask) Run(ctx context.Context) error {
 				// Pack secret value
 				s, errPack := t.packSecret(secretKey, string(item.Value))
 				if errPack != nil {
-					return fmt.Errorf("unable to pack secret value for path '%s' with key '%s' : %w", item.Key, secretKey, errPack)
+					return fmt.Errorf("unable to pack secret value for path %q with key %q : %w", item.Key, secretKey, errPack)
 				}
 
 				// Add secret to package
@@ -96,7 +96,7 @@ func (t *ExtractKVTask) Run(ctx context.Context) error {
 					// Pack secret value
 					s, errPack := t.packSecret(k, v)
 					if errPack != nil {
-						return fmt.Errorf("unable to pack secret value for path '%s' with key '%s' : %w", item.Key, k, errPack)
+						return fmt.Errorf("unable to pack secret value for path %q with key %q : %w", item.Key, k, errPack)
 					}
 
 					// Add secret to package
@@ -138,7 +138,7 @@ func (t *ExtractKVTask) packSecret(key string, value interface{}) (*bundlev1.KV,
 	// Pack secret value
 	payload, err := secret.Pack(value)
 	if err != nil {
-		return nil, fmt.Errorf("unable to pack secret '%s': %w", key, err)
+		return nil, fmt.Errorf("unable to pack secret %q: %w", key, err)
 	}
 
 	// Build the secret object

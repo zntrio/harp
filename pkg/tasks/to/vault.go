@@ -76,7 +76,7 @@ func (t *VaultTask) Run(ctx context.Context) error {
 		bundlevault.WithVaultMetadata(t.AsVaultMetadata),
 		bundlevault.WithMaxWorkerCount(t.MaxWorkerCount),
 	); err != nil {
-		return fmt.Errorf("error occurs during vault export (prefix: '%s'): %w", t.BackendPrefix, err)
+		return fmt.Errorf("error occurs during vault export (prefix: %q): %w", t.BackendPrefix, err)
 	}
 
 	// No error

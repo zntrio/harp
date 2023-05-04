@@ -57,3 +57,5 @@ exceptions:
   - github.com/Nvveen/Gotty
   # BSD-2.0 - https://github.com/rcrowley/go-metrics/blob/master/LICENSE
   - github.com/rcrowley/go-metrics
+  # MPL2.0
+  - github.com/hashicorp/go-kms-wrapping/...

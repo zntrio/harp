@@ -70,12 +70,12 @@ func FromBundle(b *bundlev1.Bundle) (BundleFS, error) {
 		// Serialize package
 		body, err := proto.Marshal(p)
 		if err != nil {
-			return nil, fmt.Errorf("unable to serialize package '%s': %w", p.Name, err)
+			return nil, fmt.Errorf("unable to serialize package %q: %w", p.Name, err)
 		}
 
 		// Write content
 		if errWrite := bfs.WriteFile(p.Name, body, fileAccess); errWrite != nil {
-			return nil, fmt.Errorf("unable to write package '%s' in filesystem: %w", p.Name, err)
+			return nil, fmt.Errorf("unable to write package %q in filesystem: %w", p.Name, err)
 		}
 	}
 
@@ -114,7 +114,7 @@ func (bfs *bundleFs) Open(name string) (fs.File, error) {
 
 		it, ok := currentDirectory.children[dirName]
 		if !ok {
-			return nil, fmt.Errorf("directory '%s' not found: %w", dirName, fs.ErrNotExist)
+			return nil, fmt.Errorf("directory %q not found: %w", dirName, fs.ErrNotExist)
 		}
 		currentDirectory, ok = it.(*directory)
 		if !ok {
@@ -125,7 +125,7 @@ func (bfs *bundleFs) Open(name string) (fs.File, error) {
 	// Get child
 	h, ok := currentDirectory.children[name]
 	if !ok {
-		return nil, fmt.Errorf("item '%s' not found in directory '%s': %w", name, currentDirectory.name, fs.ErrNotExist)
+		return nil, fmt.Errorf("item %q not found in directory %q: %w", name, currentDirectory.name, fs.ErrNotExist)
 	}
 
 	switch it := h.(type) {
@@ -136,7 +136,7 @@ func (bfs *bundleFs) Open(name string) (fs.File, error) {
 		// Open enclave
 		body, err := it.content.Open()
 		if err != nil {
-			return nil, fmt.Errorf("file '%s' could not be opened: %w", name, err)
+			return nil, fmt.Errorf("file %q could not be opened: %w", name, err)
 		}
 
 		// Assign body reader
@@ -164,13 +164,13 @@ func (bfs *bundleFs) ReadDir(name string) ([]fs.DirEntry, error) {
 
 	// Confirm it's a directory
 	if !fi.IsDir() {
-		return nil, fmt.Errorf("path '%s' point to a file", name)
+		return nil, fmt.Errorf("path %q point to a file", name)
 	}
 
 	// Convert handle to directory reader
 	dir, ok := h.(fs.ReadDirFile)
 	if !ok {
-		return nil, fmt.Errorf("path '%s' point to a directory but could not be listed", name)
+		return nil, fmt.Errorf("path %q point to a directory but could not be listed", name)
 	}
 
 	// Delegate to directory list

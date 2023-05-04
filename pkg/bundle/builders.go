@@ -58,13 +58,13 @@ func FromDump(r io.Reader) (*bundlev1.Bundle, error) {
 			// Decode json encoded value
 			var data interface{}
 			if errJSON := json.Unmarshal(s.Value, &data); errJSON != nil {
-				return nil, fmt.Errorf("unable to decode '%s' - '%s' secret value as json: %w", p.Name, s.Key, errJSON)
+				return nil, fmt.Errorf("unable to decode %q - %q secret value as json: %w", p.Name, s.Key, errJSON)
 			}
 
 			// Pack secret value
 			payload, err := secret.Pack(data)
 			if err != nil {
-				return nil, fmt.Errorf("unable to pack '%s' - '%s' secret value: %w", p.Name, s.Key, err)
+				return nil, fmt.Errorf("unable to pack %q - %q secret value: %w", p.Name, s.Key, err)
 			}
 
 			// Replace current json encoded secret value by packed one.
@@ -108,7 +108,7 @@ func FromOpLog(oplog compare.OpLog) (*bundlev1.Bundle, error) {
 				// Pack secret value
 				payload, err := secret.Pack(op.Value)
 				if err != nil {
-					return nil, fmt.Errorf("unable to pack secret value for '%s' / '%s': %w", pathParts[0], pathParts[1], err)
+					return nil, fmt.Errorf("unable to pack secret value for %q / %q: %w", pathParts[0], pathParts[1], err)
 				}
 
 				// Assign secret data
@@ -121,7 +121,7 @@ func FromOpLog(oplog compare.OpLog) (*bundlev1.Bundle, error) {
 				// Ignore secret removal
 			}
 		default:
-			return nil, fmt.Errorf("unknown oplog type '%s'", op.Type)
+			return nil, fmt.Errorf("unknown oplog type %q", op.Type)
 		}
 	}
 

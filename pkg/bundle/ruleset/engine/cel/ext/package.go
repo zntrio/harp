@@ -85,6 +85,12 @@ func (packageLib) CompileOptions() []cel.EnvOption {
 			),
 		),
 		cel.Function(
+			"without_secret",
+			cel.MemberOverload("package_without_secret_string", []*cel.Type{harpPackageObjectType}, cel.BoolType,
+				cel.UnaryBinding(celPackageWithoutSecret),
+			),
+		),
+		cel.Function(
 			"has_all_secrets",
 			cel.MemberOverload("package_has_all_secrets_string", []*cel.Type{harpPackageObjectType, cel.ListType(cel.StringType)}, cel.BoolType,
 				cel.BinaryBinding(celPackageHasAllSecrets),
@@ -334,6 +340,21 @@ func celPackageHasSecret(lhs, rhs ref.Val) ref.Val {
 		if strings.EqualFold(k.Key, secretName) {
 			return types.Bool(true)
 		}
+	}
+
+	return types.Bool(false)
+}
+
+func celPackageWithoutSecret(value ref.Val) ref.Val {
+	x, _ := value.ConvertToNative(reflect.TypeOf(&bundlev1.Package{}))
+	p, ok := x.(*bundlev1.Package)
+	if !ok {
+		return types.Bool(false)
+	}
+
+	// Look for secret name
+	if p.Secrets == nil || len(p.Secrets.Data) == 0 {
+		return types.Bool(true)
 	}
 
 	return types.Bool(false)

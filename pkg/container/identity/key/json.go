@@ -104,5 +104,5 @@ func (k *JSONWebKey) RecoveryKey() (string, error) {
 	}
 
 	// Unhandled key
-	return "", fmt.Errorf("unhandled private key format '%s'", k.Crv)
+	return "", fmt.Errorf("unhandled private key format %q", k.Crv)
 }

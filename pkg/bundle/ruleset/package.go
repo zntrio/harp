@@ -102,7 +102,7 @@ func Evaluate(ctx context.Context, b *bundlev1.Bundle, spec *bundlev1.RuleSet) e
 				errEval := vm.EvaluatePackage(ctx, p)
 				if errEval != nil {
 					if errors.Is(errEval, engine.ErrRuleNotValid) {
-						return fmt.Errorf("package '%s' doesn't validate rule '%s'", p.Name, r.Name)
+						return fmt.Errorf("package %q doesn't validate rule %q", p.Name, r.Name)
 					}
 					return fmt.Errorf("unexpected error occurred during constraints evaluation: %w", errEval)
 				}
@@ -111,7 +111,7 @@ func Evaluate(ctx context.Context, b *bundlev1.Bundle, spec *bundlev1.RuleSet) e
 
 		// Check matching constraint
 		if !matchOnce {
-			return fmt.Errorf("rule '%s' didn't match any packages", r.Name)
+			return fmt.Errorf("rule %q didn't match any packages", r.Name)
 		}
 	}
 

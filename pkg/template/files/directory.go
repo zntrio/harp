@@ -40,7 +40,7 @@ func (l DirLoader) Load() ([]*BufferedFile, error) {
 func LoadDir(filesystem fs.FS, dir string) ([]*BufferedFile, error) {
 	// Check if path is valid
 	if !fs.ValidPath(dir) {
-		return nil, fmt.Errorf("'%s' is not a valid path", dir)
+		return nil, fmt.Errorf("%q is not a valid path", dir)
 	}
 
 	result := []*BufferedFile{}
@@ -88,7 +88,7 @@ func LoadDir(filesystem fs.FS, dir string) ([]*BufferedFile, error) {
 		return nil
 	}
 	if err := fs.WalkDir(filesystem, topdir, walk); err != nil {
-		return nil, fmt.Errorf("unable to walk directory '%s' : %w", topdir, err)
+		return nil, fmt.Errorf("unable to walk directory %q : %w", topdir, err)
 	}
 
 	// No error

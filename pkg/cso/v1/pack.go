@@ -44,7 +44,7 @@ func Pack(secretPath string) (*csov1.Secret, error) {
 	// Delegate to ring packer
 	rp, ok := packMap[parts[0]]
 	if !ok {
-		return nil, fmt.Errorf("unable to pack unknown secret '%s'", parts[0])
+		return nil, fmt.Errorf("unable to pack unknown secret %q", parts[0])
 	}
 
 	// Call ring packer

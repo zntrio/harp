@@ -135,7 +135,7 @@ func processFilePath(currentDirectory, filePath string, result interface{}) erro
 	// Retrieve appropriate parser
 	p, err := values.GetParser(fileType)
 	if err != nil {
-		return fmt.Errorf("error occurred during parser instance retrieval for type '%s': %w", fileType, err)
+		return fmt.Errorf("error occurred during parser instance retrieval for type %q: %w", fileType, err)
 	}
 
 	// Change current directory if filePath is not Stdin
@@ -147,7 +147,7 @@ func processFilePath(currentDirectory, filePath string, result interface{}) erro
 		// If confDir is not blank (current path)
 		if confDir != "" {
 			if errChDir := os.Chdir(confDir); errChDir != nil {
-				return fmt.Errorf("unable to change working directory for '%s': %w", confDir, errChDir)
+				return fmt.Errorf("unable to change working directory for %q: %w", confDir, errChDir)
 			}
 		}
 	}
@@ -155,14 +155,14 @@ func processFilePath(currentDirectory, filePath string, result interface{}) erro
 	// Drain file content
 	reader, err := cmdutil.Reader(filePath)
 	if err != nil {
-		return fmt.Errorf("unable to build a reader from '%s': %w", filePath, err)
+		return fmt.Errorf("unable to build a reader from %q: %w", filePath, err)
 	}
 
 	// Drain reader
 	var contentBytes []byte
 	contentBytes, err = io.ReadAll(reader)
 	if err != nil {
-		return fmt.Errorf("unable to drain all reader content from '%s': %w", filePath, err)
+		return fmt.Errorf("unable to drain all reader content from %q: %w", filePath, err)
 	}
 
 	// Check prefix
@@ -170,7 +170,7 @@ func processFilePath(currentDirectory, filePath string, result interface{}) erro
 		// Parse with detected parser
 		var fileContent interface{}
 		if err := p.Unmarshal(contentBytes, &fileContent); err != nil {
-			return fmt.Errorf("unable to unmarshal content from '%s' as '%s': %w", filePath, fileType, err)
+			return fmt.Errorf("unable to unmarshal content from %q as %q: %w", filePath, fileType, err)
 		}
 
 		// Re-encode JSON prepending the prefix
@@ -178,15 +178,15 @@ func processFilePath(currentDirectory, filePath string, result interface{}) erro
 		if err := json.NewEncoder(&buf).Encode(map[string]interface{}{
 			valuePrefix: fileContent,
 		}); err != nil {
-			return fmt.Errorf("unable to re-encode as JSON with prefix '%s', content from '%s' as '%s': %w", valuePrefix, filePath, fileType, err)
+			return fmt.Errorf("unable to re-encode as JSON with prefix %q, content from %q as %q: %w", valuePrefix, filePath, fileType, err)
 		}
 
 		// Send as result
 		if err := json.NewDecoder(&buf).Decode(result); err != nil {
-			return fmt.Errorf("unable to decode json content from '%s' parsed as '%s': %w", filePath, fileType, err)
+			return fmt.Errorf("unable to decode json content from %q parsed as %q: %w", filePath, fileType, err)
 		}
 	} else if err := p.Unmarshal(contentBytes, result); err != nil {
-		return fmt.Errorf("unable to unmarshal content from '%s' as '%s', you should use an explicit prefix: %w", filePath, fileType, err)
+		return fmt.Errorf("unable to unmarshal content from %q as %q, you should use an explicit prefix: %w", filePath, fileType, err)
 	}
 
 	// No error

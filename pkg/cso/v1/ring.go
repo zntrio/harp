@@ -136,7 +136,7 @@ func csoPath(format string, count int, values ...string) (string, error) {
 
 	// Validate secret path
 	if err := Validate(csoPath); err != nil {
-		return "", fmt.Errorf("'%s' is not a compliant CSO path: %w", csoPath, err)
+		return "", fmt.Errorf("%q is not a compliant CSO path: %w", csoPath, err)
 	}
 
 	// No Error

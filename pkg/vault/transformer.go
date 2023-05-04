@@ -91,7 +91,7 @@ func Transformer(mountPath, keyName string, dataEncryption DataEncryption) (valu
 	case Secretbox:
 		dataEncryptionFunc = secretbox.Transformer
 	default:
-		return nil, fmt.Errorf("unsupported data encryption '%s' for envelope transformer", dataEncryption)
+		return nil, fmt.Errorf("unsupported data encryption %q for envelope transformer", dataEncryption)
 	}
 
 	// Wrap the transformer with envelope

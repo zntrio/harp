@@ -77,10 +77,10 @@ func NewReader(r io.Reader, algorithm string) (io.ReadCloser, error) {
 			compressedReader = reader.IOReadCloser()
 		}
 	default:
-		return nil, fmt.Errorf("unhandled compression algorithm '%s'", algorithm)
+		return nil, fmt.Errorf("unhandled compression algorithm %q", algorithm)
 	}
 	if readerErr != nil {
-		return nil, fmt.Errorf("unable to initialize '%s' compressor: %w", algorithm, readerErr)
+		return nil, fmt.Errorf("unable to initialize %q compressor: %w", algorithm, readerErr)
 	}
 
 	// No error

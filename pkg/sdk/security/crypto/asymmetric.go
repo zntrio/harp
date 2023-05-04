@@ -37,7 +37,7 @@ func Keypair(keyType string) (interface{}, error) {
 	// Generate crypto materials
 	pub, priv, err := generateKeyPair(keyType)
 	if err != nil {
-		return nil, fmt.Errorf("unable to generate a '%s' key pair: %w", keyType, err)
+		return nil, fmt.Errorf("unable to generate a %q key pair: %w", keyType, err)
 	}
 
 	// No error

@@ -32,7 +32,7 @@ func NewMultiHash(r io.Reader, algorithms ...string) (map[string]string, error) 
 		// Create an hasher instance.
 		h, err := NewHasher(algo)
 		if err != nil {
-			return nil, fmt.Errorf("unable to initialize '%s' algorithm: %w", algo, err)
+			return nil, fmt.Errorf("unable to initialize %q algorithm: %w", algo, err)
 		}
 
 		// Assign to hashers.

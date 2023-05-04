@@ -172,7 +172,7 @@ func Build(cmd *artifact.Command) func() error {
 
 		// Check execution error
 		if !sh.CmdRan(err) {
-			return fmt.Errorf("running '%s' failed with exit code %d", c.String(), sh.ExitStatus(err))
+			return fmt.Errorf("running %q failed with exit code %d", c.String(), sh.ExitStatus(err))
 		}
 
 		// No error

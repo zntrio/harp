@@ -427,7 +427,7 @@ func validateSemVer(version string) error {
 	// check version as a semver compliant version
 	_, err := semver.NewVersion(version)
 	if err != nil {
-		return fmt.Errorf("version '%s' has not a valid semver syntax: %w", version, err)
+		return fmt.Errorf("version %q has not a valid semver syntax: %w", version, err)
 	}
 
 	// No error

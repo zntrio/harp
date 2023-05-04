@@ -97,7 +97,7 @@ func FromString(input string) (*Key, error) {
 	}
 
 	// Default to error
-	return nil, fmt.Errorf("unrecognized key '%s'", input)
+	return nil, fmt.Errorf("unrecognized key %q", input)
 }
 
 // -----------------------------------------------------------------------------

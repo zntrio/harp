@@ -64,7 +64,7 @@ func Reader(name string) (io.Reader, error) {
 	default:
 		reader, err = os.Open(filepath.Clean(name))
 		if err != nil {
-			return nil, fmt.Errorf("unable to open '%s' for read: %w", name, err)
+			return nil, fmt.Errorf("unable to open %q for read: %w", name, err)
 		}
 	}
 
@@ -121,7 +121,7 @@ func Writer(name string) (io.WriteCloser, error) {
 		//nolint:gosec // expected behavior
 		writer, err = os.OpenFile(name, os.O_CREATE|os.O_WRONLY|os.O_EXCL, 0o400)
 		if err != nil {
-			return nil, fmt.Errorf("unable to open '%s' for write: %w", name, err)
+			return nil, fmt.Errorf("unable to open %q for write: %w", name, err)
 		}
 	}
 
@@ -187,7 +187,7 @@ func FileReader(filename string) func(context.Context) (io.Reader, error) {
 	return func(_ context.Context) (io.Reader, error) {
 		reader, err := Reader(filename)
 		if err != nil {
-			return nil, fmt.Errorf("unable to open file '%s' for reading: %w", filename, err)
+			return nil, fmt.Errorf("unable to open file %q for reading: %w", filename, err)
 		}
 
 		// No error
@@ -200,7 +200,7 @@ func FileWriter(filename string) func(context.Context) (io.Writer, error) {
 	return func(_ context.Context) (io.Writer, error) {
 		writer, err := Writer(filename)
 		if err != nil {
-			return nil, fmt.Errorf("unable to open file '%s' for writing: %w", filename, err)
+			return nil, fmt.Errorf("unable to open file %q for writing: %w", filename, err)
 		}
 
 		// No error

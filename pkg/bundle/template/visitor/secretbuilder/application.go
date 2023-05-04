@@ -115,7 +115,7 @@ func (b *applicationSecretBuilder) VisitForComponent(obj *bundlev1.ApplicationCo
 		// Parse suffix with template engine
 		suffix, err := engine.RenderContext(b.templateContext, item.Suffix)
 		if err != nil {
-			b.err = fmt.Errorf("unable to merge template is suffix '%s'", item.Suffix)
+			b.err = fmt.Errorf("unable to merge template is suffix %q", item.Suffix)
 			return
 		}
 

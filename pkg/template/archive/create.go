@@ -56,7 +56,7 @@ func Create(fileSystem fs.FS, w io.Writer, opts ...CreateOption) error {
 
 	// Ensure that the root path is valid
 	if !fs.ValidPath(dopts.rootPath) {
-		return fmt.Errorf("root path '%s' is not a valid path", dopts.rootPath)
+		return fmt.Errorf("root path %q is not a valid path", dopts.rootPath)
 	}
 
 	// Ensure the root actually exists before trying to tar it
@@ -74,7 +74,7 @@ func Create(fileSystem fs.FS, w io.Writer, opts ...CreateOption) error {
 		// Try to compile glob filter.
 		filter, err := glob.Compile(f)
 		if err != nil {
-			return fmt.Errorf("unable to compile glob filter '%s' for inclusion: %w", f, err)
+			return fmt.Errorf("unable to compile glob filter %q for inclusion: %w", f, err)
 		}
 
 		// Add to explusion filters.
@@ -87,7 +87,7 @@ func Create(fileSystem fs.FS, w io.Writer, opts ...CreateOption) error {
 		// Try to compile glob filter.
 		filter, err := glob.Compile(f)
 		if err != nil {
-			return fmt.Errorf("unable to compile glob filter '%s' for exclusion: %w", f, err)
+			return fmt.Errorf("unable to compile glob filter %q for exclusion: %w", f, err)
 		}
 
 		// Add to explusion filters.
@@ -132,7 +132,7 @@ func Create(fileSystem fs.FS, w io.Writer, opts ...CreateOption) error {
 		// Get FileInfo
 		fi, err := dirEntry.Info()
 		if err != nil {
-			return fmt.Errorf("unable to retrieve fileInfo for '%s': %w", file, err)
+			return fmt.Errorf("unable to retrieve fileInfo for %q: %w", file, err)
 		}
 
 		log.Bg().Info("Add file to archive ...", zap.String("file", file))

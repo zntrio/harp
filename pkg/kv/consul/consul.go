@@ -53,7 +53,7 @@ func (d *consulDriver) Get(_ context.Context, key string) (*kv.Pair, error) {
 		RequireConsistent: true,
 	})
 	if err != nil {
-		return nil, fmt.Errorf("consul: unable to retrieve '%s' key: %w", key, err)
+		return nil, fmt.Errorf("consul: unable to retrieve %q key: %w", key, err)
 	}
 	if item == nil {
 		return nil, kv.ErrKeyNotFound
@@ -81,7 +81,7 @@ func (d *consulDriver) Put(_ context.Context, key string, value []byte) error {
 
 	// Delegate to client
 	if _, err := d.client.Put(item, nil); err != nil {
-		return fmt.Errorf("consul: unable to put '%s' value: %w", key, err)
+		return fmt.Errorf("consul: unable to put %q value: %w", key, err)
 	}
 
 	// No error
@@ -97,7 +97,7 @@ func (d *consulDriver) Delete(ctx context.Context, key string) error {
 	// Retrieve from store
 	found, err := d.Exists(ctx, key)
 	if err != nil {
-		return fmt.Errorf("consul: unable to retrieve '%s' for deletion: %w", key, err)
+		return fmt.Errorf("consul: unable to retrieve %q for deletion: %w", key, err)
 	}
 	if !found {
 		return kv.ErrKeyNotFound
@@ -105,7 +105,7 @@ func (d *consulDriver) Delete(ctx context.Context, key string) error {
 
 	// Delete the value
 	if _, err := d.client.Delete(d.normalize(key), nil); err != nil {
-		return fmt.Errorf("consul: unable to delete '%s': %w", key, err)
+		return fmt.Errorf("consul: unable to delete %q: %w", key, err)
 	}
 
 	// No error
@@ -119,7 +119,7 @@ func (d *consulDriver) Exists(ctx context.Context, key string) (bool, error) {
 		if errors.Is(err, kv.ErrKeyNotFound) {
 			return false, nil
 		}
-		return false, fmt.Errorf("consul: unable to check key '%s' existence: %w", key, err)
+		return false, fmt.Errorf("consul: unable to check key %q existence: %w", key, err)
 	}
 
 	// No error
@@ -135,7 +135,7 @@ func (d *consulDriver) List(_ context.Context, basePath string) ([]*kv.Pair, err
 	// List keys from base path
 	items, _, err := d.client.List(d.normalize(basePath), nil)
 	if err != nil {
-		return nil, fmt.Errorf("consul: unable to list keys from '%s': %w", basePath, err)
+		return nil, fmt.Errorf("consul: unable to list keys from %q: %w", basePath, err)
 	}
 	if len(items) == 0 {
 		return nil, kv.ErrKeyNotFound

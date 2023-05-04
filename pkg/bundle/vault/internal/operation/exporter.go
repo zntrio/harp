@@ -42,13 +42,14 @@ import (
 )
 
 // Exporter initialize a secret exporter operation.
-func Exporter(service kv.Service, backendPath string, output chan *bundlev1.Package, withMetadata bool, maxWorkerCount int64) Operation {
+func Exporter(service kv.Service, backendPath string, output chan *bundlev1.Package, withMetadata bool, maxWorkerCount int64, continueOnError bool) Operation {
 	return &exporter{
 		service:        service,
 		path:           backendPath,
 		withMetadata:   withMetadata,
 		output:         output,
 		maxWorkerCount: maxWorkerCount,
+		continueOnError: continueOnError,
 	}
 }
 
@@ -60,6 +61,7 @@ type exporter struct {
 	withMetadata   bool
 	output         chan *bundlev1.Package
 	maxWorkerCount int64
+	continueOnError bool
 }
 
 // Run the implemented operation
@@ -116,12 +118,12 @@ func (op *exporter) Run(ctx context.Context) error {
 				// Extract desired version from path
 				vaultPackagePath, vaultVersion, errPackagePath := extractVersion(secPath)
 				if errPackagePath != nil {
-					return fmt.Errorf("unable to parse package path '%s': %w", secPath, errPackagePath)
+					return fmt.Errorf("unable to parse package path %q: %w", secPath, errPackagePath)
 				}
 
 				// Read from Vault
 				secretData, secretMeta, errRead := op.service.ReadVersion(gReaderCtx, vaultPackagePath, vaultVersion)
-				if errRead != nil {
+				if !op.continueOnError && errRead != nil {
 					// Mask path not found or empty secret value
 					if errors.Is(errRead, kv.ErrNoData) || errors.Is(errRead, kv.ErrPathNotFound) {
 						log.For(gReaderCtx).Debug("No data / path found for given path", zap.String("path", secPath))
@@ -167,7 +169,7 @@ func (op *exporter) Run(ctx context.Context) error {
 					// Pack secret value
 					s, errPack := op.packSecret(k, v)
 					if errPack != nil {
-						return fmt.Errorf("unable to pack secret value for path '%s' with key '%s' : %w", secPath, k, errPack)
+						return fmt.Errorf("unable to pack secret value for path %q with key %q : %w", secPath, k, errPack)
 					}
 
 					// Add secret to package
@@ -181,7 +183,7 @@ func (op *exporter) Run(ctx context.Context) error {
 					Name:        vaultPackagePath,
 					Secrets:     chain,
 				}
-
+				
 				// Extract useful metadata
 				for k, v := range secretMeta {
 					switch k {
@@ -292,7 +294,7 @@ func (op *exporter) walk(ctx context.Context, basePath, currPath string, keys ch
 	// List secret of basepath
 	res, err := op.service.List(ctx, basePath)
 	if err != nil {
-		return fmt.Errorf("unable to list secret entries for '%s': %w", basePath, err)
+		return fmt.Errorf("unable to list secret entries for %q: %w", basePath, err)
 	}
 
 	// Check path is a leaf
@@ -308,7 +310,7 @@ func (op *exporter) walk(ctx context.Context, basePath, currPath string, keys ch
 	// Iterate on all subpath
 	for _, p := range res {
 		if err := op.walk(ctx, path.Join(basePath, p), path.Join(currPath, p), keys); err != nil {
-			return fmt.Errorf("unable to walk '%s' : %w", path.Join(basePath, p), err)
+			return fmt.Errorf("unable to walk %q : %w", path.Join(basePath, p), err)
 		}
 	}
 
@@ -320,7 +322,7 @@ func (op *exporter) packSecret(key string, value interface{}) (*bundlev1.KV, err
 	// Pack secret value
 	payload, err := secret.Pack(value)
 	if err != nil {
-		return nil, fmt.Errorf("unable to pack secret '%s': %w", key, err)
+		return nil, fmt.Errorf("unable to pack secret %q: %w", key, err)
 	}
 
 	// Build the secret object

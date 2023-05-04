@@ -59,10 +59,10 @@ func PartialLock(ctx context.Context, b *bundlev1.Bundle, transformerMap map[str
 				// Skip unresolved transformer alias.
 				continue
 			}
-			return fmt.Errorf("package encryption annotation found, but no key alias for '%s' provided", keyAlias)
+			return fmt.Errorf("package encryption annotation found, but no key alias for %q provided", keyAlias)
 		}
 		if types.IsNil(transformer) {
-			return fmt.Errorf("key alias '%s' refers to a nil transformer", keyAlias)
+			return fmt.Errorf("key alias %q refers to a nil transformer", keyAlias)
 		}
 
 		// Convert secret as a map
@@ -195,7 +195,7 @@ func UnLock(ctx context.Context, b *bundlev1.Bundle, transformers []value.Transf
 				// Skip not decrypted secrets.
 				continue
 			}
-			return fmt.Errorf("unable to transform '%s': %w", p.Name, errTransform)
+			return fmt.Errorf("unable to transform %q: %w", p.Name, errTransform)
 		}
 
 		// Unpack secrets

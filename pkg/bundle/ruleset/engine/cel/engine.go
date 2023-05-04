@@ -51,7 +51,7 @@ func New(expressions []string) (engine.PackageLinter, error) {
 		// Parse expression
 		parsed, issues := env.Parse(exp)
 		if issues != nil && issues.Err() != nil {
-			return nil, fmt.Errorf("unable to parse '%s', go error: %w", exp, issues.Err())
+			return nil, fmt.Errorf("unable to parse %q, go error: %w", exp, issues.Err())
 		}
 
 		// Extract AST

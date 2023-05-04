@@ -32,7 +32,7 @@ func SecretGetter(ctx context.Context, client *api.Client) func(string) (map[str
 		// Create dedicated service reader
 		service, err := New(client, path, WithContext(ctx))
 		if err != nil {
-			return nil, fmt.Errorf("unable to prepare vault reader for path '%s': %w", path, err)
+			return nil, fmt.Errorf("unable to prepare vault reader for path %q: %w", path, err)
 		}
 
 		// Delegate to reader

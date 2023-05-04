@@ -71,7 +71,7 @@ func AsSecretMap(p *bundlev1.Package) (KV, error) {
 		// Unpack secret value
 		var data interface{}
 		if err := secret.Unpack(s.Value, &data); err != nil {
-			return nil, fmt.Errorf("unable to unpack '%s' secret value: %w", p.Name, err)
+			return nil, fmt.Errorf("unable to unpack %q secret value: %w", p.Name, err)
 		}
 
 		// Assign result

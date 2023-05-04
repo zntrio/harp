@@ -74,7 +74,7 @@ func NewWriter(w io.Writer, algorithm string) (io.WriteCloser, error) {
 			return nil, fmt.Errorf("unable to initialize zstd compressor: %w", writerErr)
 		}
 	default:
-		return nil, fmt.Errorf("unhandled compression algorithm '%s'", algorithm)
+		return nil, fmt.Errorf("unhandled compression algorithm %q", algorithm)
 	}
 
 	// No error

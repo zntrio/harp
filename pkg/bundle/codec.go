@@ -133,7 +133,7 @@ func Read(b *bundlev1.Bundle, secretPath string) (map[string]interface{}, error)
 		}
 	}
 	if found == nil {
-		return nil, fmt.Errorf("unable to lookup secret with path '%s'", secretPath)
+		return nil, fmt.Errorf("unable to lookup secret with path %q", secretPath)
 	}
 
 	// Transform secret value
@@ -142,7 +142,7 @@ func Read(b *bundlev1.Bundle, secretPath string) (map[string]interface{}, error)
 		// Unpack secret value
 		var obj interface{}
 		if err := secret.Unpack(s.Value, &obj); err != nil {
-			return nil, fmt.Errorf("unable to unpack secret value for path '%s': %w", secretPath, err)
+			return nil, fmt.Errorf("unable to unpack secret value for path %q: %w", secretPath, err)
 		}
 
 		// Add to result
@@ -180,13 +180,13 @@ func AsProtoJSON(w io.Writer, b *bundlev1.Bundle) error {
 			// Unpack secret value
 			var data interface{}
 			if err := secret.Unpack(s.Value, &data); err != nil {
-				return fmt.Errorf("unable to unpack '%s' - '%s' secret value: %w", p.Name, s.Key, err)
+				return fmt.Errorf("unable to unpack %q - %q secret value: %w", p.Name, s.Key, err)
 			}
 
 			// Re-encode as json
 			payload, err := json.Marshal(data)
 			if err != nil {
-				return fmt.Errorf("unable to encode '%s' - '%s' secret value as json: %w", p.Name, s.Key, err)
+				return fmt.Errorf("unable to encode %q - %q secret value as json: %w", p.Name, s.Key, err)
 			}
 
 			// Replace current packed secret value by json encoded one.

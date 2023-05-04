@@ -80,7 +80,7 @@ func (t *GithubActionTask) Run(ctx context.Context) error {
 		// Get secrets
 		secretMap, err := bundle.AsSecretMap(p)
 		if err != nil {
-			return fmt.Errorf("unable to retrieve secrets from '%s' package: %w", p.Name, err)
+			return fmt.Errorf("unable to retrieve secrets from %q package: %w", p.Name, err)
 		}
 
 		// Filter secrets map using given filter glob.

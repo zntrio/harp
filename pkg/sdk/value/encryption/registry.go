@@ -37,7 +37,7 @@ func Register(prefix string, factory TransformerFactoryFunc) {
 
 	// Check if not already registered
 	if _, ok := registry[prefix]; ok {
-		panic(fmt.Errorf("encryption transformer already registered fro '%s' prefix", prefix))
+		panic(fmt.Errorf("encryption transformer already registered fro %q prefix", prefix))
 	}
 
 	// Register the transformer

@@ -29,6 +29,7 @@ type options struct {
 	workerCount        int64
 	exclusions         []*regexp.Regexp
 	includes           []*regexp.Regexp
+	continueOnError bool
 }
 
 // Option defines the functional pattern for bundle operation settings.
@@ -99,6 +100,15 @@ func WithVaultMetadata(value bool) Option {
 func WithMaxWorkerCount(value int64) Option {
 	return func(opts *options) error {
 		opts.workerCount = value
+		// No error
+		return nil
+	}
+}
+
+// WithContinueOnError enable/disbale stop processing on failure.
+func WithContinueOnError(value bool) Option {
+	return func(opts *options) error {
+		opts.continueOnError = value
 		// No error
 		return nil
 	}

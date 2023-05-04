@@ -125,7 +125,7 @@ func (op *importer) Run(ctx context.Context) error {
 					// Unpack secret to original value
 					var value interface{}
 					if err := secret.Unpack(s.Value, &value); err != nil {
-						return fmt.Errorf("unable to unpack secret value for path '%s' with key '%s': %w", secretPackage.Name, s.Key, err)
+						return fmt.Errorf("unable to unpack secret value for path %q with key %q: %w", secretPackage.Name, s.Key, err)
 					}
 
 					// Assign to map for vault storage
@@ -164,7 +164,7 @@ func (op *importer) Run(ctx context.Context) error {
 					// Initialize new service for backend
 					service, err := kv.New(op.client, rootPath, kv.WithVaultMetatadata(op.withVaultMetadata), kv.WithContext(gWriterCtx))
 					if err != nil {
-						return fmt.Errorf("unable to initialize Vault service for '%s' KV backend: %w", op.prefix, err)
+						return fmt.Errorf("unable to initialize Vault service for %q KV backend: %w", op.prefix, err)
 					}
 
 					// All queries will be handled by same backend service
@@ -175,7 +175,7 @@ func (op *importer) Run(ctx context.Context) error {
 
 				// Write secret to Vault
 				if err := op.backends[rootPath].WriteWithMeta(gWriterCtx, secretPath, data, metadata); err != nil {
-					return fmt.Errorf("unable to write secret data for path '%s': %w", secretPath, err)
+					return fmt.Errorf("unable to write secret data for path %q: %w", secretPath, err)
 				}
 
 				// No error

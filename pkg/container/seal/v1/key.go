@@ -103,7 +103,7 @@ func (a *adapter) publicKeys(keys ...string) ([]*[32]byte, error) {
 	for _, key := range keys {
 		// Check key prefix
 		if !strings.HasPrefix(key, PublicKeyPrefix) {
-			return nil, fmt.Errorf("unsuppored public key '%s' for v1 seal algorithm", key)
+			return nil, fmt.Errorf("unsuppored public key %q for v1 seal algorithm", key)
 		}
 
 		// Remove prefix if exists
@@ -112,12 +112,12 @@ func (a *adapter) publicKeys(keys ...string) ([]*[32]byte, error) {
 		// Decode key
 		keyRaw, err := base64.RawURLEncoding.DecodeString(key)
 		if err != nil {
-			return nil, fmt.Errorf("unable to decode public key '%s': %w", key, err)
+			return nil, fmt.Errorf("unable to decode public key %q: %w", key, err)
 		}
 
 		// Public key sanity checks
 		if len(keyRaw) != publicKeySize {
-			return nil, fmt.Errorf("invalid public key length for key '%s'", key)
+			return nil, fmt.Errorf("invalid public key length for key %q", key)
 		}
 		if extra25519.IsEdLowOrder(keyRaw) {
 			return nil, fmt.Errorf("low order public key usage is forbidden for key '%s, try to generate a new one to fix the issue", key)

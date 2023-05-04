@@ -103,7 +103,7 @@ func (t *JWKTask) keygenSig(alg jose.SignatureAlgorithm, bits int) (crypto.Publi
 			return nil, nil, errors.New("too short key for RSA `alg`, 2048+ is required")
 		}
 	case jose.HS256, jose.HS384, jose.HS512:
-		return nil, nil, fmt.Errorf("can't generate crypto keys for '%s' signature", alg)
+		return nil, nil, fmt.Errorf("can't generate crypto keys for %q signature", alg)
 	}
 	switch alg {
 	case jose.ES256:
@@ -141,7 +141,7 @@ func (t *JWKTask) keygenSig(alg jose.SignatureAlgorithm, bits int) (crypto.Publi
 		pub := key.Public()
 		return pub, key, err
 	case jose.HS256, jose.HS384, jose.HS512:
-		return nil, nil, fmt.Errorf("can't generate crypto keys for '%s' signature", alg)
+		return nil, nil, fmt.Errorf("can't generate crypto keys for %q signature", alg)
 	default:
 		return nil, nil, errors.New("unknown signature algorithm provided")
 	}

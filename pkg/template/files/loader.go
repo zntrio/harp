@@ -38,7 +38,7 @@ func Loader(filesystem fs.FS, name string) (ContentLoader, error) {
 	// Check if it's a directory
 	fi, err := fs.Stat(filesystem, name)
 	if err != nil {
-		return nil, fmt.Errorf("unable to get file info for '%s': %w", name, err)
+		return nil, fmt.Errorf("unable to get file info for %q: %w", name, err)
 	}
 
 	// Is directory

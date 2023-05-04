@@ -47,7 +47,7 @@ func (d *zkDriver) Get(_ context.Context, key string) (*kv.Pair, error) {
 		if errors.Is(err, zk.ErrNoNode) {
 			return nil, kv.ErrKeyNotFound
 		}
-		return nil, fmt.Errorf("zk: unable to retrieve '%s' key: %w", key, err)
+		return nil, fmt.Errorf("zk: unable to retrieve %q key: %w", key, err)
 	}
 
 	// No error
@@ -67,14 +67,14 @@ func (d *zkDriver) Put(ctx context.Context, key string, value []byte) error {
 	if !exists {
 		// Create full hierarchy if the key doesn't exists
 		if errCreate := d.createFullPath(kv.SplitKey(strings.TrimSuffix(key, "/"))); errCreate != nil {
-			return fmt.Errorf("unable to create the complete path for key '%s': %w", key, errCreate)
+			return fmt.Errorf("unable to create the complete path for key %q: %w", key, errCreate)
 		}
 	}
 
 	// Set the value (last version)
 	_, err = d.client.Set(d.normalize(key), value, -1)
 	if err != nil {
-		return fmt.Errorf("zk: unable to set '%s' value: %w", key, err)
+		return fmt.Errorf("zk: unable to set %q value: %w", key, err)
 	}
 
 	// No error
@@ -88,7 +88,7 @@ func (d *zkDriver) Delete(_ context.Context, key string) error {
 		if errors.Is(err, zk.ErrNoNode) {
 			return kv.ErrKeyNotFound
 		}
-		return fmt.Errorf("zk: unable to delete '%s': %w", key, err)
+		return fmt.Errorf("zk: unable to delete %q: %w", key, err)
 	}
 
 	// No error
@@ -100,7 +100,7 @@ func (d *zkDriver) Exists(_ context.Context, key string) (bool, error) {
 
 	exists, _, err := d.client.Exists(key)
 	if err != nil {
-		return false, fmt.Errorf("zk: unable to check key '%s' existence: %w", key, err)
+		return false, fmt.Errorf("zk: unable to check key %q existence: %w", key, err)
 	}
 
 	// No error
@@ -114,7 +114,7 @@ func (d *zkDriver) List(ctx context.Context, basePath string) ([]*kv.Pair, error
 		if errors.Is(err, zk.ErrNoNode) {
 			return nil, kv.ErrKeyNotFound
 		}
-		return nil, fmt.Errorf("zk: unable to list keys from '%s': %w", basePath, err)
+		return nil, fmt.Errorf("zk: unable to list keys from %q: %w", basePath, err)
 	}
 
 	// Unpack values

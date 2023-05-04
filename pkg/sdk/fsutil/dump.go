@@ -53,7 +53,7 @@ func Dump(srcFs fs.FS, outPath string) error {
 		// Check folder hierarchy existence.
 		if _, err := os.Stat(relativeDir); os.IsNotExist(err) {
 			if err := os.MkdirAll(relativeDir, 0o750); err != nil {
-				return fmt.Errorf("unable to create intermediate directories for path '%s': %w", relativeDir, err)
+				return fmt.Errorf("unable to create intermediate directories for path %q: %w", relativeDir, err)
 			}
 		}
 
@@ -80,7 +80,7 @@ func Dump(srcFs fs.FS, outPath string) error {
 		// Open the target file
 		if _, err := io.Copy(targetFile, srcFile); err != nil {
 			if !errors.Is(err, io.EOF) {
-				return fmt.Errorf("unable to copy content from '%s' to '%s': %w", path, targetPath, err)
+				return fmt.Errorf("unable to copy content from %q to %q: %w", path, targetPath, err)
 			}
 		}
 

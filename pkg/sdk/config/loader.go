@@ -49,20 +49,20 @@ func Load(conf interface{}, envPrefix, cfgFile string) error {
 	if cfgFile != "" {
 		// If the config file doesn't exists, let's exit
 		if _, err := os.Stat(cfgFile); os.IsNotExist(err) {
-			return fmt.Errorf("config: unable to open non-existing file '%s': %w", cfgFile, err)
+			return fmt.Errorf("config: unable to open non-existing file %q: %w", cfgFile, err)
 		}
 
 		log.Bg().Info("Load settings from file", zap.String("path", cfgFile))
 
 		viper.SetConfigFile(cfgFile)
 		if err := viper.ReadInConfig(); err != nil {
-			return fmt.Errorf("config: unable to decode config file '%s': %w", cfgFile, err)
+			return fmt.Errorf("config: unable to decode config file %q: %w", cfgFile, err)
 		}
 	}
 
 	// Update viper values
 	if err := viper.Unmarshal(conf); err != nil {
-		return fmt.Errorf("config: unable to apply config '%s': %w", cfgFile, err)
+		return fmt.Errorf("config: unable to apply config %q: %w", cfgFile, err)
 	}
 
 	// No error

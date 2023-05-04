@@ -40,6 +40,6 @@ func SecretReaders(secretReaders []SecretReaderFunc) func(string) (map[string]in
 		}
 
 		// Return error
-		return nil, fmt.Errorf("no value found for '%s', check secret path or secret reader settings", secretPath)
+		return nil, fmt.Errorf("no value found for %q, check secret path or secret reader settings", secretPath)
 	}
 }

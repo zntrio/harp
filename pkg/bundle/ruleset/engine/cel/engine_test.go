@@ -55,6 +55,7 @@ func TestNew(t *testing.T) {
 					`p.has_secret("test") && p.secret("test").is_base64()`,
 					`p.has_all_secrets(["test","test2"])`,
 					`p.is_cso_compliant()`,
+					`p.without_secret()`,
 				},
 			},
 			wantErr: false,

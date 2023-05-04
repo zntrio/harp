@@ -67,7 +67,7 @@ func FromKey(key string) (value.Transformer, error) {
 	}
 
 	// Unsupported encryption scheme.
-	return nil, fmt.Errorf("unsupported jwe algorithm for key '%s'", key)
+	return nil, fmt.Errorf("unsupported jwe algorithm for key %q", key)
 }
 
 // TransformerKey assemble a transformer key.
@@ -118,5 +118,5 @@ func Transformer(algorithm KeyAlgorithm, key string) (value.Transformer, error) 
 	}
 
 	// Unsupported encryption scheme.
-	return nil, fmt.Errorf("unsupported jwe algorithm '%s'", algorithm)
+	return nil, fmt.Errorf("unsupported jwe algorithm %q", algorithm)
 }

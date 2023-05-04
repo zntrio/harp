@@ -222,7 +222,7 @@ func Seal(rand io.Reader, container *containerv1.Container, opts ...Option) (*co
 			// Convert to sealing public key
 			identityPublicKey, err := key.FromString(pub)
 			if err != nil {
-				return nil, fmt.Errorf("unable to convert v1 identity public key '%s': %w", pub, err)
+				return nil, fmt.Errorf("unable to convert v1 identity public key %q: %w", pub, err)
 			}
 
 			// Replace identity key by sealing key
@@ -235,13 +235,13 @@ func Seal(rand io.Reader, container *containerv1.Container, opts ...Option) (*co
 			// Convert to sealing public key
 			identityPublicKey, err := key.FromString(pub)
 			if err != nil {
-				return nil, fmt.Errorf("unable to convert v2 identity public key '%s': %w", pub, err)
+				return nil, fmt.Errorf("unable to convert v2 identity public key %q: %w", pub, err)
 			}
 
 			// Replace identity key by sealing key
 			dopts.peersPublicKey[i] = identityPublicKey.SealingKey()
 		default:
-			return nil, fmt.Errorf("invalid key '%s'", pub)
+			return nil, fmt.Errorf("invalid key %q", pub)
 		}
 	}
 	if hasV1 && hasV2 {

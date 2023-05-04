@@ -91,13 +91,13 @@ func (s *kvv1Backend) Read(ctx context.Context, path string) (SecretData, Secret
 	// Create a logical client
 	secret, err := s.logical.Read(secretPath)
 	if err != nil {
-		return nil, nil, fmt.Errorf("unable to retrieve secret for path '%s': %w", path, err)
+		return nil, nil, fmt.Errorf("unable to retrieve secret for path %q: %w", path, err)
 	}
 	if secret == nil {
-		return nil, nil, fmt.Errorf("unable to retrieve secret for path '%s': %w", path, ErrPathNotFound)
+		return nil, nil, fmt.Errorf("unable to retrieve secret for path %q: %w", path, ErrPathNotFound)
 	}
 	if secret.Data == nil {
-		return nil, nil, fmt.Errorf("unable to retrieve secret for path '%s': %w", path, ErrNoData)
+		return nil, nil, fmt.Errorf("unable to retrieve secret for path %q: %w", path, ErrNoData)
 	}
 
 	// Return secret value and no error
@@ -127,7 +127,7 @@ func (s *kvv1Backend) WriteWithMeta(ctx context.Context, path string, data Secre
 	// Create a logical client
 	_, err := s.logical.Write(secretPath, data)
 	if err != nil {
-		return fmt.Errorf("unable to write secret data for path '%s': %w", path, err)
+		return fmt.Errorf("unable to write secret data for path %q: %w", path, err)
 	}
 
 	return nil

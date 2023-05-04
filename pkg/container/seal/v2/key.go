@@ -100,7 +100,7 @@ func (a *adapter) publicKeys(keys ...string) ([]*ecdsa.PublicKey, error) {
 	for _, key := range keys {
 		// Check key prefix
 		if !strings.HasPrefix(key, PublicKeyPrefix) {
-			return nil, fmt.Errorf("unsuppored public key '%s' for v2 seal algorithm", key)
+			return nil, fmt.Errorf("unsuppored public key %q for v2 seal algorithm", key)
 		}
 
 		// Remove prefix if exists
@@ -109,18 +109,18 @@ func (a *adapter) publicKeys(keys ...string) ([]*ecdsa.PublicKey, error) {
 		// Decode key
 		keyRaw, err := base64.RawURLEncoding.DecodeString(key)
 		if err != nil {
-			return nil, fmt.Errorf("unable to decode public key '%s': %w", key, err)
+			return nil, fmt.Errorf("unable to decode public key %q: %w", key, err)
 		}
 
 		// Public key sanity checks
 		if len(keyRaw) != publicKeySize {
-			return nil, fmt.Errorf("invalid public key length for key '%s'", key)
+			return nil, fmt.Errorf("invalid public key length for key %q", key)
 		}
 
 		// Decode the compressed point
 		x, y := elliptic.UnmarshalCompressed(elliptic.P384(), keyRaw)
 		if x == nil {
-			return nil, fmt.Errorf("invalid public key '%s'", key)
+			return nil, fmt.Errorf("invalid public key %q", key)
 		}
 
 		// Reassemble the public key

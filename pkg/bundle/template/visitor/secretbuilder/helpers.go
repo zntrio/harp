@@ -33,7 +33,7 @@ func parseSecretTemplate(templateContext engine.Context, secretPath string, item
 	// Prepare secret chain
 	chain, err := buildSecretChain(templateContext, secretPath, item, data)
 	if err != nil {
-		return nil, fmt.Errorf("unable to build secret chain for path '%s': %w", secretPath, err)
+		return nil, fmt.Errorf("unable to build secret chain for path %q: %w", secretPath, err)
 	}
 
 	// No error
@@ -89,7 +89,7 @@ func buildSecretChain(templateContext engine.Context, secretPath string, item *b
 		// Pack secret value
 		secretBody, err := secret.Pack(value)
 		if err != nil {
-			return nil, fmt.Errorf("unable to pack secret value for path '%s': %w", secretPath, err)
+			return nil, fmt.Errorf("unable to pack secret value for path %q: %w", secretPath, err)
 		}
 
 		// Add secret to package
@@ -127,12 +127,12 @@ func renderSuffix(templateContext engine.Context, secretPath string, item *bundl
 
 		// Parse generated JSON
 		if !json.Valid([]byte(payload)) {
-			return nil, fmt.Errorf("unable to validate generated json for secret path '%s': %s", secretPath, payload)
+			return nil, fmt.Errorf("unable to validate generated json for secret path %q: %s", secretPath, payload)
 		}
 
 		// Extract payload as K/V
 		if err := json.Unmarshal([]byte(payload), &kv); err != nil {
-			return nil, fmt.Errorf("unable to assemble secret package for secret path '%s': %w", secretPath, err)
+			return nil, fmt.Errorf("unable to assemble secret package for secret path %q: %w", secretPath, err)
 		}
 	}
 
@@ -180,7 +180,7 @@ func buildPackage(templateContext engine.Context, secretPath string, chain *bund
 			// Evaluate using template engine
 			renderedValue, err := engine.RenderContext(templateContext, v)
 			if err != nil {
-				return nil, fmt.Errorf("unable to render annotations value '%s' of '%s': %w", k, secretPath, err)
+				return nil, fmt.Errorf("unable to render annotations value %q of %q: %w", k, secretPath, err)
 			}
 
 			item.Annotations[k] = renderedValue
@@ -193,7 +193,7 @@ func buildPackage(templateContext engine.Context, secretPath string, chain *bund
 			// Evaluate using template engine
 			renderedValue, err := engine.RenderContext(templateContext, v)
 			if err != nil {
-				return nil, fmt.Errorf("unable to render label value '%s' of '%s': %w", k, secretPath, err)
+				return nil, fmt.Errorf("unable to render label value %q of %q: %w", k, secretPath, err)
 			}
 
 			item.Labels[k] = renderedValue

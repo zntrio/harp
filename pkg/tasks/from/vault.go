@@ -37,6 +37,7 @@ type VaultTask struct {
 	AsVaultMetadata bool
 	WithMetadata    bool
 	MaxWorkerCount  int64
+	ContinueOnError bool
 }
 
 // Run the task.
@@ -62,6 +63,7 @@ func (t *VaultTask) Run(ctx context.Context) error {
 		bundlevault.WithVaultMetadata(t.AsVaultMetadata),
 		bundlevault.WithSecretMetadata(t.WithMetadata),
 		bundlevault.WithMaxWorkerCount(t.MaxWorkerCount),
+		bundlevault.WithContinueOnError(t.ContinueOnError),
 	)
 	if err != nil {
 		return fmt.Errorf("error occurs during vault export: %w", err)

@@ -127,7 +127,7 @@ func HandlePluginCommand(pluginHandler PluginHandler, cmdArgs []string) error {
 
 	// invoke cmd binary relaying the current environment and args given
 	if err := pluginHandler.Execute(foundBinaryPath, cmdArgs[len(remainingArgs):], os.Environ()); err != nil {
-		return fmt.Errorf("unable to execute '%s' plugin: %w", foundBinaryPath, err)
+		return fmt.Errorf("unable to execute %q plugin: %w", foundBinaryPath, err)
 	}
 
 	return nil

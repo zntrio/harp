@@ -63,7 +63,7 @@ func NewWriter(w io.Writer, encoding string) (io.WriteCloser, error) {
 	case "base85":
 		encoderWriter = ascii85.NewEncoder(w)
 	default:
-		return nil, fmt.Errorf("unhandled encoding strategy '%s'", encoding)
+		return nil, fmt.Errorf("unhandled encoding strategy %q", encoding)
 	}
 
 	// No error

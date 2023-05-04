@@ -39,7 +39,7 @@ func Render(input string, data interface{}) (content string, err error) {
 		Funcs(FuncMap(nil)).
 		Parse(input)
 	if err != nil {
-		return "", fmt.Errorf("unable to compile attribute template '%s': %w", input, err)
+		return "", fmt.Errorf("unable to compile attribute template %q: %w", input, err)
 	}
 
 	// Fail on missing key
@@ -48,7 +48,7 @@ func Render(input string, data interface{}) (content string, err error) {
 	// Merge with values
 	var out bytes.Buffer
 	if err := t.Execute(&out, data); err != nil {
-		return "", fmt.Errorf("unable to merge data with template '%s': %w", input, err)
+		return "", fmt.Errorf("unable to merge data with template %q: %w", input, err)
 	}
 
 	// No error
@@ -78,7 +78,7 @@ func RenderContextWithData(templateContext Context, input string, data interface
 		Funcs(FuncMap(templateContext.SecretReaders())).
 		Parse(input)
 	if err != nil {
-		return "", fmt.Errorf("unable to compile attribute template '%s': %w", input, err)
+		return "", fmt.Errorf("unable to compile attribute template %q: %w", input, err)
 	}
 
 	// Check strict mode
@@ -98,7 +98,7 @@ func RenderContextWithData(templateContext Context, input string, data interface
 		"Values": templateContext.Values(),
 		"Files":  templateContext.Files(),
 	}); err != nil {
-		return "", fmt.Errorf("unable to merge values with template '%s': %w", input, err)
+		return "", fmt.Errorf("unable to merge values with template %q: %w", input, err)
 	}
 
 	// No error

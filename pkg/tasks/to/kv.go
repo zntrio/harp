@@ -64,12 +64,12 @@ func (t *PublishKVTask) Run(ctx context.Context) error {
 			// Encode as json
 			payload, err := json.Marshal(value)
 			if err != nil {
-				return fmt.Errorf("unable to encode value as JSON for '%s': %w", key, err)
+				return fmt.Errorf("unable to encode value as JSON for %q: %w", key, err)
 			}
 
 			// Insert in KV store.
 			if err := t.Store.Put(ctx, key, payload); err != nil {
-				return fmt.Errorf("unable to publish '%s' secret in store: %w", key, err)
+				return fmt.Errorf("unable to publish %q secret in store: %w", key, err)
 			}
 		} else {
 			// Range over secrets
@@ -82,7 +82,7 @@ func (t *PublishKVTask) Run(ctx context.Context) error {
 			for secKey, secValue := range secrets {
 				// Insert in KV store.
 				if err := t.Store.Put(ctx, path.Join(key, secKey), []byte(fmt.Sprintf("%v", secValue))); err != nil {
-					return fmt.Errorf("unable to publish '%s' secret in store: %w", key, err)
+					return fmt.Errorf("unable to publish %q secret in store: %w", key, err)
 				}
 			}
 		}

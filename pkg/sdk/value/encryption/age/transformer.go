@@ -60,7 +60,7 @@ func Transformer(key string) (value.Transformer, error) {
 			// Check given keys
 			k, err := age.ParseX25519Recipient(r)
 			if err != nil {
-				return nil, fmt.Errorf("age: unable to initialize age transformer, '%s' is an invalid recipient: %w", r, err)
+				return nil, fmt.Errorf("age: unable to initialize age transformer, %q is an invalid recipient: %w", r, err)
 			}
 
 			// Add to recipients
@@ -83,7 +83,7 @@ func Transformer(key string) (value.Transformer, error) {
 			// Check given keys
 			k, err := age.ParseX25519Identity(r)
 			if err != nil {
-				return nil, fmt.Errorf("age: unable to initialize age transformer, '%s' is an invalid identity: %w", r, err)
+				return nil, fmt.Errorf("age: unable to initialize age transformer, %q is an invalid identity: %w", r, err)
 			}
 
 			// Add to identities

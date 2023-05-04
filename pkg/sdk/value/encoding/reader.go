@@ -61,7 +61,7 @@ func NewReader(r io.Reader, encoding string) (io.Reader, error) {
 	case "base85":
 		decoderReader = ascii85.NewDecoder(r)
 	default:
-		return nil, fmt.Errorf("unhandled decoding strategy '%s'", encoding)
+		return nil, fmt.Errorf("unhandled decoding strategy %q", encoding)
 	}
 
 	// No error

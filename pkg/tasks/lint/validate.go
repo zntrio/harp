@@ -85,7 +85,7 @@ func (t *ValidateTask) Run(ctx context.Context) error {
 
 		// Check API Version
 		if specBody.APIVersion != "harp.elastic.co/v1" {
-			return fmt.Errorf("unsupported YAML file format '%s'", specBody.APIVersion)
+			return fmt.Errorf("unsupported YAML file format %q", specBody.APIVersion)
 		}
 
 		// Assign detected kind
@@ -95,7 +95,7 @@ func (t *ValidateTask) Run(ctx context.Context) error {
 	// Select lint strategy
 	s, ok := schemaRegistry[t.Schema]
 	if !ok {
-		return fmt.Errorf("unsupported schema definition for '%s'", t.Schema)
+		return fmt.Errorf("unsupported schema definition for %q", t.Schema)
 	}
 
 	// Create output writer

@@ -37,6 +37,7 @@ var fromVaultCmd = func() *cobra.Command {
 		withMetadata      bool
 		withVaultMetadata bool
 		maxWorkerCount    int64
+		continueOnError bool
 	)
 
 	cmd := &cobra.Command{
@@ -67,6 +68,7 @@ var fromVaultCmd = func() *cobra.Command {
 				WithMetadata:    withMetadata || withVaultMetadata,
 				AsVaultMetadata: withVaultMetadata,
 				MaxWorkerCount:  maxWorkerCount,
+				ContinueOnError: continueOnError,
 			}
 
 			// Run the task
@@ -84,6 +86,7 @@ var fromVaultCmd = func() *cobra.Command {
 	cmd.Flags().BoolVar(&withMetadata, "with-metadata", false, "Push container metadata as secret data")
 	cmd.Flags().BoolVar(&withVaultMetadata, "with-vault-metadata", false, "Push container metadata as secret metadata (requires Vault >=1.9)")
 	cmd.Flags().Int64Var(&maxWorkerCount, "worker-count", 4, "Active worker count limit")
+	cmd.Flags().BoolVar(&continueOnError, "continue-on-error", false, "Continue exploration even when there is raised errors (permission denied)")
 
 	return cmd
 }

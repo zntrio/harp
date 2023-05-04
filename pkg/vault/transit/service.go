@@ -59,7 +59,7 @@ func (s *service) Encrypt(ctx context.Context, cleartext []byte) ([]byte, error)
 	// Send to Vault.
 	secret, err := s.logical.Write(encryptPath, data)
 	if err != nil {
-		return nil, fmt.Errorf("unable to encrypt with '%s' key: %w", s.keyName, err)
+		return nil, fmt.Errorf("unable to encrypt with %q key: %w", s.keyName, err)
 	}
 
 	// Check response wrapping
@@ -90,7 +90,7 @@ func (s *service) Decrypt(ctx context.Context, ciphertext []byte) ([]byte, error
 	// Send to Vault.
 	secret, err := s.logical.Write(decryptPath, data)
 	if err != nil {
-		return nil, fmt.Errorf("unable to decrypt with '%s' key: %w", s.keyName, err)
+		return nil, fmt.Errorf("unable to decrypt with %q key: %w", s.keyName, err)
 	}
 
 	// Check response wrapping

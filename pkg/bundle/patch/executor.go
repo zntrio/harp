@@ -363,7 +363,7 @@ func applySecretKVPatch(kv []*bundlev1.KV, op *bundlev1.PatchOperation, values m
 		for _, rx := range op.RemoveKeys {
 			re, err := regexp.Compile(rx)
 			if err != nil {
-				return nil, fmt.Errorf("unable to compile regexp for key deletion '%s': %w", rx, err)
+				return nil, fmt.Errorf("unable to compile regexp for key deletion %q: %w", rx, err)
 			}
 
 			// Add to remove if match one expression
@@ -567,7 +567,7 @@ func applyMapOperations(input map[string]string, op *bundlev1.PatchOperation, va
 		for _, rx := range op.RemoveKeys {
 			re, err := regexp.Compile(rx)
 			if err != nil {
-				return fmt.Errorf("unable to compile regexp for key deletion '%s': %w", rx, err)
+				return fmt.Errorf("unable to compile regexp for key deletion %q: %w", rx, err)
 			}
 
 			// Add to remove if match one expression

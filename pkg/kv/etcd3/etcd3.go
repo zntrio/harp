@@ -52,10 +52,10 @@ func (d *etcd3Driver) Get(ctx context.Context, key string) (*kv.Pair, error) {
 	// Retrieve key value
 	resp, err := d.client.KV.Get(ctx, d.normalize(key), clientv3.WithLimit(1))
 	if err != nil {
-		return nil, fmt.Errorf("etcd3: unable to retrieve '%s' key: %w", key, err)
+		return nil, fmt.Errorf("etcd3: unable to retrieve %q key: %w", key, err)
 	}
 	if resp == nil {
-		return nil, fmt.Errorf("etcd3: got nil response for '%s'", key)
+		return nil, fmt.Errorf("etcd3: got nil response for %q", key)
 	}
 
 	// Unpack result
@@ -63,7 +63,7 @@ func (d *etcd3Driver) Get(ctx context.Context, key string) (*kv.Pair, error) {
 		return nil, kv.ErrKeyNotFound
 	}
 	if len(resp.Kvs) > 1 {
-		return nil, fmt.Errorf("etcd3: '%s' key returned multiple result where only one is expected", key)
+		return nil, fmt.Errorf("etcd3: %q key returned multiple result where only one is expected", key)
 	}
 
 	// No error
@@ -84,7 +84,7 @@ func (d *etcd3Driver) Put(ctx context.Context, key string, value []byte) error {
 	// Commit transaction
 	_, err := tx.Commit()
 	if err != nil {
-		return fmt.Errorf("etcd3: unable to put '%s' value: %w", key, err)
+		return fmt.Errorf("etcd3: unable to put %q value: %w", key, err)
 	}
 
 	// No error
@@ -95,10 +95,10 @@ func (d *etcd3Driver) Delete(ctx context.Context, key string) error {
 	// Try to delete from store
 	resp, err := d.client.Delete(ctx, d.normalize(key))
 	if err != nil {
-		return fmt.Errorf("etcd3: unable to delete '%s' key: %w", key, err)
+		return fmt.Errorf("etcd3: unable to delete %q key: %w", key, err)
 	}
 	if resp == nil {
-		return fmt.Errorf("etcd3: got nil response for '%s'", key)
+		return fmt.Errorf("etcd3: got nil response for %q", key)
 	}
 	if resp.Deleted == 0 {
 		return kv.ErrKeyNotFound
@@ -114,7 +114,7 @@ func (d *etcd3Driver) Exists(ctx context.Context, key string) (bool, error) {
 		if errors.Is(err, kv.ErrKeyNotFound) {
 			return false, nil
 		}
-		return false, fmt.Errorf("etcd3: unable to check key '%s' existence: %w", key, err)
+		return false, fmt.Errorf("etcd3: unable to check key %q existence: %w", key, err)
 	}
 
 	// No error
@@ -152,10 +152,10 @@ func (d *etcd3Driver) List(ctx context.Context, basePath string) ([]*kv.Pair, er
 		// Retrieve key value
 		resp, err := d.client.KV.Get(ctx, d.normalize(basePath), opts...)
 		if err != nil {
-			return nil, fmt.Errorf("etcd3: unable to retrieve '%s' from base path: %w", basePath, err)
+			return nil, fmt.Errorf("etcd3: unable to retrieve %q from base path: %w", basePath, err)
 		}
 		if resp == nil {
-			return nil, fmt.Errorf("etcd3: got nil response for '%s'", basePath)
+			return nil, fmt.Errorf("etcd3: got nil response for %q", basePath)
 		}
 
 		// Exit on empty result

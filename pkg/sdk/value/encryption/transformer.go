@@ -51,7 +51,7 @@ func FromKey(keyValue string) (value.Transformer, error) {
 	// Build the value transformer according to used prefix.
 	tf, ok := registry[prefix]
 	if !ok {
-		return nil, fmt.Errorf("no transformer registered for '%s' as prefix", prefix)
+		return nil, fmt.Errorf("no transformer registered for %q as prefix", prefix)
 	}
 
 	// Build the transformer instance

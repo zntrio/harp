@@ -98,7 +98,7 @@ func Diff(src, dst *bundlev1.Bundle) ([]DiffItem, error) {
 				// Unpack secret value
 				var data string
 				if err := secret.Unpack(s.Value, &data); err != nil {
-					return nil, fmt.Errorf("unable to unpack '%s' - '%s' secret value: %w", dstPkg.Name, s.Key, err)
+					return nil, fmt.Errorf("unable to unpack %q - %q secret value: %w", dstPkg.Name, s.Key, err)
 				}
 
 				diffs = append(diffs, DiffItem{
@@ -144,7 +144,7 @@ func Diff(src, dst *bundlev1.Bundle) ([]DiffItem, error) {
 				// Secret has been added
 				var data string
 				if err := secret.Unpack(ds.Value, &data); err != nil {
-					return nil, fmt.Errorf("unable to unpack '%s' - '%s' secret value: %w", dp.Name, ds.Key, err)
+					return nil, fmt.Errorf("unable to unpack %q - %q secret value: %w", dp.Name, ds.Key, err)
 				}
 
 				diffs = append(diffs, DiffItem{
@@ -166,7 +166,7 @@ func Diff(src, dst *bundlev1.Bundle) ([]DiffItem, error) {
 				// Secret has been replaced
 				var data string
 				if err := secret.Unpack(ds.Value, &data); err != nil {
-					return nil, fmt.Errorf("unable to unpack '%s' - '%s' secret value: %w", dp.Name, ds.Key, err)
+					return nil, fmt.Errorf("unable to unpack %q - %q secret value: %w", dp.Name, ds.Key, err)
 				}
 
 				diffs = append(diffs, DiffItem{

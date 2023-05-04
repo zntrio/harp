@@ -58,7 +58,7 @@ func Test_RingPath_Meta(t *testing.T) {
 				return
 			}
 			if got != tC.expected {
-				t.Errorf("expected '%s', got '%s'", tC.expected, got)
+				t.Errorf("expected %q, got %q", tC.expected, got)
 			}
 		})
 	}
@@ -108,7 +108,7 @@ func Test_RingPath_Infra(t *testing.T) {
 				return
 			}
 			if got != tC.expected {
-				t.Errorf("expected '%s', got '%s'", tC.expected, got)
+				t.Errorf("expected %q, got %q", tC.expected, got)
 			}
 		})
 	}
@@ -158,7 +158,7 @@ func Test_RingPath_Platform(t *testing.T) {
 				return
 			}
 			if got != tC.expected {
-				t.Errorf("expected '%s', got '%s'", tC.expected, got)
+				t.Errorf("expected %q, got %q", tC.expected, got)
 			}
 		})
 	}
@@ -214,7 +214,7 @@ func Test_RingPath_Product(t *testing.T) {
 				return
 			}
 			if got != tC.expected {
-				t.Errorf("expected '%s', got '%s'", tC.expected, got)
+				t.Errorf("expected %q, got %q", tC.expected, got)
 			}
 		})
 	}
@@ -264,7 +264,7 @@ func Test_RingPath_Application(t *testing.T) {
 				return
 			}
 			if got != tC.expected {
-				t.Errorf("expected '%s', got '%s'", tC.expected, got)
+				t.Errorf("expected %q, got %q", tC.expected, got)
 			}
 		})
 	}
@@ -309,7 +309,7 @@ func Test_RingPath_Artifact(t *testing.T) {
 				return
 			}
 			if got != tC.expected {
-				t.Errorf("expected '%s', got '%s'", tC.expected, got)
+				t.Errorf("expected %q, got %q", tC.expected, got)
 			}
 		})
 	}

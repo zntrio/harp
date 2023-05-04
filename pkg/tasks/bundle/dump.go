@@ -166,7 +166,7 @@ func (t *DumpTask) dumpPath(writer io.Writer, b *bundlev1.Bundle) error {
 	for _, p := range paths {
 		_, err = fmt.Fprintf(writer, "%s\n", p)
 		if err != nil {
-			return fmt.Errorf("unable to write package path '%s' to stdout: %w", p, err)
+			return fmt.Errorf("unable to write package path %q to stdout: %w", p, err)
 		}
 	}
 
@@ -185,7 +185,7 @@ func (t *DumpTask) dumpFilter(writer io.Writer, b *bundlev1.Bundle) error {
 	// Filter bundle with JMESPath expression
 	res, err := jmespath.Search(t.JMESPathFilter, b)
 	if err != nil {
-		return fmt.Errorf("unable to process JMESPath filter '%s': %w", t.JMESPathFilter, err)
+		return fmt.Errorf("unable to process JMESPath filter %q: %w", t.JMESPathFilter, err)
 	}
 
 	// Encode response
