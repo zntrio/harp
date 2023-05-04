@@ -18,26 +18,31 @@ jobs:
       packages: read
       contents: write
     steps:
+      - name: Harden Runner
+        uses: step-security/harden-runner@6b3083af2869dc3314a0257a42f4af696cc79ba3 # v2.3.1
+        with:
+          egress-policy: audit
+
       -
         name: Cancel previous workflows
-        uses: styfle/cancel-workflow-action@0.11.0
+        uses: styfle/cancel-workflow-action@b173b6ec0100793626c2d9e6b90435061f4fc3e5 # 0.11.0
         with:
           access_token: ${{ secrets.GITHUB_TOKEN }}
       -
         name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab # v3.5.2
       -
         name: Unshallow
         run: git fetch --prune --unshallow
       -
         name: Set up Go
-        uses: actions/setup-go@v4
+        uses: actions/setup-go@4d34df0c2316fe8122ab82dc22947d607c0c91f9 # v4.0.0
         with:
           go-version: '1.20'
           check-latest: true
       -
         name: Cache Go modules
-        uses: actions/cache@v3.3.1
+        uses: actions/cache@88522ab9f39a2ea568f7027eddc7d8d8bc9d59c8 # v3.3.1
         with:
           path: ~/go/pkg/mod
           key: ${{ runner.os }}-go-${{ hashFiles('**/go.sum') }}
@@ -45,16 +50,16 @@ jobs:
             ${{ runner.os }}-go-
       -
         name: Download cyclonedx-gomod
-        uses: Zenithar/gh-gomod-generate-sbom@v1.0.3
+        uses: Zenithar/gh-gomod-generate-sbom@2cdc82f8e362b12fdec116b716ce0130baec8be2 # v1.0.3
         with:
           version: v1.2.0
           github-token: ${{ secrets.GITHUB_TOKEN }}
       -
         name: Install Cosign
-        uses: sigstore/cosign-installer@v3.0.3
+        uses: sigstore/cosign-installer@204a51a57a74d190b284a0ce69b44bc37201f343 # v3.0.3
       -
         name: Import Code-Signing Certificates
-        uses: Apple-Actions/import-codesign-certs@v2
+        uses: Apple-Actions/import-codesign-certs@8f3fb608891dd2244cdab3d69cd68c0d37a7fe93 # v2
         with:
           p12-file-base64: ${{ secrets.APPLE_DEVELOPER_CERTIFICATE_P12_BASE64 }}
           p12-password: ${{ secrets.APPLE_DEVELOPER_CERTIFICATE_PASSWORD }}
@@ -66,7 +71,7 @@ jobs:
           brew install coreutils
       -
         name: Run GoReleaser
-        uses: goreleaser/goreleaser-action@v4
+        uses: goreleaser/goreleaser-action@f82d6c1c344bcacabba2c841718984797f664a6b # v4.2.0
         with:
           version: latest
           args: release --clean --skip-publish
@@ -162,7 +167,7 @@ jobs:
           done
       -
         name: Upload to release
-        uses: AButler/upload-release-assets@v2.0
+        uses: AButler/upload-release-assets@ec6d3263266dc57eb6645b5f75e827987f7c217d # v2.0
         with:
           files: '.dist/*'
           repo-token: ${{ secrets.GITHUB_TOKEN }}
