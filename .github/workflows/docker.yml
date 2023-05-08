@@ -68,7 +68,7 @@ jobs:
           labels: ${{ steps.meta.outputs.labels }}
       -
         name: Create SBOM
-        uses: anchore/sbom-action@422cb34a0f8b599678c41b21163ea6088edb2624 # v0.14.1
+        uses: anchore/sbom-action@4d571ad1038a9cc29d676154ef265ab8f9027042 # v0.14.2
         with:
           image: ghcr.io/${{ github.repository }}@${{ steps.build-and-push.outputs.digest }}
           registry-username: ${{ github.actor }}
