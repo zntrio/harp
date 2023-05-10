@@ -7,15 +7,17 @@ on:
         description: 'Release version'
         required: true
 
-permissions:
-  # Required to stop running workflows
-  actions: write
-  packages: write
+permissions:  # added using https://github.com/step-security/secure-repo
+  contents: read
 
 jobs:
   build-docker-images:
     name: Build Docker Images
     runs-on: ubuntu-latest
+    permissions:
+      # Required to stop running workflows
+      actions: write
+      packages: write
     steps:
       - 
         uses: step-security/harden-runner@128a63446a954579617e875aaab7d2978154e969

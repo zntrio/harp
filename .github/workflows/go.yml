@@ -21,15 +21,16 @@ on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
-permissions:
-  # Required to stop running workflows
-  actions: write
+permissions:  # added using https://github.com/step-security/secure-repo
+  contents: read
 
 jobs:
   # Check if there any dirty change for go mod tidy
   go-mod:
     name: "Check go modules declaration"
     runs-on: ubuntu-latest
+    permissions:
+        actions: write
     steps:
       - 
         uses: step-security/harden-runner@128a63446a954579617e875aaab7d2978154e969
@@ -73,6 +74,8 @@ jobs:
         go-version:
           - "1.19"
           - "1.20"
+    permissions:
+      actions: write
     runs-on: ubuntu-latest
     needs: [golangci-lint, go-mod]
     steps:
@@ -123,6 +126,8 @@ jobs:
   golangci-lint:
     name: "GolangCI-lint"
     runs-on: ubuntu-latest
+    permissions:
+      actions: write
     steps:
       - 
         uses: step-security/harden-runner@128a63446a954579617e875aaab7d2978154e969
@@ -160,6 +165,8 @@ jobs:
     name: "Tests (linux)"
     needs: [go-mod, compile-dryrun, golangci-lint] # run after golangci-lint action to not produce duplicated errors
     runs-on: ubuntu-latest
+    permissions:
+      actions: write
     steps:
       - 
         uses: step-security/harden-runner@128a63446a954579617e875aaab7d2978154e969
@@ -208,6 +215,8 @@ jobs:
     name: "Tests (windows)"
     needs: [go-mod, compile-dryrun, golangci-lint] # run after golangci-lint action to not produce duplicated errors
     runs-on: windows-latest
+    permissions:
+      actions: write
     steps:
       - name: Harden Runner
         uses: step-security/harden-runner@128a63446a954579617e875aaab7d2978154e969 # v2.4.0
@@ -251,6 +260,8 @@ jobs:
     name: "Tests (darwin)"
     needs: [go-mod, compile-dryrun, golangci-lint] # run after golangci-lint action to not produce duplicated errors
     runs-on: macos-latest
+    permissions:
+      actions: write
     steps:
       - name: Harden Runner
         uses: step-security/harden-runner@128a63446a954579617e875aaab7d2978154e969 # v2.4.0

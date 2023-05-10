@@ -7,9 +7,8 @@ on:
         description: 'Release version'
         required: true
 
-permissions:
-  # Required to stop running workflows
-  actions: write
+permissions:  # added using https://github.com/step-security/secure-repo
+  contents: read
 
 jobs:
   release:
@@ -17,6 +16,8 @@ jobs:
     permissions:
       packages: read
       contents: write
+      actions: write
+
     steps:
       - name: Harden Runner
         uses: step-security/harden-runner@128a63446a954579617e875aaab7d2978154e969 # v2.4.0
