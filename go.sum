@@ -159,9 +159,9 @@ github.com/envoyproxy/go-control-plane v0.9.4/go.mod h1:6rpuAdCZL397s3pYoYcLgu1m
 github.com/envoyproxy/go-control-plane v0.9.7/go.mod h1:cwu0lG7PUMfa9snN8LXBig5ynNVH9qI8YYLbd1fK2po=
 github.com/envoyproxy/go-control-plane v0.9.9-0.20201210154907-fd9021fe5dad/go.mod h1:cXg6YxExXjJnVBQHBLXeUAgxn2UodCpnH306RInaBQk=
 github.com/envoyproxy/protoc-gen-validate v0.1.0/go.mod h1:iSmxcyjqTsJpI2R4NaDN7+kN2VEUnK/pcBlmesArF7c=
-github.com/essentialkaos/branca v1.3.3 h1:S1zDXQpy7CTaAiaCPfZ6cNd9gMd8W5QUGj+VipIy2LU=
-github.com/essentialkaos/branca v1.3.3/go.mod h1:AYla5W5uNPh9q7Vow/EKPTSCq0NOLuFeTbsBOqq6d7Y=
-github.com/essentialkaos/check v1.3.0 h1:ria+8o22RCLdt2D/1SHQsEH5Mmy5S+iWHaGHrrbPUc0=
+github.com/essentialkaos/branca v1.3.4 h1:f/ebrFZLdHwarev0mHxBJMsXbAL+Rb0SkG68EvwP4nw=
+github.com/essentialkaos/branca v1.3.4/go.mod h1:Q/k/qz9y4lrxtxyaNex5GKGE8twlK7DVbgIth0j1TaE=
+github.com/essentialkaos/check v1.4.0 h1:kWdFxu9odCxUqo1NNFNJmguGrDHgwi3A8daXX1nkuKk=
 github.com/fatih/color v1.7.0/go.mod h1:Zm6kSWBoL9eyXnKyktHP6abPY2pDugNf5KwzbycvMj4=
 github.com/fatih/color v1.9.0/go.mod h1:eQcE1qtQxscV5RaZvpXrrb8Drkc3/DdQ+uUYCNjL+zU=
 github.com/fatih/color v1.15.0 h1:kOqh6YHBtK8aywxGerMG2Eq3H6Qgoqeo13Bk2Mv/nBs=
