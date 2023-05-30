@@ -12,7 +12,7 @@ require (
 	github.com/frapposelli/wwhrd v0.4.0
 	github.com/golang/mock v1.6.0
 	github.com/golangci/golangci-lint v1.52.2
-	github.com/magefile/mage v1.14.0
+	github.com/magefile/mage v1.15.0
 	google.golang.org/grpc/cmd/protoc-gen-go-grpc v1.3.0
 	google.golang.org/protobuf v1.30.0
 	gotest.tools/gotestsum v1.10.0
