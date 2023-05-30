@@ -1,6 +1,6 @@
 ARG VERSION=0.2.8
 
-FROM alpine:3@sha256:4edbd2beb5f78b1014028f4fbb99f3237d9561100b6881aabbf5acce2c4f9454 as downloader
+FROM alpine:3@sha256:02bb6f428431fbc2809c5d1b41eab5a68350194fb508869a33cb1af4444c9b11 as downloader
 
 ARG VERSION
 ARG TARGETPLATFORM
@@ -25,7 +25,7 @@ RUN \
   upx -9 /tmp/harp && \
   chmod +x /tmp/harp
 
-FROM alpine:3@sha256:4edbd2beb5f78b1014028f4fbb99f3237d9561100b6881aabbf5acce2c4f9454
+FROM alpine:3@sha256:02bb6f428431fbc2809c5d1b41eab5a68350194fb508869a33cb1af4444c9b11
 
 ARG VERSION
 
