@@ -1,19 +1,7 @@
-// Licensed to Elasticsearch B.V. under one or more contributor
-// license agreements. See the NOTICE file distributed with
-// this work for additional information regarding copyright
-// ownership. Elasticsearch B.V. licenses this file to you under
-// the Apache License, Version 2.0 (the "License"); you may
-// not use this file except in compliance with the License.
-// You may obtain a copy of the License at
+// SPDX-FileCopyrightText: 2019 Elasticsearch B.V.
+// SPDX-FileCopyrightText: 2019-2023 Thibault NORMAND <me@zenithar.org>
 //
-//     http://www.apache.org/licenses/LICENSE-2.0
-//
-// Unless required by applicable law or agreed to in writing,
-// software distributed under the License is distributed on an
-// "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
-// KIND, either express or implied.  See the License for the
-// specific language governing permissions and limitations
-// under the License.
+// SPDX-License-Identifier: Apache-2.0 AND MIT
 
 package bundle
 
@@ -26,10 +14,10 @@ import (
 
 	"github.com/stretchr/testify/assert"
 
-	bundlev1 "github.com/zntrio/harp/v2/api/gen/go/harp/bundle/v1"
-	"github.com/zntrio/harp/v2/pkg/bundle/secret"
-	"github.com/zntrio/harp/v2/pkg/sdk/cmdutil"
-	"github.com/zntrio/harp/v2/pkg/tasks"
+	bundlev1 "zntr.io/harp/v2/api/gen/go/harp/bundle/v1"
+	"zntr.io/harp/v2/pkg/bundle/secret"
+	"zntr.io/harp/v2/pkg/sdk/cmdutil"
+	"zntr.io/harp/v2/pkg/tasks"
 )
 
 func TestDumpTask_Run(t *testing.T) {
@@ -332,7 +320,7 @@ func TestDumpTask_dumpMetadata(t *testing.T) {
 								"vendor": "true",
 							},
 							Annotations: map[string]string{
-								"harp.elastic.co/v1/testing#Annotation": "test",
+								"harp.zntr.io/v2/testing#Annotation": "test",
 							},
 							Secrets: &bundlev1.SecretChain{
 								Data: []*bundlev1.KV{
@@ -346,7 +334,7 @@ func TestDumpTask_dumpMetadata(t *testing.T) {
 					},
 				},
 			},
-			wantWriter: `{"harp.elastic.co/v1/bundle#annotations":{"annotation":"text"},"harp.elastic.co/v1/bundle#labels":{"generated":"true"},"secret/package":{"harp.elastic.co/v1/package#annotations":{"harp.elastic.co/v1/testing#Annotation":"test"},"harp.elastic.co/v1/package#labels":{"vendor":"true"}}}` + "\n",
+			wantWriter: `{"harp.zntr.io/v2/bundle#annotations":{"annotation":"text"},"harp.zntr.io/v2/bundle#labels":{"generated":"true"},"secret/package":{"harp.zntr.io/v2/package#annotations":{"harp.zntr.io/v2/testing#Annotation":"test"},"harp.zntr.io/v2/package#labels":{"vendor":"true"}}}` + "\n",
 			wantErr:    false,
 		},
 	}

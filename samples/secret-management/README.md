@@ -28,7 +28,7 @@ used on new cluster instance bootstrap and will be used to provision Vault.
 
 [embedmd]:# (bootstrap-cluster.yaml)
 ```yaml
-apiVersion: harp.elastic.co/v1
+apiVersion: harp.zntr.io/v2
 kind: BundleTemplate
 
 meta:
@@ -80,7 +80,7 @@ harp template --alt-delims --in bootstrap-cluster.yaml --values service-accounts
 
 [embedmd]:# (bootstrap-compiled.yaml)
 ```yaml
-apiVersion: harp.elastic.co/v1
+apiVersion: harp.zntr.io/v2
 kind: BundleTemplate
 
 meta:
@@ -160,7 +160,7 @@ using a `BundlePatch` specification file.
 
 [embedmd]:# (service-account-deployer.yaml)
 ```yaml
-apiVersion: harp.elastic.co/v1
+apiVersion: harp.zntr.io/v2
 kind: BundlePatch
 meta:
   name: "service-account-deployer"
@@ -224,7 +224,7 @@ approach using a `BundlePatch`, but this time you update the matching `service a
 
 [embedmd]:# (service-account-rotator.yaml)
 ```yaml
-apiVersion: harp.elastic.co/v1
+apiVersion: harp.zntr.io/v2
 kind: BundlePatch
 meta:
   name: "service-account-rotator"

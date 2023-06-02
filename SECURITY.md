@@ -1,8 +1,8 @@
 # Security Policy
 
-* [Security Policy](#security-policy)
-  * [Supported Versions](#supported-versions)
-  * [Reporting a Vulnerability](#reporting-a-vulnerability)
+- [Security Policy](#security-policy)
+  - [Supported Versions](#supported-versions)
+  - [Reporting a Vulnerability](#reporting-a-vulnerability)
 
 ## Supported Versions
 
@@ -17,6 +17,6 @@ receiving such patches depend on the CVSS v3.0 Rating:
 ## Reporting a Vulnerability
 
 Please report (suspected) security vulnerabilities to
-**[cloud-security@elastic.co](mailto:cloud-security@elastic.co)**. You will
+**[me@zenithar.org](mailto:me@zenithar.org)**. You will
 receive a response from us without undue delay. If the issue is confirmed,
 we will release a patch as soon as possible depending on complexity.

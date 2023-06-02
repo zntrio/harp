@@ -2,7 +2,7 @@
 [![Go Report Card](https://goreportcard.com/badge/github.com/zntrio/harp)](https://goreportcard.com/report/github.com/zntrio/harp)
 [![made-with-Go](https://img.shields.io/badge/Made%20with-Go-1f425f.svg)](http://golang.org)
 [![GitHub release](https://img.shields.io/github/release/zntrio/harp.svg)](https://github.com/zntrio/harp/releases/)
-[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/zntrio/harp/graphs/commit-activity)
+[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://zntr.io/harp/graphs/commit-activity)
 
 - [Harp](#harp)
   - [TL;DR.](#tldr)
@@ -149,10 +149,10 @@ Harp provides :
   * A defined common language and complete processes to achieve secret management
     operations;
 * A SDK to create your own tools to orchestrate your secret management pipelines;
-  * A container manipulation library exposed as `github.com/zntrio/harp/v2/pkg/container`;
-  * A secret bundle specification to store and manipulate secrets exposed as `github.com/zntrio/harp/v2/pkg/bundle`;
-  * An `on-steroid` template engine exposed as `github.com/zntrio/harp/v2/pkg/template`
-  * A path name validation library exposed as `github.com/zntrio/harp/v2/pkg/cso`
+  * A container manipulation library exposed as `zntr.io/harp/v2/pkg/container`;
+  * A secret bundle specification to store and manipulate secrets exposed as `zntr.io/harp/v2/pkg/bundle`;
+  * An `on-steroid` template engine exposed as `zntr.io/harp/v2/pkg/template`
+  * A path name validation library exposed as `zntr.io/harp/v2/pkg/cso`
 * A CLI for secret management implementation
   * CI/CD integration;
   * Based on human-readable definitions (YAML);

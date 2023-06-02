@@ -1,19 +1,7 @@
-// Licensed to Elasticsearch B.V. under one or more contributor
-// license agreements. See the NOTICE file distributed with
-// this work for additional information regarding copyright
-// ownership. Elasticsearch B.V. licenses this file to you under
-// the Apache License, Version 2.0 (the "License"); you may
-// not use this file except in compliance with the License.
-// You may obtain a copy of the License at
+// SPDX-FileCopyrightText: 2019 Elasticsearch B.V.
+// SPDX-FileCopyrightText: 2019-2023 Thibault NORMAND <me@zenithar.org>
 //
-//     http://www.apache.org/licenses/LICENSE-2.0
-//
-// Unless required by applicable law or agreed to in writing,
-// software distributed under the License is distributed on an
-// "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
-// KIND, either express or implied.  See the License for the
-// specific language governing permissions and limitations
-// under the License.
+// SPDX-License-Identifier: Apache-2.0 AND MIT
 
 package patch
 
@@ -27,7 +15,7 @@ import (
 	"github.com/google/go-cmp/cmp/cmpopts"
 	fuzz "github.com/google/gofuzz"
 
-	bundlev1 "github.com/zntrio/harp/v2/api/gen/go/harp/bundle/v1"
+	bundlev1 "zntr.io/harp/v2/api/gen/go/harp/bundle/v1"
 )
 
 var (
@@ -78,7 +66,7 @@ func TestValidate(t *testing.T) {
 			name: "invalid kind",
 			args: args{
 				spec: &bundlev1.Patch{
-					ApiVersion: "harp.elastic.co/v1",
+					ApiVersion: "harp.zntr.io/v2",
 					Kind:       "foo",
 				},
 			},
@@ -88,7 +76,7 @@ func TestValidate(t *testing.T) {
 			name: "nil meta",
 			args: args{
 				spec: &bundlev1.Patch{
-					ApiVersion: "harp.elastic.co/v1",
+					ApiVersion: "harp.zntr.io/v2",
 					Kind:       "BundlePatch",
 				},
 			},
@@ -98,7 +86,7 @@ func TestValidate(t *testing.T) {
 			name: "meta name not defined",
 			args: args{
 				spec: &bundlev1.Patch{
-					ApiVersion: "harp.elastic.co/v1",
+					ApiVersion: "harp.zntr.io/v2",
 					Kind:       "BundlePatch",
 					Meta:       &bundlev1.PatchMeta{},
 				},
@@ -109,7 +97,7 @@ func TestValidate(t *testing.T) {
 			name: "nil spec",
 			args: args{
 				spec: &bundlev1.Patch{
-					ApiVersion: "harp.elastic.co/v1",
+					ApiVersion: "harp.zntr.io/v2",
 					Kind:       "BundlePatch",
 					Meta:       &bundlev1.PatchMeta{},
 				},
@@ -120,7 +108,7 @@ func TestValidate(t *testing.T) {
 			name: "no action patch",
 			args: args{
 				spec: &bundlev1.Patch{
-					ApiVersion: "harp.elastic.co/v1",
+					ApiVersion: "harp.zntr.io/v2",
 					Kind:       "BundlePatch",
 					Meta:       &bundlev1.PatchMeta{},
 					Spec:       &bundlev1.PatchSpec{},
@@ -156,14 +144,14 @@ func TestChecksum(t *testing.T) {
 			name: "valid",
 			args: args{
 				spec: &bundlev1.Patch{
-					ApiVersion: "harp.elastic.co/v1",
+					ApiVersion: "harp.zntr.io/v2",
 					Kind:       "BundlePatch",
 					Meta:       &bundlev1.PatchMeta{},
 					Spec:       &bundlev1.PatchSpec{},
 				},
 			},
 			wantErr: false,
-			want:    "BkFRGRHhouZLyiZe0CUyyZSlt_guk7tJonToaV4zOC4",
+			want:    "-1TA5k2pJzUSVu2HechzEWeS1Wx-H775AqfdOwUV2Ow",
 		},
 	}
 	for _, tt := range tests {
@@ -188,7 +176,7 @@ func TestApply_Fuzz(t *testing.T) {
 		// Prepare arguments
 		values := map[string]interface{}{}
 		spec := &bundlev1.Patch{
-			ApiVersion: "harp.elastic.co/v1",
+			ApiVersion: "harp.zntr.io/v2",
 			Kind:       "BundlePatch",
 			Meta: &bundlev1.PatchMeta{
 				Name: "test-patch",

@@ -75,7 +75,7 @@ We want to rename the secret keys to get more clear names on GHA side.
 Let's use a `BundlePatch` for that.
 
 ```yaml
-apiVersion: harp.elastic.co/v1
+apiVersion: harp.zntr.io/v2
 kind: BundlePatch
 meta:
   name: "gha-secret-remapping"

@@ -18,7 +18,7 @@ DIST:
 
 BREAKING-CHANGES:
 
-* Package renamed from `github.com/elastic/harp` to `github.com/zntrio/harp/v2`.
+* Package renamed from `github.com/elastic/harp` to `zntr.io/harp/v2`.
 
 DIST:
 

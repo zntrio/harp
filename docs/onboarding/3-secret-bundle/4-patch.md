@@ -131,7 +131,7 @@ message PatchSpec {
 #### Sample
 
 ```yaml
-apiVersion: harp.elastic.co/v1
+apiVersion: harp.zntr.io/v2
 kind: BundlePatch
 meta:
   name: patch-name
@@ -236,7 +236,7 @@ selector:
 Sample use case
 
 ```yaml
-apiVersion: harp.elastic.co/v1
+apiVersion: harp.zntr.io/v2
 kind: BundlePatch
 meta:
   name: "package-secret-rotation-flagger"
@@ -303,7 +303,7 @@ selector:
 Sample use case
 
 ```yaml
-apiVersion: harp.elastic.co/v1
+apiVersion: harp.zntr.io/v2
 kind: BundlePatch
 meta:
   name: "cso-compliance-flagger"
@@ -350,7 +350,7 @@ selector:
 Complete sample
 
 ```yaml
-apiVersion: harp.elastic.co/v1
+apiVersion: harp.zntr.io/v2
 kind: BundlePatch
 meta:
   name: "secret-remover"
@@ -556,7 +556,7 @@ package:
 Given this patch `postgresql-admin-rotator` :
 
 ```yaml
-apiVersion: harp.elastic.co/v1
+apiVersion: harp.zntr.io/v2
 kind: BundlePatch
 meta:
   name: "service-postgres-rotator"

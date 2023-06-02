@@ -69,7 +69,7 @@ according to their sensitivity to leaks.
 `BundleTemplate` uses Kubernetes-like YAML descriptors.
 
 ```yaml
-apiVersion: harp.elastic.co/v1
+apiVersion: harp.zntr.io/v2
 kind: BundleTemplate
 meta:
   name: "Ecebootstrap"
@@ -81,7 +81,7 @@ spec:
   ... Omitted ...
 ```
 
-* The `apiVersion` must be `harp.elastic.co/v1`
+* The `apiVersion` must be `harp.zntr.io/v2`
 * The `kind` must be `BundleTemplate`
 * The `meta.name` must not be empty
 * The `meta.owner` must be an email
