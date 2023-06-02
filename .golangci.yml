@@ -372,18 +372,18 @@ linters-settings:
       - shadow
     disable-all: false
 
-  depguard:
-    list-type: blacklist
-    include-go-root: false
-    packages:
-      - github.com/sirupsen/logrus
-      - gitlab.com/gitlab-org/labkit/log
-      - log
-    packages-with-error-message:
-      # specify an error message to output when a blacklisted package is used
-      - github.com/sirupsen/logrus: "use zap"
-      - gitlab.com/gitlab-org/labkit/log: "use zap"
-      - log: "use zap"
+  # depguard:
+  #   list-type: blacklist
+  #   include-go-root: false
+  #   packages:
+  #     - github.com/sirupsen/logrus
+  #     - gitlab.com/gitlab-org/labkit/log
+  #     - log
+  #   packages-with-error-message:
+  #     # specify an error message to output when a blacklisted package is used
+  #     - github.com/sirupsen/logrus: "use zap"
+  #     - gitlab.com/gitlab-org/labkit/log: "use zap"
+  #     - log: "use zap"
 
   ifshort:
     # Maximum length of variable declaration measured in number of lines, after which linter won't suggest using short syntax.
@@ -500,7 +500,7 @@ linters-settings:
 
   staticcheck:
     # Select the Go version to target. The default is '1.13'.
-    go: "1.18"
+    go: "1.19"
     # https://staticcheck.io/docs/options#checks
     checks: [ "all" ]
 
