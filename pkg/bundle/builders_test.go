@@ -110,7 +110,7 @@ func TestFromDump(t *testing.T) {
 							"infosec.elastic.co/v1/SecretPolicy#serviceType":    "authentication",
 							"infosec.elastic.co/v1/SecretPolicy#severity":       "high",
 							"infra.elastic.co/v1/Rundeck#jobName":               "rotate-adminconsole-okta-api-key",
-							"harp.zntr.io/v2/package#encryptionKeyAlias":     "test",
+							"harp.zntr.io/v2/package#encryptionKeyAlias":        "test",
 						},
 						Name: "app/production/customer1/ece/v1.0.0/adminconsole/authentication/otp/okta_api_key",
 						Secrets: &bundlev1.SecretChain{

@@ -25,7 +25,7 @@ import (
 var (
 	// ErrPathNotFound is raised when given secret path doesn't exists.
 	ErrPathNotFound = errors.New("path not found")
-	// ErrSecretNotReadable is raised when trying to read a secret and hit a 
+	// ErrSecretNotReadable is raised when trying to read a secret and hit a
 	// permission error.
 	ErrSecretNotReadable = errors.New("secret not readable")
 	// ErrNoData is raised when gievn secret path doesn't contains data.

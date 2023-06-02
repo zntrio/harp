@@ -44,11 +44,11 @@ import (
 // Exporter initialize a secret exporter operation.
 func Exporter(service kv.Service, backendPath string, output chan *bundlev1.Package, withMetadata bool, maxWorkerCount int64, continueOnError bool) Operation {
 	return &exporter{
-		service:        service,
-		path:           backendPath,
-		withMetadata:   withMetadata,
-		output:         output,
-		maxWorkerCount: maxWorkerCount,
+		service:         service,
+		path:            backendPath,
+		withMetadata:    withMetadata,
+		output:          output,
+		maxWorkerCount:  maxWorkerCount,
 		continueOnError: continueOnError,
 	}
 }
@@ -56,11 +56,11 @@ func Exporter(service kv.Service, backendPath string, output chan *bundlev1.Pack
 // -----------------------------------------------------------------------------
 
 type exporter struct {
-	service        kv.Service
-	path           string
-	withMetadata   bool
-	output         chan *bundlev1.Package
-	maxWorkerCount int64
+	service         kv.Service
+	path            string
+	withMetadata    bool
+	output          chan *bundlev1.Package
+	maxWorkerCount  int64
 	continueOnError bool
 }
 
@@ -183,7 +183,7 @@ func (op *exporter) Run(ctx context.Context) error {
 					Name:        vaultPackagePath,
 					Secrets:     chain,
 				}
-				
+
 				// Extract useful metadata
 				for k, v := range secretMeta {
 					switch k {

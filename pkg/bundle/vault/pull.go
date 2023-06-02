@@ -50,7 +50,7 @@ func Pull(ctx context.Context, client *api.Client, paths []string, opts ...Optio
 		defaultWithSecretMetadata = false
 		defaultWithVaultMetadata  = false
 		defaultWorkerCount        = int64(4)
-		defaultContinueOnError = false
+		defaultContinueOnError    = false
 	)
 
 	// Create default option instance
@@ -61,7 +61,7 @@ func Pull(ctx context.Context, client *api.Client, paths []string, opts ...Optio
 		withSecretMetadata: defaultWithSecretMetadata,
 		withVaultMetadata:  defaultWithVaultMetadata,
 		workerCount:        defaultWorkerCount,
-		continueOnError: defaultContinueOnError,
+		continueOnError:    defaultContinueOnError,
 	}
 
 	// Apply option functions

@@ -29,7 +29,7 @@ type options struct {
 	workerCount        int64
 	exclusions         []*regexp.Regexp
 	includes           []*regexp.Regexp
-	continueOnError bool
+	continueOnError    bool
 }
 
 // Option defines the functional pattern for bundle operation settings.

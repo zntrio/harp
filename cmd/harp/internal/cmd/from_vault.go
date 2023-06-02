@@ -37,7 +37,7 @@ var fromVaultCmd = func() *cobra.Command {
 		withMetadata      bool
 		withVaultMetadata bool
 		maxWorkerCount    int64
-		continueOnError bool
+		continueOnError   bool
 	)
 
 	cmd := &cobra.Command{
