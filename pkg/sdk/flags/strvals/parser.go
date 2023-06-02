@@ -144,7 +144,7 @@ func runeSet(r []rune) map[rune]bool {
 	return s
 }
 
-//nolint // imported code
+// nolint // imported code
 func (t *parser) key(data map[string]interface{}) error {
 	stop := runeSet([]rune{'=', '[', ',', '.'})
 	for {
@@ -243,7 +243,7 @@ func (t *parser) keyIndex() (int, error) {
 	return strconv.Atoi(string(v))
 }
 
-//nolint // imported code
+// nolint // imported code
 func (t *parser) listItem(list []interface{}, i int) ([]interface{}, error) {
 	stop := runeSet([]rune{'[', '.', '='})
 	switch k, last, err := runesUntil(t.sc, stop); {
@@ -304,7 +304,7 @@ func (t *parser) val() ([]rune, error) {
 	return v, err
 }
 
-//nolint // imported code
+// nolint // imported code
 func (t *parser) valList() ([]interface{}, error) {
 	r, _, e := t.sc.ReadRune()
 	if e != nil {
