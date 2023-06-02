@@ -93,7 +93,7 @@ func WithMaxWorkerCount(value int64) Option {
 	}
 }
 
-// WithContinueOnError enable/disbale stop processing on failure.
+// WithContinueOnError enable/disable stop processing on failure.
 func WithContinueOnError(value bool) Option {
 	return func(opts *options) error {
 		opts.continueOnError = value

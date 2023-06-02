@@ -17,7 +17,7 @@ import (
 )
 
 // Etcd creates a test etcd server inside a Docker container.
-// nolint: contextcheck // false positive
+//nolint: contextcheck // false positive
 func Etcd(_ context.Context, tb testing.TB) string {
 	pool, err := dockertest.NewPool("")
 	if err != nil {
