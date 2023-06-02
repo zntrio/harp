@@ -23,7 +23,7 @@ import (
 
 	fuzz "github.com/google/gofuzz"
 
-	bundlev1 "github.com/zntrio/harp/v2/api/gen/go/harp/bundle/v1"
+	bundlev1 "zntr.io/harp/v2/api/gen/go/harp/bundle/v1"
 )
 
 func Test_executeRule_Fuzz(t *testing.T) {
@@ -34,7 +34,7 @@ func Test_executeRule_Fuzz(t *testing.T) {
 		// Prepare arguments
 		values := map[string]interface{}{}
 		spec := &bundlev1.Patch{
-			ApiVersion: "harp.elastic.co/v1",
+			ApiVersion: "harp.zntr.io/v2",
 			Kind:       "BundlePatch",
 			Meta: &bundlev1.PatchMeta{
 				Name: "test-patch",
@@ -78,7 +78,7 @@ func Test_compileSelector_Fuzz(t *testing.T) {
 		// Prepare arguments
 		values := map[string]interface{}{}
 		spec := &bundlev1.Patch{
-			ApiVersion: "harp.elastic.co/v1",
+			ApiVersion: "harp.zntr.io/v2",
 			Kind:       "BundlePatch",
 			Meta: &bundlev1.PatchMeta{
 				Name: "test-patch",
@@ -108,7 +108,7 @@ func Test_applyPackagePatch_Fuzz(t *testing.T) {
 		// Prepare arguments
 		values := map[string]interface{}{}
 		spec := &bundlev1.Patch{
-			ApiVersion: "harp.elastic.co/v1",
+			ApiVersion: "harp.zntr.io/v2",
 			Kind:       "BundlePatch",
 			Meta: &bundlev1.PatchMeta{
 				Name: "test-patch",
@@ -151,7 +151,7 @@ func Test_applySecretPatch_Fuzz(t *testing.T) {
 			"foo": "test",
 		}
 		spec := &bundlev1.Patch{
-			ApiVersion: "harp.elastic.co/v1",
+			ApiVersion: "harp.zntr.io/v2",
 			Kind:       "BundlePatch",
 			Meta: &bundlev1.PatchMeta{
 				Name: "test-patch",

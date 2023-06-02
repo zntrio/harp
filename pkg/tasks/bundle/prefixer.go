@@ -24,9 +24,9 @@ import (
 	"path"
 	"strings"
 
-	"github.com/zntrio/harp/v2/pkg/bundle"
-	"github.com/zntrio/harp/v2/pkg/sdk/types"
-	"github.com/zntrio/harp/v2/pkg/tasks"
+	"zntr.io/harp/v2/pkg/bundle"
+	"zntr.io/harp/v2/pkg/sdk/types"
+	"zntr.io/harp/v2/pkg/tasks"
 )
 
 // PrefixerTask implements secret container prefix management task.

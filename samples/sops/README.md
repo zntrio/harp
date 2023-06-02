@@ -115,7 +115,7 @@ $ harp from object --in production.yaml \
 Let's create a `BundlePatch` to change all prefixes from `app/{{.Env}}` to `app/{{.Env}}/security/sops-sample/v1.0.0/microservice-1`.
 
 ```yaml
-apiVersion: harp.elastic.co/v1
+apiVersion: harp.zntr.io/v2
 kind: BundlePatch
 meta:
   name: "secret-relocator"
@@ -444,7 +444,7 @@ From this point, you can apply all harp available bundle operations.
 For example to have applied a `BundlePatch` to rotate a secret value.
 
 ```yaml
-apiVersion: harp.elastic.co/v1
+apiVersion: harp.zntr.io/v2
 kind: BundlePatch
 meta:
   name: "token-jwk-rotator"

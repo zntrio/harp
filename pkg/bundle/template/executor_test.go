@@ -23,9 +23,9 @@ import (
 
 	fuzz "github.com/google/gofuzz"
 
-	bundlev1 "github.com/zntrio/harp/v2/api/gen/go/harp/bundle/v1"
-	"github.com/zntrio/harp/v2/pkg/bundle/template/visitor/secretbuilder"
-	"github.com/zntrio/harp/v2/pkg/template/engine"
+	bundlev1 "zntr.io/harp/v2/api/gen/go/harp/bundle/v1"
+	"zntr.io/harp/v2/pkg/bundle/template/visitor/secretbuilder"
+	"zntr.io/harp/v2/pkg/template/engine"
 )
 
 func TestValidate(t *testing.T) {
@@ -54,7 +54,7 @@ func TestValidate(t *testing.T) {
 			name: "invalid kind",
 			args: args{
 				spec: &bundlev1.Template{
-					ApiVersion: "harp.elastic.co/v1",
+					ApiVersion: "harp.zntr.io/v2",
 					Kind:       "foo",
 				},
 			},
@@ -64,7 +64,7 @@ func TestValidate(t *testing.T) {
 			name: "nil meta",
 			args: args{
 				spec: &bundlev1.Template{
-					ApiVersion: "harp.elastic.co/v1",
+					ApiVersion: "harp.zntr.io/v2",
 					Kind:       "BundleTemplate",
 				},
 			},
@@ -74,7 +74,7 @@ func TestValidate(t *testing.T) {
 			name: "meta name not defined",
 			args: args{
 				spec: &bundlev1.Template{
-					ApiVersion: "harp.elastic.co/v1",
+					ApiVersion: "harp.zntr.io/v2",
 					Kind:       "BundleTemplate",
 					Meta:       &bundlev1.TemplateMeta{},
 				},
@@ -85,7 +85,7 @@ func TestValidate(t *testing.T) {
 			name: "nil spec",
 			args: args{
 				spec: &bundlev1.Template{
-					ApiVersion: "harp.elastic.co/v1",
+					ApiVersion: "harp.zntr.io/v2",
 					Kind:       "BundleTemplate",
 					Meta:       &bundlev1.TemplateMeta{},
 				},
@@ -96,7 +96,7 @@ func TestValidate(t *testing.T) {
 			name: "no action template",
 			args: args{
 				spec: &bundlev1.Template{
-					ApiVersion: "harp.elastic.co/v1",
+					ApiVersion: "harp.zntr.io/v2",
 					Kind:       "BundleTemplate",
 					Meta:       &bundlev1.TemplateMeta{},
 					Spec:       &bundlev1.TemplateSpec{},
@@ -132,7 +132,7 @@ func TestChecksum(t *testing.T) {
 			name: "valid",
 			args: args{
 				spec: &bundlev1.Template{
-					ApiVersion: "harp.elastic.co/v1",
+					ApiVersion: "harp.zntr.io/v2",
 					Kind:       "BundleTemplate",
 					Meta:       &bundlev1.TemplateMeta{},
 					Spec:       &bundlev1.TemplateSpec{},
@@ -163,7 +163,7 @@ func TestExecute_Fuzz(t *testing.T) {
 
 		// Prepare arguments
 		spec := &bundlev1.Template{
-			ApiVersion: "harp.elastic.co/v1",
+			ApiVersion: "harp.zntr.io/v2",
 			Kind:       "BundleTemplate",
 			Meta:       &bundlev1.TemplateMeta{},
 			Spec:       &bundlev1.TemplateSpec{},

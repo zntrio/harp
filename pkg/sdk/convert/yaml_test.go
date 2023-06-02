@@ -22,12 +22,12 @@ import (
 	"testing"
 
 	"github.com/google/go-cmp/cmp"
-	bundlev1 "github.com/zntrio/harp/v2/api/gen/go/harp/bundle/v1"
+	bundlev1 "zntr.io/harp/v2/api/gen/go/harp/bundle/v1"
 )
 
 func Test_PBtoYAML(t *testing.T) {
 	spec := &bundlev1.Patch{
-		ApiVersion: "harp.elastic.co/v1",
+		ApiVersion: "harp.zntr.io/v2",
 		Kind:       "BundlePatch",
 		Meta: &bundlev1.PatchMeta{
 			Name: "test-patch",
@@ -42,7 +42,7 @@ func Test_PBtoYAML(t *testing.T) {
 		},
 	}
 
-	expectedOutput := []byte("apiVersion: harp.elastic.co/v1\nkind: BundlePatch\nmeta:\n  name: test-patch\nspec:\n  rules:\n  - package: {}\n    selector: {}\n")
+	expectedOutput := []byte("apiVersion: harp.zntr.io/v2\nkind: BundlePatch\nmeta:\n  name: test-patch\nspec:\n  rules:\n  - package: {}\n    selector: {}\n")
 
 	out, err := PBtoYAML(spec)
 	if err != nil {

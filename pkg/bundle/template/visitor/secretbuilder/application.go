@@ -21,10 +21,10 @@ import (
 	"fmt"
 	"strings"
 
-	bundlev1 "github.com/zntrio/harp/v2/api/gen/go/harp/bundle/v1"
-	"github.com/zntrio/harp/v2/pkg/bundle/template/visitor"
-	csov1 "github.com/zntrio/harp/v2/pkg/cso/v1"
-	"github.com/zntrio/harp/v2/pkg/template/engine"
+	bundlev1 "zntr.io/harp/v2/api/gen/go/harp/bundle/v1"
+	"zntr.io/harp/v2/pkg/bundle/template/visitor"
+	csov1 "zntr.io/harp/v2/pkg/cso/v1"
+	"zntr.io/harp/v2/pkg/template/engine"
 )
 
 type applicationSecretBuilder struct {

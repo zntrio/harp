@@ -29,7 +29,7 @@ import (
 	"google.golang.org/protobuf/proto"
 	"sigs.k8s.io/yaml"
 
-	"github.com/zntrio/harp/v2/pkg/sdk/types"
+	"zntr.io/harp/v2/pkg/sdk/types"
 )
 
 var maxPayloadSize = int64(25 << 20) // 25MB

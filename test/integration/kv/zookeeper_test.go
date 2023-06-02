@@ -27,8 +27,8 @@ import (
 	"github.com/go-zookeeper/zk"
 	"github.com/stretchr/testify/assert"
 
-	"github.com/zntrio/harp/v2/pkg/kv/zookeeper"
-	"github.com/zntrio/harp/v2/test/integration/resource"
+	"zntr.io/harp/v2/pkg/kv/zookeeper"
+	"zntr.io/harp/v2/test/integration/resource"
 )
 
 // -----------------------------------------------------------------------------

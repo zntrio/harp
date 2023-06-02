@@ -26,7 +26,7 @@ import (
 	"github.com/google/go-cmp/cmp"
 	"github.com/stretchr/testify/assert"
 
-	bundlev1 "github.com/zntrio/harp/v2/api/gen/go/harp/bundle/v1"
+	bundlev1 "zntr.io/harp/v2/api/gen/go/harp/bundle/v1"
 )
 
 func TestFromDump(t *testing.T) {
@@ -97,7 +97,7 @@ func TestFromDump(t *testing.T) {
 					"test": "true",
 				},
 				Annotations: map[string]string{
-					"harp.elastic.co/v1/testing#bundlePurpose": "test",
+					"harp.zntr.io/v2/testing#bundlePurpose": "test",
 				},
 				Packages: []*bundlev1.Package{
 					{
@@ -110,7 +110,7 @@ func TestFromDump(t *testing.T) {
 							"infosec.elastic.co/v1/SecretPolicy#serviceType":    "authentication",
 							"infosec.elastic.co/v1/SecretPolicy#severity":       "high",
 							"infra.elastic.co/v1/Rundeck#jobName":               "rotate-adminconsole-okta-api-key",
-							"harp.elastic.co/v1/package#encryptionKeyAlias":     "test",
+							"harp.zntr.io/v2/package#encryptionKeyAlias":     "test",
 						},
 						Name: "app/production/customer1/ece/v1.0.0/adminconsole/authentication/otp/okta_api_key",
 						Secrets: &bundlev1.SecretChain{

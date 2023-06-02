@@ -23,7 +23,7 @@ import (
 	"errors"
 	"fmt"
 
-	"github.com/zntrio/harp/v2/pkg/sdk/value/encryption"
+	"zntr.io/harp/v2/pkg/sdk/value/encryption"
 )
 
 // -----------------------------------------------------------------------------

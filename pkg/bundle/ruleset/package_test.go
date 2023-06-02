@@ -25,7 +25,7 @@ import (
 
 	fuzz "github.com/google/gofuzz"
 	"github.com/stretchr/testify/assert"
-	bundlev1 "github.com/zntrio/harp/v2/api/gen/go/harp/bundle/v1"
+	bundlev1 "zntr.io/harp/v2/api/gen/go/harp/bundle/v1"
 )
 
 func mustLoadRuleSet(filePath string) *bundlev1.RuleSet {
@@ -277,7 +277,7 @@ func TestEvaluate_Fuzz(t *testing.T) {
 		f := fuzz.New()
 
 		rs := bundlev1.RuleSet{
-			ApiVersion: "harp.elastic.co/v1",
+			ApiVersion: "harp.zntr.io/v2",
 			Kind:       "RuleSet",
 			Meta:       &bundlev1.RuleSetMeta{},
 			Spec: &bundlev1.RuleSetSpec{

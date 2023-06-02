@@ -27,8 +27,8 @@ import (
 	"github.com/stretchr/testify/assert"
 	clientv3 "go.etcd.io/etcd/client/v3"
 
-	"github.com/zntrio/harp/v2/pkg/kv/etcd3"
-	"github.com/zntrio/harp/v2/test/integration/resource"
+	"zntr.io/harp/v2/pkg/kv/etcd3"
+	"zntr.io/harp/v2/test/integration/resource"
 )
 
 // -----------------------------------------------------------------------------

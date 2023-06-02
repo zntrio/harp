@@ -24,7 +24,7 @@ import (
 
 	"github.com/awnumar/memguard"
 
-	"github.com/zntrio/harp/v2/pkg/sdk/security"
+	"zntr.io/harp/v2/pkg/sdk/security"
 
 	"golang.org/x/term"
 )

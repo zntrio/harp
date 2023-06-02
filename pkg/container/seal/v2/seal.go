@@ -26,8 +26,8 @@ import (
 
 	"github.com/awnumar/memguard"
 
-	containerv1 "github.com/zntrio/harp/v2/api/gen/go/harp/container/v1"
-	"github.com/zntrio/harp/v2/pkg/sdk/types"
+	containerv1 "zntr.io/harp/v2/api/gen/go/harp/container/v1"
+	"zntr.io/harp/v2/pkg/sdk/types"
 )
 
 // Seal a secret container with identities.

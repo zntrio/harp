@@ -25,8 +25,8 @@ import (
 	"github.com/skratchdot/open-golang/open"
 	"github.com/spf13/cobra"
 
-	"github.com/zntrio/harp/v2/pkg/sdk/cmdutil"
-	"github.com/zntrio/harp/v2/pkg/sdk/log"
+	"zntr.io/harp/v2/pkg/sdk/cmdutil"
+	"zntr.io/harp/v2/pkg/sdk/log"
 )
 
 // -----------------------------------------------------------------------------
@@ -56,9 +56,9 @@ func runBug(cmd *cobra.Command, args []string) {
 	body := cmdutil.BugReport()
 
 	// Open the browser to issue creation form
-	reportURL := "https://github.com/zntrio/harp/issues/new?body=" + url.QueryEscape(body)
+	reportURL := "https://zntr.io/harp/issues/new?body=" + url.QueryEscape(body)
 	if err := open.Run(reportURL); err != nil {
-		fmt.Fprint(os.Stdout, "Please file a new issue at github.com/zntrio/harp/issues/new using this template:\n\n")
+		fmt.Fprint(os.Stdout, "Please file a new issue at zntr.io/harp/issues/new using this template:\n\n")
 		fmt.Fprint(os.Stdout, body)
 	}
 }

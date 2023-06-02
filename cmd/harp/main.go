@@ -20,8 +20,8 @@ package main
 import (
 	"time"
 
-	"github.com/zntrio/harp/v2/cmd/harp/internal/cmd"
-	"github.com/zntrio/harp/v2/pkg/sdk/log"
+	"zntr.io/harp/v2/cmd/harp/internal/cmd"
+	"zntr.io/harp/v2/pkg/sdk/log"
 )
 
 func init() {

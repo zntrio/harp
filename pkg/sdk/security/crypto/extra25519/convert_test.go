@@ -24,7 +24,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/zntrio/harp/v2/pkg/sdk/security/crypto/extra25519"
+	"zntr.io/harp/v2/pkg/sdk/security/crypto/extra25519"
 )
 
 func ExamplePrivateKeyToCurve25519() {

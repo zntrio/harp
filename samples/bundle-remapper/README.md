@@ -16,7 +16,7 @@ path prefix.
 #### Patch specification
 
 ```yaml
-apiVersion: harp.elastic.co/v1
+apiVersion: harp.zntr.io/v2
 kind: BundlePatch
 meta:
   name: "secret-relocator"
@@ -79,7 +79,7 @@ harp bundle dump --in clusters.bundle --path-only | xargs -n 1 vault kv metadata
 Prepare the bundle mapper go module
 
 ```sh
-go mod init harp.elastic.co/v1/remapper
+go mod init harp.zntr.io/v2/remapper
 ```
 
 Update dependency references
@@ -120,9 +120,9 @@ import (
  "fmt"
  "strings"
 
- bundlev1 "github.com/zntrio/harp/v2/api/gen/go/harp/bundle/v1"
- "github.com/zntrio/harp/v2/pkg/bundle/pipeline"
- "github.com/zntrio/harp/v2/pkg/sdk/log"
+ bundlev1 "zntr.io/harp/v2/api/gen/go/harp/bundle/v1"
+ "zntr.io/harp/v2/pkg/bundle/pipeline"
+ "zntr.io/harp/v2/pkg/sdk/log"
 
  "go.uber.org/zap"
 )

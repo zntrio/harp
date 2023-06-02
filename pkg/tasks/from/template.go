@@ -22,12 +22,12 @@ import (
 	"fmt"
 	"io"
 
-	bundlev1 "github.com/zntrio/harp/v2/api/gen/go/harp/bundle/v1"
-	"github.com/zntrio/harp/v2/pkg/bundle"
-	"github.com/zntrio/harp/v2/pkg/bundle/template"
-	"github.com/zntrio/harp/v2/pkg/bundle/template/visitor/secretbuilder"
-	"github.com/zntrio/harp/v2/pkg/tasks"
-	"github.com/zntrio/harp/v2/pkg/template/engine"
+	bundlev1 "zntr.io/harp/v2/api/gen/go/harp/bundle/v1"
+	"zntr.io/harp/v2/pkg/bundle"
+	"zntr.io/harp/v2/pkg/bundle/template"
+	"zntr.io/harp/v2/pkg/bundle/template/visitor/secretbuilder"
+	"zntr.io/harp/v2/pkg/tasks"
+	"zntr.io/harp/v2/pkg/template/engine"
 )
 
 // BundleTemplateTask implements secret-container generation from BundleTemplate

@@ -24,7 +24,7 @@ import (
 	semver "github.com/Masterminds/semver/v3"
 	"go.uber.org/zap"
 
-	"github.com/zntrio/harp/v2/pkg/sdk/log"
+	"zntr.io/harp/v2/pkg/sdk/log"
 )
 
 var versionSemverRe = regexp.MustCompile("[0-9.]+")

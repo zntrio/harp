@@ -25,8 +25,8 @@ import (
 	"github.com/open-policy-agent/opa/rego"
 	"go.uber.org/zap"
 
-	bundlev1 "github.com/zntrio/harp/v2/api/gen/go/harp/bundle/v1"
-	"github.com/zntrio/harp/v2/pkg/sdk/log"
+	bundlev1 "zntr.io/harp/v2/api/gen/go/harp/bundle/v1"
+	"zntr.io/harp/v2/pkg/sdk/log"
 )
 
 // MatchRego returns a Rego package matcher specification.

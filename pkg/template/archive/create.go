@@ -28,8 +28,8 @@ import (
 	"github.com/gobwas/glob"
 	"go.uber.org/zap"
 
-	"github.com/zntrio/harp/v2/pkg/sdk/log"
-	"github.com/zntrio/harp/v2/pkg/sdk/types"
+	"zntr.io/harp/v2/pkg/sdk/log"
+	"zntr.io/harp/v2/pkg/sdk/types"
 )
 
 // Create an archive from given options to the given writer.

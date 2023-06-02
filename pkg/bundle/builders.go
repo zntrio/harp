@@ -26,11 +26,11 @@ import (
 
 	"google.golang.org/protobuf/encoding/protojson"
 
-	bundlev1 "github.com/zntrio/harp/v2/api/gen/go/harp/bundle/v1"
-	"github.com/zntrio/harp/v2/pkg/bundle/compare"
-	"github.com/zntrio/harp/v2/pkg/bundle/hcl"
-	"github.com/zntrio/harp/v2/pkg/bundle/secret"
-	"github.com/zntrio/harp/v2/pkg/sdk/types"
+	bundlev1 "zntr.io/harp/v2/api/gen/go/harp/bundle/v1"
+	"zntr.io/harp/v2/pkg/bundle/compare"
+	"zntr.io/harp/v2/pkg/bundle/hcl"
+	"zntr.io/harp/v2/pkg/bundle/secret"
+	"zntr.io/harp/v2/pkg/sdk/types"
 )
 
 // FromDump creates a bundle from a JSON Dump.

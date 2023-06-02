@@ -25,9 +25,9 @@ import (
 	"github.com/pelletier/go-toml"
 	"gopkg.in/yaml.v3"
 
-	"github.com/zntrio/harp/v2/pkg/bundle"
-	"github.com/zntrio/harp/v2/pkg/sdk/value/flatmap"
-	"github.com/zntrio/harp/v2/pkg/tasks"
+	"zntr.io/harp/v2/pkg/bundle"
+	"zntr.io/harp/v2/pkg/sdk/value/flatmap"
+	"zntr.io/harp/v2/pkg/tasks"
 )
 
 // ObjectTask implements secret-container publication process to json/yaml content.

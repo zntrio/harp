@@ -26,7 +26,7 @@ import (
 
 	"github.com/oklog/run"
 
-	"github.com/zntrio/harp/v2/pkg/sdk/log"
+	"zntr.io/harp/v2/pkg/sdk/log"
 )
 
 // UnsupportedReloader is the file descriptor reloader mock for Windows.

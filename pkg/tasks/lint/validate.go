@@ -26,11 +26,11 @@ import (
 	"github.com/xeipuuv/gojsonschema"
 	"sigs.k8s.io/yaml"
 
-	"github.com/zntrio/harp/v2/pkg/bundle"
-	"github.com/zntrio/harp/v2/pkg/bundle/patch"
-	"github.com/zntrio/harp/v2/pkg/bundle/ruleset"
-	"github.com/zntrio/harp/v2/pkg/bundle/template"
-	"github.com/zntrio/harp/v2/pkg/tasks"
+	"zntr.io/harp/v2/pkg/bundle"
+	"zntr.io/harp/v2/pkg/bundle/patch"
+	"zntr.io/harp/v2/pkg/bundle/ruleset"
+	"zntr.io/harp/v2/pkg/bundle/template"
+	"zntr.io/harp/v2/pkg/tasks"
 )
 
 // ValidateTask implements input linter task.
@@ -84,7 +84,7 @@ func (t *ValidateTask) Run(ctx context.Context) error {
 		}
 
 		// Check API Version
-		if specBody.APIVersion != "harp.elastic.co/v1" {
+		if specBody.APIVersion != "harp.zntr.io/v2" {
 			return fmt.Errorf("unsupported YAML file format %q", specBody.APIVersion)
 		}
 

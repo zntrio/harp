@@ -18,7 +18,7 @@
 package visitor
 
 import (
-	bundlev1 "github.com/zntrio/harp/v2/api/gen/go/harp/bundle/v1"
+	bundlev1 "zntr.io/harp/v2/api/gen/go/harp/bundle/v1"
 )
 
 // -----------------------------------------------------------------------------

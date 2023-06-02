@@ -11,7 +11,7 @@ Describes your secret requirements using the `BundleTemplate` specification and
 secret micro-template functions.
 
 ```yaml
-apiVersion: harp.elastic.co/v1
+apiVersion: harp.zntr.io/v2
 kind: BundleTemplate
 meta:
   name: "Ec2ssh"

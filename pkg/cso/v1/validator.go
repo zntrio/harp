@@ -25,7 +25,7 @@ import (
 	validation "github.com/go-ozzo/ozzo-validation/v4"
 	"github.com/go-ozzo/ozzo-validation/v4/is"
 
-	"github.com/zntrio/harp/v2/pkg/sdk/types"
+	"zntr.io/harp/v2/pkg/sdk/types"
 )
 
 const (

@@ -24,10 +24,10 @@ import (
 	"github.com/spf13/cobra"
 	"go.uber.org/zap"
 
-	"github.com/zntrio/harp/v2/pkg/kv/consul"
-	"github.com/zntrio/harp/v2/pkg/sdk/cmdutil"
-	"github.com/zntrio/harp/v2/pkg/sdk/log"
-	"github.com/zntrio/harp/v2/pkg/tasks/from"
+	"zntr.io/harp/v2/pkg/kv/consul"
+	"zntr.io/harp/v2/pkg/sdk/cmdutil"
+	"zntr.io/harp/v2/pkg/sdk/log"
+	"zntr.io/harp/v2/pkg/tasks/from"
 )
 
 // -----------------------------------------------------------------------------

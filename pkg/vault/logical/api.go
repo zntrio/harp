@@ -19,7 +19,7 @@ package logical
 
 import "github.com/hashicorp/vault/api"
 
-//go:generate mockgen -destination logical.mock.go -package logical github.com/zntrio/harp/v2/pkg/vault/logical Logical
+//go:generate mockgen -destination logical.mock.go -package logical zntr.io/harp/v2/pkg/vault/logical Logical
 
 // Logical backend interface.
 type Logical interface {

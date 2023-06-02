@@ -21,9 +21,9 @@ import (
 	"context"
 	"testing"
 
-	bundlev1 "github.com/zntrio/harp/v2/api/gen/go/harp/bundle/v1"
-	"github.com/zntrio/harp/v2/pkg/bundle/ruleset/engine"
-	"github.com/zntrio/harp/v2/pkg/bundle/secret"
+	bundlev1 "zntr.io/harp/v2/api/gen/go/harp/bundle/v1"
+	"zntr.io/harp/v2/pkg/bundle/ruleset/engine"
+	"zntr.io/harp/v2/pkg/bundle/secret"
 )
 
 func TestNew(t *testing.T) {

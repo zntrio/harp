@@ -25,7 +25,7 @@ import (
 	"github.com/fernet/fernet-go"
 	"github.com/pkg/errors"
 
-	"github.com/zntrio/harp/v2/build/fips"
+	"zntr.io/harp/v2/build/fips"
 )
 
 // -----------------------------------------------------------------------------

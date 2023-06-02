@@ -7,8 +7,8 @@
       "properties": {
         "apiVersion": {
           "type": "string",
-          "description": "Default to \"harp.elastic.co/v1\"",
-          "const": "harp.elastic.co/v1"
+          "description": "Default to \"harp.zntr.io/v2\"",
+          "const": "harp.zntr.io/v2"
         },
         "kind": {
           "type": "string",

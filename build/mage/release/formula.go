@@ -27,7 +27,7 @@ import (
 	"strings"
 	"text/template"
 
-	"github.com/zntrio/harp/v2/build/artifact"
+	"zntr.io/harp/v2/build/artifact"
 )
 
 var formulaTemplate = strings.TrimSpace(`# typed: false

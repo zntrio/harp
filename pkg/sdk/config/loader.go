@@ -26,8 +26,8 @@ import (
 	"github.com/spf13/viper"
 	"go.uber.org/zap"
 
-	"github.com/zntrio/harp/v2/pkg/sdk/flags"
-	"github.com/zntrio/harp/v2/pkg/sdk/log"
+	"zntr.io/harp/v2/pkg/sdk/flags"
+	"zntr.io/harp/v2/pkg/sdk/log"
 )
 
 // Load a config

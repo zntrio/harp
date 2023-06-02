@@ -27,11 +27,11 @@ import (
 	"github.com/hashicorp/vault/api"
 	"go.uber.org/zap"
 
-	bundlev1 "github.com/zntrio/harp/v2/api/gen/go/harp/bundle/v1"
-	"github.com/zntrio/harp/v2/pkg/bundle/secret"
-	"github.com/zntrio/harp/v2/pkg/sdk/log"
-	"github.com/zntrio/harp/v2/pkg/vault/kv"
-	vpath "github.com/zntrio/harp/v2/pkg/vault/path"
+	bundlev1 "zntr.io/harp/v2/api/gen/go/harp/bundle/v1"
+	"zntr.io/harp/v2/pkg/bundle/secret"
+	"zntr.io/harp/v2/pkg/sdk/log"
+	"zntr.io/harp/v2/pkg/vault/kv"
+	vpath "zntr.io/harp/v2/pkg/vault/path"
 
 	"golang.org/x/sync/errgroup"
 	"golang.org/x/sync/semaphore"

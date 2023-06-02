@@ -20,7 +20,7 @@ package bundle
 import (
 	"io"
 
-	bundlev1 "github.com/zntrio/harp/v2/api/gen/go/harp/bundle/v1"
+	bundlev1 "zntr.io/harp/v2/api/gen/go/harp/bundle/v1"
 )
 
 // Reader exposes bundle reader contract.
@@ -45,12 +45,12 @@ type Visitor interface {
 // -----------------------------------------------------------------------------
 
 var (
-	bundleAnnotationsKey        = "harp.elastic.co/v1/bundle#annotations"
-	bundleLabelsKey             = "harp.elastic.co/v1/bundle#labels"
-	packageAnnotations          = "harp.elastic.co/v1/package#annotations"
-	packageLabels               = "harp.elastic.co/v1/package#labels"
-	packageEncryptionAnnotation = "harp.elastic.co/v1/package#encryptionKeyAlias"
-	packageEncryptedValueType   = "harp.elastic.co/v1/package#encryptedValue"
+	bundleAnnotationsKey        = "harp.zntr.io/v2/bundle#annotations"
+	bundleLabelsKey             = "harp.zntr.io/v2/bundle#labels"
+	packageAnnotations          = "harp.zntr.io/v2/package#annotations"
+	packageLabels               = "harp.zntr.io/v2/package#labels"
+	packageEncryptionAnnotation = "harp.zntr.io/v2/package#encryptionKeyAlias"
+	packageEncryptedValueType   = "harp.zntr.io/v2/package#encryptedValue"
 )
 
 // AnnotationOwner defines annotations owner contract.

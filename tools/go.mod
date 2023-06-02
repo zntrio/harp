@@ -1,4 +1,4 @@
-module github.com/zntrio/harp/v2/tools
+module zntr.io/harp/v2/tools
 
 go 1.20
 

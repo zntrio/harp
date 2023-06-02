@@ -21,9 +21,9 @@ import (
 	"errors"
 	"fmt"
 
-	bundlev1 "github.com/zntrio/harp/v2/api/gen/go/harp/bundle/v1"
-	"github.com/zntrio/harp/v2/pkg/bundle/template/visitor"
-	"github.com/zntrio/harp/v2/pkg/template/engine"
+	bundlev1 "zntr.io/harp/v2/api/gen/go/harp/bundle/v1"
+	"zntr.io/harp/v2/pkg/bundle/template/visitor"
+	"zntr.io/harp/v2/pkg/template/engine"
 )
 
 // New returns a secret builder visitor instance.

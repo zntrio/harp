@@ -31,12 +31,12 @@ import (
 	_ "golang.org/x/crypto/sha3"
 
 	// Register encryption transformers
-	_ "github.com/zntrio/harp/v2/pkg/sdk/value/encryption/aead"
-	_ "github.com/zntrio/harp/v2/pkg/sdk/value/encryption/dae"
-	_ "github.com/zntrio/harp/v2/pkg/sdk/value/encryption/fernet"
-	_ "github.com/zntrio/harp/v2/pkg/sdk/value/encryption/jwe"
-	_ "github.com/zntrio/harp/v2/pkg/sdk/value/signature/jws"
-	_ "github.com/zntrio/harp/v2/pkg/sdk/value/signature/paseto"
-	_ "github.com/zntrio/harp/v2/pkg/sdk/value/signature/raw"
-	_ "github.com/zntrio/harp/v2/pkg/vault"
+	_ "zntr.io/harp/v2/pkg/sdk/value/encryption/aead"
+	_ "zntr.io/harp/v2/pkg/sdk/value/encryption/dae"
+	_ "zntr.io/harp/v2/pkg/sdk/value/encryption/fernet"
+	_ "zntr.io/harp/v2/pkg/sdk/value/encryption/jwe"
+	_ "zntr.io/harp/v2/pkg/sdk/value/signature/jws"
+	_ "zntr.io/harp/v2/pkg/sdk/value/signature/paseto"
+	_ "zntr.io/harp/v2/pkg/sdk/value/signature/raw"
+	_ "zntr.io/harp/v2/pkg/vault"
 )

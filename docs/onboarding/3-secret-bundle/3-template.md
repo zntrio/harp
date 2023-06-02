@@ -25,7 +25,7 @@ secret paths and matching values.
 
 ## Specifications
 
-This [specification](https://github.com/zntrio/harp/blob/main/api/proto/harp/bundle/v1/template.proto) declares Bundle generation template object structure.
+This [specification](https://zntr.io/harp/blob/main/api/proto/harp/bundle/v1/template.proto) declares Bundle generation template object structure.
 
 The specification is written in YAML, in order to be human-readable, but
 internally converted as protobuf object.
@@ -69,7 +69,7 @@ according to their sensitivity to leaks.
 `BundleTemplate` uses Kubernetes-like YAML descriptors.
 
 ```yaml
-apiVersion: harp.elastic.co/v1
+apiVersion: harp.zntr.io/v2
 kind: BundleTemplate
 meta:
   name: "Ecebootstrap"
@@ -81,7 +81,7 @@ spec:
   ... Omitted ...
 ```
 
-* The `apiVersion` must be `harp.elastic.co/v1`
+* The `apiVersion` must be `harp.zntr.io/v2`
 * The `kind` must be `BundleTemplate`
 * The `meta.name` must not be empty
 * The `meta.owner` must be an email
@@ -91,7 +91,7 @@ spec:
 
 #### Infrastructure secrets
 
-> Protobuf definition - [InfrastructureNS](https://github.com/zntrio/harp/blob/main/api/proto/harp/bundle/v1/template.proto#L83)
+> Protobuf definition - [InfrastructureNS](https://zntr.io/harp/blob/main/api/proto/harp/bundle/v1/template.proto#L83)
 
 An `infrastructure` is a consistent set of resource provided by an infrastructure
 provider (IaaS).
@@ -135,7 +135,7 @@ This will generate a secret like the following one :
 
 #### Platform secrets
 
-> Protobuf definition - [PlatformNS](https://github.com/zntrio/harp/blob/main/api/proto/harp/bundle/v1/template.proto#L117)
+> Protobuf definition - [PlatformNS](https://zntr.io/harp/blob/main/api/proto/harp/bundle/v1/template.proto#L117)
 
 A `platform` is a regionalized consistent set of infrastructure resources working
 together in order to provide services to products.
@@ -215,7 +215,7 @@ This will generate 3 secrets like the following ones:
 
 #### Product secrets
 
-> Protobuf definition - [ProductComponentNS](https://github.com/zntrio/harp/blob/main/api/proto/harp/bundle/v1/template.proto#L139)
+> Protobuf definition - [ProductComponentNS](https://zntr.io/harp/blob/main/api/proto/harp/bundle/v1/template.proto#L139)
 
 A `product` in CSO, is a virtual concept for non-instantiable resources, and
 not related to execution.
@@ -257,7 +257,7 @@ This will generate a secret like the following one :
 
 #### Application secrets
 
-> Protobuf definition - [ApplicationComponentNS](https://github.com/zntrio/harp/blob/main/api/proto/harp/bundle/v1/template.proto#L151)
+> Protobuf definition - [ApplicationComponentNS](https://zntr.io/harp/blob/main/api/proto/harp/bundle/v1/template.proto#L151)
 
 An `application` is an instance of a `product` running on a `platform` at a
 `quality` stage level.

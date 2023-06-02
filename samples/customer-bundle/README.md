@@ -136,7 +136,7 @@ unseal it if you forget the container key.
 
 ```json
 {
-  "@apiVersion": "harp.elastic.co/v1",
+  "@apiVersion": "harp.zntr.io/v2",
   "@kind": "ContainerIdentity",
   "@timestamp": "2020-10-26T17:32:38.352639Z",
   "@description": "Recovery",

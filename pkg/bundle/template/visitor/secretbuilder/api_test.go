@@ -22,8 +22,8 @@ import (
 
 	fuzz "github.com/google/gofuzz"
 
-	bundlev1 "github.com/zntrio/harp/v2/api/gen/go/harp/bundle/v1"
-	"github.com/zntrio/harp/v2/pkg/template/engine"
+	bundlev1 "zntr.io/harp/v2/api/gen/go/harp/bundle/v1"
+	"zntr.io/harp/v2/pkg/template/engine"
 )
 
 func TestVisit_Fuzz(t *testing.T) {
@@ -34,7 +34,7 @@ func TestVisit_Fuzz(t *testing.T) {
 		v := New(&bundlev1.Bundle{}, engine.NewContext())
 
 		tmpl := &bundlev1.Template{
-			ApiVersion: "harp.elastic.co/v1",
+			ApiVersion: "harp.zntr.io/v2",
 			Kind:       "BundleTemplate",
 			Spec: &bundlev1.TemplateSpec{
 				Selector: &bundlev1.Selector{
@@ -69,7 +69,7 @@ func TestVisit_Template_Fuzz(t *testing.T) {
 		v := New(&bundlev1.Bundle{}, engine.NewContext())
 
 		tmpl := &bundlev1.Template{
-			ApiVersion: "harp.elastic.co/v1",
+			ApiVersion: "harp.zntr.io/v2",
 			Kind:       "BundleTemplate",
 			Spec: &bundlev1.TemplateSpec{
 				Selector: &bundlev1.Selector{
@@ -165,7 +165,7 @@ func TestVisit_Content_Fuzz(t *testing.T) {
 		v := New(&bundlev1.Bundle{}, engine.NewContext())
 
 		tmpl := &bundlev1.Template{
-			ApiVersion: "harp.elastic.co/v1",
+			ApiVersion: "harp.zntr.io/v2",
 			Kind:       "BundleTemplate",
 			Spec: &bundlev1.TemplateSpec{
 				Selector: &bundlev1.Selector{

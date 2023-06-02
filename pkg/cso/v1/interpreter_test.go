@@ -23,7 +23,7 @@ import (
 
 	"github.com/google/go-cmp/cmp"
 
-	csov1 "github.com/zntrio/harp/v2/api/gen/go/cso/v1"
+	csov1 "zntr.io/harp/v2/api/gen/go/cso/v1"
 )
 
 func TestCso_Interpret_Text(t *testing.T) {

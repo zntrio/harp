@@ -21,10 +21,10 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/zntrio/harp/v2/pkg/bundle"
-	"github.com/zntrio/harp/v2/pkg/bundle/ruleset"
-	"github.com/zntrio/harp/v2/pkg/sdk/convert"
-	"github.com/zntrio/harp/v2/pkg/tasks"
+	"zntr.io/harp/v2/pkg/bundle"
+	"zntr.io/harp/v2/pkg/bundle/ruleset"
+	"zntr.io/harp/v2/pkg/sdk/convert"
+	"zntr.io/harp/v2/pkg/tasks"
 )
 
 // RuleSetTask implements RuleSet generation from a bundle.

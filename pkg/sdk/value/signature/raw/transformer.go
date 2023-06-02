@@ -30,9 +30,9 @@ import (
 	"hash"
 	"math/big"
 
-	"github.com/zntrio/harp/v2/pkg/sdk/security/crypto/rfc6979"
-	"github.com/zntrio/harp/v2/pkg/sdk/types"
-	"github.com/zntrio/harp/v2/pkg/sdk/value/signature"
+	"zntr.io/harp/v2/pkg/sdk/security/crypto/rfc6979"
+	"zntr.io/harp/v2/pkg/sdk/types"
+	"zntr.io/harp/v2/pkg/sdk/value/signature"
 )
 
 type rawTransformer struct {

@@ -26,8 +26,8 @@ import (
 	"github.com/awnumar/memguard"
 	fuzz "github.com/google/gofuzz"
 
-	"github.com/zntrio/harp/v2/pkg/sdk/cmdutil"
-	"github.com/zntrio/harp/v2/pkg/tasks"
+	"zntr.io/harp/v2/pkg/sdk/cmdutil"
+	"zntr.io/harp/v2/pkg/tasks"
 )
 
 func TestSealTask_Run_V1(t *testing.T) {

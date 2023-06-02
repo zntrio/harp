@@ -242,7 +242,7 @@ Given this YAML specificcation :
 <p>
 
 ```yaml
-apiVersion: harp.elastic.co/v1
+apiVersion: harp.zntr.io/v2
 kind: BundleTemplate
 meta:
     name: "Ecebootstrap"
@@ -374,7 +374,7 @@ It uses a specification to apply tranformations to the given bundle.
 <p>
 
 ```yaml
-apiVersion: harp.elastic.co/v1
+apiVersion: harp.zntr.io/v2
 kind: BundlePatch
 meta:
     name: "postgresql-rotator"
@@ -411,7 +411,7 @@ spec:
 <p>
 
 ```yaml
-apiVersion: harp.elastic.co/v1
+apiVersion: harp.zntr.io/v2
 kind: BundlePatch
 meta:
     name: "fernet-key-rotator"
@@ -484,7 +484,7 @@ $ harp bundle diff --old input.bundle --new other.bundle
 
 ```sh
 $ harp bundle diff --old input.bundle --new other.bundle --patch
-api_version: harp.elastic.co/v1
+api_version: harp.zntr.io/v2
 kind: BundlePatch
 meta:
   description: Patch generated from oplog
@@ -622,7 +622,7 @@ harp bundle decrypt --in encrypted.bundle --out decrypted.bundle \
 #### Check that all packages are CSO compliant
 
 ```yaml
-apiVersion: harp.elastic.co/v1
+apiVersion: harp.zntr.io/v2
 kind: RuleSet
 meta:
     name: harp-server
@@ -658,7 +658,7 @@ $ echo '{"infra/aws/security/eu-central-1/ec2/ssh/default/authorized_keys":{"adm
 #### Validate a secret structure
 
 ```yaml
-apiVersion: harp.elastic.co/v1
+apiVersion: harp.zntr.io/v2
 kind: RuleSet
 meta:
     name: harp-server
@@ -701,7 +701,7 @@ harp ruleset from-bundle --in customer.bundle
 <details><summary>RuleSet</summary>
 
 ```yaml
-api_version: harp.elastic.co/v1
+api_version: harp.zntr.io/v2
 kind: RuleSet
 meta:
     description: Generated from bundle content
@@ -830,7 +830,7 @@ Sample identity
 
 ```json
 {
-    "@apiVersion": "harp.elastic.co/v1",
+    "@apiVersion": "harp.zntr.io/v2",
     "@kind": "ContainerIdentity",
     "@timestamp": "2021-02-16T10:06:31.126671Z",
     "@description": "recovery",
@@ -1087,7 +1087,7 @@ Sample identity
 
 ```json
 {
-    "@apiVersion": "harp.elastic.co/v1",
+    "@apiVersion": "harp.zntr.io/v2",
     "@kind": "ContainerIdentity",
     "@timestamp": "2020-10-27T19:58:51.398987Z",
     "@description": "Recovery",

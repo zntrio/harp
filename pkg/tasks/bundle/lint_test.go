@@ -21,8 +21,8 @@ import (
 	"context"
 	"testing"
 
-	"github.com/zntrio/harp/v2/pkg/sdk/cmdutil"
-	"github.com/zntrio/harp/v2/pkg/tasks"
+	"zntr.io/harp/v2/pkg/sdk/cmdutil"
+	"zntr.io/harp/v2/pkg/tasks"
 )
 
 func TestLintTask_Run(t *testing.T) {

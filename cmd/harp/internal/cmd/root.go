@@ -24,12 +24,12 @@ import (
 	"github.com/spf13/cobra"
 	"go.uber.org/zap"
 
-	"github.com/zntrio/harp/v2/build/version"
-	iconfig "github.com/zntrio/harp/v2/cmd/harp/internal/config"
-	"github.com/zntrio/harp/v2/pkg/sdk/cmdutil"
-	"github.com/zntrio/harp/v2/pkg/sdk/config"
-	configcmd "github.com/zntrio/harp/v2/pkg/sdk/config/cmd"
-	"github.com/zntrio/harp/v2/pkg/sdk/log"
+	"zntr.io/harp/v2/build/version"
+	iconfig "zntr.io/harp/v2/cmd/harp/internal/config"
+	"zntr.io/harp/v2/pkg/sdk/cmdutil"
+	"zntr.io/harp/v2/pkg/sdk/config"
+	configcmd "zntr.io/harp/v2/pkg/sdk/config/cmd"
+	"zntr.io/harp/v2/pkg/sdk/log"
 )
 
 // -----------------------------------------------------------------------------

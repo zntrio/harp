@@ -22,8 +22,8 @@ import (
 
 	"github.com/gosimple/slug"
 
-	"github.com/zntrio/harp/v2/build/version"
-	"github.com/zntrio/harp/v2/pkg/sdk/log"
+	"zntr.io/harp/v2/build/version"
+	"zntr.io/harp/v2/pkg/sdk/log"
 )
 
 // Context initializes a command context.

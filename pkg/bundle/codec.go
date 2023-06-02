@@ -28,11 +28,11 @@ import (
 	"google.golang.org/protobuf/encoding/protojson"
 	"google.golang.org/protobuf/proto"
 
-	bundlev1 "github.com/zntrio/harp/v2/api/gen/go/harp/bundle/v1"
-	"github.com/zntrio/harp/v2/pkg/bundle/secret"
-	"github.com/zntrio/harp/v2/pkg/sdk/ioutil"
-	"github.com/zntrio/harp/v2/pkg/sdk/security"
-	"github.com/zntrio/harp/v2/pkg/sdk/types"
+	bundlev1 "zntr.io/harp/v2/api/gen/go/harp/bundle/v1"
+	"zntr.io/harp/v2/pkg/bundle/secret"
+	"zntr.io/harp/v2/pkg/sdk/ioutil"
+	"zntr.io/harp/v2/pkg/sdk/security"
+	"zntr.io/harp/v2/pkg/sdk/types"
 )
 
 const (

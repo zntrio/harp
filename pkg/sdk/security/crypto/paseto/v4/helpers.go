@@ -26,7 +26,7 @@ import (
 	"fmt"
 	"io"
 
-	"github.com/zntrio/harp/v2/pkg/sdk/security"
+	"zntr.io/harp/v2/pkg/sdk/security"
 
 	"golang.org/x/crypto/blake2b"
 	"golang.org/x/crypto/chacha20"

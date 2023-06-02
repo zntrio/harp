@@ -23,9 +23,9 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/zntrio/harp/v2/build/fips"
-	"github.com/zntrio/harp/v2/pkg/sdk/value"
-	"github.com/zntrio/harp/v2/pkg/sdk/value/encryption"
+	"zntr.io/harp/v2/build/fips"
+	"zntr.io/harp/v2/pkg/sdk/value"
+	"zntr.io/harp/v2/pkg/sdk/value/encryption"
 )
 
 func init() {

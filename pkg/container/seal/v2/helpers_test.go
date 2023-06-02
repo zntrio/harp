@@ -27,8 +27,8 @@ import (
 	"github.com/awnumar/memguard"
 	"github.com/stretchr/testify/assert"
 
-	containerv1 "github.com/zntrio/harp/v2/api/gen/go/harp/container/v1"
-	"github.com/zntrio/harp/v2/pkg/sdk/security/crypto/deterministicecdsa"
+	containerv1 "zntr.io/harp/v2/api/gen/go/harp/container/v1"
+	"zntr.io/harp/v2/pkg/sdk/security/crypto/deterministicecdsa"
 )
 
 func Test_deriveSharedKeyFromRecipient(t *testing.T) {

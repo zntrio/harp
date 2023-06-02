@@ -23,11 +23,11 @@ import (
 	"io"
 	"testing"
 
-	"github.com/zntrio/harp/v2/pkg/sdk/cmdutil"
-	"github.com/zntrio/harp/v2/pkg/sdk/value"
-	"github.com/zntrio/harp/v2/pkg/sdk/value/identity"
-	"github.com/zntrio/harp/v2/pkg/sdk/value/mock"
-	"github.com/zntrio/harp/v2/pkg/tasks"
+	"zntr.io/harp/v2/pkg/sdk/cmdutil"
+	"zntr.io/harp/v2/pkg/sdk/value"
+	"zntr.io/harp/v2/pkg/sdk/value/identity"
+	"zntr.io/harp/v2/pkg/sdk/value/mock"
+	"zntr.io/harp/v2/pkg/tasks"
 )
 
 func TestIdentityTask_Run(t *testing.T) {

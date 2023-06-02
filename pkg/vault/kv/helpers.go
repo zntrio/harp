@@ -24,7 +24,7 @@ import (
 
 	"github.com/hashicorp/vault/api"
 
-	"github.com/zntrio/harp/v2/pkg/sdk/log"
+	"zntr.io/harp/v2/pkg/sdk/log"
 )
 
 // IsKVv2 detect if the givent path match a kv v2 engine.

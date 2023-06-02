@@ -25,7 +25,7 @@ import (
 	"github.com/stretchr/testify/assert"
 	"gopkg.in/square/go-jose.v2"
 
-	"github.com/zntrio/harp/v2/pkg/sdk/value/signature"
+	"zntr.io/harp/v2/pkg/sdk/value/signature"
 )
 
 // -----------------------------------------------------------------------------

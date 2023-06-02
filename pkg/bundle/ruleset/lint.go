@@ -24,9 +24,9 @@ import (
 
 	"github.com/xeipuuv/gojsonschema"
 
-	"github.com/zntrio/harp/v2/api/jsonschema"
-	"github.com/zntrio/harp/v2/pkg/sdk/convert"
-	"github.com/zntrio/harp/v2/pkg/sdk/types"
+	"zntr.io/harp/v2/api/jsonschema"
+	"zntr.io/harp/v2/pkg/sdk/convert"
+	"zntr.io/harp/v2/pkg/sdk/types"
 )
 
 // JSONSchema returns the used json schema for validation.

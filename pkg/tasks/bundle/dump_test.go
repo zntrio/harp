@@ -26,10 +26,10 @@ import (
 
 	"github.com/stretchr/testify/assert"
 
-	bundlev1 "github.com/zntrio/harp/v2/api/gen/go/harp/bundle/v1"
-	"github.com/zntrio/harp/v2/pkg/bundle/secret"
-	"github.com/zntrio/harp/v2/pkg/sdk/cmdutil"
-	"github.com/zntrio/harp/v2/pkg/tasks"
+	bundlev1 "zntr.io/harp/v2/api/gen/go/harp/bundle/v1"
+	"zntr.io/harp/v2/pkg/bundle/secret"
+	"zntr.io/harp/v2/pkg/sdk/cmdutil"
+	"zntr.io/harp/v2/pkg/tasks"
 )
 
 func TestDumpTask_Run(t *testing.T) {
@@ -332,7 +332,7 @@ func TestDumpTask_dumpMetadata(t *testing.T) {
 								"vendor": "true",
 							},
 							Annotations: map[string]string{
-								"harp.elastic.co/v1/testing#Annotation": "test",
+								"harp.zntr.io/v2/testing#Annotation": "test",
 							},
 							Secrets: &bundlev1.SecretChain{
 								Data: []*bundlev1.KV{
@@ -346,7 +346,7 @@ func TestDumpTask_dumpMetadata(t *testing.T) {
 					},
 				},
 			},
-			wantWriter: `{"harp.elastic.co/v1/bundle#annotations":{"annotation":"text"},"harp.elastic.co/v1/bundle#labels":{"generated":"true"},"secret/package":{"harp.elastic.co/v1/package#annotations":{"harp.elastic.co/v1/testing#Annotation":"test"},"harp.elastic.co/v1/package#labels":{"vendor":"true"}}}` + "\n",
+			wantWriter: `{"harp.zntr.io/v2/bundle#annotations":{"annotation":"text"},"harp.zntr.io/v2/bundle#labels":{"generated":"true"},"secret/package":{"harp.zntr.io/v2/package#annotations":{"harp.zntr.io/v2/testing#Annotation":"test"},"harp.zntr.io/v2/package#labels":{"vendor":"true"}}}` + "\n",
 			wantErr:    false,
 		},
 	}

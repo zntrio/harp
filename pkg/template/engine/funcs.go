@@ -32,11 +32,11 @@ import (
 	"github.com/alessio/shellescape"
 	"go.step.sm/crypto/pemutil"
 
-	"github.com/zntrio/harp/v2/pkg/sdk/security/crypto"
-	"github.com/zntrio/harp/v2/pkg/sdk/security/crypto/bech32"
-	"github.com/zntrio/harp/v2/pkg/sdk/security/diceware"
-	"github.com/zntrio/harp/v2/pkg/sdk/security/password"
-	"github.com/zntrio/harp/v2/pkg/template/engine/internal/codec"
+	"zntr.io/harp/v2/pkg/sdk/security/crypto"
+	"zntr.io/harp/v2/pkg/sdk/security/crypto/bech32"
+	"zntr.io/harp/v2/pkg/sdk/security/diceware"
+	"zntr.io/harp/v2/pkg/sdk/security/password"
+	"zntr.io/harp/v2/pkg/template/engine/internal/codec"
 )
 
 // FuncMap returns a mapping of all of the functions that Temmplate has.

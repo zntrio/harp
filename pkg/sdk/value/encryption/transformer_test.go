@@ -25,17 +25,17 @@ import (
 
 	"github.com/stretchr/testify/assert"
 
-	"github.com/zntrio/harp/v2/pkg/sdk/value"
-	"github.com/zntrio/harp/v2/pkg/sdk/value/encryption"
+	"zntr.io/harp/v2/pkg/sdk/value"
+	"zntr.io/harp/v2/pkg/sdk/value/encryption"
 	// Register encryption transformers.
-	_ "github.com/zntrio/harp/v2/pkg/sdk/value/encryption/aead"
-	_ "github.com/zntrio/harp/v2/pkg/sdk/value/encryption/age"
-	_ "github.com/zntrio/harp/v2/pkg/sdk/value/encryption/dae"
-	_ "github.com/zntrio/harp/v2/pkg/sdk/value/encryption/fernet"
-	_ "github.com/zntrio/harp/v2/pkg/sdk/value/encryption/jwe"
-	_ "github.com/zntrio/harp/v2/pkg/sdk/value/encryption/paseto"
-	_ "github.com/zntrio/harp/v2/pkg/sdk/value/encryption/secretbox"
-	"github.com/zntrio/harp/v2/pkg/sdk/value/mock"
+	_ "zntr.io/harp/v2/pkg/sdk/value/encryption/aead"
+	_ "zntr.io/harp/v2/pkg/sdk/value/encryption/age"
+	_ "zntr.io/harp/v2/pkg/sdk/value/encryption/dae"
+	_ "zntr.io/harp/v2/pkg/sdk/value/encryption/fernet"
+	_ "zntr.io/harp/v2/pkg/sdk/value/encryption/jwe"
+	_ "zntr.io/harp/v2/pkg/sdk/value/encryption/paseto"
+	_ "zntr.io/harp/v2/pkg/sdk/value/encryption/secretbox"
+	"zntr.io/harp/v2/pkg/sdk/value/mock"
 )
 
 func TestFromKey(t *testing.T) {

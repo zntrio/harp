@@ -2,7 +2,7 @@ version: v1
 managed:  
   enabled: true  
   go_package_prefix:    
-    default: github.com/zntrio/harp/v2/api/gen/go/
+    default: zntr.io/harp/v2/api/gen/go/
 plugins:
   - plugin: buf.build/protocolbuffers/go
     out: ../gen/go

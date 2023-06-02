@@ -24,7 +24,7 @@ import (
 	"fmt"
 	"io"
 
-	"github.com/zntrio/harp/v2/pkg/sdk/security/crypto/deterministicecdsa"
+	"zntr.io/harp/v2/pkg/sdk/security/crypto/deterministicecdsa"
 
 	"golang.org/x/crypto/nacl/box"
 )

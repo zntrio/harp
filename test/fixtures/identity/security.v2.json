@@ -1,5 +1,5 @@
 {
-  "@apiVersion": "harp.elastic.co/v1",
+  "@apiVersion": "harp.zntr.io/v2",
   "@kind": "ContainerIdentity",
   "@timestamp": "2021-12-01T22:15:07.586373Z",
   "@description": "security",

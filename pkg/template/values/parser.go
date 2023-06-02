@@ -20,12 +20,12 @@ package values
 import (
 	"fmt"
 
-	"github.com/zntrio/harp/v2/pkg/template/values/hcl1"
-	"github.com/zntrio/harp/v2/pkg/template/values/hcl2"
-	"github.com/zntrio/harp/v2/pkg/template/values/hocon"
-	"github.com/zntrio/harp/v2/pkg/template/values/toml"
-	"github.com/zntrio/harp/v2/pkg/template/values/xml"
-	"github.com/zntrio/harp/v2/pkg/template/values/yaml"
+	"zntr.io/harp/v2/pkg/template/values/hcl1"
+	"zntr.io/harp/v2/pkg/template/values/hcl2"
+	"zntr.io/harp/v2/pkg/template/values/hocon"
+	"zntr.io/harp/v2/pkg/template/values/toml"
+	"zntr.io/harp/v2/pkg/template/values/xml"
+	"zntr.io/harp/v2/pkg/template/values/yaml"
 )
 
 // Parser is the interface implemented by objects that can unmarshal

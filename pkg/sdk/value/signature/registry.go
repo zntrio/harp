@@ -20,7 +20,7 @@ package signature
 import (
 	"fmt"
 
-	"github.com/zntrio/harp/v2/pkg/sdk/value"
+	"zntr.io/harp/v2/pkg/sdk/value"
 )
 
 // TransformerFactoryFunc is used for transformer building for signature.

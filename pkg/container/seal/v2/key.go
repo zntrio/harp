@@ -30,8 +30,8 @@ import (
 
 	"github.com/awnumar/memguard"
 
-	"github.com/zntrio/harp/v2/pkg/container/seal"
-	"github.com/zntrio/harp/v2/pkg/sdk/security/crypto/deterministicecdsa"
+	"zntr.io/harp/v2/pkg/container/seal"
+	"zntr.io/harp/v2/pkg/sdk/security/crypto/deterministicecdsa"
 
 	"golang.org/x/crypto/pbkdf2"
 )

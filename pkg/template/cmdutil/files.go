@@ -21,9 +21,9 @@ import (
 	"fmt"
 	"io/fs"
 
-	"github.com/zntrio/harp/v2/pkg/sdk/types"
-	"github.com/zntrio/harp/v2/pkg/template/engine"
-	"github.com/zntrio/harp/v2/pkg/template/files"
+	"zntr.io/harp/v2/pkg/sdk/types"
+	"zntr.io/harp/v2/pkg/template/engine"
+	"zntr.io/harp/v2/pkg/template/files"
 )
 
 // Files returns template files.

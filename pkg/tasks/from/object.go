@@ -26,10 +26,10 @@ import (
 
 	"gopkg.in/yaml.v3"
 
-	bundlev1 "github.com/zntrio/harp/v2/api/gen/go/harp/bundle/v1"
-	"github.com/zntrio/harp/v2/pkg/bundle"
-	"github.com/zntrio/harp/v2/pkg/sdk/value/flatmap"
-	"github.com/zntrio/harp/v2/pkg/tasks"
+	bundlev1 "zntr.io/harp/v2/api/gen/go/harp/bundle/v1"
+	"zntr.io/harp/v2/pkg/bundle"
+	"zntr.io/harp/v2/pkg/sdk/value/flatmap"
+	"zntr.io/harp/v2/pkg/tasks"
 )
 
 // ObjectTask implements secret-container creation from a YAML/JSON structure.

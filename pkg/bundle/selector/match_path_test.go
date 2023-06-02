@@ -24,7 +24,7 @@ import (
 	"github.com/gobwas/glob"
 	fuzz "github.com/google/gofuzz"
 
-	bundlev1 "github.com/zntrio/harp/v2/api/gen/go/harp/bundle/v1"
+	bundlev1 "zntr.io/harp/v2/api/gen/go/harp/bundle/v1"
 )
 
 func Test_matchPath_IsSatisfiedBy(t *testing.T) {

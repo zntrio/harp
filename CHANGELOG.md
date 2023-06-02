@@ -5,7 +5,7 @@
 FEATURES:
 
 * container/seal:
-  *  Support Pre-shared Key sealing to reduce blast radius in the case of an identity leak. [#106](https://github.com/zntrio/harp/pull/106)
+  *  Support Pre-shared Key sealing to reduce blast radius in the case of an identity leak. [#106](https://zntr.io/harp/pull/106)
 
 DIST:
 
@@ -18,7 +18,7 @@ DIST:
 
 BREAKING-CHANGES:
 
-* Package renamed from `github.com/elastic/harp` to `github.com/zntrio/harp/v2`.
+* Package renamed from `github.com/elastic/harp` to `zntr.io/harp/v2`.
 
 DIST:
 

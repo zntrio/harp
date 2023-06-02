@@ -26,8 +26,8 @@ import (
 
 	"github.com/awnumar/memguard"
 
-	"github.com/zntrio/harp/v2/pkg/container/seal"
-	"github.com/zntrio/harp/v2/pkg/sdk/security/crypto/extra25519"
+	"zntr.io/harp/v2/pkg/container/seal"
+	"zntr.io/harp/v2/pkg/sdk/security/crypto/extra25519"
 
 	"golang.org/x/crypto/argon2"
 	"golang.org/x/crypto/blake2b"

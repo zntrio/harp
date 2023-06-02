@@ -27,5 +27,5 @@ type Operation interface {
 }
 
 const (
-	legacyBundleMetadataPrefix = "harp.elastic.io/v1/bundle"
+	legacyBundleMetadataPrefix = "harp.zntr.io/v1/bundle"
 )

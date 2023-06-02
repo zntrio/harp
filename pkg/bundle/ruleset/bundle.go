@@ -22,8 +22,8 @@ import (
 	"errors"
 	"fmt"
 
-	bundlev1 "github.com/zntrio/harp/v2/api/gen/go/harp/bundle/v1"
-	"github.com/zntrio/harp/v2/pkg/bundle"
+	bundlev1 "zntr.io/harp/v2/api/gen/go/harp/bundle/v1"
+	"zntr.io/harp/v2/pkg/bundle"
 )
 
 // FromBundle crawls secret structure to generate a linter ruleset.
@@ -47,7 +47,7 @@ func FromBundle(b *bundlev1.Bundle) (*bundlev1.RuleSet, error) {
 
 	// Create ruleset
 	rs := &bundlev1.RuleSet{
-		ApiVersion: "harp.elastic.co/v1",
+		ApiVersion: "harp.zntr.io/v2",
 		Kind:       "RuleSet",
 		Meta: &bundlev1.RuleSetMeta{
 			Name:        b64Root,

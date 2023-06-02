@@ -20,7 +20,7 @@ package flatmap
 import (
 	"strings"
 
-	"github.com/zntrio/harp/v2/pkg/bundle"
+	"zntr.io/harp/v2/pkg/bundle"
 )
 
 // Expand takes a map and a key (prefix) and expands that value into

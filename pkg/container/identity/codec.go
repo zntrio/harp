@@ -26,12 +26,12 @@ import (
 	validation "github.com/go-ozzo/ozzo-validation/v4"
 	"github.com/go-ozzo/ozzo-validation/v4/is"
 
-	"github.com/zntrio/harp/v2/pkg/container/identity/key"
-	"github.com/zntrio/harp/v2/pkg/sdk/types"
+	"zntr.io/harp/v2/pkg/container/identity/key"
+	"zntr.io/harp/v2/pkg/sdk/types"
 )
 
 const (
-	apiVersion = "harp.elastic.co/v1"
+	apiVersion = "harp.zntr.io/v2"
 	kind       = "ContainerIdentity"
 )
 

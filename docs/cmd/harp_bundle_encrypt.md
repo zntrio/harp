@@ -18,7 +18,7 @@ This act as in-transit/in-use encryption.
 
 Annotations:
 
-* harp.elastic.co/v1/package#encryptionKeyAlias=<alias> - Set this
+* harp.zntr.io/v2/package#encryptionKeyAlias=<alias> - Set this
   annotation on packages to reference a key alias.
 
 ```

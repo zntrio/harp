@@ -23,10 +23,10 @@ import (
 
 	"github.com/hashicorp/vault/api"
 
-	"github.com/zntrio/harp/v2/pkg/bundle"
-	bundlevault "github.com/zntrio/harp/v2/pkg/bundle/vault"
-	"github.com/zntrio/harp/v2/pkg/tasks"
-	"github.com/zntrio/harp/v2/pkg/vault"
+	"zntr.io/harp/v2/pkg/bundle"
+	bundlevault "zntr.io/harp/v2/pkg/bundle/vault"
+	"zntr.io/harp/v2/pkg/tasks"
+	"zntr.io/harp/v2/pkg/vault"
 )
 
 // VaultTask implements secret-container building from Vault K/V.

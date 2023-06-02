@@ -23,7 +23,7 @@ import (
 
 	"github.com/magefile/mage/mg"
 
-	"github.com/zntrio/harp/v2/build/mage/git"
+	"zntr.io/harp/v2/build/mage/git"
 )
 
 // -----------------------------------------------------------------------------

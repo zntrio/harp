@@ -25,12 +25,12 @@ import (
 	"errors"
 	"fmt"
 
-	"github.com/zntrio/harp/v2/build/fips"
-	"github.com/zntrio/harp/v2/pkg/container/identity"
-	"github.com/zntrio/harp/v2/pkg/container/identity/key"
-	"github.com/zntrio/harp/v2/pkg/sdk/types"
-	"github.com/zntrio/harp/v2/pkg/sdk/value"
-	"github.com/zntrio/harp/v2/pkg/tasks"
+	"zntr.io/harp/v2/build/fips"
+	"zntr.io/harp/v2/pkg/container/identity"
+	"zntr.io/harp/v2/pkg/container/identity/key"
+	"zntr.io/harp/v2/pkg/sdk/types"
+	"zntr.io/harp/v2/pkg/sdk/value"
+	"zntr.io/harp/v2/pkg/tasks"
 )
 
 type IdentityVersion uint

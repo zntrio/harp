@@ -26,9 +26,9 @@ import (
 
 	"google.golang.org/protobuf/proto"
 
-	bundlev1 "github.com/zntrio/harp/v2/api/gen/go/harp/bundle/v1"
-	"github.com/zntrio/harp/v2/pkg/bundle"
-	"github.com/zntrio/harp/v2/pkg/sdk/types"
+	bundlev1 "zntr.io/harp/v2/api/gen/go/harp/bundle/v1"
+	"zntr.io/harp/v2/pkg/bundle"
+	"zntr.io/harp/v2/pkg/sdk/types"
 
 	"golang.org/x/crypto/blake2b"
 )
@@ -40,8 +40,8 @@ func Validate(spec *bundlev1.Patch) error {
 		return fmt.Errorf("unable to validate bundle patch: patch is nil")
 	}
 
-	if spec.ApiVersion != "harp.elastic.co/v1" {
-		return fmt.Errorf("apiVersion should be 'harp.elastic.co/v1'")
+	if spec.ApiVersion != "harp.zntr.io/v2" {
+		return fmt.Errorf("apiVersion should be 'harp.zntr.io/v2'")
 	}
 
 	if spec.Kind != "BundlePatch" {

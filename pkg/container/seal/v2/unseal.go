@@ -30,8 +30,8 @@ import (
 	"github.com/awnumar/memguard"
 	"google.golang.org/protobuf/proto"
 
-	containerv1 "github.com/zntrio/harp/v2/api/gen/go/harp/container/v1"
-	"github.com/zntrio/harp/v2/pkg/sdk/types"
+	containerv1 "zntr.io/harp/v2/api/gen/go/harp/container/v1"
+	"zntr.io/harp/v2/pkg/sdk/types"
 )
 
 // Unseal a sealed container with the given identity.

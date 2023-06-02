@@ -28,7 +28,7 @@ import (
 	"github.com/magefile/mage/mg"
 	"github.com/magefile/mage/sh"
 
-	"github.com/zntrio/harp/v2/build/mage/git"
+	"zntr.io/harp/v2/build/mage/git"
 )
 
 type buildOpts struct {
@@ -149,12 +149,12 @@ func Build(name, packageName, version string, opts ...BuildOption) func() error 
 
 		// Inject version information
 		varsSetByLinker := map[string]string{
-			"github.com/zntrio/harp/v2/build/version.Name":      name,
-			"github.com/zntrio/harp/v2/build/version.AppName":   packageName,
-			"github.com/zntrio/harp/v2/build/version.Version":   version,
-			"github.com/zntrio/harp/v2/build/version.Commit":    git.Revision,
-			"github.com/zntrio/harp/v2/build/version.Branch":    git.Branch,
-			"github.com/zntrio/harp/v2/build/version.BuildTags": strCompilationFlags,
+			"zntr.io/harp/v2/build/version.Name":      name,
+			"zntr.io/harp/v2/build/version.AppName":   packageName,
+			"zntr.io/harp/v2/build/version.Version":   version,
+			"zntr.io/harp/v2/build/version.Commit":    git.Revision,
+			"zntr.io/harp/v2/build/version.Branch":    git.Branch,
+			"zntr.io/harp/v2/build/version.BuildTags": strCompilationFlags,
 		}
 		linkerKeys := make([]string, 0, len(varsSetByLinker))
 		for k := range varsSetByLinker {

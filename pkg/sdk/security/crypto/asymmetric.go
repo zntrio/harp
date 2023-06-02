@@ -27,7 +27,7 @@ import (
 
 	"github.com/pkg/errors"
 
-	"github.com/zntrio/harp/v2/build/fips"
+	"zntr.io/harp/v2/build/fips"
 
 	"golang.org/x/crypto/nacl/box"
 )

@@ -18,7 +18,7 @@
 package platform
 
 import (
-	"github.com/zntrio/harp/v2/pkg/sdk/platform/diagnostic"
+	"zntr.io/harp/v2/pkg/sdk/platform/diagnostic"
 )
 
 // InstrumentationConfig holds all platform instrumentation settings.

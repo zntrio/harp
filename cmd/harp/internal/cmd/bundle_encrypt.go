@@ -23,11 +23,11 @@ import (
 	"github.com/spf13/cobra"
 	"go.uber.org/zap"
 
-	"github.com/zntrio/harp/v2/pkg/sdk/cmdutil"
-	"github.com/zntrio/harp/v2/pkg/sdk/log"
-	"github.com/zntrio/harp/v2/pkg/sdk/value"
-	"github.com/zntrio/harp/v2/pkg/sdk/value/encryption"
-	"github.com/zntrio/harp/v2/pkg/tasks/bundle"
+	"zntr.io/harp/v2/pkg/sdk/cmdutil"
+	"zntr.io/harp/v2/pkg/sdk/log"
+	"zntr.io/harp/v2/pkg/sdk/value"
+	"zntr.io/harp/v2/pkg/sdk/value/encryption"
+	"zntr.io/harp/v2/pkg/tasks/bundle"
 )
 
 // -----------------------------------------------------------------------------.
@@ -57,7 +57,7 @@ var bundleEncryptCmd = func() *cobra.Command {
 
 	Annotations:
 
-	* harp.elastic.co/v1/package#encryptionKeyAlias=<alias> - Set this
+	* harp.zntr.io/v2/package#encryptionKeyAlias=<alias> - Set this
 	  annotation on packages to reference a key alias.`)
 
 	examples := cmdutil.Examples(`

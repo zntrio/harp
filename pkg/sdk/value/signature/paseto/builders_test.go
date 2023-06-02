@@ -24,7 +24,7 @@ import (
 
 	"github.com/stretchr/testify/assert"
 
-	"github.com/zntrio/harp/v2/pkg/sdk/value"
+	"zntr.io/harp/v2/pkg/sdk/value"
 )
 
 var p384PrivateJWK = []byte(`{

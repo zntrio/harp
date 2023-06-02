@@ -27,7 +27,7 @@ import (
 	"github.com/google/go-cmp/cmp/cmpopts"
 	fuzz "github.com/google/gofuzz"
 
-	bundlev1 "github.com/zntrio/harp/v2/api/gen/go/harp/bundle/v1"
+	bundlev1 "zntr.io/harp/v2/api/gen/go/harp/bundle/v1"
 )
 
 var (
@@ -78,7 +78,7 @@ func TestValidate(t *testing.T) {
 			name: "invalid kind",
 			args: args{
 				spec: &bundlev1.Patch{
-					ApiVersion: "harp.elastic.co/v1",
+					ApiVersion: "harp.zntr.io/v2",
 					Kind:       "foo",
 				},
 			},
@@ -88,7 +88,7 @@ func TestValidate(t *testing.T) {
 			name: "nil meta",
 			args: args{
 				spec: &bundlev1.Patch{
-					ApiVersion: "harp.elastic.co/v1",
+					ApiVersion: "harp.zntr.io/v2",
 					Kind:       "BundlePatch",
 				},
 			},
@@ -98,7 +98,7 @@ func TestValidate(t *testing.T) {
 			name: "meta name not defined",
 			args: args{
 				spec: &bundlev1.Patch{
-					ApiVersion: "harp.elastic.co/v1",
+					ApiVersion: "harp.zntr.io/v2",
 					Kind:       "BundlePatch",
 					Meta:       &bundlev1.PatchMeta{},
 				},
@@ -109,7 +109,7 @@ func TestValidate(t *testing.T) {
 			name: "nil spec",
 			args: args{
 				spec: &bundlev1.Patch{
-					ApiVersion: "harp.elastic.co/v1",
+					ApiVersion: "harp.zntr.io/v2",
 					Kind:       "BundlePatch",
 					Meta:       &bundlev1.PatchMeta{},
 				},
@@ -120,7 +120,7 @@ func TestValidate(t *testing.T) {
 			name: "no action patch",
 			args: args{
 				spec: &bundlev1.Patch{
-					ApiVersion: "harp.elastic.co/v1",
+					ApiVersion: "harp.zntr.io/v2",
 					Kind:       "BundlePatch",
 					Meta:       &bundlev1.PatchMeta{},
 					Spec:       &bundlev1.PatchSpec{},
@@ -156,7 +156,7 @@ func TestChecksum(t *testing.T) {
 			name: "valid",
 			args: args{
 				spec: &bundlev1.Patch{
-					ApiVersion: "harp.elastic.co/v1",
+					ApiVersion: "harp.zntr.io/v2",
 					Kind:       "BundlePatch",
 					Meta:       &bundlev1.PatchMeta{},
 					Spec:       &bundlev1.PatchSpec{},
@@ -188,7 +188,7 @@ func TestApply_Fuzz(t *testing.T) {
 		// Prepare arguments
 		values := map[string]interface{}{}
 		spec := &bundlev1.Patch{
-			ApiVersion: "harp.elastic.co/v1",
+			ApiVersion: "harp.zntr.io/v2",
 			Kind:       "BundlePatch",
 			Meta: &bundlev1.PatchMeta{
 				Name: "test-patch",

@@ -22,8 +22,8 @@ import (
 	"encoding/json"
 	"fmt"
 
-	"github.com/zntrio/harp/v2/pkg/tasks"
-	tplcmdutil "github.com/zntrio/harp/v2/pkg/template/cmdutil"
+	"zntr.io/harp/v2/pkg/tasks"
+	tplcmdutil "zntr.io/harp/v2/pkg/template/cmdutil"
 )
 
 // ValueTask implements value object generation task.

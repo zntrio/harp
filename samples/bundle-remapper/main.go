@@ -24,9 +24,9 @@ import (
 
 	"go.uber.org/zap"
 
-	bundlev1 "github.com/zntrio/harp/v2/api/gen/go/harp/bundle/v1"
-	"github.com/zntrio/harp/v2/pkg/bundle/pipeline"
-	"github.com/zntrio/harp/v2/pkg/sdk/log"
+	bundlev1 "zntr.io/harp/v2/api/gen/go/harp/bundle/v1"
+	"zntr.io/harp/v2/pkg/bundle/pipeline"
+	"zntr.io/harp/v2/pkg/sdk/log"
 )
 
 func main() {
