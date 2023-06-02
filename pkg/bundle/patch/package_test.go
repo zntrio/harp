@@ -151,7 +151,7 @@ func TestChecksum(t *testing.T) {
 				},
 			},
 			wantErr: false,
-			want:    "BkFRGRHhouZLyiZe0CUyyZSlt_guk7tJonToaV4zOC4",
+			want:    "-1TA5k2pJzUSVu2HechzEWeS1Wx-H775AqfdOwUV2Ow",
 		},
 	}
 	for _, tt := range tests {

@@ -1,19 +1,7 @@
-// Licensed to Elasticsearch B.V. under one or more contributor
-// license agreements. See the NOTICE file distributed with
-// this work for additional information regarding copyright
-// ownership. Elasticsearch B.V. licenses this file to you under
-// the Apache License, Version 2.0 (the "License"); you may
-// not use this file except in compliance with the License.
-// You may obtain a copy of the License at
+// SPDX-FileCopyrightText: 2019 Elasticsearch B.V.
+// SPDX-FileCopyrightText: 2019-2023 Thibault NORMAND <me@zenithar.org>
 //
-//	http://www.apache.org/licenses/LICENSE-2.0
-//
-// Unless required by applicable law or agreed to in writing,
-// software distributed under the License is distributed on an
-// "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
-// KIND, either express or implied.  See the License for the
-// specific language governing permissions and limitations
-// under the License.
+// SPDX-License-Identifier: Apache-2.0 AND MIT
 package identity
 
 import (
@@ -27,9 +15,9 @@ import (
 )
 
 var (
-	v1SecurityIdentity = []byte(`{"@apiVersion":"harp.zntr.io/v2","@kind":"ContainerIdentity","@timestamp":"2021-12-01T22:15:11.144249Z","@description":"security","public":"v1.ipk.7u8B1VFrHyMeWyt8Jzj1Nj2BgVB7z-umD8R-OOnJahE","private":{"content":"ZXlKaGJHY2lPaUpRUWtWVE1pMUlVelV4TWl0Qk1qVTJTMWNpTENKbGJtTWlPaUpCTWpVMlIwTk5JaXdpY0RKaklqbzFNREF3TURFc0luQXljeUk2SW1obU1UVnpUVmRwTmtaMmNUSlVZM0p5TVhReVZtY2lmUS5ZOGtfVXR2dWtmcVRxTE5fQ2l5ajdTejU2dThOYV9uMG1FTG5jMHFCQ1d0MkVqX2VHRk80RmcuN0p2ekhGYkZrRXdXWGxOeC5ycVJLSno1ZWFGajRqSl9wOVAzUVBuUUs3dXhkWUhBOUNIZFUxTEswWkQ3Q2dickJzUDFRRFRTRU1lX3lqbTZVQ1dpNzFUVmxfX3JISVdSR3VDVVpWSE1KMXNtRnR5c2UzdHBURkdnZFRCaVQxTmw4dWlNZ2JiUEN1cHJ4Uy0wUjRGU2dobXFLU0s3TGhRcUxFWFVaNFF0SVliMDd6Y19vMnRZNlVnU3NMaFBlSUFPM1M2WlBwQXFYU3lfSjR3NzEzdFhEU1ZTX2ZuOFJ5MlF2NTJmOHg0cXBiN0Q3NGlTTndOb052Zy5rcHVzTTVoZ21RT3JhS1luNGxTVjZ3"},"signature":"Kq1OJlAOexIvt9TXETYeYGotqqCz8PiqFEYuSbHmJPVBqtYpI2Q_zNE0fO5hs-JdTqG3p6oLiITHK9cYyx2hBw"}`)
-	publicOnly         = []byte(`{"@apiVersion":"harp.zntr.io/v2","@kind":"ContainerIdentity","@timestamp":"2021-12-01T20:56:30.832199Z","@description":"security","public":"v1.ipk.PRdbQ8qbrDsfTLA-aeQIdUF0VwnauvWqQF-CXNFp9oM"}`)
-	v2SecurityIdentity = []byte(`{"@apiVersion":"harp.zntr.io/v2","@kind":"ContainerIdentity","@timestamp":"2021-12-01T22:15:07.586373Z","@description":"security","public":"v2.ipk.AkLr_HHMO5Loy2bK42mvCADrJ7s2PSYCRTnqDWJV8PCK2EXmu-GTV8HmNJwmA8IJ8Q","private":{"content":"ZXlKaGJHY2lPaUpRUWtWVE1pMUlVelV4TWl0Qk1qVTJTMWNpTENKbGJtTWlPaUpCTWpVMlIwTk5JaXdpY0RKaklqbzFNREF3TURFc0luQXljeUk2SWpCMFozUk5OMm80TmxacFNrWXpjemhYWDBsb05VRWlmUS5QXzVVMTdSR3JSRVg4UHoyNGpRQkQzdGROWGU3ci1UMVh2bnBnT21aMkwweGZXQXNfT2dWcVEuYUpuekZCQTNBWllXSld2TC53SVAtZlRERjN5R0NaRGtldThOM3A1NUZPRF9ZX3QzSV9ubHN2MDVqcWNLdlJLczFfWjVfM2Zhc2Z0cU0tMlRoN25VdDZIaXZWLVB1ckVIQ2hBRENHaF9SZTBySVVwZkV4OHBCcUk4V3BIYTdSYktUTUN3RmNpSDMzeTQxZ1duT1lpN1R1TmJBamhNMjZMdDZZMFN0ekcyRi1FUm9jSWotWklwMDJwcGZjdUpKOU91S1BDOThKTl9ZV3EzcVA2TW55Ym1WTnFFZ1hwdWFVZm9GcTN3ZWlSX2paVkNsRzU5cTBGdWplVHN0UnRzU2xuZFlndTVBTl9LanFWRmluNDBXNGcxZWRMdWZDM1U0UGZhZVMzUlQxSS0wRkVnN0ZGMnE0QVdINy01aF9IQWg4WFR4eXBCTjR3THE1TTd6ZExRLlkzTTlBeDc1bGNYbmNNaGNxV3dOMXc"},"signature":"dpbnMGAPvFbHSjEXs1GMyO8Kmw9cZqTOKI5wAA1ApcO1RXtFGS_GyC1zAtuFDhhVmTWdFzS4HdVg0LEhxBivbqsr_cft_9CR-7uVUPpkb2Hz2d4BkL3yzDo9bkLfllaM"}`)
+	v1SecurityIdentity = []byte(`{"@apiVersion":"harp.zntr.io/v2","@kind":"ContainerIdentity","@timestamp":"2023-06-02T09:10:16.824302Z","@description":"security","public":"v1.ipk.AOMqsGUl9zS0tY8aeX_L2W52Qdj7MOOD-Vukcv7I_AA","private":{"content":"ZXlKaGJHY2lPaUpRUWtWVE1pMUlVelV4TWl0Qk1qVTJTMWNpTENKbGJtTWlPaUpCTWpVMlIwTk5JaXdpY0RKaklqbzFNREF3TURFc0luQXljeUk2SWxOWlZHc3RSM0JOYjBSRE9YWlNWMHBXWld3NVdXY2lmUS5SdWRmWkdvbGpReGVPTnBBdVUxYVdtMDdqUE1VckxCeGc0aHJoUVVTTkhRa2FjLUYtR3o4LUEuYkR3WWJJU2ZkallTY0pvdi5FQTE3b1VWT2VNRS10a3hFaGVtNS1tY0Jya1NiZEVZdERabUN5cktIeTN0ZnA3Rm1PcG9wa3Z6dTBrdlNHQjY1VmVFMUZ1RGNFZWhHVVA1a0hNaVJWRU9ycl9IRGhzOXl6Zzk1dG5QcjRNTy1PeklOLVNwSTlSYlJkRTFMMk9xR0swWHlXNFdydGZ2emQwNDlWUFVvSWswNkh0dWlzZ21RaUFsazVQS2ZKbzNqZjdsdzh6Qm5scVItS2ZJYTQ5RXBjTEUtRzdiUFUwNk9tUnhFYTg0c0lZQWl2RnRYZnEtWHlPLWpSUS5SLVJGamZrY0g4eDRXaUYxb1htTnlR"},"signature":"sYka-wQ_iyb5fboOw2lGPu0Q_XwDEeacIHMuTSbRZCzNoQB6C8XNjapzCjr5npxLPt2EhiCMsQGh69yoRjGRDw"}`)
+	publicOnly         = []byte(`{"@apiVersion":"harp.zntr.io/v2","@kind":"ContainerIdentity","@timestamp":"2023-06-02T09:10:16.824302Z","@description":"security","public":"v1.ipk.AOMqsGUl9zS0tY8aeX_L2W52Qdj7MOOD-Vukcv7I_AA"}`)
+	v2SecurityIdentity = []byte(`{"@apiVersion":"harp.zntr.io/v2","@kind":"ContainerIdentity","@timestamp":"2023-06-02T09:11:38.297756Z","@description":"security","public":"v2.ipk.AyoIQyBpS422KbgIzx0GkhQQ_PP-JRyIOeOadgQRgQrZ8fsGYrtUql5Tktyr3rEEOQ","private":{"content":"ZXlKaGJHY2lPaUpRUWtWVE1pMUlVelV4TWl0Qk1qVTJTMWNpTENKbGJtTWlPaUpCTWpVMlIwTk5JaXdpY0RKaklqbzFNREF3TURFc0luQXljeUk2SWtvMGJFVTJNRkptZUVGS2FtSjBNMmxVYUVKQmFsRWlmUS4zazlySWh2VTB3UURGb0lMbEtYTjYtS0pLQjRXR0Y5U2JnZUJ0WXlfcUg0M0pSbnlESzQ2Y2cuOHJvalV6QzU0blVpMjFQdi5PVzg3MnE1UEttRjZXRU9QaEhsQWVhTWFueDJpMXZhUHUya0J0eDh3U3dOLXA4R3owTGZURmpBQkZFSHg4ZThqMG5xZHh1UmZLZ05LNGZVY1NVZ0xKMTVGdG40ZV9VRWpwZE9qaktzdnlPWi1mVFZVV2RIMzZabTl6Y0JwLVVsWFVPNUNXU21sTXh1a1R3MEVwYW5EUXVVZEQza1B1aFl0UURVOFZxVWxzVFpKa1VCZ0xkTkRiNTIzWTRfYmMtRkZybWRRc2ZZZDBqeHczUjVvUVBjVzFfTXhpcThZWG1Ob3BhUjBaM1RNWXNLUjdoOWdraVZVcUJQa1FDUm9CNUgxR3ZWNGdBZDg4c2dXSjBNcVkwaEZhU29xWHEwR2Z5dWd0Q2dJWlF1VlloNlBlT0FoSjNmdVhZYVJ5SzROaU9ZLjdJN3RtVkNXTzVSTnpnZHJHYm5HdVE"},"signature":"OPQzNzJ1E4hHt5dIlEBjk8i3qfxUw-5iSt-IJlE1UDFsbKFdwRfsizpvEC2hvdI2Hf52fVCfLTLhzxGVckxg_zjBzBY0MCki0aU9zFLcoRWrfx_cASGyFFNC4PYZ53NM"}`)
 )
 
 func TestCodec_New(t *testing.T) {
