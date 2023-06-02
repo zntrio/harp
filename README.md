@@ -1,7 +1,7 @@
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 [![Go Report Card](https://goreportcard.com/badge/github.com/zntrio/harp)](https://goreportcard.com/report/github.com/zntrio/harp)
 [![made-with-Go](https://img.shields.io/badge/Made%20with-Go-1f425f.svg)](http://golang.org)
-[![GitHub release](https://img.shields.io/github/release/zntrio/harp.svg)](https://zntr.io/harp/releases/)
+[![GitHub release](https://img.shields.io/github/release/zntrio/harp.svg)](https://github.com/zntrio/harp/releases/)
 [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://zntr.io/harp/graphs/commit-activity)
 
 - [Harp](#harp)
@@ -195,7 +195,7 @@ And allows :
 
 # Build instructions
 
-Download a [release](https://zntr.io/harp/releases) or build from source.
+Download a [release](https://github.com/zntrio/harp/releases) or build from source.
 
 ## Clone repository
 

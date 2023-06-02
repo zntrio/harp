@@ -13,7 +13,7 @@
 
 ## Specification
 
-This [specification](https://zntr.io/harp/blob/main/api/proto/harp/bundle/v1/bundle.proto) declares internal secret storage object structure.
+This [specification](https://github.com/zntrio/harp/blob/main/api/proto/harp/bundle/v1/bundle.proto) declares internal secret storage object structure.
 
 This is used to store data and metadata related to objects.
 
