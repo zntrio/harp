@@ -40,7 +40,6 @@ linters:
     - misspell
     - nakedret
     - noctx
-    - nolintlint
     - prealloc
     - exportloopref
     - staticcheck
