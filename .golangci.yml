@@ -612,6 +612,7 @@ linters:
     - rowserrcheck
     - sqlclosecheck
     - musttag
+    - depguard
   presets:
     - bugs
     - unused
