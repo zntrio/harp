@@ -11,7 +11,7 @@ require (
 	github.com/fatih/color v1.15.0
 	github.com/frapposelli/wwhrd v0.4.0
 	github.com/golang/mock v1.6.0
-	github.com/golangci/golangci-lint v1.53.1
+	github.com/golangci/golangci-lint v1.53.2
 	github.com/magefile/mage v1.15.0
 	google.golang.org/grpc/cmd/protoc-gen-go-grpc v1.3.0
 	google.golang.org/protobuf v1.30.0
@@ -32,6 +32,7 @@ require (
 	github.com/GaijinEntertainment/go-exhaustruct/v2 v2.3.0 // indirect
 	github.com/Masterminds/semver v1.5.0 // indirect
 	github.com/Microsoft/go-winio v0.5.2 // indirect
+	github.com/OpenPeeDeeP/depguard/v2 v2.1.0 // indirect
 	github.com/ProtonMail/go-crypto v0.0.0-20230217124315-7d5c6f04bbb8 // indirect
 	github.com/acomagu/bufpipe v1.0.4 // indirect
 	github.com/alexkohler/nakedret/v2 v2.0.1 // indirect
@@ -82,7 +83,6 @@ require (
 	github.com/gofrs/flock v0.8.1 // indirect
 	github.com/golang/protobuf v1.5.2 // indirect
 	github.com/golangci/check v0.0.0-20180506172741-cfe4005ccda2 // indirect
-	github.com/golangci/depguard/v2 v2.0.2-0.20230601235138-ed68d3771f48 // indirect
 	github.com/golangci/dupl v0.0.0-20180902072040-3e9179ac440a // indirect
 	github.com/golangci/go-misc v0.0.0-20220329215616-d24fe342adfe // indirect
 	github.com/golangci/gofmt v0.0.0-20220901101216-f2edd75033f2 // indirect
@@ -219,7 +219,7 @@ require (
 	golang.org/x/sys v0.8.0 // indirect
 	golang.org/x/term v0.8.0 // indirect
 	golang.org/x/text v0.9.0 // indirect
-	golang.org/x/tools v0.9.2 // indirect
+	golang.org/x/tools v0.9.3 // indirect
 	gonum.org/v1/gonum v0.7.0 // indirect
 	gopkg.in/ini.v1 v1.67.0 // indirect
 	gopkg.in/neurosnap/sentences.v1 v1.0.6 // indirect
