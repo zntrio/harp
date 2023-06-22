@@ -17,7 +17,6 @@ import (
 var goVersions = []string{
 	"~1.20",
 	"~1.19",
-	"~1.18",
 }
 
 func init() {

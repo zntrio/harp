@@ -7,7 +7,8 @@
 
 package main
 
-import ( //nolint:gosec // For legacy compatibility
+import (
+	//nolint:gosec // For legacy compatibility
 	_ "crypto/md5"
 	//nolint:gosec // For legacy compatibility
 	_ "crypto/sha1"
