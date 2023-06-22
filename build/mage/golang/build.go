@@ -166,6 +166,8 @@ func Build(name, packageName, version string, opts ...BuildOption) func() error 
 			"GOOS":        defaultOpts.goOS,
 			"GOARCH":      defaultOpts.goArch,
 			"CGO_ENABLED": "0",
+			// Enable experimental memory management via arenas 
+			"GOEXPERIMENT": "arenas",
 		}
 		if defaultOpts.cgoEnabled {
 			env["CGO_ENABLED"] = "1"
