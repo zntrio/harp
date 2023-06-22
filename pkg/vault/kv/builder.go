@@ -10,7 +10,6 @@ import (
 	"fmt"
 
 	"github.com/hashicorp/vault/api"
-
 	vpath "zntr.io/harp/v2/pkg/vault/path"
 )
 

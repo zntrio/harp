@@ -12,7 +12,6 @@ import (
 	"strings"
 
 	"github.com/essentialkaos/branca"
-
 	"zntr.io/harp/v2/pkg/sdk/value"
 	"zntr.io/harp/v2/pkg/sdk/value/encryption"
 )

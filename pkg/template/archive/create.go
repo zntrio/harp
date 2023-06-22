@@ -15,7 +15,6 @@ import (
 
 	"github.com/gobwas/glob"
 	"go.uber.org/zap"
-
 	"zntr.io/harp/v2/pkg/sdk/log"
 	"zntr.io/harp/v2/pkg/sdk/types"
 )

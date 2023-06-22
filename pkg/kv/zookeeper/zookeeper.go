@@ -12,7 +12,6 @@ import (
 	"strings"
 
 	zk "github.com/go-zookeeper/zk"
-
 	"zntr.io/harp/v2/pkg/kv"
 )
 

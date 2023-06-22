@@ -12,7 +12,6 @@ import (
 	"runtime/debug"
 
 	"github.com/dchest/uniuri"
-
 	"zntr.io/harp/v2/build/fips"
 )
 

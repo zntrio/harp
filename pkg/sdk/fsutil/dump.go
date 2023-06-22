@@ -15,7 +15,6 @@ import (
 	"strings"
 
 	"go.uber.org/zap"
-
 	"zntr.io/harp/v2/pkg/sdk/log"
 )
 

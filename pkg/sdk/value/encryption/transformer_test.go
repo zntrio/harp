@@ -12,10 +12,8 @@ import (
 	"testing"
 
 	"github.com/stretchr/testify/assert"
-
 	"zntr.io/harp/v2/pkg/sdk/value"
 	"zntr.io/harp/v2/pkg/sdk/value/encryption"
-
 	// Register encryption transformers.
 	_ "zntr.io/harp/v2/pkg/sdk/value/encryption/aead"
 	_ "zntr.io/harp/v2/pkg/sdk/value/encryption/age"

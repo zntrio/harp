@@ -13,7 +13,6 @@ import (
 	defaults "github.com/mcuadros/go-defaults"
 	"github.com/spf13/viper"
 	"go.uber.org/zap"
-
 	"zntr.io/harp/v2/pkg/sdk/flags"
 	"zntr.io/harp/v2/pkg/sdk/log"
 )

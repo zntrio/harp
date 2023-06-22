@@ -14,7 +14,6 @@ import (
 	"fmt"
 
 	"github.com/awnumar/memguard"
-
 	"zntr.io/harp/v2/pkg/container"
 	"zntr.io/harp/v2/pkg/container/seal"
 	sealv1 "zntr.io/harp/v2/pkg/container/seal/v1"

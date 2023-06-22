@@ -11,7 +11,6 @@ import (
 
 	semver "github.com/Masterminds/semver/v3"
 	"go.uber.org/zap"
-
 	"zntr.io/harp/v2/pkg/sdk/log"
 )
 

@@ -12,7 +12,6 @@ import (
 	"strings"
 
 	api "github.com/hashicorp/consul/api"
-
 	"zntr.io/harp/v2/pkg/kv"
 	"zntr.io/harp/v2/pkg/sdk/types"
 )

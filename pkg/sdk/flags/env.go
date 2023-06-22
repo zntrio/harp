@@ -11,7 +11,6 @@ import (
 	"strings"
 
 	"github.com/fatih/structs"
-
 	"zntr.io/harp/v2/pkg/sdk/log"
 )
 

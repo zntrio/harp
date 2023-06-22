@@ -13,7 +13,6 @@ import (
 
 	"github.com/xeipuuv/gojsonschema"
 	"sigs.k8s.io/yaml"
-
 	"zntr.io/harp/v2/pkg/bundle"
 	"zntr.io/harp/v2/pkg/bundle/patch"
 	"zntr.io/harp/v2/pkg/bundle/ruleset"

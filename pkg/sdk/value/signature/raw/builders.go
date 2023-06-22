@@ -12,7 +12,6 @@ import (
 	"strings"
 
 	"gopkg.in/square/go-jose.v2"
-
 	"zntr.io/harp/v2/pkg/sdk/value"
 	"zntr.io/harp/v2/pkg/sdk/value/signature"
 )

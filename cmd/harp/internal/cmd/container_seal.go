@@ -9,7 +9,6 @@ import (
 	"github.com/awnumar/memguard"
 	"github.com/spf13/cobra"
 	"go.uber.org/zap"
-
 	"zntr.io/harp/v2/build/fips"
 	"zntr.io/harp/v2/pkg/container/identity"
 	"zntr.io/harp/v2/pkg/container/identity/key"

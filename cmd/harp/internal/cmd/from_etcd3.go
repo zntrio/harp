@@ -12,7 +12,6 @@ import (
 	"github.com/spf13/cobra"
 	clientv3 "go.etcd.io/etcd/client/v3"
 	"go.uber.org/zap"
-
 	"zntr.io/harp/v2/pkg/kv/etcd3"
 	"zntr.io/harp/v2/pkg/sdk/cmdutil"
 	"zntr.io/harp/v2/pkg/sdk/log"

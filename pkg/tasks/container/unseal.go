@@ -12,7 +12,6 @@ import (
 	"fmt"
 
 	"github.com/awnumar/memguard"
-
 	"zntr.io/harp/v2/pkg/container"
 	"zntr.io/harp/v2/pkg/sdk/types"
 	"zntr.io/harp/v2/pkg/tasks"

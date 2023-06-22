@@ -8,7 +8,6 @@ package cmd
 import (
 	"github.com/spf13/cobra"
 	"github.com/spf13/cobra/doc"
-
 	"zntr.io/harp/v2/pkg/sdk/cmdutil"
 )
 

@@ -16,7 +16,6 @@ import (
 	semver "github.com/Masterminds/semver/v3"
 	"github.com/magefile/mage/mg"
 	"github.com/magefile/mage/sh"
-
 	"zntr.io/harp/v2/build/artifact"
 	"zntr.io/harp/v2/build/mage/git"
 

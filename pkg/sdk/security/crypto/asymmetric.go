@@ -14,7 +14,6 @@ import (
 	"fmt"
 
 	"github.com/pkg/errors"
-
 	"zntr.io/harp/v2/build/fips"
 
 	"golang.org/x/crypto/nacl/box"

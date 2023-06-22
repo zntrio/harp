@@ -15,7 +15,6 @@ import (
 	"github.com/google/cel-go/cel"
 	"github.com/google/cel-go/common/types"
 	"github.com/google/cel-go/common/types/ref"
-
 	bundlev1 "zntr.io/harp/v2/api/gen/go/harp/bundle/v1"
 	"zntr.io/harp/v2/pkg/bundle/secret"
 )

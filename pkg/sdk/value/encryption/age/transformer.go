@@ -16,7 +16,6 @@ import (
 
 	"filippo.io/age"
 	"filippo.io/age/armor"
-
 	"zntr.io/harp/v2/pkg/sdk/ioutil"
 	"zntr.io/harp/v2/pkg/sdk/value"
 	"zntr.io/harp/v2/pkg/sdk/value/encryption"

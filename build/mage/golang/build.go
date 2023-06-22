@@ -15,7 +15,6 @@ import (
 
 	"github.com/magefile/mage/mg"
 	"github.com/magefile/mage/sh"
-
 	"zntr.io/harp/v2/build/mage/git"
 )
 
@@ -166,7 +165,7 @@ func Build(name, packageName, version string, opts ...BuildOption) func() error 
 			"GOOS":        defaultOpts.goOS,
 			"GOARCH":      defaultOpts.goArch,
 			"CGO_ENABLED": "0",
-			// Enable experimental memory management via arenas 
+			// Enable experimental memory management via arenas
 			"GOEXPERIMENT": "arenas",
 		}
 		if defaultOpts.cgoEnabled {

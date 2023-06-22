@@ -12,7 +12,6 @@ import (
 	"io/fs"
 
 	"github.com/hashicorp/vault/api"
-
 	"zntr.io/harp/v2/pkg/bundle"
 	"zntr.io/harp/v2/pkg/sdk/cmdutil"
 	"zntr.io/harp/v2/pkg/sdk/fsutil"

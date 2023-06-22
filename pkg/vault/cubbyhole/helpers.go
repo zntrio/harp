@@ -10,7 +10,6 @@ import (
 	"time"
 
 	"github.com/dchest/uniuri"
-
 	"zntr.io/harp/v2/pkg/vault/logical"
 )
 

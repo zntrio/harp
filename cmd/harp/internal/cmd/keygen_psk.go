@@ -12,7 +12,6 @@ import (
 
 	"github.com/awnumar/memguard"
 	"github.com/spf13/cobra"
-
 	"zntr.io/harp/v2/pkg/sdk/cmdutil"
 )
 

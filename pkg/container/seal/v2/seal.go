@@ -13,7 +13,6 @@ import (
 	"io"
 
 	"github.com/awnumar/memguard"
-
 	containerv1 "zntr.io/harp/v2/api/gen/go/harp/container/v1"
 	"zntr.io/harp/v2/pkg/sdk/types"
 )

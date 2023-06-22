@@ -10,7 +10,6 @@ import (
 	"os"
 
 	"github.com/magefile/mage/mg"
-
 	"zntr.io/harp/v2/build/mage/git"
 )
 

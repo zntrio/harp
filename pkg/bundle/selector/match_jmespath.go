@@ -10,7 +10,6 @@ import (
 
 	"github.com/jmespath/go-jmespath"
 	"google.golang.org/protobuf/encoding/protojson"
-
 	bundlev1 "zntr.io/harp/v2/api/gen/go/harp/bundle/v1"
 )
 

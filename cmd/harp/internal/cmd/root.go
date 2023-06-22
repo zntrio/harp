@@ -11,7 +11,6 @@ import (
 
 	"github.com/spf13/cobra"
 	"go.uber.org/zap"
-
 	"zntr.io/harp/v2/build/version"
 	iconfig "zntr.io/harp/v2/cmd/harp/internal/config"
 	"zntr.io/harp/v2/pkg/sdk/cmdutil"

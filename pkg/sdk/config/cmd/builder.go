@@ -15,7 +15,6 @@ import (
 	toml "github.com/pelletier/go-toml"
 	"github.com/spf13/cobra"
 	"go.uber.org/zap"
-
 	"zntr.io/harp/v2/pkg/sdk/flags"
 	"zntr.io/harp/v2/pkg/sdk/log"
 )

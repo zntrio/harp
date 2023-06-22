@@ -14,7 +14,6 @@ import (
 	"os"
 
 	"github.com/google/go-github/v42/github"
-
 	"zntr.io/harp/v2/pkg/bundle"
 	"zntr.io/harp/v2/pkg/tasks"
 

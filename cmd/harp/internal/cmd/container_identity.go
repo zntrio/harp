@@ -8,7 +8,6 @@ package cmd
 import (
 	"github.com/spf13/cobra"
 	"go.uber.org/zap"
-
 	"zntr.io/harp/v2/build/fips"
 	"zntr.io/harp/v2/pkg/sdk/cmdutil"
 	"zntr.io/harp/v2/pkg/sdk/log"

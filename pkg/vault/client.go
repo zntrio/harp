@@ -9,7 +9,6 @@ import (
 	"fmt"
 
 	"github.com/hashicorp/vault/api"
-
 	"zntr.io/harp/v2/pkg/vault/cubbyhole"
 	"zntr.io/harp/v2/pkg/vault/kv"
 	"zntr.io/harp/v2/pkg/vault/transit"

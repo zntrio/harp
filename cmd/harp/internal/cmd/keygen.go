@@ -7,7 +7,6 @@ package cmd
 
 import (
 	"github.com/spf13/cobra"
-
 	"zntr.io/harp/v2/build/fips"
 )
 

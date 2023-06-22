@@ -13,7 +13,6 @@ import (
 
 	"github.com/awnumar/memguard"
 	"google.golang.org/protobuf/proto"
-
 	containerv1 "zntr.io/harp/v2/api/gen/go/harp/container/v1"
 	"zntr.io/harp/v2/pkg/sdk/security/crypto/extra25519"
 	"zntr.io/harp/v2/pkg/sdk/types"

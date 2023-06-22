@@ -10,7 +10,6 @@ import (
 	"fmt"
 
 	"google.golang.org/protobuf/proto"
-
 	bundlev1 "zntr.io/harp/v2/api/gen/go/harp/bundle/v1"
 	"zntr.io/harp/v2/pkg/bundle/template/visitor"
 	"zntr.io/harp/v2/pkg/sdk/types"
