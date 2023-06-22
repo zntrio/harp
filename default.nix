@@ -6,7 +6,7 @@ buildGoModule rec {
   src = lib.cleanSource ./.;
 
   subPackages = [ "cmd/harp" ];
-  vendorSha256 = "sha256-u1jUVuCpjfxGkqMKj5zhNJjOnAR9ziypVTDXru2C8kY=";
+  vendorSha256 = "sha256-Y7tCEEpryLYdFDPAPssCnd/O3TcZsubbYCZSj2HeerA=";
   ldflags = [ 
     "-s" "-w" "-buildid="
     "-X zntr.io/harp/v2/build/version.Name=harp"
