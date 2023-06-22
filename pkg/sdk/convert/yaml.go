@@ -16,7 +16,6 @@ import (
 	"google.golang.org/protobuf/encoding/protojson"
 	"google.golang.org/protobuf/proto"
 	"sigs.k8s.io/yaml"
-
 	"zntr.io/harp/v2/pkg/sdk/types"
 )
 

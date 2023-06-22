@@ -16,7 +16,6 @@ import (
 
 	"github.com/cloudflare/tableflip"
 	"github.com/oklog/run"
-
 	"zntr.io/harp/v2/pkg/sdk/log"
 )
 

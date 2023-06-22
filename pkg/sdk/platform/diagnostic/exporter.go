@@ -12,7 +12,6 @@ import (
 
 	"github.com/google/gops/agent"
 	"go.uber.org/zap"
-
 	"zntr.io/harp/v2/pkg/sdk/log"
 )
 

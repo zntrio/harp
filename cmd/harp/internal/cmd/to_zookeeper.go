@@ -11,7 +11,6 @@ import (
 	zk "github.com/go-zookeeper/zk"
 	"github.com/spf13/cobra"
 	"go.uber.org/zap"
-
 	"zntr.io/harp/v2/pkg/kv/zookeeper"
 	"zntr.io/harp/v2/pkg/sdk/cmdutil"
 	"zntr.io/harp/v2/pkg/sdk/log"

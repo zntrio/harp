@@ -11,7 +11,6 @@ import (
 	"sort"
 
 	"gitlab.com/NebulousLabs/merkletree"
-
 	bundlev1 "zntr.io/harp/v2/api/gen/go/harp/bundle/v1"
 	csov1 "zntr.io/harp/v2/pkg/cso/v1"
 

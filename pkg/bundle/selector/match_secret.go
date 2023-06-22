@@ -9,7 +9,6 @@ import (
 	"regexp"
 
 	"github.com/gobwas/glob"
-
 	bundlev1 "zntr.io/harp/v2/api/gen/go/harp/bundle/v1"
 )
 

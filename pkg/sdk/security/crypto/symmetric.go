@@ -12,7 +12,6 @@ import (
 	"github.com/awnumar/memguard"
 	"github.com/fernet/fernet-go"
 	"github.com/pkg/errors"
-
 	"zntr.io/harp/v2/build/fips"
 )
 

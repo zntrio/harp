@@ -11,7 +11,6 @@ import (
 	"strings"
 
 	"github.com/gobwas/glob"
-
 	"zntr.io/harp/v2/pkg/template/files"
 )
 

@@ -1,4 +1,11 @@
-## NOT RELEASED YET
+## 2.1.1
+
+DIST:
+
+* CI
+  * Build with Golang 1.20.5
+  * Enable Golang memory arenas
+  * Golang 1.18 removed from supported toolchain versions
 
 ## 2.1.0
 

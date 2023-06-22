@@ -11,7 +11,6 @@ import (
 	"regexp"
 
 	"github.com/hashicorp/vault/api"
-
 	bundlev1 "zntr.io/harp/v2/api/gen/go/harp/bundle/v1"
 	"zntr.io/harp/v2/pkg/bundle/vault/internal/operation"
 )

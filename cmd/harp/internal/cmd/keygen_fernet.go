@@ -12,7 +12,6 @@ import (
 	"github.com/fernet/fernet-go"
 	"github.com/spf13/cobra"
 	"go.uber.org/zap"
-
 	"zntr.io/harp/v2/pkg/sdk/cmdutil"
 	"zntr.io/harp/v2/pkg/sdk/log"
 )

@@ -10,7 +10,6 @@ import (
 	"io"
 
 	"google.golang.org/protobuf/encoding/protojson"
-
 	bundlev1 "zntr.io/harp/v2/api/gen/go/harp/bundle/v1"
 	"zntr.io/harp/v2/pkg/sdk/convert"
 	"zntr.io/harp/v2/pkg/sdk/types"

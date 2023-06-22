@@ -17,7 +17,6 @@ import (
 	"strings"
 
 	"github.com/awnumar/memguard"
-
 	"zntr.io/harp/v2/pkg/container/seal"
 	"zntr.io/harp/v2/pkg/sdk/security/crypto/deterministicecdsa"
 

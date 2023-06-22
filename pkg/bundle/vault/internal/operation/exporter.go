@@ -17,7 +17,6 @@ import (
 
 	"github.com/imdario/mergo"
 	"go.uber.org/zap"
-
 	bundlev1 "zntr.io/harp/v2/api/gen/go/harp/bundle/v1"
 	"zntr.io/harp/v2/pkg/bundle/secret"
 	"zntr.io/harp/v2/pkg/sdk/log"

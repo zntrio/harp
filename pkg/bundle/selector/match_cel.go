@@ -12,7 +12,6 @@ import (
 	"github.com/google/cel-go/cel"
 	celext "github.com/google/cel-go/ext"
 	"go.uber.org/zap"
-
 	bundlev1 "zntr.io/harp/v2/api/gen/go/harp/bundle/v1"
 	"zntr.io/harp/v2/pkg/bundle/ruleset/engine/cel/ext"
 	"zntr.io/harp/v2/pkg/sdk/log"

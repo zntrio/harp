@@ -19,6 +19,7 @@ builds:
     ldflags:
       - '-s'
       - '-w'
+      - '-buildid='
       - '-X zntr.io/harp/v2/build/version.Name=harp'
       - '-X zntr.io/harp/v2/build/version.AppName=zntr.io/harp/cmd/harp'
       - '-X zntr.io/harp/v2/build/version.Version={{.Version}}'

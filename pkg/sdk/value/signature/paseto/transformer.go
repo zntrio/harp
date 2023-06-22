@@ -12,10 +12,9 @@ import (
 	"errors"
 	"fmt"
 
+	"zntr.io/harp/v2/pkg/sdk/types"
 	pasetov3 "zntr.io/paseto/v3"
 	pasetov4 "zntr.io/paseto/v4"
-
-	"zntr.io/harp/v2/pkg/sdk/types"
 )
 
 type pasetoTransformer struct {

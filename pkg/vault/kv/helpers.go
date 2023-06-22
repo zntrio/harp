@@ -11,7 +11,6 @@ import (
 	"io"
 
 	"github.com/hashicorp/vault/api"
-
 	"zntr.io/harp/v2/pkg/sdk/log"
 )
 

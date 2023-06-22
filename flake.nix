@@ -37,7 +37,7 @@
               devtools = {
                 gci = pkgs.buildGoModule rec {
                   pname = "gci";
-                  version = "8f9a4e94ae2a8db0093d52281bf7ac0c83eed0ce";
+                  version = "b9a2597d93b0cfa2267fb682665be8ef86863dee";
 
                   src = pkgs.fetchFromGitHub {
                     owner = "daixiang0";
@@ -53,7 +53,7 @@
 
                 wwhrd = pkgs.buildGoModule rec {
                   pname = "wwhrd";
-                  version = "4d1d970b7dd8b2c09f0dd46cc749faeb0cee1f9d";
+                  version = "b3052af659df6c012ddfe5c433c98953005faae8";
 
                   src = pkgs.fetchFromGitHub {
                     owner = "frapposelli";
@@ -69,7 +69,7 @@
 
                 cyclonedx-gomod = pkgs.buildGoModule rec {
                   pname = "cyclonedx-gomod";
-                  version = "8d48a3aabb6623b715555cc53d1ad61bfd9d3e20";
+                  version = "5e460935632418ad303008501b7dd498eb646b6d";
 
                   src = pkgs.fetchFromGitHub {
                     owner = "CycloneDX";

@@ -19,7 +19,6 @@ import (
 	"io"
 
 	"gopkg.in/square/go-jose.v2"
-
 	"zntr.io/harp/v2/pkg/tasks"
 )
 

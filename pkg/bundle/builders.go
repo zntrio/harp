@@ -13,7 +13,6 @@ import (
 	"strings"
 
 	"google.golang.org/protobuf/encoding/protojson"
-
 	bundlev1 "zntr.io/harp/v2/api/gen/go/harp/bundle/v1"
 	"zntr.io/harp/v2/pkg/bundle/compare"
 	"zntr.io/harp/v2/pkg/bundle/hcl"

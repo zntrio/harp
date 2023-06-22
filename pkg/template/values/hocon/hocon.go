@@ -15,7 +15,6 @@ import (
 	"github.com/go-akka/configuration"
 	"github.com/go-akka/configuration/hocon"
 	"go.uber.org/zap"
-
 	"zntr.io/harp/v2/pkg/sdk/log"
 )
 

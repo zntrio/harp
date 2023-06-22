@@ -12,7 +12,6 @@ import (
 
 	"github.com/pelletier/go-toml"
 	"gopkg.in/yaml.v3"
-
 	"zntr.io/harp/v2/pkg/bundle"
 	"zntr.io/harp/v2/pkg/sdk/value/flatmap"
 	"zntr.io/harp/v2/pkg/tasks"

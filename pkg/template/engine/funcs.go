@@ -19,7 +19,6 @@ import (
 	"github.com/Masterminds/sprig/v3"
 	"github.com/alessio/shellescape"
 	"go.step.sm/crypto/pemutil"
-
 	"zntr.io/harp/v2/pkg/sdk/security/crypto"
 	"zntr.io/harp/v2/pkg/sdk/security/crypto/bech32"
 	"zntr.io/harp/v2/pkg/sdk/security/diceware"

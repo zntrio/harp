@@ -18,7 +18,6 @@ import (
 	"github.com/dchest/uniuri"
 	"github.com/oklog/run"
 	"go.uber.org/zap"
-
 	"zntr.io/harp/v2/pkg/sdk/log"
 	"zntr.io/harp/v2/pkg/sdk/platform/diagnostic"
 	"zntr.io/harp/v2/pkg/sdk/platform/reloader"

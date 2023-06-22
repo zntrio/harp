@@ -9,7 +9,6 @@ import (
 	"context"
 
 	"github.com/gosimple/slug"
-
 	"zntr.io/harp/v2/build/version"
 	"zntr.io/harp/v2/pkg/sdk/log"
 )

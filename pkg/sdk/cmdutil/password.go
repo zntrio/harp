@@ -11,7 +11,6 @@ import (
 	"syscall"
 
 	"github.com/awnumar/memguard"
-
 	"zntr.io/harp/v2/pkg/sdk/security"
 
 	"golang.org/x/term"
