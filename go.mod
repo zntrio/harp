@@ -26,7 +26,7 @@ require (
 	github.com/basgys/goxml2json v1.1.0
 	github.com/cloudflare/tableflip v1.2.3
 	github.com/common-nighthawk/go-figure v0.0.0-20210622060536-734e95fb86be
-	github.com/davecgh/go-spew v1.1.1
+	github.com/davecgh/go-spew v1.1.2-0.20180830191138-d8f796af33cc
 	github.com/dchest/uniuri v1.2.0
 	github.com/essentialkaos/branca v1.3.4
 	github.com/fatih/color v1.15.0
@@ -45,7 +45,7 @@ require (
 	github.com/google/gofuzz v1.2.0
 	github.com/google/gops v0.3.27
 	github.com/gosimple/slug v1.13.1
-	github.com/hashicorp/consul/api v1.21.0
+	github.com/hashicorp/consul/api v1.22.0
 	github.com/hashicorp/go-cleanhttp v0.5.2
 	github.com/hashicorp/hcl v1.0.0
 	github.com/hashicorp/hcl/v2 v2.17.0
@@ -102,7 +102,7 @@ require (
 	github.com/agnivade/levenshtein v1.1.1 // indirect
 	github.com/antlr/antlr4/runtime/Go/antlr/v4 v4.0.0-20230305170008-8188dc5388df // indirect
 	github.com/apparentlymart/go-textseg/v13 v13.0.0 // indirect
-	github.com/armon/go-metrics v0.4.0 // indirect
+	github.com/armon/go-metrics v0.4.1 // indirect
 	github.com/asaskevich/govalidator v0.0.0-20200108200545-475eaeb16496 // indirect
 	github.com/awnumar/memcall v0.1.2 // indirect
 	github.com/beorn7/perks v1.0.1 // indirect
@@ -130,7 +130,7 @@ require (
 	github.com/gorilla/mux v1.8.0 // indirect
 	github.com/gosimple/unidecode v1.0.1 // indirect
 	github.com/hashicorp/errwrap v1.1.0 // indirect
-	github.com/hashicorp/go-hclog v1.2.0 // indirect
+	github.com/hashicorp/go-hclog v1.5.0 // indirect
 	github.com/hashicorp/go-immutable-radix v1.3.1 // indirect
 	github.com/hashicorp/go-multierror v1.1.1 // indirect
 	github.com/hashicorp/go-retryablehttp v0.6.6 // indirect
@@ -154,7 +154,7 @@ require (
 	github.com/moby/term v0.0.0-20221205130635-1aeaba878587 // indirect
 	github.com/opencontainers/go-digest v1.0.0 // indirect
 	github.com/pelletier/go-toml/v2 v2.0.8 // indirect
-	github.com/pmezard/go-difflib v1.0.0 // indirect
+	github.com/pmezard/go-difflib v1.0.1-0.20181226105442-5d4384ee4fb2 // indirect
 	github.com/prometheus/client_golang v1.15.1 // indirect
 	github.com/prometheus/client_model v0.3.0 // indirect
 	github.com/prometheus/common v0.42.0 // indirect
@@ -182,7 +182,7 @@ require (
 	go.uber.org/atomic v1.9.0 // indirect
 	go.uber.org/goleak v1.2.1 // indirect
 	go.uber.org/multierr v1.8.0 // indirect
-	golang.org/x/exp v0.0.0-20220722155223-a9213eeb770e // indirect
+	golang.org/x/exp v0.0.0-20230321023759-10a507213a29 // indirect
 	golang.org/x/mod v0.9.0 // indirect
 	golang.org/x/net v0.11.0 // indirect
 	golang.org/x/text v0.10.0 // indirect
