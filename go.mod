@@ -21,7 +21,7 @@ require (
 	github.com/MakeNowJust/heredoc/v2 v2.0.1
 	github.com/Masterminds/semver/v3 v3.2.1
 	github.com/Masterminds/sprig/v3 v3.2.3
-	github.com/alessio/shellescape v1.4.1
+	github.com/alessio/shellescape v1.4.2
 	github.com/awnumar/memguard v0.22.3
 	github.com/basgys/goxml2json v1.1.0
 	github.com/cloudflare/tableflip v1.2.3
