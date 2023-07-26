@@ -1,4 +1,25 @@
+## 2.1.3
+
+### 2022-07-26
+
+DIST:
+
+* CI
+  * Build with Golang 1.20.6
+  * Dependency updates
+
+## 2.1.2
+
+### 2022-07-11
+
+DIST:
+
+* CI
+  * Dependency updates
+
 ## 2.1.1
+
+### 2022-06-22
 
 DIST:
 
@@ -8,6 +29,8 @@ DIST:
   * Golang 1.18 removed from supported toolchain versions
 
 ## 2.1.0
+
+### 2022-06-02
 
 FEATURES:
 

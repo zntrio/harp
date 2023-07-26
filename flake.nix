@@ -59,7 +59,7 @@
                     owner = "frapposelli";
                     repo = "wwhrd";
                     rev = "${version}";
-                    sha256 = "sha256-OxJFxa833AmjFIOeLI94SxpP/Jlz7d4qglQwQm9TPG4=";
+                    sha256 = "sha256-jppPciJR2A1uKWhr+CB1Aquh33JXag0gjoBvohdt6+k=";
                   };
 
                   vendorSha256 = null;
@@ -75,10 +75,10 @@
                     owner = "CycloneDX";
                     repo = "cyclonedx-gomod";
                     rev = "${version}";
-                    sha256 = "sha256-wrBFt06ym3tfSMJW+1KSv6J9dGwGqpqHIgjn50VlU0k=";
+                    sha256 = "sha256-BTvvVwompM7Ie4BsRcjT4yxLLJc1qH1514A4uzwgGCc=";
                   };
 
-                  vendorSha256 = "sha256-1gEDHn7EcNVY10ahaEirn8KghgxpsS2pLC7HoycE428=";
+                  vendorSha256 = "sha256-uJgC44JtBSEwR6iKg8nmVmsFdyc3rtKSYxt8dbCABe0=";
                   subPackages = [ "cmd/cyclonedx-gomod" ];
 
                   nativeBuildInputs = [ pkgs.installShellFiles ];
