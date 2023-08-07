@@ -45,7 +45,7 @@ require (
 	github.com/google/gofuzz v1.2.0
 	github.com/google/gops v0.3.27
 	github.com/gosimple/slug v1.13.1
-	github.com/hashicorp/consul/api v1.23.0
+	github.com/hashicorp/consul/api v1.24.0
 	github.com/hashicorp/go-cleanhttp v0.5.2
 	github.com/hashicorp/hcl v1.0.0
 	github.com/hashicorp/hcl/v2 v2.17.0
@@ -184,7 +184,7 @@ require (
 	go.uber.org/multierr v1.10.0 // indirect
 	golang.org/x/exp v0.0.0-20230321023759-10a507213a29 // indirect
 	golang.org/x/mod v0.9.0 // indirect
-	golang.org/x/net v0.12.0 // indirect
+	golang.org/x/net v0.13.0 // indirect
 	golang.org/x/text v0.11.0 // indirect
 	golang.org/x/time v0.3.0 // indirect
 	golang.org/x/tools v0.7.0 // indirect
