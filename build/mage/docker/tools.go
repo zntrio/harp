@@ -56,13 +56,6 @@ LABEL \
     org.opencontainers.image.version=$VERSION \
     org.opencontainers.image.licences="ASL2"
 
-{{ if .OverrideGoBoringVersion }}
-# Override goboring version
-RUN wget https://storage.googleapis.com/go-boringcrypto/go{{ .GoBoringVersion }}.linux-amd64.tar.gz \
-    && rm -rf /usr/local/go && tar -C /usr/local -xzf go{{ .GoBoringVersion }}.linux-amd64.tar.gz \
-    && rm go{{ .GoBoringVersion }}.linux-amd64.tar.gz
-{{ end }}
-
 # hadolint ignore=DL3008
 RUN set -eux; \
     apt-get update -y && \
@@ -144,26 +137,18 @@ func Tools() error {
 	if os.Getenv("GOLANG_VERSION") != "" {
 		golangVersion = os.Getenv("GOLANG_VERSION")
 	}
-	goBoringVersion := goBoringVersion
-	overrideGoBoringVersion := false
-	if os.Getenv("GOBORING_VERSION") != "" {
-		goBoringVersion = os.Getenv("GOBORING_VERSION")
-		overrideGoBoringVersion = true
-	}
 	fipsMode := "0"
 	if os.Getenv("FIPS_MODE") == "1" {
 		fipsMode = os.Getenv("FIPS_MODE")
 	}
 
 	buf, err := merge(dockerToolTemplate, map[string]interface{}{
-		"BuildDate":               time.Now().Format(time.RFC3339),
-		"Version":                 git.Tag,
-		"VcsRef":                  git.Revision,
-		"GolangImage":             golangBaseImage,
-		"GolangVersion":           golangVersion,
-		"OverrideGoBoringVersion": overrideGoBoringVersion,
-		"GoBoringVersion":         goBoringVersion,
-		"FIPSMode":                fipsMode,
+		"BuildDate":     time.Now().Format(time.RFC3339),
+		"Version":       git.Tag,
+		"VcsRef":        git.Revision,
+		"GolangImage":   golangBaseImage,
+		"GolangVersion": golangVersion,
+		"FIPSMode":      fipsMode,
 	})
 	if err != nil {
 		return err

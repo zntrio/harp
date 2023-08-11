@@ -111,7 +111,7 @@ func Build(name, packageName, version string, opts ...BuildOption) func() error 
 		if os.Getenv("HARP_BUILD_FIPS_MODE") == "1" {
 			artifactName = fmt.Sprintf("%s-fips", artifactName)
 			compilationFlags = append(compilationFlags, "fips")
-			buildTags = "-tags=fips"
+			buildTags = "-tags=fips,goexperiment.boringcrypto"
 		}
 
 		// Check if CGO is enabled

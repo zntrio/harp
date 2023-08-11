@@ -1,3 +1,13 @@
+## 2.1.4
+
+### 2022-08-11
+
+DIST:
+
+* CI
+  * Build with Golang 1.21
+  * Dependency updates
+
 ## 2.1.3
 
 ### 2022-07-26

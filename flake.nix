@@ -37,16 +37,16 @@
               devtools = {
                 gci = pkgs.buildGoModule rec {
                   pname = "gci";
-                  version = "b9a2597d93b0cfa2267fb682665be8ef86863dee";
+                  version = "52e43a48497695a73d350b04a7e03423e3dd4909";
 
                   src = pkgs.fetchFromGitHub {
                     owner = "daixiang0";
                     repo = "gci";
                     rev = "${version}";
-                    sha256 = "sha256-qWEEcIbTgYmGVnnTW+hM8e8nw5VLWN1TwzdUIZrxF3s=";
+                    sha256 = "sha256-EBklnsZR8VwM89BztligZBDapmgyKuI9Ns8EFFo3ai8=";
                   };
 
-                  vendorSha256 = "sha256-dlt+i/pEP3RzW4JwndKTU7my2Nn7/2rLFlk8n1sFR60=";
+                  vendorSha256 = "sha256-g7htGfU6C2rzfu8hAn6SGr0ZRwB8ZzSf9CgHYmdupE8=";
 
                   nativeBuildInputs = [ pkgs.installShellFiles ];
                 };
