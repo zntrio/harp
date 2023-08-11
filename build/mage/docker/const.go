@@ -7,8 +7,7 @@ package docker
 
 const (
 	// Standard build mode.
-	golangImage     = "golang:1.18"
-	golangVersion   = "1.18.4"
-	goBoringVersion = "1.18.4b7"
-	toolImage       = "elastic/harp-tools:latest"
+	golangImage   = "golang:1.21"
+	golangVersion = "1.21"
+	toolImage     = "elastic/harp-tools:latest"
 )
