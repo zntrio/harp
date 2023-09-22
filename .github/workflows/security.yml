@@ -46,7 +46,7 @@ jobs:
         with:
           access_token: ${{ secrets.GITHUB_TOKEN }}
       -
-        uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744 # v3.6.0
+        uses: actions/checkout@8ade135a41bc03ea155e62e844d188df1ea18608 # v4.1.0
       -
         name: Run Trivy vulnerability scanner in repo mode
         uses: aquasecurity/trivy-action@41f05d9ecffa2ed3f1580af306000f734b733e54 # master
