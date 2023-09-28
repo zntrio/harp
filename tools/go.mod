@@ -7,7 +7,7 @@ replace golang.org/x/net => golang.org/x/net v0.8.0
 
 require (
 	github.com/CycloneDX/cyclonedx-gomod v1.4.1
-	github.com/daixiang0/gci v0.11.0
+	github.com/daixiang0/gci v0.11.2
 	github.com/fatih/color v1.15.0
 	github.com/frapposelli/wwhrd v0.4.0
 	github.com/golang/mock v1.6.0
