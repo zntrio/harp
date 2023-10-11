@@ -39,7 +39,7 @@ func (r *receiver) SetupBase(enc []byte) (Opener, error) {
 		return nil, fmt.Errorf("receiver: %w", err)
 	}
 
-	ctx, err := r.keySchedule(mode_base, ss, r.info, defaultPSK, defaultPSKID)
+	ctx, err := r.keySchedule(modeBase, ss, r.info, defaultPSK, defaultPSKID)
 	if err != nil {
 		return nil, fmt.Errorf("receiver: unable to initialize key schedule: %w", err)
 	}
@@ -54,7 +54,7 @@ func (r *receiver) SetupPSK(enc []byte, psk, pskID []byte) (Opener, error) {
 		return nil, fmt.Errorf("receiver: %w", err)
 	}
 
-	ctx, err := r.keySchedule(mode_psk, ss, r.info, psk, pskID)
+	ctx, err := r.keySchedule(modePsk, ss, r.info, psk, pskID)
 	if err != nil {
 		return nil, fmt.Errorf("receiver: unable to initialize key schedule: %w", err)
 	}
@@ -69,7 +69,7 @@ func (r *receiver) SetupAuth(enc []byte, pkS *ecdh.PublicKey) (Opener, error) {
 		return nil, fmt.Errorf("receiver: %w", err)
 	}
 
-	ctx, err := r.keySchedule(mode_auth, ss, r.info, defaultPSK, defaultPSKID)
+	ctx, err := r.keySchedule(modeAuth, ss, r.info, defaultPSK, defaultPSKID)
 	if err != nil {
 		return nil, fmt.Errorf("receiver: unable to initialize key schedule: %w", err)
 	}
@@ -84,7 +84,7 @@ func (r *receiver) SetupAuthPSK(enc []byte, psk, pskID []byte, pkS *ecdh.PublicK
 		return nil, fmt.Errorf("receiver: %w", err)
 	}
 
-	ctx, err := r.keySchedule(mode_auth_psk, ss, r.info, psk, pskID)
+	ctx, err := r.keySchedule(modeAuthPsk, ss, r.info, psk, pskID)
 	if err != nil {
 		return nil, fmt.Errorf("receiver: unable to initialize key schedule: %w", err)
 	}

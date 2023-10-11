@@ -49,11 +49,11 @@ func (s Suite) verifyPSK(encMode mode, psk, pskID []byte) error {
 	}
 
 	switch encMode {
-	case mode_base, mode_auth:
+	case modeBase, modeAuth:
 		if gotPsk {
 			return errors.New("PSK input provided when not needed")
 		}
-	case mode_psk, mode_auth_psk:
+	case modePsk, modeAuthPsk:
 		if !gotPsk {
 			return errors.New("missing required PSK input")
 		}
@@ -159,12 +159,12 @@ func (c *context) Open(ciphertext, aad []byte) ([]byte, error) {
 	return pt, nil
 }
 
-func (c *context) Export(exporterContext []byte, L uint16) ([]byte, error) {
+func (c *context) Export(exporterContext []byte, outputLen uint16) ([]byte, error) {
 	// https://www.rfc-editor.org/rfc/rfc9180.html#section-7.2.1-4
 	if len(exporterContext) > 64 {
 		return nil, errors.New("exporter context must be less than 64 bytes")
 	}
-	return c.suite.labeledExpand(c.exporterSecret, []byte("sec"), exporterContext, L)
+	return c.suite.labeledExpand(c.exporterSecret, []byte("sec"), exporterContext, outputLen)
 }
 
 func (c *context) computeNonce(seq uint64) []byte {

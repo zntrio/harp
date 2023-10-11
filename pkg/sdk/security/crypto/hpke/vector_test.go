@@ -205,17 +205,17 @@ func protocolSetup(t *testing.T, v *vector, snd Sender, rcv Receiver, s *Suite) 
 	scheme := s.kemID.Scheme()
 
 	switch v.ModeID {
-	case uint8(mode_base):
+	case uint8(modeBase):
 		enc, sealer, errS = sender.setupBase(seedReader)
 		if errS == nil {
 			opener, errR = rcv.SetupBase(enc)
 		}
-	case uint8(mode_psk):
+	case uint8(modePsk):
 		enc, sealer, errS = sender.setupPSK(seedReader, v.Psk, v.PskID)
 		if errS == nil {
 			opener, errR = rcv.SetupPSK(enc, v.Psk, v.PskID)
 		}
-	case uint8(mode_auth):
+	case uint8(modeAuth):
 		skS, errSK = scheme.DeserializePrivateKey(v.SkSm)
 		if errSK == nil {
 			pkS, errPK = scheme.DeserializePublicKey(v.PkSm)
@@ -226,7 +226,7 @@ func protocolSetup(t *testing.T, v *vector, snd Sender, rcv Receiver, s *Suite) 
 				}
 			}
 		}
-	case uint8(mode_auth_psk):
+	case uint8(modeAuthPsk):
 		skS, errSK = scheme.DeserializePrivateKey(v.SkSm)
 		if errSK == nil {
 			pkS, errPK = scheme.DeserializePublicKey(v.PkSm)

@@ -21,9 +21,9 @@ var (
 	// ErrDeserialization is raised when the given material can't be decoded as
 	// the expected key type.
 	ErrDeserialization = errors.New("unable to deserialize key content")
-	// ErrEncap is raised when an error occured during shared secret encapsulation.
+	// ErrEncap is raised when an error occurred during shared secret encapsulation.
 	ErrEncap = errors.New("unable to encapsulate the shared secret")
-	// ErrDecap is raised when an error occured during shared secret decapsulation.
+	// ErrDecap is raised when an error occurred during shared secret decapsulation.
 	ErrDecap = errors.New("unable to decapsulate the shared secret")
 )
 
@@ -207,7 +207,8 @@ func (kem *dhkem) Decapsulate(enc []byte, skR *ecdh.PrivateKey) ([]byte, error) 
 	pkRm := kem.SerializePublicKey(skR.PublicKey())
 
 	// kem_context = concat(enc, pkRm)
-	kemContext := append(localEnc, pkRm...)
+	kemContext := append([]byte{}, localEnc...)
+	kemContext = append(kemContext, pkRm...)
 
 	// shared_secret = ExtractAndExpand(dh, kem_context)
 	ssRaw, err := kem.extractAndExpand(dh, kemContext)
@@ -266,7 +267,8 @@ func (kem *dhkem) authEncapsulate(pkE *ecdh.PublicKey, skE *ecdh.PrivateKey, pkR
 	defer memguard.WipeBytes(Zs)
 
 	// dh = concat(DH(skE, pkR), DH(skS, pkR))
-	dh := append(Ze, Zs...)
+	dh := append([]byte{}, Ze...)
+	dh = append(dh, Zs...)
 	defer memguard.WipeBytes(dh)
 
 	enc = kem.SerializePublicKey(pkE)
@@ -317,7 +319,8 @@ func (kem *dhkem) AuthDecapsulate(enc []byte, skR *ecdh.PrivateKey, pkS *ecdh.Pu
 	defer memguard.WipeBytes(Zs)
 
 	// dh = concat(DH(skR, pkE), DH(skR, pkS))
-	dh := append(Ze, Zs...)
+	dh := append([]byte{}, Ze...)
+	dh = append(dh, Zs...)
 	defer memguard.WipeBytes(dh)
 
 	enc = kem.SerializePublicKey(pkE)
@@ -325,7 +328,8 @@ func (kem *dhkem) AuthDecapsulate(enc []byte, skR *ecdh.PrivateKey, pkS *ecdh.Pu
 	pkSm := kem.SerializePublicKey(pkS)
 
 	// kem_context = concat(enc, pkRm, pkSm)
-	kemContext := append(enc, pkRm...)
+	kemContext := append([]byte{}, enc...)
+	kemContext = append(kemContext, pkRm...)
 	kemContext = append(kemContext, pkSm...)
 
 	// shared_secret = ExtractAndExpand(dh, kem_context)
@@ -353,17 +357,17 @@ func (kem *dhkem) labeledExtract(salt, label, ikm []byte) []byte {
 	return hkdf.Extract(kem.fh, labeledIKM, salt)
 }
 
-func (kem *dhkem) labeledExpand(prk, label, info []byte, L uint16) ([]byte, error) {
+func (kem *dhkem) labeledExpand(prk, label, info []byte, outputLen uint16) ([]byte, error) {
 	labeledInfo := make([]byte, 2, 2+7+5+len(label)+len(info))
 	// labeled_info = concat(I2OSP(L, 2), "HPKE-v1", suite_id, label, info)
-	binary.BigEndian.PutUint16(labeledInfo[0:2], L)
+	binary.BigEndian.PutUint16(labeledInfo[0:2], outputLen)
 	labeledInfo = append(labeledInfo, []byte("HPKE-v1")...)
 	labeledInfo = append(labeledInfo, kem.SuiteID()...)
 	labeledInfo = append(labeledInfo, label...)
 	labeledInfo = append(labeledInfo, info...)
 
 	r := hkdf.Expand(kem.fh, prk, labeledInfo)
-	out := make([]byte, L)
+	out := make([]byte, outputLen)
 	if _, err := io.ReadFull(r, out); err != nil {
 		return nil, fmt.Errorf("unable to generate secret from prf: %w", err)
 	}

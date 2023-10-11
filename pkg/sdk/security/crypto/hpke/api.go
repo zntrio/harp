@@ -11,6 +11,7 @@ import (
 	"crypto/cipher"
 	"crypto/sha256"
 	"crypto/sha512"
+	"errors"
 	"fmt"
 	"hash"
 	"io"
@@ -23,16 +24,17 @@ import (
 type mode uint8
 
 const (
-	mode_base     mode = 0x00
-	mode_psk      mode = 0x01
-	mode_auth     mode = 0x02
-	mode_auth_psk mode = 0x03
+	modeBase    mode = 0x00
+	modePsk     mode = 0x01
+	modeAuth    mode = 0x02
+	modeAuthPsk mode = 0x03
 )
 
 // -----------------------------------------------------------------------------
 
 type KEM uint16
 
+//nolint:stylecheck
 const (
 	// KEM_P256_HKDF_SHA256 is a KEM using P-256 curve and HKDF with SHA-256.
 	KEM_P256_HKDF_SHA256 KEM = 0x10
@@ -74,6 +76,7 @@ func (k KEM) IsValid() bool {
 
 type KDF uint16
 
+//nolint:stylecheck
 const (
 	// KDF_HKDF_SHA256 is a KDF using HKDF with SHA-256.
 	KDF_HKDF_SHA256 KDF = 0x01
@@ -109,19 +112,19 @@ func (k KDF) Extract(secret, salt []byte) []byte {
 	return hkdf.Extract(k.hash(), secret, salt)
 }
 
-func (k KDF) Expand(prk, labeledInfo []byte, L uint16) ([]byte, error) {
+func (k KDF) Expand(prk, labeledInfo []byte, outputLen uint16) ([]byte, error) {
 	extractSize := k.ExtractSize()
 	// https://www.rfc-editor.org/rfc/rfc9180.html#kdf-input-length
 	if len(prk) < int(extractSize) {
 		return nil, fmt.Errorf("pseudorandom key must be at least %d bytes", extractSize)
 	}
 	// https://www.rfc-editor.org/rfc/rfc9180.html#name-secret-export
-	if maxLength := 255 * extractSize; L > maxLength {
+	if maxLength := 255 * extractSize; outputLen > maxLength {
 		return nil, fmt.Errorf("expansion length is limited to %d", maxLength)
 	}
 
 	r := hkdf.Expand(k.hash(), prk, labeledInfo)
-	out := make([]byte, L)
+	out := make([]byte, outputLen)
 	if _, err := io.ReadFull(r, out); err != nil {
 		return nil, fmt.Errorf("unable to generate value from kdf: %w", err)
 	}
@@ -146,6 +149,7 @@ func (k KDF) hash() func() hash.Hash {
 
 type AEAD uint16
 
+//nolint:stylecheck
 const (
 	// AEAD_AES128GCM is AES-128 block cipher in Galois Counter Mode (GCM).
 	AEAD_AES128GCM AEAD = 0x01
@@ -177,6 +181,8 @@ func (a AEAD) New(key []byte) (cipher.AEAD, error) {
 		return cipher.NewGCM(block)
 	case AEAD_ChaCha20Poly1305:
 		return chacha20poly1305.New(key)
+	case AEAD_EXPORT_ONLY:
+		return nil, errors.New("AEAD cipher can't be initialized in export-only mode")
 	default:
 		panic("invalid aead")
 	}
@@ -190,6 +196,8 @@ func (a AEAD) KeySize() uint16 {
 		return 32
 	case AEAD_ChaCha20Poly1305:
 		return chacha20poly1305.KeySize
+	case AEAD_EXPORT_ONLY:
+		return 0
 	default:
 		panic("invalid aead")
 	}
@@ -201,6 +209,8 @@ func (a AEAD) NonceSize() uint16 {
 		AEAD_AES256GCM,
 		AEAD_ChaCha20Poly1305:
 		return 12
+	case AEAD_EXPORT_ONLY:
+		return 0
 	default:
 		panic("invalid aead")
 	}

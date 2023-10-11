@@ -41,7 +41,7 @@ func (s *sender) SetupBase() ([]byte, Sealer, error) {
 func (s *sender) setupBase(r io.Reader) ([]byte, Sealer, error) {
 	// Generate a seed
 	seed := make([]byte, s.kemID.Scheme().PrivateKeySize())
-	if _, err := io.ReadFull(r, seed[:]); err != nil {
+	if _, err := io.ReadFull(r, seed); err != nil {
 		return nil, nil, fmt.Errorf("unable to generate encapsulation seed: %w", err)
 	}
 
@@ -51,7 +51,7 @@ func (s *sender) setupBase(r io.Reader) ([]byte, Sealer, error) {
 		return nil, nil, fmt.Errorf("sender: %w", err)
 	}
 
-	ctx, err := s.keySchedule(mode_base, ss, s.info, defaultPSK, defaultPSKID)
+	ctx, err := s.keySchedule(modeBase, ss, s.info, defaultPSK, defaultPSKID)
 	if err != nil {
 		return nil, nil, fmt.Errorf("sender: unable to initialize key schedule: %w", err)
 	}
@@ -66,7 +66,7 @@ func (s *sender) SetupPSK(psk, pskID []byte) ([]byte, Sealer, error) {
 func (s *sender) setupPSK(r io.Reader, psk, pskID []byte) ([]byte, Sealer, error) {
 	// Generate a seed
 	seed := make([]byte, s.kemID.Scheme().PrivateKeySize())
-	if _, err := io.ReadFull(r, seed[:]); err != nil {
+	if _, err := io.ReadFull(r, seed); err != nil {
 		return nil, nil, fmt.Errorf("unable to generate encapsulation seed: %w", err)
 	}
 
@@ -76,7 +76,7 @@ func (s *sender) setupPSK(r io.Reader, psk, pskID []byte) ([]byte, Sealer, error
 		return nil, nil, fmt.Errorf("sender: %w", err)
 	}
 
-	ctx, err := s.keySchedule(mode_psk, ss, s.info, psk, pskID)
+	ctx, err := s.keySchedule(modePsk, ss, s.info, psk, pskID)
 	if err != nil {
 		return nil, nil, fmt.Errorf("sender: unable to initialize key schedule: %w", err)
 	}
@@ -91,7 +91,7 @@ func (s *sender) SetupAuth(skS *ecdh.PrivateKey) ([]byte, Sealer, error) {
 func (s *sender) setupAuth(r io.Reader, skS *ecdh.PrivateKey) ([]byte, Sealer, error) {
 	// Generate a seed
 	seed := make([]byte, s.kemID.Scheme().PrivateKeySize())
-	if _, err := io.ReadFull(r, seed[:]); err != nil {
+	if _, err := io.ReadFull(r, seed); err != nil {
 		return nil, nil, fmt.Errorf("unable to generate encapsulation seed: %w", err)
 	}
 
@@ -101,7 +101,7 @@ func (s *sender) setupAuth(r io.Reader, skS *ecdh.PrivateKey) ([]byte, Sealer, e
 		return nil, nil, fmt.Errorf("sender: %w", err)
 	}
 
-	ctx, err := s.keySchedule(mode_auth, ss, s.info, defaultPSK, defaultPSKID)
+	ctx, err := s.keySchedule(modeAuth, ss, s.info, defaultPSK, defaultPSKID)
 	if err != nil {
 		return nil, nil, fmt.Errorf("sender: unable to initialize key schedule: %w", err)
 	}
@@ -116,7 +116,7 @@ func (s *sender) SetupAuthPSK(psk, pskID []byte, skS *ecdh.PrivateKey) ([]byte, 
 func (s *sender) setupAuthPSK(r io.Reader, psk, pskID []byte, skS *ecdh.PrivateKey) ([]byte, Sealer, error) {
 	// Generate a seed
 	seed := make([]byte, s.kemID.Scheme().PrivateKeySize())
-	if _, err := io.ReadFull(r, seed[:]); err != nil {
+	if _, err := io.ReadFull(r, seed); err != nil {
 		return nil, nil, fmt.Errorf("unable to generate encapsulation seed: %w", err)
 	}
 
@@ -126,7 +126,7 @@ func (s *sender) setupAuthPSK(r io.Reader, psk, pskID []byte, skS *ecdh.PrivateK
 		return nil, nil, fmt.Errorf("sender: %w", err)
 	}
 
-	ctx, err := s.keySchedule(mode_auth_psk, ss, s.info, psk, pskID)
+	ctx, err := s.keySchedule(modeAuthPsk, ss, s.info, psk, pskID)
 	if err != nil {
 		return nil, nil, fmt.Errorf("sender: unable to initialize key schedule: %w", err)
 	}

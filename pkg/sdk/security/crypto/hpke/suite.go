@@ -25,7 +25,7 @@ type Suite struct {
 	aeadID AEAD
 }
 
-// IsValid checks if the suite is initialized whith valid values.
+// IsValid checks if the suite is initialized with valid values.
 func (s Suite) IsValid() bool {
 	return s.kemID.IsValid() && s.kdfID.IsValid() && s.aeadID.IsValid()
 }
@@ -41,7 +41,7 @@ func (s Suite) suiteID() []byte {
 	return out[:]
 }
 
-// Params returns suite parameters
+// Params returns suite parameters.
 func (s Suite) Params() (KEM, KDF, AEAD) {
 	return s.kemID, s.kdfID, s.aeadID
 }
@@ -75,14 +75,14 @@ func (s Suite) labeledExtract(salt, label, ikm []byte) []byte {
 	return s.kdfID.Extract(labeledIKM, salt)
 }
 
-func (s Suite) labeledExpand(prk, label, info []byte, L uint16) ([]byte, error) {
+func (s Suite) labeledExpand(prk, label, info []byte, outputLen uint16) ([]byte, error) {
 	labeledInfo := make([]byte, 2, 2+7+10+len(label)+len(info))
 	// labeled_info = concat(I2OSP(L, 2), "HPKE-v1", suite_id, label, info)
-	binary.BigEndian.PutUint16(labeledInfo[0:2], L)
+	binary.BigEndian.PutUint16(labeledInfo[0:2], outputLen)
 	labeledInfo = append(labeledInfo, []byte("HPKE-v1")...)
 	labeledInfo = append(labeledInfo, s.suiteID()...)
 	labeledInfo = append(labeledInfo, label...)
 	labeledInfo = append(labeledInfo, info...)
 
-	return s.kdfID.Expand(prk, labeledInfo, L)
+	return s.kdfID.Expand(prk, labeledInfo, outputLen)
 }

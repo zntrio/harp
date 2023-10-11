@@ -13,9 +13,9 @@ import (
 	"strings"
 
 	"zntr.io/harp/v2/build/fips"
-	pasetov4 "zntr.io/harp/v2/pkg/sdk/security/crypto/paseto/v4"
 	"zntr.io/harp/v2/pkg/sdk/value"
 	"zntr.io/harp/v2/pkg/sdk/value/encryption"
+	pasetov4 "zntr.io/paseto/v4"
 )
 
 func init() {
@@ -38,7 +38,7 @@ func Transformer(key string) (value.Transformer, error) {
 	}
 
 	// Copy secret key
-	var secretKey [pasetov4.KeyLength]byte
+	var secretKey pasetov4.LocalKey
 	copy(secretKey[:], k)
 
 	return &pasetoTransformer{
@@ -49,14 +49,15 @@ func Transformer(key string) (value.Transformer, error) {
 // -----------------------------------------------------------------------------
 
 type pasetoTransformer struct {
-	key [pasetov4.KeyLength]byte
+	key pasetov4.LocalKey
 }
 
 func (d *pasetoTransformer) From(_ context.Context, input []byte) ([]byte, error) {
-	return pasetov4.Decrypt(d.key[:], input, "", "")
+	return pasetov4.Decrypt(&d.key, string(input), nil, nil)
 }
 
 func (d *pasetoTransformer) To(_ context.Context, input []byte) ([]byte, error) {
 	// Encrypt with paseto v4.local
-	return pasetov4.Encrypt(rand.Reader, d.key[:], input, "", "")
+	out, err := pasetov4.Encrypt(rand.Reader, &d.key, input, nil, nil)
+	return []byte(out), err
 }
