@@ -80,10 +80,10 @@ var transformDecompressCmd = func() *cobra.Command {
 			}
 
 			// Compute max decompression size
-			maxDecompressionSize := int64(params.maxDecompressionGuard) * 1024 * 1024
+			maxDecompressionSize := uint64(params.maxDecompressionGuard) * 1024 * 1024
 
 			// Process input as a stream.
-			if err := ioutil.Copy(maxDecompressionSize, writer, compressedReader); err != nil {
+			if _, err := ioutil.LimitCopy(writer, compressedReader, maxDecompressionSize); err != nil {
 				log.SafeClose(compressedReader, "unable to close the compression writer")
 				log.For(ctx).Fatal("unable to process input", zap.Error(err))
 			}

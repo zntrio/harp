@@ -37,7 +37,7 @@ func Load(r io.Reader) (*bundlev1.Bundle, error) {
 
 	// Use buffered copy
 	decoded := &bytes.Buffer{}
-	if err = ioutil.Copy(maxBundleSize, decoded, r); err != nil {
+	if _, err = ioutil.LimitCopy(decoded, r, maxBundleSize); err != nil {
 		return nil, fmt.Errorf("unable to load bundle content")
 	}
 

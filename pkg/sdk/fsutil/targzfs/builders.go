@@ -46,7 +46,7 @@ func FromReader(r io.Reader) (fs.FS, error) {
 
 	// Chunked read with hard limit to prevent/reduce zipbomb vulnerability
 	// exploitation.
-	if err := ioutil.Copy(maxDecompressedSize, &tarContents, gz); err != nil {
+	if _, err := ioutil.LimitCopy(&tarContents, gz, maxDecompressedSize); err != nil {
 		return nil, fmt.Errorf("unable to decompress the archive: %w", err)
 	}
 
@@ -91,7 +91,7 @@ func FromReader(r io.Reader) (fs.FS, error) {
 
 		// Chunked read with hard limit to prevent/reduce post decompression
 		// explosion
-		if err := ioutil.Copy(maxFileSize, &fileContents, tarReader); err != nil {
+		if _, err := ioutil.LimitCopy(&fileContents, tarReader, maxFileSize); err != nil {
 			return nil, fmt.Errorf("unable to copy file content to memory: %w", err)
 		}
 
