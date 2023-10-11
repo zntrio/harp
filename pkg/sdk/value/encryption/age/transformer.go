@@ -115,7 +115,7 @@ func (d *ageTransformer) To(_ context.Context, input []byte) ([]byte, error) {
 	}
 
 	// Copy stream
-	if err := ioutil.Copy(ageMaxPayloadSize, w, in); err != nil {
+	if _, err := ioutil.LimitCopy(w, in, ageMaxPayloadSize); err != nil {
 		return nil, err
 	}
 
@@ -159,7 +159,7 @@ func (d *ageTransformer) From(_ context.Context, input []byte) ([]byte, error) {
 	}
 
 	// Copy stream
-	if err := ioutil.Copy(ageMaxPayloadSize, &out, w); err != nil {
+	if _, err := ioutil.LimitCopy(&out, w, ageMaxPayloadSize); err != nil {
 		return nil, err
 	}
 
