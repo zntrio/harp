@@ -168,7 +168,7 @@ jobs:
           done
       -
         name: Upload to release
-        uses: AButler/upload-release-assets@ec6d3263266dc57eb6645b5f75e827987f7c217d # v2.0
+        uses: AButler/upload-release-assets@3d6774fae0ed91407dc5ae29d576b166536d1777 # v3.0
         with:
           files: '.dist/*'
           repo-token: ${{ secrets.GITHUB_TOKEN }}
