@@ -6,15 +6,15 @@ buildGoModule rec {
   src = lib.cleanSource ./.;
 
   subPackages = [ "cmd/harp" ];
-  vendorSha256 = "sha256-nCLwRCpdbcam1OA82fEyfGPTc7yShJC2ug8NPV0vUBQ=";
-  ldflags = [ 
+  vendorHash = "sha256-BpLn0ykQGR2uRoXQwY5tqAo+gm7/Lx8zgh1BHEOFgwQ=";
+  ldflags = [
     "-s" "-w" "-buildid="
     "-X zntr.io/harp/v2/build/version.Name=harp"
     "-X zntr.io/harp/v2/build/version.AppName=zntr.io/harp/v2/cmd/harp"
-		"-X zntr.io/harp/v2/build/version.Version=nix-${rev}"
+    "-X zntr.io/harp/v2/build/version.Version=nix-${rev}"
     "-X zntr.io/harp/v2/build/version.Commit=${rev}"
-		"-X zntr.io/harp/v2/build/version.Branch=main"
-		"-X zntr.io/harp/v2/build/version.BuildTags=defaults"
+    "-X zntr.io/harp/v2/build/version.Branch=main"
+    "-X zntr.io/harp/v2/build/version.BuildTags=defaults"
   ];
 
   meta = with lib; {
