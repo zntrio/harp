@@ -46,7 +46,7 @@
                     sha256 = "sha256-EBklnsZR8VwM89BztligZBDapmgyKuI9Ns8EFFo3ai8=";
                   };
 
-                  vendorSha256 = "sha256-g7htGfU6C2rzfu8hAn6SGr0ZRwB8ZzSf9CgHYmdupE8=";
+                  vendorHash = "sha256-g7htGfU6C2rzfu8hAn6SGr0ZRwB8ZzSf9CgHYmdupE8=";
 
                   nativeBuildInputs = [ pkgs.installShellFiles ];
                 };
@@ -62,7 +62,7 @@
                     sha256 = "sha256-jppPciJR2A1uKWhr+CB1Aquh33JXag0gjoBvohdt6+k=";
                   };
 
-                  vendorSha256 = null;
+                  vendorHash = null;
 
                   nativeBuildInputs = [ pkgs.installShellFiles ];
                 };
@@ -78,7 +78,7 @@
                     sha256 = "sha256-BTvvVwompM7Ie4BsRcjT4yxLLJc1qH1514A4uzwgGCc=";
                   };
 
-                  vendorSha256 = "sha256-uJgC44JtBSEwR6iKg8nmVmsFdyc3rtKSYxt8dbCABe0=";
+                  vendorHash = "sha256-uJgC44JtBSEwR6iKg8nmVmsFdyc3rtKSYxt8dbCABe0=";
                   subPackages = [ "cmd/cyclonedx-gomod" ];
 
                   nativeBuildInputs = [ pkgs.installShellFiles ];
@@ -88,7 +88,7 @@
             pkgs.mkShell
               {
                 buildInputs = [
-                  pkgs.go_1_20
+                  pkgs.go_1_21
                   pkgs.gopls
                   pkgs.gotools
                   pkgs.go-tools
