@@ -70,7 +70,7 @@ require (
 	golang.org/x/oauth2 v0.15.0
 	golang.org/x/sync v0.5.0
 	golang.org/x/sys v0.16.0
-	golang.org/x/term v0.15.0
+	golang.org/x/term v0.16.0
 	google.golang.org/grpc v1.60.0
 	google.golang.org/protobuf v1.31.0
 	gopkg.in/square/go-jose.v2 v2.6.0
