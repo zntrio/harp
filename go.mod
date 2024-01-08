@@ -66,7 +66,7 @@ require (
 	go.etcd.io/etcd/client/v3 v3.5.11
 	go.step.sm/crypto v0.40.0
 	go.uber.org/zap v1.26.0
-	golang.org/x/crypto v0.16.0
+	golang.org/x/crypto v0.17.0
 	golang.org/x/oauth2 v0.15.0
 	golang.org/x/sync v0.5.0
 	golang.org/x/sys v0.16.0
