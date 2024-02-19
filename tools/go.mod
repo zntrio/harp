@@ -4,7 +4,7 @@ go 1.20
 
 require (
 	github.com/CycloneDX/cyclonedx-gomod v1.5.0
-	github.com/daixiang0/gci v0.12.1
+	github.com/daixiang0/gci v0.12.3
 	github.com/fatih/color v1.16.0
 	github.com/frapposelli/wwhrd v0.4.0
 	github.com/golang/mock v1.6.0
