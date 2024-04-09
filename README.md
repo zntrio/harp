@@ -34,33 +34,24 @@ Harp is for Harpocrates (Ancient Greek: Ἁρποκράτης) the god of silenc
 and confidentiality in the Hellenistic religion. - [Wikipedia](https://en.wikipedia.org/wiki/Harpocrates)
 
 > This tool was initially developed while I was at Elastic, to be able to continue
-> to maintain Harp without the upstream dependency, I decided to do a hard-fork 
-> of the Elastic repository. 
+> to maintain Harp without the upstream dependency, I decided to do a hard-fork
+> of the Elastic repository.
 >
 > I'm going to introduce breaking changes from the Elastic original version.
 
 ## TL;DR.
 
-Harp is a tool set to operate secret management by contract. The objective is
-to reduce the value centric management by handling secret data in a
-`reproducible` way by providing a technical stack to describe how your value is
-managed by contracts and pipelines. Furthermore, we know that `naming thing is hard`,
-as a consequence a secret could be `consistently` associated to a `predictable`
-secret identifier used as a key to refer to the secret value. Finally, the secret
-can hold additional metadata (ownership, rotation period, leak severity, etc.)
-which can be consumed during the pipeline executions.
+Harp is an innovative toolset that emphasizes `secret management through contracts`. Its primary objective revolves around mitigating value-centric management by offering a structured approach to handling secret data in a reproducible manner. Harp aims to enhance security and efficiency in managing sensitive information by providing a technical stack that describes `contract-managed values` within `pipelines`.
 
-These key/value associations (path ⇒ value) form a `Bundle` stored in an
-immutable file named a `Container`. This `Container` acts as a pivot format to
-allow Harp commands to communicate and create data management pipelines.
+One of Harp's standout features is its ability to establish consistent associations between secrets and `predictable identifiers`. This ensures referencable secrets can be accessed within the system, contributing to a more organized and controlled secret management environment. Including metadata associated with each secret provides comprehensive insights into the nature and context of the managed data, empowering developers with a clear understanding of their data.
 
-In addition to that, it provides a `template engine` used to generate various
-confidence values (password, passphrase, crypto keys, etc.) and allow more
-sophisticated rendering operations (configuration files, etc.).
+Furthermore, Harp leverages a concept known as `Bundles` stored in `immutable containers`, which serve as pivotal elements in facilitating communication between different components within the system. These Bundles enable seamless interaction among various modules, promoting cohesion and integrity in secret management operations.
 
-Finally, it provides a `SDK` to allow developers to integrate `Harp` features
-in their products, and/or extend the Harp pipeline features by creating new
-[plugins](#plugins).
+In addition to its core functionalities, Harp offers a `template engine` that empowers users to generate diverse confidence values such as passwords, passphrases, encryption keys, and more. This feature enhances Harp's flexibility and versatility by enabling users to create tailored configurations based on specific requirements and security considerations.
+
+Harp provides a `robust SDK` that allows developers to integrate its functionalities into their applications seamlessly. This fosters seamless integration and interoperability with existing systems and promotes collaboration and innovation within the software development ecosystem. This aspect of Harp opens up exciting possibilities for developers, inspiring them to explore and create.
+
+In conclusion, Harp represents a comprehensive solution for enhancing secret management practices through contract-based mechanisms. By offering a range of features such as predictable identifiers, metadata associations, bundle storage in immutable containers, template engine capabilities, and an SDK for integration, Harp stands out as a valuable toolset for safeguarding sensitive data and promoting efficient workflows in information security.
 
 ## Visual overview
 
@@ -85,7 +76,7 @@ in their products, and/or extend the Harp pipeline features by creating new
   get a consistent, reliable and flexible secret tree;
 * Secret storage backend can use various implementations in different environments
   and should be provisioned consistently;
-* When you use `Terraform` for secret management, you have the cleartext value 
+* When you use `Terraform` for secret management, you have the cleartext value
   stored in the state. To protect the state you have to deploy a complex infrastructure.
   To simplify this we use harp for secret provisioning and use the secret reference
   in the Terraform topology.
@@ -300,4 +291,3 @@ Here is the list of external projects used as inspiration :
 * [SaltPack](https://github.com/keybase/saltpack)
 * [Hashicorp Vault](https://github.com/hashicorp/vault)
 * [AWS SDK Go](https://github.com/aws/aws-sdk-go)
-
