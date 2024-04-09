@@ -4,7 +4,8 @@ go 1.21.0
 
 replace (
 	// https://github.com/advisories/GHSA-232p-vwff-86mp
-	github.com/docker/docker => github.com/docker/docker v20.10.24+incompatible
+	// https://github.com/advisories/GHSA-jq35-85cj-fj4p
+	github.com/docker/docker => github.com/docker/docker v20.10.27+incompatible
 	// https://github.com/advisories/GHSA-xr7r-f8xq-vfvv
 	github.com/opencontainers/runc => github.com/opencontainers/runc v1.1.12
 )
@@ -108,8 +109,8 @@ require (
 	github.com/coreos/go-semver v0.3.0 // indirect
 	github.com/coreos/go-systemd/v22 v22.3.2 // indirect
 	github.com/cpuguy83/go-md2man/v2 v2.0.3 // indirect
-	github.com/docker/cli v20.10.24+incompatible // indirect
-	github.com/docker/docker v20.10.24+incompatible // indirect
+	github.com/docker/cli v20.10.27+incompatible // indirect
+	github.com/docker/docker v20.10.27+incompatible // indirect
 	github.com/docker/go-connections v0.4.0 // indirect
 	github.com/docker/go-units v0.4.0 // indirect
 	github.com/fsnotify/fsnotify v1.7.0 // indirect
