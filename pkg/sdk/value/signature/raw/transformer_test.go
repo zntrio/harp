@@ -10,8 +10,8 @@ import (
 	"encoding/json"
 	"testing"
 
+	"github.com/go-jose/go-jose/v3"
 	"github.com/stretchr/testify/assert"
-	"gopkg.in/square/go-jose.v2"
 
 	"zntr.io/harp/v2/pkg/sdk/value/signature"
 )

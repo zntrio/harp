@@ -21,10 +21,10 @@ import (
 	"encoding/pem"
 	"fmt"
 
+	jose "github.com/go-jose/go-jose/v3"
+	"github.com/go-jose/go-jose/v3/jwt"
 	"github.com/pkg/errors"
 	"go.step.sm/crypto/pemutil"
-	jose "gopkg.in/square/go-jose.v2"
-	"gopkg.in/square/go-jose.v2/jwt"
 	"zntr.io/harp/v2/build/fips"
 	"zntr.io/harp/v2/pkg/sdk/security/crypto/bech32"
 	"zntr.io/harp/v2/pkg/sdk/types"
