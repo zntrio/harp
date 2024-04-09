@@ -6,9 +6,9 @@
 package cmd
 
 import (
+	"github.com/go-jose/go-jose/v3"
 	"github.com/spf13/cobra"
 	"go.uber.org/zap"
-	"gopkg.in/square/go-jose.v2"
 	"zntr.io/harp/v2/pkg/sdk/cmdutil"
 	"zntr.io/harp/v2/pkg/sdk/log"
 	"zntr.io/harp/v2/pkg/tasks/keygen"
