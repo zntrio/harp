@@ -6,7 +6,7 @@ replace zntr.io/harp/v2 => ../../
 
 require (
 	go.uber.org/zap v1.27.0
-	zntr.io/harp/v2 v2.0.0-00010101000000-000000000000
+	zntr.io/harp/v2 v2.2.0
 )
 
 require (
@@ -33,11 +33,11 @@ require (
 	go.uber.org/multierr v1.10.0 // indirect
 	golang.org/x/crypto v0.22.0 // indirect
 	golang.org/x/mod v0.14.0 // indirect
-	golang.org/x/net v0.22.0 // indirect
+	golang.org/x/net v0.24.0 // indirect
 	golang.org/x/sys v0.19.0 // indirect
 	golang.org/x/text v0.14.0 // indirect
 	golang.org/x/tools v0.15.0 // indirect
-	google.golang.org/genproto/googleapis/rpc v0.0.0-20240314234333-6e1732d8331c // indirect
+	google.golang.org/genproto/googleapis/rpc v0.0.0-20240318140521-94a12d6c2237 // indirect
 	google.golang.org/grpc v1.63.2 // indirect
 	google.golang.org/protobuf v1.33.0 // indirect
 	sigs.k8s.io/yaml v1.4.0 // indirect
