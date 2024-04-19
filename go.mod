@@ -38,7 +38,7 @@ require (
 	github.com/hashicorp/go-cleanhttp v0.5.2
 	github.com/hashicorp/hcl v1.0.0
 	github.com/hashicorp/hcl/v2 v2.20.1
-	github.com/hashicorp/vault/api v1.12.2
+	github.com/hashicorp/vault/api v1.13.0
 	github.com/iancoleman/strcase v0.3.0
 	github.com/jmespath/go-jmespath v0.4.0
 	github.com/klauspost/compress v1.17.8
@@ -97,6 +97,7 @@ require (
 	github.com/cpuguy83/go-md2man/v2 v2.0.3 // indirect
 	github.com/fsnotify/fsnotify v1.7.0 // indirect
 	github.com/go-ini/ini v1.67.0 // indirect
+	github.com/go-jose/go-jose/v4 v4.0.1 // indirect
 	github.com/go-logr/logr v1.4.1 // indirect
 	github.com/go-logr/stdr v1.2.2 // indirect
 	github.com/gogo/protobuf v1.3.2 // indirect
