@@ -5,7 +5,7 @@ go 1.22.0
 require (
 	github.com/CycloneDX/cyclonedx-gomod v1.7.0
 	github.com/daixiang0/gci v0.13.4
-	github.com/fatih/color v1.16.0
+	github.com/fatih/color v1.17.0
 	github.com/frapposelli/wwhrd v0.4.0
 	github.com/golang/mock v1.6.0
 	github.com/golangci/golangci-lint v1.58.1
