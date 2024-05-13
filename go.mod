@@ -18,7 +18,7 @@ require (
 	github.com/davecgh/go-spew v1.1.2-0.20180830191138-d8f796af33cc
 	github.com/dchest/uniuri v1.2.0
 	github.com/essentialkaos/branca v1.3.4
-	github.com/fatih/color v1.16.0
+	github.com/fatih/color v1.17.0
 	github.com/fatih/structs v1.1.0
 	github.com/fernet/fernet-go v0.0.0-20240119011108-303da6aec611
 	github.com/go-akka/configuration v0.0.0-20200606091224-a002c0330665
