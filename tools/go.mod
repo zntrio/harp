@@ -10,8 +10,8 @@ require (
 	github.com/golang/mock v1.6.0
 	github.com/golangci/golangci-lint v1.58.1
 	github.com/magefile/mage v1.15.0
-	google.golang.org/grpc/cmd/protoc-gen-go-grpc v1.3.0
-	google.golang.org/protobuf v1.33.0
+	google.golang.org/grpc/cmd/protoc-gen-go-grpc v1.4.0
+	google.golang.org/protobuf v1.34.1
 	gotest.tools/gotestsum v1.11.0
 	mvdan.cc/gofumpt v0.6.0
 )
