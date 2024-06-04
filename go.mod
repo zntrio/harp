@@ -1,7 +1,7 @@
 module zntr.io/harp/v2
 
 go 1.21.0
-toolchain go1.22.2
+toolchain go1.22.3
 
 require (
 	dario.cat/mergo v1.0.0
@@ -68,7 +68,7 @@ require (
 	go.step.sm/crypto v0.44.6
 	go.uber.org/zap v1.27.0
 	golang.org/x/crypto v0.22.0
-	golang.org/x/oauth2 v0.19.0
+	golang.org/x/oauth2 v0.21.0
 	golang.org/x/sync v0.7.0
 	golang.org/x/sys v0.20.0
 	golang.org/x/term v0.20.0
