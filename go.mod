@@ -1,7 +1,7 @@
 module zntr.io/harp/v2
 
 go 1.21.0
-toolchain go1.22.2
+toolchain go1.22.3
 
 require (
 	dario.cat/mergo v1.0.0
@@ -73,7 +73,7 @@ require (
 	golang.org/x/sys v0.20.0
 	golang.org/x/term v0.20.0
 	google.golang.org/grpc v1.63.2
-	google.golang.org/protobuf v1.33.0
+	google.golang.org/protobuf v1.34.2
 	gopkg.in/yaml.v3 v3.0.1
 	sigs.k8s.io/yaml v1.4.0
 	zntr.io/paseto v1.3.0
