@@ -1,7 +1,7 @@
 module zntr.io/harp/v2
 
 go 1.21.0
-toolchain go1.22.2
+toolchain go1.22.5
 
 require (
 	dario.cat/mergo v1.0.0
@@ -35,7 +35,7 @@ require (
 	github.com/google/gofuzz v1.2.0
 	github.com/google/gops v0.3.28
 	github.com/gosimple/slug v1.14.0
-	github.com/hashicorp/consul/api v1.28.2
+	github.com/hashicorp/consul/api v1.29.2
 	github.com/hashicorp/go-cleanhttp v0.5.2
 	github.com/hashicorp/hcl v1.0.0
 	github.com/hashicorp/hcl/v2 v2.20.1
